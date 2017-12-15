@@ -11,6 +11,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ### Array
 * [Generic two array concatenation](#generic-two-array-concatenation)
+* [Generic N array concatenation](#generic-N-array-concatenation)
 
 ## Array
 
@@ -20,6 +21,26 @@ Update the sample application with the snippet and add a test for it. After prov
     public static <T> T[] arrayConcat(T[] first, T[] second) {
         T[] result = Arrays.copyOf(first, first.length + second.length);
         System.arraycopy(second, 0, result, first.length, second.length);
+        return result;
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Generic N array concatenation
+
+```java
+    public static <T> T[] nArrayConcat(T[] first, T[]... rest) {
+        int totalLength = first.length;
+        for (T[] array : rest) {
+            totalLength += array.length;
+        }
+        T[] result = Arrays.copyOf(first, totalLength);
+        int offset = first.length;
+        for (T[] array : rest) {
+            System.arraycopy(array, 0, result, offset, array.length);
+            offset += array.length;
+        }
         return result;
     }
 ```
