@@ -1,5 +1,7 @@
 # Java Snippets
 
+[![Build status](https://travis-ci.org/iluwatar/java-snippets.svg?branch=master)](https://travis-ci.org/iluwatar/java-snippets)
+
 Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable Java code snippets.
 
 ## How to contribute
