@@ -1,2 +1,4 @@
 .gradle
-
+.idea/
+java-snippets.iml
+out/
