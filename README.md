@@ -14,6 +14,7 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Generic N array concatenation](#generic-N-array-concatenation)
 
 ### Math
+* [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
 
 ## Array
@@ -55,9 +56,23 @@ Update the sample application with the snippet and add a test for it. After prov
 ### Fibonacci
 
 ```java
-    public static int fibonacciSimple(int n) {
+    public static int fibonacci(int n) {
         if (n <= 1) return n;
-        else return fibonacciSimple(n-1) + fibonacciSimple(n-2);
+        else return fibonacci(n-1) + fibonacci(n-2);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Factorial
+
+```java
+    public static int factorial(int number) {
+        int result = 1;
+        for (int factor = 2; factor <= number; factor++) {
+            result *= factor;
+        }
+        return result;
     }
 ```
 

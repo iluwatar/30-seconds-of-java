@@ -57,4 +57,21 @@ public class LibraryTest {
         assertEquals(34, Library.fibonacci(9));
         assertEquals(55, Library.fibonacci(10));
     }
+    /**
+     * Tests for {@link Library#factorial(int)}
+     */
+    @Test
+    public void testFactorial() {
+        assertEquals(1, Library.factorial(0));
+        assertEquals(1, Library.factorial(1));
+        assertEquals(2, Library.factorial(2));
+        assertEquals(6, Library.factorial(3));
+        assertEquals(24, Library.factorial(4));
+        assertEquals(120, Library.factorial(5));
+        assertEquals(720, Library.factorial(6));
+        assertEquals(5040, Library.factorial(7));
+        assertEquals(40320, Library.factorial(8));
+        assertEquals(362880, Library.factorial(9));
+        assertEquals(3628800, Library.factorial(10));
+    }
 }

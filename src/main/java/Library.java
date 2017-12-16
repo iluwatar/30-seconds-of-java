@@ -51,4 +51,18 @@ public class Library {
         if (n <= 1) return n;
         else return fibonacci(n-1) + fibonacci(n-2);
     }
+
+    /**
+     * Factorial
+     * Works only for small numbers
+     * @param number for which factorial is to be calculated for
+     * @return factorial
+     */
+    public static int factorial(int number) {
+        int result = 1;
+        for (int factor = 2; factor <= number; factor++) {
+            result *= factor;
+        }
+        return result;
+    }
 }
