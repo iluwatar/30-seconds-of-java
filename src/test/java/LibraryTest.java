@@ -39,4 +39,22 @@ public class LibraryTest {
             // expected behaviour, everything is fine
         }
     }
+
+    /**
+     * Tests for {@link Library#fibonacci(int)}
+     */
+    @Test
+    public void testFibonacci() {
+        assertEquals(0, Library.fibonacci(0));
+        assertEquals(1, Library.fibonacci(1));
+        assertEquals(1, Library.fibonacci(2));
+        assertEquals(2, Library.fibonacci(3));
+        assertEquals(3, Library.fibonacci(4));
+        assertEquals(5, Library.fibonacci(5));
+        assertEquals(8, Library.fibonacci(6));
+        assertEquals(13, Library.fibonacci(7));
+        assertEquals(21, Library.fibonacci(8));
+        assertEquals(34, Library.fibonacci(9));
+        assertEquals(55, Library.fibonacci(10));
+    }
 }

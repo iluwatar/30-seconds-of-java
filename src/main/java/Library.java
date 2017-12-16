@@ -40,4 +40,15 @@ public class Library {
         }
         return result;
     }
+
+    /**
+     * Recursive Fibonacci series
+     * Works only for small n and is spectacularly inefficient
+     * @param n
+     * @return fibonacci number for given n
+     */
+    public static int fibonacci(int n) {
+        if (n <= 1) return n;
+        else return fibonacci(n-1) + fibonacci(n-2);
+    }
 }

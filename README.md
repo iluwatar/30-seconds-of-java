@@ -13,6 +13,9 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Generic two array concatenation](#generic-two-array-concatenation)
 * [Generic N array concatenation](#generic-N-array-concatenation)
 
+### Math
+* [Fibonacci](#fibonacci)
+
 ## Array
 
 ### Generic two array concatenation
@@ -42,6 +45,19 @@ Update the sample application with the snippet and add a test for it. After prov
             offset += array.length;
         }
         return result;
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+## Math
+
+### Fibonacci
+
+```java
+    public static int fibonacciSimple(int n) {
+        if (n <= 1) return n;
+        else return fibonacciSimple(n-1) + fibonacciSimple(n-2);
     }
 ```
 
