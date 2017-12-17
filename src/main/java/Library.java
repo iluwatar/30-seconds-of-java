@@ -94,6 +94,7 @@ public class Library {
 
     /**
      * Capture screenshot and save it to a file
+     * Credits: https://viralpatel.net/blogs/how-to-take-screen-shots-in-java-taking-screenshots-java/
      * @param filename the name of the file
      * @throws AWTException
      * @throws IOException
