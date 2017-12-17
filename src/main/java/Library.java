@@ -1,4 +1,8 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.List;
 
 /*
  * Java Snippets code
@@ -73,5 +77,15 @@ public class Library {
      */
     public static String reverseString(String s) {
         return new StringBuilder(s).reverse().toString();
+    }
+
+    /**
+     * Read file as list of strings
+     * @param filename the filename to read from
+     * @return list of strings
+     * @throws IOException
+     */
+    public static List<String> readLines(String filename) throws IOException {
+        return Files.readAllLines(new File(filename).toPath());
     }
 }

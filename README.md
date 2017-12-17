@@ -13,6 +13,9 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Generic two array concatenation](#generic-two-array-concatenation)
 * [Generic N array concatenation](#generic-N-array-concatenation)
 
+### File
+* [Read lines from file to string list](#read-lines-from-file-to-string-list)
+
 ### Math
 * [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
@@ -49,6 +52,18 @@ Update the sample application with the snippet and add a test for it. After prov
             offset += array.length;
         }
         return result;
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+## File
+
+### Read lines from file to string list
+
+```java
+    public static List<String> readLines(String filename) throws IOException {
+        return Files.readAllLines(new File(filename).toPath());
     }
 ```
 

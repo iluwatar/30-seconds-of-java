@@ -1,4 +1,8 @@
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /*
@@ -74,9 +78,32 @@ public class LibraryTest {
         assertEquals(362880, Library.factorial(9));
         assertEquals(3628800, Library.factorial(10));
     }
+
+    /**
+     * Tests for {@link Library#reverseString(String)}
+     */
     @Test
     public void testReverseString() {
         assertEquals("oof", Library.reverseString("foo"));
         assertEquals("ÖÄÅ321FED cba", Library.reverseString("abc DEF123ÅÄÖ"));
+    }
+
+    /**
+     * Tests for {@link Library#readLines(String)}
+     * @throws IOException
+     */
+    @Test
+    public void testReadLines() throws IOException {
+        List<String> somelines = Library.readLines("src/main/resources/somelines.txt");
+        assertEquals(3, somelines.size());
+        assertEquals("foo", somelines.get(0));
+        assertEquals("bar", somelines.get(1));
+        assertEquals("baz", somelines.get(2));
+        try {
+            Library.readLines("some/nonexistent/filename.txt");
+            fail();
+        } catch (IOException e) {
+            // catched the expected exception
+        }
     }
 }
