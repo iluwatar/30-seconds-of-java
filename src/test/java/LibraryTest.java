@@ -1,6 +1,9 @@
 import org.junit.Test;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -94,7 +97,7 @@ public class LibraryTest {
      */
     @Test
     public void testReadLines() throws IOException {
-        List<String> somelines = Library.readLines("src/main/resources/somelines.txt");
+        List<String> somelines = Library.readLines("src/test/resources/somelines.txt");
         assertEquals(3, somelines.size());
         assertEquals("foo", somelines.get(0));
         assertEquals("bar", somelines.get(1));
@@ -104,6 +107,20 @@ public class LibraryTest {
             fail();
         } catch (IOException e) {
             // catched the expected exception
+        }
+    }
+    /**
+     * Tests for {@link Library#captureScreen(String)}
+     */
+    @Test
+    public void testCaptureScreen() throws IOException, AWTException {
+        final String filename = "src/test/resources/screenshot.png";
+        try {
+            Library.captureScreen(filename);
+            File f = new File(filename);
+            assertTrue(f.exists() && !f.isDirectory());
+        } finally {
+            Files.delete(new File(filename).toPath());
         }
     }
 }

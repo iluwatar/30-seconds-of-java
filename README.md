@@ -20,6 +20,9 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
 
+### Media
+* [Capture screen](#capture-screen)
+
 ### String
 * [Reverse string](#reverse-string)
 
@@ -91,6 +94,22 @@ Update the sample application with the snippet and add a test for it. After prov
             result *= factor;
         }
         return result;
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+## Media
+
+### Capture screen
+
+```java
+    public static void captureScreen(String filename) throws AWTException, IOException {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle screenRectangle = new Rectangle(screenSize);
+        Robot robot = new Robot();
+        BufferedImage image = robot.createScreenCapture(screenRectangle);
+        ImageIO.write(image, "png", new File(filename));
     }
 ```
 

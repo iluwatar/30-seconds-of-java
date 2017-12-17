@@ -1,3 +1,6 @@
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -87,5 +90,19 @@ public class Library {
      */
     public static List<String> readLines(String filename) throws IOException {
         return Files.readAllLines(new File(filename).toPath());
+    }
+
+    /**
+     * Capture screenshot and save it to a file
+     * @param filename the name of the file
+     * @throws AWTException
+     * @throws IOException
+     */
+    public static void captureScreen(String filename) throws AWTException, IOException {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle screenRectangle = new Rectangle(screenSize);
+        Robot robot = new Robot();
+        BufferedImage image = robot.createScreenCapture(screenRectangle);
+        ImageIO.write(image, "png", new File(filename));
     }
 }
