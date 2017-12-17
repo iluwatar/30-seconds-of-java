@@ -120,7 +120,7 @@ public class LibraryTest {
             File f = new File(filename);
             assertTrue(f.exists() && !f.isDirectory());
         } finally {
-            Files.delete(new File(filename).toPath());
+            Files.deleteIfExists(new File(filename).toPath());
         }
     }
 }
