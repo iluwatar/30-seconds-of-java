@@ -17,6 +17,9 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
 
+### String
+* [Reverse string](#reverse-string)
+
 ## Array
 
 ### Generic two array concatenation
@@ -73,6 +76,18 @@ Update the sample application with the snippet and add a test for it. After prov
             result *= factor;
         }
         return result;
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+## String
+
+### Reverse string
+
+```java
+    public static String reverseString(String s) {
+        return new StringBuilder(s).reverse().toString();
     }
 ```
 

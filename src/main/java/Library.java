@@ -65,4 +65,13 @@ public class Library {
         }
         return result;
     }
+
+    /**
+     * Reverse string
+     * @param s the string to reverse
+     * @return reversed string
+     */
+    public static String reverseString(String s) {
+        return new StringBuilder(s).reverse().toString();
+    }
 }

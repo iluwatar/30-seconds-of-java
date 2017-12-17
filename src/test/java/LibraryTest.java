@@ -74,4 +74,9 @@ public class LibraryTest {
         assertEquals(362880, Library.factorial(9));
         assertEquals(3628800, Library.factorial(10));
     }
+    @Test
+    public void testReverseString() {
+        assertEquals("oof", Library.reverseString("foo"));
+        assertEquals("ÖÄÅ321FED cba", Library.reverseString("abc DEF123ÅÄÖ"));
+    }
 }
