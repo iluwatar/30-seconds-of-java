@@ -25,6 +25,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ### String
 * [Reverse string](#reverse-string)
+* [String to date](#string-to-date)
 
 ## Array
 
@@ -122,6 +123,17 @@ Update the sample application with the snippet and add a test for it. After prov
 ```java
     public static String reverseString(String s) {
         return new StringBuilder(s).reverse().toString();
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### String to date
+
+```java
+    public static Date stringToDate(String date, String format) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+        return simpleDateFormat.parse(date);
     }
 ```
 

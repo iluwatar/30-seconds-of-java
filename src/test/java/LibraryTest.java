@@ -4,6 +4,9 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -124,5 +127,16 @@ public class LibraryTest {
         } finally {
             Files.deleteIfExists(new File(filename).toPath());
         }
+    }
+    /**
+     * Tests for {@link Library#stringToDate(String, String)}
+     */
+    @Test
+    public void testStringToDate() throws ParseException {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(Library.stringToDate("2017-08-18", "yyyy-MM-dd"));
+        assertEquals(2017, calendar.get(Calendar.YEAR));
+        assertEquals(8, calendar.get(Calendar.MONTH) + 1);
+        assertEquals(18, calendar.get(Calendar.DAY_OF_MONTH));
     }
 }
