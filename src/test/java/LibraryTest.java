@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -138,5 +139,16 @@ public class LibraryTest {
         assertEquals(2017, calendar.get(Calendar.YEAR));
         assertEquals(8, calendar.get(Calendar.MONTH) + 1);
         assertEquals(18, calendar.get(Calendar.DAY_OF_MONTH));
+    }
+
+    /**
+     * Tests for {@link Library#listDirectories(String)}
+     */
+    @Test
+    public void testListDirectories() {
+        File[] files = Library.listDirectories("src/test/resources");
+        Arrays.stream(files).allMatch(f -> f.isDirectory());
+        assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir1")::equals));
+        assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir2")::equals));
     }
 }

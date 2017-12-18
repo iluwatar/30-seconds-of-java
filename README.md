@@ -14,6 +14,7 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Generic N array concatenation](#generic-N-array-concatenation)
 
 ### File
+* [List directories](#list-directories)
 * [Read lines from file to string list](#read-lines-from-file-to-string-list)
 
 ### Math
@@ -62,6 +63,16 @@ Update the sample application with the snippet and add a test for it. After prov
 [⬆ back to top](#table-of-contents)
 
 ## File
+
+### List directories
+
+```java
+    public static File[] listDirectories(String path) {
+        return new File(path).listFiles(File::isDirectory);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
 
 ### Read lines from file to string list
 
