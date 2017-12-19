@@ -25,6 +25,7 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Capture screen](#capture-screen)
 
 ### String
+* [Palindrome check](#palindrome-check)
 * [Reverse string](#reverse-string)
 * [String to date](#string-to-date)
 
@@ -128,6 +129,24 @@ Update the sample application with the snippet and add a test for it. After prov
 [⬆ back to top](#table-of-contents)
 
 ## String
+
+### Palindrome check
+
+```java
+    public static boolean isPalindrome(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetter(c)) {
+                sb.append(c);
+            }
+        }
+        String forward = sb.toString().toLowerCase();
+        String backward = sb.reverse().toString().toLowerCase();
+        return forward.equals(backward);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
 
 ### Reverse string
 

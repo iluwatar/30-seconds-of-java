@@ -130,4 +130,23 @@ public class Library {
     public static File[] listDirectories(String path) {
         return new File(path).listFiles(File::isDirectory);
     }
+
+    /**
+     * Checks if given string is palindrome (same forward and backward)
+     * Skips non-letter characters
+     * Credits: https://github.com/kousen/java_8_recipes
+     * @param s string to check
+     * @return true if palindrome
+     */
+    public static boolean isPalindrome(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetter(c)) {
+                sb.append(c);
+            }
+        }
+        String forward = sb.toString().toLowerCase();
+        String backward = sb.reverse().toString().toLowerCase();
+        return forward.equals(backward);
+    }
 }

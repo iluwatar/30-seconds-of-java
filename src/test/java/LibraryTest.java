@@ -151,4 +151,15 @@ public class LibraryTest {
         assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir1")::equals));
         assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir2")::equals));
     }
+
+    /**
+     * Tests for {@link Library#isPalindrome(String)}
+     */
+    @Test
+    public void testIsPalindrome() {
+        assertTrue(Library.isPalindrome("saippuakauppias"));
+        assertTrue(Library.isPalindrome("111 Saippua - Kauppias 321"));
+        assertFalse(Library.isPalindrome("Type O Negative"));
+        assertFalse(Library.isPalindrome("Foo12121Bar"));
+    }
 }
