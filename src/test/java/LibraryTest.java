@@ -162,4 +162,14 @@ public class LibraryTest {
         assertFalse(Library.isPalindrome("Type O Negative"));
         assertFalse(Library.isPalindrome("Foo12121Bar"));
     }
+
+    /**
+     * Tests for {@link Library#listFilesInDirectory(File)}
+     */
+    @Test
+    public void testListFilesInDirectory() {
+        File[] files = Library.listFilesInDirectory(new File("src/test/resources"));
+        assertEquals(1, files.length);
+        assertEquals("src/test/resources/somelines.txt", files[0].toString());
+    }
 }

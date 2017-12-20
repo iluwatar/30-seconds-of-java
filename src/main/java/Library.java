@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -148,5 +149,14 @@ public class Library {
         String forward = sb.toString().toLowerCase();
         String backward = sb.reverse().toString().toLowerCase();
         return forward.equals(backward);
+    }
+
+    /**
+     * List files in directory
+     * @param folder the path where to look
+     * @return array of File
+     */
+    public static File[] listFilesInDirectory(final File folder) {
+        return folder.listFiles(File::isFile);
     }
 }

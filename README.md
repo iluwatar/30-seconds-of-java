@@ -15,6 +15,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ### File
 * [List directories](#list-directories)
+* [List files in directory](#list-files-in-directory)
 * [Read lines from file to string list](#read-lines-from-file-to-string-list)
 
 ### Math
@@ -70,6 +71,16 @@ Update the sample application with the snippet and add a test for it. After prov
 ```java
     public static File[] listDirectories(String path) {
         return new File(path).listFiles(File::isDirectory);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### List files in directory
+
+```java
+    public static File[] listFilesInDirectory(final File folder) {
+        return folder.listFiles(File::isFile);
     }
 ```
 
