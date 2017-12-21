@@ -159,4 +159,24 @@ public class Library {
     public static File[] listFilesInDirectory(final File folder) {
         return folder.listFiles(File::isFile);
     }
+
+    /**
+     * Recursively list all the files in directory
+     * @param path the path to start the search from
+     * @return list of all files
+     */
+    public static List<File> listAllFiles(String path) {
+        List<File> all = new ArrayList<>();
+        File[] list = new File(path).listFiles();
+        if (list != null) {  // In case of access error, list is null
+            for (File f : list) {
+                if (f.isDirectory()) {
+                    all.addAll(listAllFiles(f.getAbsolutePath()));
+                } else {
+                    all.add(f.getAbsoluteFile());
+                }
+            }
+        }
+        return all;
+    }
 }

@@ -172,4 +172,13 @@ public class LibraryTest {
         assertEquals(1, files.length);
         assertEquals("src/test/resources/somelines.txt", files[0].toString());
     }
+
+    /**
+     * Tests for {@link Library#listAllFiles(String)}
+     */
+    @Test
+    public void testListAllFiles() {
+        List<File> files = Library.listAllFiles("src/test/resources");
+        assertEquals(3, files.size());
+    }
 }

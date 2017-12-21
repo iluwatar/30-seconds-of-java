@@ -16,6 +16,7 @@ Update the sample application with the snippet and add a test for it. After prov
 ### File
 * [List directories](#list-directories)
 * [List files in directory](#list-files-in-directory)
+* [List files in directory recursively](#list-files-in-directory-recursively)
 * [Read lines from file to string list](#read-lines-from-file-to-string-list)
 
 ### Math
@@ -81,6 +82,27 @@ Update the sample application with the snippet and add a test for it. After prov
 ```java
     public static File[] listFilesInDirectory(final File folder) {
         return folder.listFiles(File::isFile);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### List files in directory recursively
+
+```java
+    public static List<File> listAllFiles(String path) {
+        List<File> all = new ArrayList<>();
+        File[] list = new File(path).listFiles();
+        if (list != null) {  // In case of access error, list is null
+            for (File f : list) {
+                if (f.isDirectory()) {
+                    all.addAll(listAllFiles(f.getAbsolutePath()));
+                } else {
+                    all.add(f.getAbsoluteFile());
+                }
+            }
+        }
+        return all;
     }
 ```
 
