@@ -181,4 +181,19 @@ public class LibraryTest {
         List<File> files = Library.listAllFiles("src/test/resources");
         assertEquals(3, files.size());
     }
+
+    /**
+     * Tests for {@link Library#performLottery(int, int)}
+     */
+    @Test
+    public void testPerformLottery() {
+        Integer[] numbers0 = Library.performLottery(0, 0);
+        assertArrayEquals(new Integer[]{}, numbers0);
+        Integer[] numbers1 = Library.performLottery(1, 1);
+        assertArrayEquals(new Integer[]{1}, numbers1);
+        Integer[] numbers2 = Library.performLottery(2, 2);
+        assertEquals(2, numbers2.length);
+        assertTrue(numbers2[0] == 1 || numbers2[0] == 2);
+        assertTrue(numbers2[1] == 1 || numbers2[1] == 2);
+    }
 }

@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
+import java.util.*;
 import java.util.List;
 
 /*
@@ -178,5 +176,20 @@ public class Library {
             }
         }
         return all;
+    }
+
+    /**
+     * Generate random lottery numbers
+     * @param numNumbers how many performLottery numbers are available (e.g. 49)
+     * @param numbersToPick how many numbers the player needs to pick (e.g. 6)
+     * @return array with the random numbers
+     */
+    public static Integer[] performLottery(int numNumbers, int numbersToPick) {
+        List<Integer> numbers = new ArrayList<>();
+        for(int i = 0; i < numNumbers; i++) {
+            numbers.add(i+1);
+        }
+        Collections.shuffle(numbers);
+        return numbers.subList(0, numbersToPick).toArray(new Integer[numbersToPick]);
     }
 }
