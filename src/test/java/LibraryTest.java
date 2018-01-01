@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -195,5 +196,20 @@ public class LibraryTest {
         assertEquals(2, numbers2.length);
         assertTrue(numbers2[0] == 1 || numbers2[0] == 2);
         assertTrue(numbers2[1] == 1 || numbers2[1] == 2);
+    }
+
+    /**
+     * Tests for {@link Library#zipFile(String, String)}
+     */
+    @Test
+    public void testZipFile() throws IOException {
+        final String src = "src/test/resources/somelines.txt";
+        final String dst = "src/test/resources/somelines.zip";
+        try {
+            Library.zipFile(src, dst);
+            assertTrue(Files.exists(Paths.get(dst)));
+        } finally {
+            Files.deleteIfExists(new File(dst).toPath());
+        }
     }
 }

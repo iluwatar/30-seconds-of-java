@@ -18,6 +18,7 @@ Update the sample application with the snippet and add a test for it. After prov
 * [List files in directory](#list-files-in-directory)
 * [List files in directory recursively](#list-files-in-directory-recursively)
 * [Read lines from file to string list](#read-lines-from-file-to-string-list)
+* [Zip file](#zip-file)
 
 ### Math
 * [Factorial](#factorial)
@@ -114,6 +115,29 @@ Update the sample application with the snippet and add a test for it. After prov
 ```java
     public static List<String> readLines(String filename) throws IOException {
         return Files.readAllLines(new File(filename).toPath());
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Zip file
+
+```java
+    public static void zipFile(String srcFilename, String zipFilename) throws IOException {
+        File srcFile = new File(srcFilename);
+        try (
+            FileOutputStream fileOut = new FileOutputStream(zipFilename);
+            ZipOutputStream zipOut = new ZipOutputStream(fileOut);
+            FileInputStream fileIn = new FileInputStream(srcFile);
+        ) {
+            ZipEntry zipEntry = new ZipEntry(srcFile.getName());
+            zipOut.putNextEntry(zipEntry);
+            final byte[] bytes = new byte[1024];
+            int length;
+            while ((length = fileIn.read(bytes)) >= 0) {
+                zipOut.write(bytes, 0, length);
+            }
+        }
     }
 ```
 
