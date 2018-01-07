@@ -212,4 +212,20 @@ public class LibraryTest {
             Files.deleteIfExists(new File(dst).toPath());
         }
     }
+
+    /**
+     * Tests for {@link Library#quickSort(int[], int, int)}
+     */
+    @Test
+    public void testQuickSort() {
+        int[] arr = new int[] {7, 13, 3, 1, 8, 5};
+        Library.quickSort(arr, 0, arr.length - 1);
+        assertEquals(arr.length, 6);
+        assertEquals(arr[0], 1);
+        assertEquals(arr[1], 3);
+        assertEquals(arr[2], 5);
+        assertEquals(arr[3], 7);
+        assertEquals(arr[4], 8);
+        assertEquals(arr[5], 13);
+    }
 }
