@@ -7,8 +7,17 @@
  * user guide available at https://docs.gradle.org/2.8/userguide/tutorial_java_projects.html
  */
 
+plugins {
+    id "com.github.hierynomus.license" version "0.14.0"
+}
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+
+license {
+    header project.file('LICENSE')
+    include '**/*.java'
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -28,3 +37,18 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
 }
+
+task licenseFormatJava(type:nl.javadude.gradle.plugins.license.License) {
+    source = fileTree('src/main/java')
+}
+
+task licenseTestJava(type:nl.javadude.gradle.plugins.license.License) {
+    source = fileTree('src/main/java')
+    check = true
+}
+
+licenseFormatMain.enabled = false
+licenseMain.enabled = false
+
+licenseFormat.dependsOn licenseFormatJava
+licenseTest.dependsOn licenseTestJava
