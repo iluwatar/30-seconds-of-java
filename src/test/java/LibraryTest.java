@@ -26,6 +26,8 @@ import org.junit.Test;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -250,5 +252,14 @@ public class LibraryTest {
         assertEquals(arr[3], 7);
         assertEquals(arr[4], 8);
         assertEquals(arr[5], 13);
+    }
+
+    /**
+     * Tests for {@link Library#httpGet(URL)}
+     */
+    @Test
+    public void testHttpGet() throws IOException {
+        int responseCode = Library.httpGet(new URL("http://www.google.com"));
+        assertEquals(200, responseCode);
     }
 }

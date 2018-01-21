@@ -31,6 +31,9 @@ Update the sample application with the snippet and add a test for it. After prov
 ### Media
 * [Capture screen](#capture-screen)
 
+### Networking
+* [HTTP GET](#http-get)
+
 ### String
 * [Palindrome check](#palindrome-check)
 * [Reverse string](#reverse-string)
@@ -234,6 +237,19 @@ Update the sample application with the snippet and add a test for it. After prov
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(screenRectangle);
         ImageIO.write(image, "png", new File(filename));
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+## Networking
+
+### HTTP GET
+
+```java
+    public static int httpGet(URL address) throws IOException {
+        HttpURLConnection con = (HttpURLConnection) address.openConnection();
+        return con.getResponseCode();
     }
 ```
 

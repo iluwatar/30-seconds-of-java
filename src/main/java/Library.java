@@ -25,6 +25,9 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -271,5 +274,16 @@ public class Library {
                 quickSort(arr, i, right);
             }
         }
+    }
+
+    /**
+     * Performs HTTP GET request
+     * @param address the URL of the connection
+     * @return HTTP status code
+     * @throws IOException
+     */
+    public static int httpGet(URL address) throws IOException {
+        HttpURLConnection con = (HttpURLConnection) address.openConnection();
+        return con.getResponseCode();
     }
 }
