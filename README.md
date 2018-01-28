@@ -22,6 +22,7 @@ Update the sample application with the snippet and add a test for it. After prov
 * [List files in directory recursively](#list-files-in-directory-recursively)
 * [Read lines from file to string list](#read-lines-from-file-to-string-list)
 * [Zip file](#zip-file)
+* [Zip multiple files](#zip-multiple-files)
 
 ### Math
 * [Factorial](#factorial)
@@ -177,6 +178,30 @@ Update the sample application with the snippet and add a test for it. After prov
             int length;
             while ((length = fileIn.read(bytes)) >= 0) {
                 zipOut.write(bytes, 0, length);
+            }
+        }
+    }
+```
+
+### Zip multiple files
+
+```java
+    public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
+        try (
+            FileOutputStream fileOut = new FileOutputStream(zipFilename);
+            ZipOutputStream zipOut = new ZipOutputStream(fileOut);
+        ) {
+            for (int i=0; i<srcFilenames.length; i++) {
+                File srcFile = new File(srcFilenames[i]);
+                try (FileInputStream fileIn = new FileInputStream(srcFile)) {
+                    ZipEntry zipEntry = new ZipEntry(srcFile.getName());
+                    zipOut.putNextEntry(zipEntry);
+                    final byte[] bytes = new byte[1024];
+                    int length;
+                    while ((length = fileIn.read(bytes)) >= 0) {
+                        zipOut.write(bytes, 0, length);
+                    }
+                }
             }
         }
     }

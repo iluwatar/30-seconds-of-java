@@ -195,8 +195,9 @@ public class LibraryTest {
     @Test
     public void testListFilesInDirectory() {
         File[] files = Library.listFilesInDirectory(new File("src/test/resources"));
-        assertEquals(1, files.length);
+        assertEquals(2, files.length);
         assertEquals("src/test/resources/somelines.txt", files[0].toString());
+        assertEquals("src/test/resources/someotherlines.txt", files[1].toString());
     }
 
     /**
@@ -205,7 +206,7 @@ public class LibraryTest {
     @Test
     public void testListAllFiles() {
         List<File> files = Library.listAllFiles("src/test/resources");
-        assertEquals(3, files.size());
+        assertEquals(4, files.size());
     }
 
     /**
@@ -232,6 +233,21 @@ public class LibraryTest {
         final String dst = "src/test/resources/somelines.zip";
         try {
             Library.zipFile(src, dst);
+            assertTrue(Files.exists(Paths.get(dst)));
+        } finally {
+            Files.deleteIfExists(new File(dst).toPath());
+        }
+    }
+
+    /**
+     * Tests for {@link Library#zipFiles(String[], String)}
+     */
+    @Test
+    public void testZipFiles() throws IOException {
+        final String[] srcFilenames = {"src/test/resources/somelines.txt", "src/test/resources/someotherlines.txt"};
+        final String dst = "src/test/resources/multiple.zip";
+        try {
+            Library.zipFiles(srcFilenames, dst);
             assertTrue(Files.exists(Paths.get(dst)));
         } finally {
             Files.deleteIfExists(new File(dst).toPath());
