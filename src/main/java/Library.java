@@ -336,4 +336,42 @@ public class Library {
 		}
 		return true;
 	}
+	
+	/**
+     * Zip an entire directory
+     * @param srcDirName the filename of the source directory
+     * @param zipDirName the filename of the destination zip file
+	 * @throws IOException
+     */
+	public static void zipDirectory(String srcDirName, String zipDirName) throws IOException {
+		try (FileOutputStream fos = new FileOutputStream(zipDirName)) {
+			ZipOutputStream zipOut = new ZipOutputStream(fos);
+			File fileToZip = new File(srcDirName);
+			zipDirectory(fileToZip, fileToZip.getName(), zipOut);
+			zipOut.close();
+		}
+	}
+	
+    private static void zipDirectory(File dirToZip, String dirName, ZipOutputStream zipOut) throws IOException {
+        if (dirToZip.isHidden()) {
+            return;
+        }
+        if (dirToZip.isDirectory()) {
+            File[] children = dirToZip.listFiles();
+            for (File childFile : children) {
+                zipDirectory(childFile, dirName + "/" + childFile.getName(), zipOut);
+            }
+            return;
+        }
+        try (FileInputStream fis = new FileInputStream(dirToZip)) {
+        	ZipEntry zipEntry = new ZipEntry(dirName);
+            zipOut.putNextEntry(zipEntry);
+            byte[] bytes = new byte[1024];
+            int length;
+            while ((length = fis.read(bytes)) >= 0) {
+                zipOut.write(bytes, 0, length);
+            }
+            fis.close();
+        }        
+    }
 }

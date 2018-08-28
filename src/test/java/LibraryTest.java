@@ -291,4 +291,19 @@ public class LibraryTest {
         assertFalse(Library.isPrime(4));
         assertFalse(Library.isPrime(100));
     }
+    
+    /**
+     * Tests for {@link Library#zipDirectory(String, String)}
+     */
+    @Test
+    public void testZipDirectory() throws IOException {
+        final String src = "src/test/resources/dir1";
+        final String dst = "src/test/resources/dir1.zip";
+        try {
+            Library.zipDirectory(src, dst);
+            assertTrue(Files.exists(Paths.get(dst)));
+        } finally {
+            Files.deleteIfExists(new File(dst).toPath());
+        }
+    }
 }
