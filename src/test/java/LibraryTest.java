@@ -280,19 +280,6 @@ public class LibraryTest {
     }
     
     /**
-     * Tests for {@link Library#isPrime(int)}
-     */
-    @Test
-    public void testIsPrime() {
-        assertTrue(Library.isPrime(2));
-        assertTrue(Library.isPrime(3));
-        assertTrue(Library.isPrime(17));
-        assertTrue(Library.isPrime(97));
-        assertFalse(Library.isPrime(4));
-        assertFalse(Library.isPrime(100));
-    }
-    
-    /**
      * Tests for {@link Library#zipDirectory(String, String)}
      */
     @Test
