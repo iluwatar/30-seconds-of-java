@@ -278,4 +278,17 @@ public class LibraryTest {
         int responseCode = Library.httpGet(new URL("http://www.google.com"));
         assertEquals(200, responseCode);
     }
+    
+    /**
+     * Tests for {@link Library#isPrime(int)}
+     */
+    @Test
+    public void testIsPrime() {
+        assertTrue(Library.isPrime(2));
+        assertTrue(Library.isPrime(3));
+        assertTrue(Library.isPrime(17));
+        assertTrue(Library.isPrime(97));
+        assertFalse(Library.isPrime(4));
+        assertFalse(Library.isPrime(100));
+    }
 }
