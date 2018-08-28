@@ -278,4 +278,19 @@ public class LibraryTest {
         int responseCode = Library.httpGet(new URL("http://www.google.com"));
         assertEquals(200, responseCode);
     }
+    
+    /**
+     * Tests for {@link Library#unzipArchive(String)}
+     */
+    @Test
+    public void testUnzipArchive() throws IOException {
+        final String archivedFile = "src/test/resources/somearchivedfile.zip";
+        final String unarchivedFile = "somearchivedfile.txt";
+        try {
+            Library.unzipArchive(archivedFile);
+            assertTrue(Files.exists(Paths.get(unarchivedFile)));
+        } finally {
+            Files.deleteIfExists(new File(unarchivedFile).toPath());
+        }
+    }
 }

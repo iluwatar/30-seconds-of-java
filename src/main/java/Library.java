@@ -34,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 /*
@@ -312,4 +313,28 @@ public class Library {
         HttpURLConnection con = (HttpURLConnection) address.openConnection();
         return con.getResponseCode();
     }
+    
+    /**
+     * UnZip an archive
+     * @param zipFilename the file name of the archived file
+     * @throws IOException
+     */
+    public static void unzipArchive(String zipFileName) throws IOException {
+		byte[] buffer = new byte[1024];
+		try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFileName))) {
+			ZipEntry zipEntry = zis.getNextEntry();
+			while (zipEntry != null) {
+				String fileName = zipEntry.getName();
+				File newFile = new File(fileName);
+				try (FileOutputStream fos = new FileOutputStream(newFile)) {
+					int len;
+					while ((len = zis.read(buffer)) > 0) {
+						fos.write(buffer, 0, len);
+					}
+				}
+				zipEntry = zis.getNextEntry();
+			}
+			zis.closeEntry();
+		}
+	}
 }
