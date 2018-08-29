@@ -118,7 +118,7 @@ public class LibraryTest {
     @Test
     public void testReverseString() {
         assertEquals("oof", Library.reverseString("foo"));
-        assertEquals("�ÄÅ�321FED cba", Library.reverseString("abc DEF123ÅÄÖ"));
+        assertEquals("321FED cba", Library.reverseString("abc DEF123"));
     }
 
     /**
@@ -195,7 +195,7 @@ public class LibraryTest {
     @Test
     public void testListFilesInDirectory() {
         File[] files = Library.listFilesInDirectory(new File("src/test/resources"));
-        assertEquals(2, files.length);
+        assertEquals(3, files.length);
         assertEquals("src\\test\\resources\\somelines.txt", files[0].toString());
         assertEquals("src\\test\\resources\\someotherlines.txt", files[1].toString());
     }
@@ -206,7 +206,7 @@ public class LibraryTest {
     @Test
     public void testListAllFiles() {
         List<File> files = Library.listAllFiles("src/test/resources");
-        assertEquals(4, files.size());
+        assertEquals(5, files.size());
     }
 
     /**
