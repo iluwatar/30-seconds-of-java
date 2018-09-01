@@ -118,7 +118,7 @@ public class LibraryTest {
     @Test
     public void testReverseString() {
         assertEquals("oof", Library.reverseString("foo"));
-        assertEquals("321FED cba", Library.reverseString("abc DEF123"));
+        assertEquals("�ÄÅ�321FED cba", Library.reverseString("abc DEF123ÅÄÖ"));
     }
 
     /**
