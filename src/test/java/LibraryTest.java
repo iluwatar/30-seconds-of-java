@@ -195,12 +195,9 @@ public class LibraryTest {
     @Test
     public void testListFilesInDirectory() {
         File[] files = Library.listFilesInDirectory(new File("src/test/resources"));
-        assertEquals(3, files.length);
-        List<String> filesPresent = Arrays.asList("src\\test\\resources\\somelines.txt", 
-        		"src\\test\\resources\\someotherlines.txt", 
-        		"src\\test\\resources\\somearchivedfile.zip");
-        assertTrue(filesPresent.contains(files[0].toString()));
-        assertTrue(filesPresent.contains(files[1].toString()));
+        assertEquals(2, files.length);
+        assertEquals("src\\test\\resources\\somelines.txt", files[0].toString());
+        assertEquals("src\\test\\resources\\someotherlines.txt", files[1].toString());
     }
 
     /**
@@ -287,7 +284,7 @@ public class LibraryTest {
      */
     @Test
     public void testUnzipArchive() throws IOException {
-        final String archivedFile = "src/test/resources/somearchivedfile.zip";
+        final String archivedFile = "src/test/resources/dir3/somearchivedfile.zip";
         final String unarchivedFile = "somearchivedfile.txt";
         try {
             Library.unzipArchive(archivedFile);
