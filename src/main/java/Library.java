@@ -35,7 +35,7 @@ import java.util.*;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
+			
 /*
  * Java Snippets code
  *
@@ -312,4 +312,28 @@ public class Library {
         HttpURLConnection con = (HttpURLConnection) address.openConnection();
         return con.getResponseCode();
     }
+    
+    /**
+     * Checks if given number is a prime number
+     * Prime number is a number that is greater than 1 and divided by 1 or itself only
+     * Credits: https://en.wikipedia.org/wiki/Prime_number
+     * @param number number to check prime
+     * @return true if prime
+     */
+	public static boolean isPrime(int number) {
+		if (number < 3) {
+			return true;
+		}
+		// check if n is a multiple of 2
+		if (number % 2 == 0) {
+			return false;
+		}
+		// if not, then just check the odds
+		for (int i = 3; i * i <= number; i += 2) {
+			if (number % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
