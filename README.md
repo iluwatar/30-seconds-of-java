@@ -28,6 +28,7 @@ Update the sample application with the snippet and add a test for it. After prov
 * [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
 * [Lottery](#lottery)
+* [Prime](#prime)
 
 ### Media
 * [Capture screen](#capture-screen)
@@ -247,6 +248,29 @@ Update the sample application with the snippet and add a test for it. After prov
         Collections.shuffle(numbers);
         return numbers.subList(0, numbersToPick).toArray(new Integer[numbersToPick]);
     }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Prime
+
+```java
+	public static boolean isPrime(int number) {
+		if (number < 3) {
+			return true;
+		}
+		// check if n is a multiple of 2
+		if (number % 2 == 0) {
+			return false;
+		}
+		// if not, then just check the odds
+		for (int i = 3; i * i <= number; i += 2) {
+			if (number % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 ```
 
 [⬆ back to top](#table-of-contents)
