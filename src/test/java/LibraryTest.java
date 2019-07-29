@@ -34,7 +34,9 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -196,8 +198,9 @@ public class LibraryTest {
     public void testListFilesInDirectory() {
         File[] files = Library.listFilesInDirectory(new File("src/test/resources"));
         assertEquals(2, files.length);
-        assertEquals("src/test/resources/somelines.txt", files[0].toString());
-        assertEquals("src/test/resources/someotherlines.txt", files[1].toString());
+        Set<String> filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
+        assertTrue(filenames.contains("src/test/resources/somelines.txt"));
+        assertTrue(filenames.contains("src/test/resources/someotherlines.txt"));
     }
 
     /**
