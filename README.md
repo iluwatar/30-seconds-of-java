@@ -1,8 +1,8 @@
-# Java Snippets
+# 30 Seconds of Java
 
 [![Build status](https://travis-ci.org/iluwatar/java-snippets.svg?branch=master)](https://travis-ci.org/iluwatar/java-snippets)
 
-Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java code snippets.
+Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java code snippets that you can understand in 30 seconds or less.
 
 ## How to contribute
 Update the sample application with the snippet and add a test for it. After proving that it works update this README.md.
