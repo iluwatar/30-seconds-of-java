@@ -11,6 +11,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ### Algorithm
 * [Quicksort](#quicksort)
+* [Naive Search Algorithm](#naive-search-algorithm)
 
 ### Array
 * [Generic two array concatenation](#generic-two-array-concatenation)
@@ -71,6 +72,25 @@ Update the sample application with the snippet and add a test for it. After prov
                 quickSort(arr, i, right);
             }
         }
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Naive Search Algorithm
+
+```java
+    public static int findNaive(String pattern, String sequence) {
+        Integer nMatch = 0;
+        for (int i = 0; i <= sequence.length() - pattern.length(); i++) {
+            for (int j = 0; j < pattern.length(); j++) {
+                if (pattern.charAt(j) != sequence.charAt(i + j)) break;
+                if (j == pattern.length() - 1) {
+                    nMatch++;
+                }
+            }
+        }
+        return nMatch;
     }
 ```
 
