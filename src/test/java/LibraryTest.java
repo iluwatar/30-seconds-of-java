@@ -294,4 +294,22 @@ public class LibraryTest {
         assertFalse(Library.isPrime(4));
         assertFalse(Library.isPrime(100));
     }
+    
+    /**
+     * Tests for {@link Library#findNaive(String, String)}
+     */
+    @Test
+    public void testFindNaive() {
+    	assertEquals(1, Library.findNaive("AC", "ACGT"));
+    	assertEquals(2, Library.findNaive("AC", "ACGTACGT"));
+    	assertEquals(3, Library.findNaive("AC", "ACGTACGTACGTACGT"));
+    	assertEquals(4, Library.findNaive("AC", "ACGTACGTACGTACGTACGT"));
+    	assertEquals(5, Library.findNaive("AC", "ACGTACGTACGTACGTACGTACGT"));
+    	assertEquals(6, Library.findNaive("AC", "ACGTACGTACGTACGTACGTACGTACGT"));
+    	assertEquals(7, Library.findNaive("AC", "ACGTACGTACGTACGTACGTACGTACGTACGT"));
+    	assertEquals(8, Library.findNaive("AC", "ACGTACGTACGTACGTACGTACGTACGTACGTACGT"));
+    	assertEquals(9, Library.findNaive("AC", "ACGTACGTACGTACGTACGTACGTACGTACGTACGTACGT"));
+    	assertEquals(10, Library.findNaive("AC", "ACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGT"));
+    }
+    
 }

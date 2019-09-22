@@ -336,4 +336,25 @@ public class Library {
 		}
 		return true;
 	}
+	
+	/**
+	 * Search a string pattern in a string sequence, 
+	 * and return the count of matches.
+	 * Credits: https://en.wikipedia.org/wiki/String-searching_algorithm
+	 * @param pattern pattern to find
+	 * @param sequence the string sequence
+	 * @return the count of matches
+	 */
+	public static int findNaive(String pattern, String sequence) {
+		Integer nMatch = 0;
+		for (int i = 0; i <= sequence.length() - pattern.length(); i++) {
+			for (int j = 0; j < pattern.length(); j++) {
+				if (pattern.charAt(j) != sequence.charAt(i + j)) break;
+				if (j == pattern.length() - 1) {
+					nMatch++;
+				}
+			}
+		}
+		return nMatch;
+	}
 }
