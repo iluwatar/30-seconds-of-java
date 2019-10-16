@@ -28,6 +28,8 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -35,7 +37,7 @@ import java.util.*;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-			
+
 /*
  * Java Snippets code
  *
@@ -311,6 +313,40 @@ public class Library {
     public static int httpGet(URL address) throws IOException {
         HttpURLConnection con = (HttpURLConnection) address.openConnection();
         return con.getResponseCode();
+    }
+    
+    /**
+    * Performs HTTP POST request
+    * Credits https://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
+    * @param address the URL of the connection
+    * @param arguments the body of the POST request, as a HashMap
+    * @return the return string specific to application. Can be null in case nothing is returned by endpoint
+    * @throws IOException
+    */
+    public static String httpPost(URL address, HashMap<String,String> arguments) throws IOException {
+        HttpURLConnection http = (HttpURLConnection) address.openConnection();
+        http.setRequestMethod("POST");
+        http.setDoOutput(true);
+        StringJoiner sj = new StringJoiner("&");
+        for(Map.Entry<String,String> entry : arguments.entrySet()) {
+            sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
+                 + URLEncoder.encode(entry.getValue(), "UTF-8"));
+        }
+        byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
+        int length = out.length;
+        http.setFixedLengthStreamingMode(length);
+        http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+        http.connect();
+        String line = null;
+        OutputStream os = http.getOutputStream();
+        os.write(out);
+        InputStream is = http.getInputStream();
+        StringBuilder stringBuilder = new StringBuilder();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        while ((line = bufferedReader.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+        return stringBuilder.toString();
     }
     
     /**

@@ -1,3 +1,4 @@
+
 # 30 Seconds of Java
 
 [![Build status](https://travis-ci.org/iluwatar/java-snippets.svg?branch=master)](https://travis-ci.org/iluwatar/java-snippets)
@@ -35,6 +36,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ### Networking
 * [HTTP GET](#http-get)
+* [HTTP POST](#http-post)
 
 ### String
 * [Palindrome check](#palindrome-check)
@@ -299,6 +301,38 @@ Update the sample application with the snippet and add a test for it. After prov
     public static int httpGet(URL address) throws IOException {
         HttpURLConnection con = (HttpURLConnection) address.openConnection();
         return con.getResponseCode();
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### HTTP POST
+
+```java
+    public static String httpPost(URL address, HashMap<String,String> arguments) throws IOException {
+        HttpURLConnection http = (HttpURLConnection) address.openConnection();
+        http.setRequestMethod("POST");
+        http.setDoOutput(true);
+        StringJoiner sj = new StringJoiner("&");
+        for(Map.Entry<String,String> entry : arguments.entrySet()) {
+            sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
+                 + URLEncoder.encode(entry.getValue(), "UTF-8"));
+        }
+        byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
+        int length = out.length;
+        http.setFixedLengthStreamingMode(length);
+        http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+        http.connect();
+        String line = null;
+        OutputStream os = http.getOutputStream();
+        os.write(out);
+        InputStream is = http.getInputStream();
+        StringBuilder stringBuilder = new StringBuilder();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        while ((line = bufferedReader.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+        return stringBuilder.toString();
     }
 ```
 
