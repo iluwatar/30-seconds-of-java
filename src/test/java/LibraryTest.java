@@ -288,13 +288,13 @@ public class LibraryTest {
      * Tests for {@link Library#httpPost(URL, HashMap)}
      */
     @Test
-    public void testHttpPost() throws IOException {
+    public void testHttpPost() throws IOException, InterruptedException {
         HashMap<String, String> arguments = new HashMap<>();
         arguments.put("data","Hello World");
-        String resultData = Library.httpPost(new URL("https://postman-echo.com/post"), arguments);
+        var resultData = Library.httpPost("https://postman-echo.com/post", arguments);
         //This postman endpoint echoes the HTTP headers, request parameters, the contents
         //of the request body and the complete URI requested.
-        String echoedData = "\"data\":\"Hello World\"";
+        var echoedData = "\"data\":\"Hello World\"";
         assertThat(resultData, containsString(echoedData));
     }
     

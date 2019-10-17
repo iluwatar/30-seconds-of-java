@@ -27,6 +27,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URI;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -37,6 +38,11 @@ import java.util.*;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpRequest.BodyPublishers;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
 
 /*
  * Java Snippets code
@@ -318,35 +324,26 @@ public class Library {
     /**
     * Performs HTTP POST request
     * Credits https://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
-    * @param address the URL of the connection
+    * @param address the URL of the connection in String format, like "http://www.google.com"
     * @param arguments the body of the POST request, as a HashMap
     * @return the return string specific to application. Can be null in case nothing is returned by endpoint
-    * @throws IOException
+    * @throws IOException, InterruptedException
     */
-    public static String httpPost(URL address, HashMap<String,String> arguments) throws IOException {
-        HttpURLConnection http = (HttpURLConnection) address.openConnection();
-        http.setRequestMethod("POST");
-        http.setDoOutput(true);
-        StringJoiner sj = new StringJoiner("&");
-        for(Map.Entry<String,String> entry : arguments.entrySet()) {
+    public static String httpPost(String address, HashMap<String,String> arguments) throws IOException, InterruptedException{
+        var sj = new StringJoiner("&");
+        for(var entry : arguments.entrySet()) {
             sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
                  + URLEncoder.encode(entry.getValue(), "UTF-8"));
         }
-        byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
-        int length = out.length;
-        http.setFixedLengthStreamingMode(length);
-        http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-        http.connect();
-        String line = null;
-        OutputStream os = http.getOutputStream();
-        os.write(out);
-        InputStream is = http.getInputStream();
-        StringBuilder stringBuilder = new StringBuilder();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-        while ((line = bufferedReader.readLine()) != null) {
-            stringBuilder.append(line);
-        }
-        return stringBuilder.toString();
+        var out = sj.toString().getBytes(StandardCharsets.UTF_8);
+        var request = HttpRequest.newBuilder()
+                           .uri(URI.create(address))
+                           .headers("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+                           .POST(BodyPublishers.ofByteArray(out))
+                           .build();
+
+        var response = HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+        return response.body();
     }
     
     /**
