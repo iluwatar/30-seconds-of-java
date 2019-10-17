@@ -37,8 +37,10 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.*;
 
 /*
  * Java Snippets tests
@@ -280,6 +282,20 @@ public class LibraryTest {
     public void testHttpGet() throws IOException {
         int responseCode = Library.httpGet(new URL("http://www.google.com"));
         assertEquals(200, responseCode);
+    }
+    
+    /**
+     * Tests for {@link Library#httpPost(URL, HashMap)}
+     */
+    @Test
+    public void testHttpPost() throws IOException, InterruptedException {
+        HashMap<String, String> arguments = new HashMap<>();
+        arguments.put("data","Hello World");
+        var resultData = Library.httpPost("https://postman-echo.com/post", arguments);
+        //This postman endpoint echoes the HTTP headers, request parameters, the contents
+        //of the request body and the complete URI requested.
+        var echoedData = "\"data\":\"Hello World\"";
+        assertThat(resultData, containsString(echoedData));
     }
     
     /**

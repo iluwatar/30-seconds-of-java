@@ -1,3 +1,4 @@
+
 # 30 Seconds of Java
 
 [![Build status](https://api.travis-ci.org/iluwatar/30-seconds-of-java.svg?branch=master)](https://travis-ci.org/iluwatar/30-seconds-of-java)
@@ -35,6 +36,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ### Networking
 * [HTTP GET](#http-get)
+* [HTTP POST](#http-post)
 
 ### String
 * [Palindrome check](#palindrome-check)
@@ -299,6 +301,29 @@ Update the sample application with the snippet and add a test for it. After prov
     public static int httpGet(URL address) throws IOException {
         HttpURLConnection con = (HttpURLConnection) address.openConnection();
         return con.getResponseCode();
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### HTTP POST
+
+```java
+    public static String httpPost(String address, HashMap<String,String> arguments) throws IOException, InterruptedException{
+        var sj = new StringJoiner("&");
+        for(var entry : arguments.entrySet()) {
+            sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
+                 + URLEncoder.encode(entry.getValue(), "UTF-8"));
+        }
+        var out = sj.toString().getBytes(StandardCharsets.UTF_8);
+        var request = HttpRequest.newBuilder()
+                           .uri(URI.create(address))
+                           .headers("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+                           .POST(BodyPublishers.ofByteArray(out))
+                           .build();
+
+        var response = HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+        return response.body();
     }
 ```
 
