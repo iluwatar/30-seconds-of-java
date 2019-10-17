@@ -312,13 +312,17 @@ public class Library {
 
     /**
      * Performs HTTP GET request
-     * @param address the URL of the connection
+     * @param address the URL of the connection in String format, like "http://www.google.com"
      * @return HTTP status code
-     * @throws IOException
+     * @throws IOException, InterruptedException
      */
-    public static int httpGet(URL address) throws IOException {
-        HttpURLConnection con = (HttpURLConnection) address.openConnection();
-        return con.getResponseCode();
+    public static int httpGet(String address) throws IOException, InterruptedException {
+        var request = HttpRequest.newBuilder()
+                           .uri(URI.create(address))
+                           .GET()
+                           .build();
+        var response = HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+        return response.statusCode();
     }
     
     /**

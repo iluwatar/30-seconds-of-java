@@ -298,9 +298,13 @@ Update the sample application with the snippet and add a test for it. After prov
 ### HTTP GET
 
 ```java
-    public static int httpGet(URL address) throws IOException {
-        HttpURLConnection con = (HttpURLConnection) address.openConnection();
-        return con.getResponseCode();
+    public static int httpGet(String address) throws IOException, InterruptedException {
+        var request = HttpRequest.newBuilder()
+                           .uri(URI.create(address))
+                           .GET()
+                           .build();
+        var response = HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+        return response.statusCode();
     }
 ```
 

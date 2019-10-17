@@ -27,7 +27,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -279,8 +278,8 @@ public class LibraryTest {
      * Tests for {@link Library#httpGet(URL)}
      */
     @Test
-    public void testHttpGet() throws IOException {
-        int responseCode = Library.httpGet(new URL("http://www.google.com"));
+    public void testHttpGet() throws IOException, InterruptedException {
+        var responseCode = Library.httpGet("http://www.google.com");
         assertEquals(200, responseCode);
     }
     
