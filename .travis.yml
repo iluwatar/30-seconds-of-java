@@ -1,2 +1,14 @@
 language: java
 
+dist: bionic
+
+jdk:
+- openjdk11
+
+notifications:
+  email:
+    - iluwatar@gmail.com
+  webhooks:
+    on_success: change
+    on_failure: always
+    on_start: never
