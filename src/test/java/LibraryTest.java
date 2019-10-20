@@ -43,7 +43,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
 
 /*
- * Java Snippets tests
+ * Tests for 30 Seconds of Java code library
  *
  */
 public class LibraryTest {
@@ -52,13 +52,13 @@ public class LibraryTest {
      */
     @Test
     public void testArrayConcat() {
-        Integer[] integers = Library.arrayConcat(new Integer[5], new Integer[5]);
+        var integers = Library.arrayConcat(new Integer[5], new Integer[5]);
         assertEquals(integers.length, 10);
-        String[] strings = Library.arrayConcat(new String[0], new String[0]);
+        var strings = Library.arrayConcat(new String[0], new String[0]);
         assertEquals(strings.length, 0);
         try {
-            Double[] doubles = Library.arrayConcat(null, null);
-            fail();
+            var doubles = Library.arrayConcat(null, null);
+            fail("Did not throw NPE as expected");
         } catch (NullPointerException e) {
             // expected behaviour, everything is fine
         }
@@ -69,13 +69,13 @@ public class LibraryTest {
      */
     @Test
     public void testNArrayConcat() {
-        Integer[] single = Library.nArrayConcat(new Integer[1]);
+        var single = Library.nArrayConcat(new Integer[1]);
         assertEquals(single.length, 1);
-        String[] multiple = Library.nArrayConcat(new String[5], new String[12], new String[3], new String[8]);
+        var multiple = Library.nArrayConcat(new String[5], new String[12], new String[3], new String[8]);
         assertEquals(multiple.length, 28);
         try {
-            Double[] doubles = Library.nArrayConcat(null, null, null, null);
-            fail();
+            var doubles = Library.nArrayConcat(null, null, null, null);
+            fail("Did not throw NPE as expected");
         } catch (NullPointerException e) {
             // expected behaviour, everything is fine
         }
@@ -131,14 +131,14 @@ public class LibraryTest {
      */
     @Test
     public void testReadLines() throws IOException {
-        List<String> somelines = Library.readLines("src/test/resources/somelines.txt");
+        var somelines = Library.readLines("src/test/resources/somelines.txt");
         assertEquals(3, somelines.size());
         assertEquals("foo", somelines.get(0));
         assertEquals("bar", somelines.get(1));
         assertEquals("baz", somelines.get(2));
         try {
             Library.readLines("some/nonexistent/filename.txt");
-            fail();
+            fail("Did not throw IOException as expected");
         } catch (IOException e) {
             // catched the expected exception
         }
@@ -148,13 +148,13 @@ public class LibraryTest {
      */
     @Test
     public void testCaptureScreen() throws IOException, AWTException {
-        final String filename = "src/test/resources/screenshot.png";
+        final var filename = "src/test/resources/screenshot.png";
         try {
             Library.captureScreen(filename);
-            File f = new File(filename);
+            var f = new File(filename);
             assertTrue(f.exists() && !f.isDirectory());
         } catch (HeadlessException e) {
-            // the test runs on computer without a screen, it is ok to fail
+            // the test runs on a computer without a screen, it is ok to fail
         } finally {
             Files.deleteIfExists(new File(filename).toPath());
         }
@@ -164,7 +164,7 @@ public class LibraryTest {
      */
     @Test
     public void testStringToDate() throws ParseException {
-        Calendar calendar = Calendar.getInstance();
+        var calendar = Calendar.getInstance();
         calendar.setTime(Library.stringToDate("2017-08-18", "yyyy-MM-dd"));
         assertEquals(2017, calendar.get(Calendar.YEAR));
         assertEquals(8, calendar.get(Calendar.MONTH) + 1);
@@ -176,7 +176,7 @@ public class LibraryTest {
      */
     @Test
     public void testListDirectories() {
-        File[] files = Library.listDirectories("src/test/resources");
+        var files = Library.listDirectories("src/test/resources");
         Arrays.stream(files).allMatch(f -> f.isDirectory());
         assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir1")::equals));
         assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir2")::equals));
@@ -188,7 +188,7 @@ public class LibraryTest {
     @Test
     public void testIsPalindrome() {
         assertTrue(Library.isPalindrome("saippuakauppias"));
-        assertTrue(Library.isPalindrome("111 Saippua - Kauppias 321"));
+        assertTrue(Library.isPalindrome("111 Saippua - Kauppias 321")); // non-letter character are skipped
         assertFalse(Library.isPalindrome("Type O Negative"));
         assertFalse(Library.isPalindrome("Foo12121Bar"));
     }
@@ -198,9 +198,9 @@ public class LibraryTest {
      */
     @Test
     public void testListFilesInDirectory() {
-        File[] files = Library.listFilesInDirectory(new File("src/test/resources"));
+        var files = Library.listFilesInDirectory(new File("src/test/resources"));
         assertEquals(2, files.length);
-        Set<String> filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
+        var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
         assertTrue(filenames.contains("src/test/resources/somelines.txt"));
         assertTrue(filenames.contains("src/test/resources/someotherlines.txt"));
     }
@@ -210,7 +210,7 @@ public class LibraryTest {
      */
     @Test
     public void testListAllFiles() {
-        List<File> files = Library.listAllFiles("src/test/resources");
+        var files = Library.listAllFiles("src/test/resources");
         assertEquals(4, files.size());
     }
 
@@ -219,11 +219,11 @@ public class LibraryTest {
      */
     @Test
     public void testPerformLottery() {
-        Integer[] numbers0 = Library.performLottery(0, 0);
+        var numbers0 = Library.performLottery(0, 0);
         assertArrayEquals(new Integer[]{}, numbers0);
-        Integer[] numbers1 = Library.performLottery(1, 1);
+        var numbers1 = Library.performLottery(1, 1);
         assertArrayEquals(new Integer[]{1}, numbers1);
-        Integer[] numbers2 = Library.performLottery(2, 2);
+        var numbers2 = Library.performLottery(2, 2);
         assertEquals(2, numbers2.length);
         assertTrue(numbers2[0] == 1 || numbers2[0] == 2);
         assertTrue(numbers2[1] == 1 || numbers2[1] == 2);
@@ -234,8 +234,8 @@ public class LibraryTest {
      */
     @Test
     public void testZipFile() throws IOException {
-        final String src = "src/test/resources/somelines.txt";
-        final String dst = "src/test/resources/somelines.zip";
+        final var src = "src/test/resources/somelines.txt";
+        final var dst = "src/test/resources/somelines.zip";
         try {
             Library.zipFile(src, dst);
             assertTrue(Files.exists(Paths.get(dst)));
@@ -250,7 +250,7 @@ public class LibraryTest {
     @Test
     public void testZipFiles() throws IOException {
         final String[] srcFilenames = {"src/test/resources/somelines.txt", "src/test/resources/someotherlines.txt"};
-        final String dst = "src/test/resources/multiple.zip";
+        final var dst = "src/test/resources/multiple.zip";
         try {
             Library.zipFiles(srcFilenames, dst);
             assertTrue(Files.exists(Paths.get(dst)));
@@ -264,7 +264,7 @@ public class LibraryTest {
      */
     @Test
     public void testQuickSort() {
-        int[] arr = new int[] {7, 13, 3, 1, 8, 5};
+        var arr = new int[] {7, 13, 3, 1, 8, 5};
         Library.quickSort(arr, 0, arr.length - 1);
         assertEquals(arr.length, 6);
         assertEquals(arr[0], 1);
@@ -276,26 +276,26 @@ public class LibraryTest {
     }
 
     /**
-     * Tests for {@link Library#httpGet(URL)}
+     * Tests for {@link Library#httpGet(String)}
      */
     @Test
-    public void testHttpGet() throws IOException {
-        int responseCode = Library.httpGet(new URL("http://www.google.com"));
-        assertEquals(200, responseCode);
+    public void testHttpGet() throws Exception {
+        var response = Library.httpGet("http://www.google.com");
+        assertEquals(200, response.statusCode());
     }
     
     /**
-     * Tests for {@link Library#httpPost(URL, HashMap)}
+     * Tests for {@link Library#httpPost(String, HashMap)}
      */
     @Test
     public void testHttpPost() throws IOException, InterruptedException {
         HashMap<String, String> arguments = new HashMap<>();
         arguments.put("data","Hello World");
-        var resultData = Library.httpPost("https://postman-echo.com/post", arguments);
+        var result = Library.httpPost("https://postman-echo.com/post", arguments);
         //This postman endpoint echoes the HTTP headers, request parameters, the contents
         //of the request body and the complete URI requested.
         var echoedData = "\"data\":\"Hello World\"";
-        assertThat(resultData, containsString(echoedData));
+        assertThat(result.body(), containsString(echoedData));
     }
     
     /**

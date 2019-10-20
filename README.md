@@ -3,10 +3,17 @@
 
 [![Build status](https://api.travis-ci.org/iluwatar/30-seconds-of-java.svg?branch=master)](https://travis-ci.org/iluwatar/30-seconds-of-java)
 
-Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java code snippets that you can understand in 30 seconds or less.
+Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
 
 ## How to contribute
-Update the sample application with the snippet and add a test for it. After proving that it works update this README.md.
+Find an open issue that needs help at https://github.com/iluwatar/30-seconds-of-java/issues.
+
+For new snippets the general steps are
+ - Update `Library.java` with the new code snippet 
+ - Add a test for the new code snippet in `LibraryTest.java`
+ - Finally insert the new snippet into this `README.md`
+ - Submit pull request against `master` branch
+
 
 ## Table of Contents
 
@@ -49,9 +56,10 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static void quickSort(int[] arr, int left, int right) {
-        int pivotIndex = left + (right - left) / 2;
-        int pivotValue = arr[pivotIndex];
-        int i = left, j = right;
+        var pivotIndex = left + (right - left) / 2;
+        var pivotValue = arr[pivotIndex];
+        var i = left;
+        var j = right;
         while (i <= j) {
             while (arr[i] < pivotValue) {
                 i++;
@@ -60,7 +68,7 @@ Update the sample application with the snippet and add a test for it. After prov
                 j--;
             }
             if (i <= j) {
-                int tmp = arr[i];
+                var tmp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = tmp;
                 i++;
@@ -84,7 +92,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static <T> T[] arrayConcat(T[] first, T[] second) {
-        T[] result = Arrays.copyOf(first, first.length + second.length);
+        var result = Arrays.copyOf(first, first.length + second.length);
         System.arraycopy(second, 0, result, first.length, second.length);
         return result;
     }
@@ -96,13 +104,13 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static <T> T[] nArrayConcat(T[] first, T[]... rest) {
-        int totalLength = first.length;
-        for (T[] array : rest) {
+        var totalLength = first.length;
+        for (var array : rest) {
             totalLength += array.length;
         }
-        T[] result = Arrays.copyOf(first, totalLength);
-        int offset = first.length;
-        for (T[] array : rest) {
+        var result = Arrays.copyOf(first, totalLength);
+        var offset = first.length;
+        for (var array : rest) {
             System.arraycopy(array, 0, result, offset, array.length);
             offset += array.length;
         }
@@ -138,10 +146,10 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static List<File> listAllFiles(String path) {
-        List<File> all = new ArrayList<>();
-        File[] list = new File(path).listFiles();
+        var all = new ArrayList<File>();
+        var list = new File(path).listFiles();
         if (list != null) {  // In case of access error, list is null
-            for (File f : list) {
+            for (var f : list) {
                 if (f.isDirectory()) {
                     all.addAll(listAllFiles(f.getAbsolutePath()));
                 } else {
@@ -169,15 +177,15 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static void zipFile(String srcFilename, String zipFilename) throws IOException {
-        File srcFile = new File(srcFilename);
+        var srcFile = new File(srcFilename);
         try (
-            FileOutputStream fileOut = new FileOutputStream(zipFilename);
-            ZipOutputStream zipOut = new ZipOutputStream(fileOut);
-            FileInputStream fileIn = new FileInputStream(srcFile);
+            var fileOut = new FileOutputStream(zipFilename);
+            var zipOut = new ZipOutputStream(fileOut);
+            var fileIn = new FileInputStream(srcFile);
         ) {
-            ZipEntry zipEntry = new ZipEntry(srcFile.getName());
+            var zipEntry = new ZipEntry(srcFile.getName());
             zipOut.putNextEntry(zipEntry);
-            final byte[] bytes = new byte[1024];
+            final var bytes = new byte[1024];
             int length;
             while ((length = fileIn.read(bytes)) >= 0) {
                 zipOut.write(bytes, 0, length);
@@ -191,15 +199,15 @@ Update the sample application with the snippet and add a test for it. After prov
 ```java
     public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
         try (
-            FileOutputStream fileOut = new FileOutputStream(zipFilename);
-            ZipOutputStream zipOut = new ZipOutputStream(fileOut);
+            var fileOut = new FileOutputStream(zipFilename);
+            var zipOut = new ZipOutputStream(fileOut);
         ) {
-            for (int i=0; i<srcFilenames.length; i++) {
-                File srcFile = new File(srcFilenames[i]);
-                try (FileInputStream fileIn = new FileInputStream(srcFile)) {
-                    ZipEntry zipEntry = new ZipEntry(srcFile.getName());
+            for (var i=0; i<srcFilenames.length; i++) {
+                var srcFile = new File(srcFilenames[i]);
+                try (var fileIn = new FileInputStream(srcFile)) {
+                    var zipEntry = new ZipEntry(srcFile.getName());
                     zipOut.putNextEntry(zipEntry);
-                    final byte[] bytes = new byte[1024];
+                    final var bytes = new byte[1024];
                     int length;
                     while ((length = fileIn.read(bytes)) >= 0) {
                         zipOut.write(bytes, 0, length);
@@ -229,8 +237,8 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static int factorial(int number) {
-        int result = 1;
-        for (int factor = 2; factor <= number; factor++) {
+        var result = 1;
+        for (var factor = 2; factor <= number; factor++) {
             result *= factor;
         }
         return result;
@@ -243,8 +251,8 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static Integer[] performLottery(int numNumbers, int numbersToPick) {
-        List<Integer> numbers = new ArrayList<>();
-        for(int i = 0; i < numNumbers; i++) {
+        var numbers = new ArrayList<Integer>();
+        for(var i = 0; i < numNumbers; i++) {
             numbers.add(i+1);
         }
         Collections.shuffle(numbers);
@@ -266,7 +274,7 @@ Update the sample application with the snippet and add a test for it. After prov
 			return false;
 		}
 		// if not, then just check the odds
-		for (int i = 3; i * i <= number; i += 2) {
+		for (var i = 3; i * i <= number; i += 2) {
 			if (number % i == 0) {
 				return false;
 			}
@@ -283,10 +291,10 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static void captureScreen(String filename) throws AWTException, IOException {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Rectangle screenRectangle = new Rectangle(screenSize);
-        Robot robot = new Robot();
-        BufferedImage image = robot.createScreenCapture(screenRectangle);
+        var screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        var screenRectangle = new Rectangle(screenSize);
+        var robot = new Robot();
+        var image = robot.createScreenCapture(screenRectangle);
         ImageIO.write(image, "png", new File(filename));
     }
 ```
@@ -298,9 +306,12 @@ Update the sample application with the snippet and add a test for it. After prov
 ### HTTP GET
 
 ```java
-    public static int httpGet(URL address) throws IOException {
-        HttpURLConnection con = (HttpURLConnection) address.openConnection();
-        return con.getResponseCode();
+    public static HttpResponse<String> httpGet(String uri) throws Exception {
+        var client = HttpClient.newHttpClient();
+        var request = HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .build();
+        return client.send(request, BodyHandlers.ofString());
     }
 ```
 
@@ -309,7 +320,7 @@ Update the sample application with the snippet and add a test for it. After prov
 ### HTTP POST
 
 ```java
-    public static String httpPost(String address, HashMap<String,String> arguments) throws IOException, InterruptedException{
+    public static HttpResponse<String> httpPost(String address, HashMap<String,String> arguments) throws IOException, InterruptedException{
         var sj = new StringJoiner("&");
         for(var entry : arguments.entrySet()) {
             sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
@@ -322,8 +333,7 @@ Update the sample application with the snippet and add a test for it. After prov
                            .POST(BodyPublishers.ofByteArray(out))
                            .build();
 
-        var response = HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
-        return response.body();
+        return HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
     }
 ```
 
@@ -335,14 +345,14 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static boolean isPalindrome(String s) {
-        StringBuilder sb = new StringBuilder();
-        for (char c : s.toCharArray()) {
+        var sb = new StringBuilder();
+        for (var c : s.toCharArray()) {
             if (Character.isLetter(c)) {
                 sb.append(c);
             }
         }
-        String forward = sb.toString().toLowerCase();
-        String backward = sb.reverse().toString().toLowerCase();
+        var forward = sb.toString().toLowerCase();
+        var backward = sb.reverse().toString().toLowerCase();
         return forward.equals(backward);
     }
 ```
@@ -363,7 +373,7 @@ Update the sample application with the snippet and add a test for it. After prov
 
 ```java
     public static Date stringToDate(String date, String format) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+        var simpleDateFormat = new SimpleDateFormat(format);
         return simpleDateFormat.parse(date);
     }
 ```
