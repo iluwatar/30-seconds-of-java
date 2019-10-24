@@ -310,4 +310,15 @@ public class LibraryTest {
         assertFalse(Library.isPrime(4));
         assertFalse(Library.isPrime(100));
     }
+    
+    /**
+     * Tests for {@link Library#gcd(int, int)}
+     */
+    @Test
+    public void testGCD() {
+        assertEquals(Library.gcd(2,4), 2);
+        assertEquals(Library.gcd(2,5), 1);
+        assertEquals(Library.gcd(18,24), 6);
+        assertEquals(Library.gcd(7,7), 7);
+    }
 }

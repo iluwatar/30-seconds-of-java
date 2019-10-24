@@ -36,6 +36,7 @@ For new snippets the general steps are
 * [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
 * [Lottery](#lottery)
+* [Euclid's algorithm for greatest common divisor](#greatest-common-divisor)
 * [Prime](#prime)
 
 ### Media
@@ -257,6 +258,18 @@ For new snippets the general steps are
         }
         Collections.shuffle(numbers);
         return numbers.subList(0, numbersToPick).toArray(new Integer[numbersToPick]);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Greatest Common Divisor
+
+```java
+    public static int gcd(int a, int b) { 
+        if (b == 0) 
+            return a; 
+        return gcd(b, a % b);  
     }
 ```
 
