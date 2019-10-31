@@ -14,6 +14,19 @@ plugins {
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
+// Apply the checkstyle plugin
+apply plugin: 'checkstyle'
+checkstyle {
+    toolVersion '8.26'
+    configFile file("config/checkstyle.xml")
+}
+checkstyleMain {
+    source ='src/main/java'
+}
+checkstyleTest {
+    source ='src/test/java'
+}
+
 license {
     header project.file('LICENSE')
     include '**/*.java'
