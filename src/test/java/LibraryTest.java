@@ -1,7 +1,7 @@
-/**
+/*
  * MIT License
  *
- * Copyright (c) 2017-2018 Ilkka Seppälä
+ * Copyright (c) 2017-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,18 +33,13 @@ import java.awt.AWTException;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -71,17 +66,17 @@ public class LibraryTest {
   }
 
   /**
-   * Tests for {@link Library#nArrayConcat(Object[], Object[][])}.
+   * Tests for {@link Library#multiArrayConcat(Object[], Object[][])}.
    */
   @Test
   public void testNArrayConcat() {
-    var single = Library.nArrayConcat(new Integer[1]);
+    var single = Library.multiArrayConcat(new Integer[1]);
     assertEquals(single.length, 1);
     var multiple
-        = Library.nArrayConcat(new String[5], new String[12], new String[3], new String[8]);
+        = Library.multiArrayConcat(new String[5], new String[12], new String[3], new String[8]);
     assertEquals(multiple.length, 28);
     try {
-      var doubles = Library.nArrayConcat(null, null, null, null);
+      var doubles = Library.multiArrayConcat(null, null, null, null);
       fail("Did not throw NPE as expected");
     } catch (NullPointerException e) {
       // expected behaviour, everything is fine

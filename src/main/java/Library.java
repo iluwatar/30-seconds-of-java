@@ -1,7 +1,7 @@
-/**
+/*
  * MIT License
  *
- * Copyright (c) 2017-2018 Ilkka Seppälä
+ * Copyright (c) 2017-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -82,7 +82,7 @@ public class Library {
    * @param <T> the element type
    * @return concatenated array
    */
-  public static <T> T[] nArrayConcat(T[] first, T[]... rest) {
+  public static <T> T[] multiArrayConcat(T[] first, T[]... rest) {
     var totalLength = first.length;
     for (var array : rest) {
       totalLength += array.length;
