@@ -51,6 +51,9 @@ For new snippets the general steps are
 * [Reverse string](#reverse-string)
 * [String to date](#string-to-date)
 
+### Class
+* [Get methods name](#Get-methods-name)
+
 ## Algorithm
 
 ### Quicksort
