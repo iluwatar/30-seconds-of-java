@@ -392,3 +392,19 @@ For new snippets the general steps are
 ```
 
 [⬆ back to top](#table-of-contents)
+
+## Class
+
+### Get methods name
+
+```java
+    public static List<String> getAllMethods(final Class<?> cls) {
+        var list = new ArrayList<String>();
+        for (var method : cls.getDeclaredMethods()) {
+          list.add(method.getName());
+        }
+        return list;
+    }
+```
+
+[⬆ back to top](#table-of-contents)
