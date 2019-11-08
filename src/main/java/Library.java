@@ -97,6 +97,16 @@ public class Library {
   }
 
   /**
+   * Returns true if all elements in array are equal.
+   * @param arr the array to check (not null)
+   * @param <T> the element type
+   * @return true if all elements in the array are equal
+   */
+  public static <T> boolean allEqual(T[] arr) {
+    return Arrays.stream(arr).distinct().count() == 1;
+  }
+
+  /**
    * Recursive Fibonacci series.
    * Works only for small n and is spectacularly inefficient
    * @param n given number

@@ -84,6 +84,30 @@ public class LibraryTest {
   }
 
   /**
+   * Tests for {@link Library#allEqual(Object[])}.
+   */
+  @Test
+  public void testAllEqual() {
+    var intArray = new Integer[5];
+    assertTrue(Library.allEqual(intArray));
+    intArray[0] = 1;
+    assertFalse(Library.allEqual(intArray));
+    var stringArray = new String[10];
+    Arrays.fill(stringArray, "Hello World");
+    assertTrue(Library.allEqual(stringArray));
+    stringArray[3] = "Bye World";
+    assertFalse(Library.allEqual(stringArray));
+    var doubleArray = new Double[1];
+    assertTrue(Library.allEqual(doubleArray));
+    try {
+      var res = Library.allEqual(null);
+      fail("Did not throw NPE as expected");
+    } catch (NullPointerException e) {
+      // expected behaviour, everything is fine
+    }
+  }
+
+  /**
    * Tests for {@link Library#fibonacci(int)}.
    */
   @Test

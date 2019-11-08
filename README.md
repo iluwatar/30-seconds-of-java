@@ -23,6 +23,7 @@ For new snippets the general steps are
 ### Array
 * [Generic two array concatenation](#generic-two-array-concatenation)
 * [Generic N array concatenation](#generic-N-array-concatenation)
+* [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
 
 ### File
 * [List directories](#list-directories)
@@ -118,6 +119,16 @@ For new snippets the general steps are
         }
         return result;
     }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Check if all elements of array are equal
+
+```java
+  public static <T> boolean allEqual(T[] arr) {
+    return Arrays.stream(arr).distinct().count() == 1;
+  }
 ```
 
 [⬆ back to top](#table-of-contents)
