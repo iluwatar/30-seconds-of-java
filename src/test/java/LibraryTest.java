@@ -328,4 +328,16 @@ public class LibraryTest {
     assertEquals(Library.gcd(18, 24), 6);
     assertEquals(Library.gcd(7, 7), 7);
   }
+
+  /**
+   * Tests for {@link Library#isAnagram(String, String)}.
+   */
+  @Test
+  public void testIsAnagram() {
+    assertTrue(Library.isAnagram("Aditya","aytdiA"));
+    assertFalse(Library.isAnagram("Aditya","aytida"));
+    assertTrue(Library.isAnagram("~~# @!","~@!#~ "));
+    assertTrue(Library.isAnagram("Mother In Law","hIt Ler woMan"));
+    assertFalse(Library.isAnagram("aa","aaa"));
+  }
 }

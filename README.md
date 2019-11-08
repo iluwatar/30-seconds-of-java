@@ -50,6 +50,7 @@ For new snippets the general steps are
 * [Palindrome check](#palindrome-check)
 * [Reverse string](#reverse-string)
 * [String to date](#string-to-date)
+* [Anagram check](#anagram-check)
 
 ## Algorithm
 
@@ -389,6 +390,27 @@ For new snippets the general steps are
         var simpleDateFormat = new SimpleDateFormat(format);
         return simpleDateFormat.parse(date);
     }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Anagram Check
+
+```java
+public boolean isAnagram(String s1, String s2) {
+	var l1 = s1.length();
+	var l2 = s2.length();
+	var arr1 = new int[256];
+	var arr2 = new int[256];
+	if (l1 != l2) {
+	  return false;
+	}
+	for (var i = 0; i < l1; i++) {
+	  arr1[s1.charAt(i)]++;
+	  arr2[s2.charAt(i)]++;
+	}
+	return Arrays.equals(arr1, arr2);
+  }
 ```
 
 [⬆ back to top](#table-of-contents)
