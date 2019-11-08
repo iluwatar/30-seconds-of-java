@@ -400,8 +400,8 @@ For new snippets the general steps are
 public boolean isAnagram(String s1, String s2) {
 	var l1 = s1.length();
 	var l2 = s2.length();
-	int [] arr1 = new int[256];
-	int [] arr2 = new int[256];
+	var arr1 = new int[256];
+	var arr2 = new int[256];
 	if (l1 != l2) {
 	  return false;
 	}
