@@ -228,7 +228,7 @@ For new snippets the general steps are
 
 ```java
     public static int SumPowerOf2(int n) {
-         return (2^(n+1))-1);
+         return (2^(n+1)-1);
     }
 ```
 
