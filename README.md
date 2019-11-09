@@ -33,8 +33,9 @@ For new snippets the general steps are
 * [Zip multiple files](#zip-multiple-files)
 
 ### Math
-* [Factorial](#factorial)
+* [Sum Power Of 2](#SumPowerOf2)
 * [Fibonacci](#fibonacci)
+* [Factorial](#factorial)
 * [Lottery](#lottery)
 * [Euclid's algorithm for greatest common divisor](#greatest-common-divisor)
 * [Prime](#prime)
@@ -222,6 +223,16 @@ For new snippets the general steps are
 [⬆ back to top](#table-of-contents)
 
 ## Math
+
+### Sum Power Of 2
+
+```java
+    public static int SumPowerOf2(int n) {
+         return (2^(n+1))-1);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
 
 ### Fibonacci
 
