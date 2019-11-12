@@ -51,9 +51,6 @@ For new snippets the general steps are
 * [Reverse string](#reverse-string)
 * [String to date](#string-to-date)
 
-### Class
-* [Get methods name](#Get-methods-name)
-
 ## Algorithm
 
 ### Quicksort
@@ -391,22 +388,6 @@ For new snippets the general steps are
     public static Date stringToDate(String date, String format) throws ParseException {
         var simpleDateFormat = new SimpleDateFormat(format);
         return simpleDateFormat.parse(date);
-    }
-```
-
-[⬆ back to top](#table-of-contents)
-
-## Class
-
-### Get methods name
-
-```java
-    public static List<String> getAllMethods(final Class<?> cls) {
-        var list = new ArrayList<String>();
-        for (var method : cls.getDeclaredMethods()) {
-          list.add(method.getName());
-        }
-        return list;
     }
 ```
 
