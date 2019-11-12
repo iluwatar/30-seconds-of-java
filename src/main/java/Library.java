@@ -42,6 +42,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -150,7 +151,7 @@ public class Library {
    * @throws IOException if an I/O error occurs
    */
   public static List<String> readLines(String filename) throws IOException {
-    return Files.readAllLines(new File(filename).toPath());
+    return Files.readAllLines(Paths.get(filename));
   }
 
   /**
