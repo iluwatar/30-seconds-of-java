@@ -23,6 +23,7 @@ For new snippets the general steps are
 ### Array
 * [Generic two array concatenation](#generic-two-array-concatenation)
 * [Generic N array concatenation](#generic-N-array-concatenation)
+* [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
 
 ### File
 * [List directories](#list-directories)
@@ -50,6 +51,10 @@ For new snippets the general steps are
 * [Palindrome check](#palindrome-check)
 * [Reverse string](#reverse-string)
 * [String to date](#string-to-date)
+* [Anagram check](#anagram-check)
+
+### Class
+* [Get methods name](#Get-methods-name)
 
 ## Algorithm
 
@@ -117,6 +122,16 @@ For new snippets the general steps are
         }
         return result;
     }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Check if all elements of array are equal
+
+```java
+  public static <T> boolean allEqual(T[] arr) {
+    return Arrays.stream(arr).distinct().count() == 1;
+  }
 ```
 
 [⬆ back to top](#table-of-contents)
@@ -388,6 +403,43 @@ For new snippets the general steps are
     public static Date stringToDate(String date, String format) throws ParseException {
         var simpleDateFormat = new SimpleDateFormat(format);
         return simpleDateFormat.parse(date);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Anagram Check
+
+```java
+public boolean isAnagram(String s1, String s2) {
+	var l1 = s1.length();
+	var l2 = s2.length();
+	var arr1 = new int[256];
+	var arr2 = new int[256];
+	if (l1 != l2) {
+	  return false;
+	}
+	for (var i = 0; i < l1; i++) {
+	  arr1[s1.charAt(i)]++;
+	  arr2[s2.charAt(i)]++;
+	}
+	return Arrays.equals(arr1, arr2);
+  }
+```
+
+[⬆ back to top](#table-of-contents)
+
+## Class
+
+### Get methods name
+
+```java
+    public static List<String> getAllMethods(final Class<?> cls) {
+        var list = new ArrayList<String>();
+        for (var method : cls.getDeclaredMethods()) {
+          list.add(method.getName());
+        }
+        return list;
     }
 ```
 

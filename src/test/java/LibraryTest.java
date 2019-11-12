@@ -22,12 +22,7 @@
  * SOFTWARE.
  */
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
@@ -77,6 +72,30 @@ public class LibraryTest {
     assertEquals(multiple.length, 28);
     try {
       var doubles = Library.multiArrayConcat(null, null, null, null);
+      fail("Did not throw NPE as expected");
+    } catch (NullPointerException e) {
+      // expected behaviour, everything is fine
+    }
+  }
+
+  /**
+   * Tests for {@link Library#allEqual(Object[])}.
+   */
+  @Test
+  public void testAllEqual() {
+    var intArray = new Integer[5];
+    assertTrue(Library.allEqual(intArray));
+    intArray[0] = 1;
+    assertFalse(Library.allEqual(intArray));
+    var stringArray = new String[10];
+    Arrays.fill(stringArray, "Hello World");
+    assertTrue(Library.allEqual(stringArray));
+    stringArray[3] = "Bye World";
+    assertFalse(Library.allEqual(stringArray));
+    var doubleArray = new Double[1];
+    assertTrue(Library.allEqual(doubleArray));
+    try {
+      var res = Library.allEqual(null);
       fail("Did not throw NPE as expected");
     } catch (NullPointerException e) {
       // expected behaviour, everything is fine
@@ -327,5 +346,29 @@ public class LibraryTest {
     assertEquals(Library.gcd(2, 5), 1);
     assertEquals(Library.gcd(18, 24), 6);
     assertEquals(Library.gcd(7, 7), 7);
+  }
+
+  /**
+   * Tests for {@link Library#isAnagram(String, String)}.
+   */
+  @Test
+  public void testIsAnagram() {
+    assertTrue(Library.isAnagram("Aditya","aytdiA"));
+    assertFalse(Library.isAnagram("Aditya","aytida"));
+    assertTrue(Library.isAnagram("~~# @!","~@!#~ "));
+    assertTrue(Library.isAnagram("Mother In Law","hIt Ler woMan"));
+    assertFalse(Library.isAnagram("aa","aaa"));
+  }
+
+  /**
+   * Tests for {@link Library#getAllMethods(Class)}.
+   */
+  @Test
+  public void testGetAllMethods() {
+    var list = Library.getAllMethods(Library.class);
+    assertEquals("arrayConcat", list.get(0));
+    assertEquals("multiArrayConcat", list.get(1));
+    assertNotEquals("multiArrayConcat", list.get(0));
+    assertNotEquals("arrayConcat", list.get(1));
   }
 }
