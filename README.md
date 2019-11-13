@@ -6,7 +6,9 @@
 Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
 
 ## How to contribute
-Find an open issue that needs help at https://github.com/iluwatar/30-seconds-of-java/issues.
+Find an open issue that needs help at https://github.com/iluwatar/30-seconds-of-java/issues. Or if there's nothing that
+interests you, you can just raise a pull request. If you have an interesting snippet you would like to see in this library
+but can't implement yourself, please [raise an issue](https://github.com/iluwatar/30-seconds-of-java/issues).
 
 For new snippets the general steps are
  - Update `Library.java` with the new code snippet 
