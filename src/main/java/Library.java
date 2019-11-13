@@ -433,4 +433,17 @@ public class Library {
     }
     return gcd(b, a % b);
   }
+
+  /**
+   * Print all declared methods of the class
+   * @param cls Tested class
+   * @return list of methods name
+   */
+  public static List<String> getAllMethods(final Class<?> cls) {
+    var list = new ArrayList<String>();
+    for (var method : cls.getDeclaredMethods()) {
+      list.add(method.getName());
+    }
+    return list;
+  }
 }

@@ -22,12 +22,7 @@
  * SOFTWARE.
  */
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
@@ -363,5 +358,17 @@ public class LibraryTest {
     assertTrue(Library.isAnagram("~~# @!","~@!#~ "));
     assertTrue(Library.isAnagram("Mother In Law","hIt Ler woMan"));
     assertFalse(Library.isAnagram("aa","aaa"));
+  }
+
+  /**
+   * Tests for {@link Library#getAllMethods(Class)}.
+   */
+  @Test
+  public void testGetAllMethods() {
+    var list = Library.getAllMethods(Library.class);
+    assertEquals("arrayConcat", list.get(0));
+    assertEquals("multiArrayConcat", list.get(1));
+    assertNotEquals("multiArrayConcat", list.get(0));
+    assertNotEquals("arrayConcat", list.get(1));
   }
 }

@@ -53,6 +53,9 @@ For new snippets the general steps are
 * [String to date](#string-to-date)
 * [Anagram check](#anagram-check)
 
+### Class
+* [Get methods name](#Get-methods-name)
+
 ## Algorithm
 
 ### Quicksort
@@ -422,6 +425,22 @@ public boolean isAnagram(String s1, String s2) {
 	}
 	return Arrays.equals(arr1, arr2);
   }
+```
+
+[⬆ back to top](#table-of-contents)
+
+## Class
+
+### Get methods name
+
+```java
+    public static List<String> getAllMethods(final Class<?> cls) {
+        var list = new ArrayList<String>();
+        for (var method : cls.getDeclaredMethods()) {
+          list.add(method.getName());
+        }
+        return list;
+    }
 ```
 
 [⬆ back to top](#table-of-contents)
