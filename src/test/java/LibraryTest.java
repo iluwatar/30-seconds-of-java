@@ -371,4 +371,21 @@ public class LibraryTest {
     assertNotEquals("multiArrayConcat", list.get(0));
     assertNotEquals("arrayConcat", list.get(1));
   }
+
+  /**
+   * Tests for {@link Library#bubbleSort(int[])}.
+   */
+  @Test
+  public void testBubbleSort() {
+    var arr = new int[]{6,3,1,5,4,2};
+    Library.bubbleSort(arr);
+    assertEquals(arr.length, 6);
+    assertEquals(arr[0], 1);
+    assertEquals(arr[1], 2);
+    assertEquals(arr[2], 3);
+    assertEquals(arr[3], 4);
+    assertEquals(arr[4], 5);
+    assertEquals(arr[5], 6);
+
+  }
 }
