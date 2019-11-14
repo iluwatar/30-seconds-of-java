@@ -386,6 +386,5 @@ public class LibraryTest {
     assertEquals(arr[3], 4);
     assertEquals(arr[4], 5);
     assertEquals(arr[5], 6);
-
   }
 }
