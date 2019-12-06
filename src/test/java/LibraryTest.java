@@ -371,4 +371,13 @@ public class LibraryTest {
     assertNotEquals("multiArrayConcat", list.get(0));
     assertNotEquals("arrayConcat", list.get(1));
   }
+
+  /**
+   * Tests for {@link Library#getAllFieldNames(Class)}.
+   */
+  @Test
+  public void testGetAllFieldNames() {
+    var list = Library.getAllFieldNames(Library.class);
+    assertEquals(list.size(), 0);
+  }
 }
