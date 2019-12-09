@@ -366,10 +366,10 @@ public class LibraryTest {
   @Test
   public void testGetAllMethods() {
     var list = Library.getAllMethods(Library.class);
-    assertEquals("arrayConcat", list.get(0));
-    assertEquals("multiArrayConcat", list.get(1));
-    assertNotEquals("multiArrayConcat", list.get(0));
-    assertNotEquals("arrayConcat", list.get(1));
+    assertTrue(list.contains("arrayConcat"));
+    assertTrue(list.contains("multiArrayConcat"));
+    assertTrue(list.contains("isAnagram"));
+    assertTrue(list.contains("performLottery"));
   }
 
   /**
