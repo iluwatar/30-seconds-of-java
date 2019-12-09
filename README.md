@@ -21,6 +21,7 @@ For new snippets the general steps are
 
 ### Algorithm
 * [Quicksort](#quicksort)
+* [Bubblesort](#bubblesort)
 
 ### Array
 * [Generic two array concatenation](#generic-two-array-concatenation)
@@ -90,6 +91,26 @@ For new snippets the general steps are
             }
         }
     }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Bubblesort
+
+```java
+public static void bubbleSort(int[] arr) {
+    var lastIndex = arr.length - 1;
+
+    for(var j = 0; j < lastIndex; j++) {
+      for(var i = 0; i < lastIndex - j; i++) {
+        if(arr[i] > arr[i + 1]) {
+          var tmp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = tmp;
+        }
+      }
+    }
+  }
 ```
 
 [⬆ back to top](#table-of-contents)
