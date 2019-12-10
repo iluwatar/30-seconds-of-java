@@ -58,6 +58,7 @@ For new snippets the general steps are
 
 ### Class
 * [Get methods name](#Get-methods-name)
+* [Get fields name](#Get-fields-name)
 
 ## Algorithm
 
@@ -464,6 +465,16 @@ public boolean isAnagram(String s1, String s2) {
         }
         return list;
     }
+```
+
+### Get fields name
+
+```java
+  public static List<String> getAllFieldNames(final Class<?> cls) {
+    return Arrays.stream(cls.getFields())
+            .map(Field::getName)
+            .collect(Collectors.toList());
+  }
 ```
 
 [⬆ back to top](#table-of-contents)

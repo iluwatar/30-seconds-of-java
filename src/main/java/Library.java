@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
@@ -52,6 +53,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import javax.imageio.ImageIO;
@@ -445,6 +447,17 @@ public class Library {
       list.add(method.getName());
     }
     return list;
+  }
+  
+  /**
+   * Print all declared public field names of the class or the interface the class extends
+   * @param cls Tested class
+   * @return list of name of public fields
+   */
+  public static List<String> getAllFieldNames(final Class<?> cls) {
+    return Arrays.stream(cls.getFields())
+            .map(Field::getName)
+            .collect(Collectors.toList());
   }
 
   /**

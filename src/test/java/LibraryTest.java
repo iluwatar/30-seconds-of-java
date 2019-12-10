@@ -387,4 +387,19 @@ public class LibraryTest {
     assertEquals(arr[4], 5);
     assertEquals(arr[5], 6);
   }
+
+  /**
+   * Tests for {@link Library#getAllFieldNames(Class)}.
+   */
+  @Test
+  public void testGetAllFieldNames() {
+    class TestClass {
+      public int fieldOne;
+      public int fieldTwo;
+    }
+    var list = Library.getAllFieldNames(TestClass.class);
+    assertEquals(list.size(), 2);
+    assert (list.contains("fieldOne"));
+    assert (list.contains("fieldTwo"));
+  }
 }
