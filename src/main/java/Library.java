@@ -448,7 +448,7 @@ public class Library {
     }
     return list;
   }
-
+  
   /**
    * Print all declared public field names of the class or the interface the class extends
    * @param cls Tested class
@@ -458,5 +458,23 @@ public class Library {
     return Arrays.stream(cls.getFields())
             .map(Field::getName)
             .collect(Collectors.toList());
+  }
+
+  /**
+   * Sort an array with bubbleSort algorithm.
+   * @param arr array to sort
+   */
+  public static void bubbleSort(int[] arr) {
+    var lastIndex = arr.length - 1;
+
+    for (var j = 0; j < lastIndex; j++) {
+      for (var i = 0; i < lastIndex - j; i++) {
+        if (arr[i] > arr[i + 1]) {
+          var tmp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = tmp;
+        }
+      }
+    }
   }
 }
