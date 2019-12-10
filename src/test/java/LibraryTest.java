@@ -393,7 +393,13 @@ public class LibraryTest {
    */
   @Test
   public void testGetAllFieldNames() {
-    var list = Library.getAllFieldNames(Library.class);
-    assertEquals(list.size(), 0);
+    class TestClass {
+      public int fieldOne;
+      public int fieldTwo;
+    }
+    var list = Library.getAllFieldNames(TestClass.class);
+    assertEquals(list.size(), 2);
+    assert (list.contains("fieldOne"));
+    assert (list.contains("fieldTwo"));
   }
 }
