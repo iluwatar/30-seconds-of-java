@@ -402,4 +402,20 @@ public class LibraryTest {
     assert (list.contains("fieldOne"));
     assert (list.contains("fieldTwo"));
   }
+
+  /**
+   * Tests for {@link Library#selectionSort(int[])}.
+   */
+  @Test
+  public void testSelectionSort() {
+    var arr = new int[]{6,3,1,5,4,2};
+    Library.selectionSort(arr);
+    assertEquals(arr.length, 6);
+    assertEquals(arr[0], 1);
+    assertEquals(arr[1], 2);
+    assertEquals(arr[2], 3);
+    assertEquals(arr[3], 4);
+    assertEquals(arr[4], 5);
+    assertEquals(arr[5], 6);
+  }
 }
