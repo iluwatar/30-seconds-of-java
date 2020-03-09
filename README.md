@@ -27,6 +27,7 @@ For new snippets the general steps are
 * [Generic two array concatenation](#generic-two-array-concatenation)
 * [Generic N array concatenation](#generic-N-array-concatenation)
 * [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
+* [Find maximum integer from the array](#find-maximum-integer-from-the-array)
 
 ### File
 * [List directories](#list-directories)
@@ -159,6 +160,18 @@ public static void bubbleSort(int[] arr) {
 ```
 
 [⬆ back to top](#table-of-contents)
+
+### Find maximum integer from the array
+
+```java
+   public static int findMax(int[] arr) {
+      return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+
 
 ## File
 
