@@ -22,6 +22,7 @@ For new snippets the general steps are
 ### Algorithm
 * [Quicksort](#quicksort)
 * [Bubblesort](#bubblesort)
+* [Binary Search] (#binarysearch)
 
 ### Array
 * [Generic two array concatenation](#generic-two-array-concatenation)
@@ -114,6 +115,28 @@ public static void bubbleSort(int[] arr) {
   }
 ```
 
+[⬆ back to top](#table-of-contents)
+
+### Binary Search
+```java
+  public static int binarySearch(int[] arr, int item) {
+    int low = 0;
+    int high = arr.length - 1;
+
+    while(low <= high) {
+      int mid = (low + high) / 2;
+      int cur_guess = arr[mid];
+      if(cur_guess == item) {
+        return mid;
+      } else if(cur_guess > item) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return -1;
+  }
+```
 [⬆ back to top](#table-of-contents)
 
 ## Array
