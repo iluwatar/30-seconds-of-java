@@ -477,4 +477,27 @@ public class Library {
       }
     }
   }
+  /**
+  * Searches a sorted array for a given value using Binary Search.
+  * @param arr the sorted array
+  * @param item the item being searched
+  * @return the index of the item; returns -1 if item does not exist
+  */
+  public static int binarySearch(int[] arr, int item) {
+    int low = 0;
+    int high = arr.length - 1;
+    
+    while(low <= high) {
+      int mid = (low + high) / 2;
+      int cur_guess = arr[mid];
+      if(cur_guess == item) {
+        return mid;
+      } else if(cur_guess > item) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return -1;
+  }
 }
