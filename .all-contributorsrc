@@ -1,6 +1,7 @@
 {
   "files": [
-    "README.md"
+    "README.md",
+    "CONTRIBUTORS.md"
   ],
   "imageSize": 100,
   "contributorsPerLine": 7,
