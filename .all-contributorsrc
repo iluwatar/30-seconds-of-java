@@ -25,7 +25,8 @@
       "contributions": [
         "code",
         "doc",
-        "projectManagement"
+        "projectManagement",
+        "bug"
       ]
     }
   ],
