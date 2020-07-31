@@ -402,4 +402,17 @@ public class LibraryTest {
     assert (list.contains("fieldOne"));
     assert (list.contains("fieldTwo"));
   }
+
+  /**
+   * Tests for {@link Library#findLevenshteinDistance(String, String)}.
+   */
+  @Test
+  public void testFindLevenshteinDistance() {
+    assertEquals(Library.findLevenshteinDistance("kitten","kit"), 3);
+    assertEquals(Library.findLevenshteinDistance("kitten",""), 6);
+    assertEquals(Library.findLevenshteinDistance("","sitting"), 7);
+    assertEquals(Library.findLevenshteinDistance("kitten","sitting"), 3);
+    assertEquals(Library.findLevenshteinDistance("intention","execution"), 5);
+    assertEquals(Library.findLevenshteinDistance("zoologicoarchaeologist","zoogeologist"), 10);
+  }
 }
