@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-import org.junit.jupiter.api.Test;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -38,6 +36,8 @@ import java.util.HashSet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -392,6 +392,7 @@ public class LibraryTest {
       public int fieldOne;
       public int fieldTwo;
     }
+
     var list = Library.getAllFieldNames(TestClass.class);
     assertEquals(2, list.size());
     assertTrue(list.contains("fieldOne"));
