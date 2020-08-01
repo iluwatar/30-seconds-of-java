@@ -125,6 +125,20 @@ public class LibraryTest {
   }
 
   /**
+   * Tests for {@link Library#findMax(int[])}.
+   */
+  @Test
+  public void test_findMax() {
+
+    assertEquals(9, Library.findMax(new int[]{1,2,4,9,8,1}));
+    assertEquals(-8, Library.findMax(new int[]{-43,-23,-51,-10,-8,-65,-9}));
+    assertEquals(0, Library.findMax(new int[]{-4,-3,-2,-1,0}));
+    assertEquals(1, Library.findMax(new int[]{1,1,1,1,1,1}));
+
+  }
+
+
+  /**
    * Tests for {@link Library#reverseString(String)}.
    */
   @Test
@@ -382,5 +396,34 @@ public class LibraryTest {
     assertEquals(2, list.size());
     assertTrue(list.contains("fieldOne"));
     assertTrue(list.contains("fieldTwo"));
+  }
+
+  /**
+   * Tests for {@link Library#selectionSort(int[])}.
+   */
+  @Test
+  public void testSelectionSort() {
+    var arr = new int[]{6,3,1,5,4,2};
+    Library.selectionSort(arr);
+    assertEquals(arr.length, 6);
+    assertEquals(arr[0], 1);
+    assertEquals(arr[1], 2);
+    assertEquals(arr[2], 3);
+    assertEquals(arr[3], 4);
+    assertEquals(arr[4], 5);
+    assertEquals(arr[5], 6);
+  }
+
+  /**
+   * Tests for {@link Library#findLevenshteinDistance(String, String)}.
+   */
+  @Test
+  public void testFindLevenshteinDistance() {
+    assertEquals(Library.findLevenshteinDistance("kitten","kit"), 3);
+    assertEquals(Library.findLevenshteinDistance("kitten",""), 6);
+    assertEquals(Library.findLevenshteinDistance("","sitting"), 7);
+    assertEquals(Library.findLevenshteinDistance("kitten","sitting"), 3);
+    assertEquals(Library.findLevenshteinDistance("intention","execution"), 5);
+    assertEquals(Library.findLevenshteinDistance("zoologicoarchaeologist","zoogeologist"), 10);
   }
 }
