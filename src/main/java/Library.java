@@ -491,7 +491,7 @@ public class Library {
    * Sort an array with selectionSort algorithm.
    * @param arr array to sort
    */
-  public static void selectionSort(int arr[]) {
+  public static void selectionSort(int[] arr) {
     var len = arr.length;
 
     for (var i = 0; i < len - 1; i++) {

@@ -21,8 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
@@ -36,7 +42,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -52,12 +58,7 @@ public class LibraryTest {
     assertEquals(integers.length, 10);
     var strings = Library.arrayConcat(new String[0], new String[0]);
     assertEquals(strings.length, 0);
-    try {
-      var doubles = Library.arrayConcat(null, null);
-      fail("Did not throw NPE as expected");
-    } catch (NullPointerException e) {
-      // expected behaviour, everything is fine
-    }
+    assertThrows(NullPointerException.class, () -> Library.arrayConcat(null, null));
   }
 
   /**
@@ -70,12 +71,7 @@ public class LibraryTest {
     var multiple
         = Library.multiArrayConcat(new String[5], new String[12], new String[3], new String[8]);
     assertEquals(multiple.length, 28);
-    try {
-      var doubles = Library.multiArrayConcat(null, null, null, null);
-      fail("Did not throw NPE as expected");
-    } catch (NullPointerException e) {
-      // expected behaviour, everything is fine
-    }
+    assertThrows(NullPointerException.class, () -> Library.multiArrayConcat(null, null, null, null));
   }
 
   /**
@@ -94,12 +90,7 @@ public class LibraryTest {
     assertFalse(Library.allEqual(stringArray));
     var doubleArray = new Double[1];
     assertTrue(Library.allEqual(doubleArray));
-    try {
-      var res = Library.allEqual(null);
-      fail("Did not throw NPE as expected");
-    } catch (NullPointerException e) {
-      // expected behaviour, everything is fine
-    }
+    assertThrows(NullPointerException.class, () -> Library.allEqual(null));
   }
 
   /**
@@ -172,12 +163,7 @@ public class LibraryTest {
     assertEquals("foo", somelines.get(0));
     assertEquals("bar", somelines.get(1));
     assertEquals("baz", somelines.get(2));
-    try {
-      Library.readLines("some/nonexistent/filename.txt");
-      fail("Did not throw IOException as expected");
-    } catch (IOException e) {
-      // catched the expected exception
-    }
+    assertThrows(IOException.class, () -> Library.readLines("some/nonexistent/filename.txt"));
   }
 
   /**
@@ -215,9 +201,9 @@ public class LibraryTest {
   @Test
   public void testListDirectories() {
     var files = Library.listDirectories("src/test/resources");
-    Arrays.stream(files).allMatch(f -> f.isDirectory());
-    assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir1")::equals));
-    assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir2")::equals));
+    assertTrue(Arrays.stream(files).allMatch(File::isDirectory));
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/dir1")));
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/dir2")));
   }
 
   /**
@@ -411,6 +397,7 @@ public class LibraryTest {
       public int fieldOne;
       public int fieldTwo;
     }
+
     var list = Library.getAllFieldNames(TestClass.class);
     assertEquals(2, list.size());
     assertTrue(list.contains("fieldOne"));
@@ -424,13 +411,13 @@ public class LibraryTest {
   public void testSelectionSort() {
     var arr = new int[]{6,3,1,5,4,2};
     Library.selectionSort(arr);
-    assertEquals(arr.length, 6);
-    assertEquals(arr[0], 1);
-    assertEquals(arr[1], 2);
-    assertEquals(arr[2], 3);
-    assertEquals(arr[3], 4);
-    assertEquals(arr[4], 5);
-    assertEquals(arr[5], 6);
+    assertEquals(6, arr.length);
+    assertEquals(1, arr[0]);
+    assertEquals(2, arr[1]);
+    assertEquals(3, arr[2]);
+    assertEquals(4, arr[3]);
+    assertEquals(5, arr[4]);
+    assertEquals(6, arr[5]);
   }
 
   /**
@@ -438,11 +425,11 @@ public class LibraryTest {
    */
   @Test
   public void testFindLevenshteinDistance() {
-    assertEquals(Library.findLevenshteinDistance("kitten","kit"), 3);
-    assertEquals(Library.findLevenshteinDistance("kitten",""), 6);
-    assertEquals(Library.findLevenshteinDistance("","sitting"), 7);
-    assertEquals(Library.findLevenshteinDistance("kitten","sitting"), 3);
-    assertEquals(Library.findLevenshteinDistance("intention","execution"), 5);
-    assertEquals(Library.findLevenshteinDistance("zoologicoarchaeologist","zoogeologist"), 10);
+    assertEquals(3, Library.findLevenshteinDistance("kitten","kit"));
+    assertEquals(6, Library.findLevenshteinDistance("kitten",""));
+    assertEquals(7, Library.findLevenshteinDistance("","sitting"));
+    assertEquals(3, Library.findLevenshteinDistance("kitten","sitting"));
+    assertEquals(5, Library.findLevenshteinDistance("intention","execution"));
+    assertEquals(10, Library.findLevenshteinDistance("zoologicoarchaeologist","zoogeologist"));
   }
 }
