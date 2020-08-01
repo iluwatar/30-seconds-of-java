@@ -10,6 +10,8 @@ apply plugin: 'checkstyle'
 checkstyle {
     toolVersion '8.26'
     configFile file("config/checkstyle.xml")
+    maxErrors(0)
+    maxWarnings(0)
 }
 checkstyleMain {
     source ='src/main/java'

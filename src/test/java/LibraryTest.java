@@ -22,7 +22,13 @@
  * SOFTWARE.
  */
 
-import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
@@ -35,14 +41,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -71,7 +70,8 @@ public class LibraryTest {
     var multiple
         = Library.multiArrayConcat(new String[5], new String[12], new String[3], new String[8]);
     assertEquals(multiple.length, 28);
-    assertThrows(NullPointerException.class, () -> Library.multiArrayConcat(null, null, null, null));
+    assertThrows(NullPointerException.class,
+        () -> Library.multiArrayConcat(null, null, null, null));
   }
 
   /**
@@ -134,10 +134,10 @@ public class LibraryTest {
    */
   @Test
   void test_findMax() {
-    assertEquals(9, Library.findMax(new int[]{1,2,4,9,8,1}));
-    assertEquals(-8, Library.findMax(new int[]{-43,-23,-51,-10,-8,-65,-9}));
-    assertEquals(0, Library.findMax(new int[]{-4,-3,-2,-1,0}));
-    assertEquals(1, Library.findMax(new int[]{1,1,1,1,1,1}));
+    assertEquals(9, Library.findMax(new int[] {1, 2, 4, 9, 8, 1}));
+    assertEquals(-8, Library.findMax(new int[] {-43, -23, -51, -10, -8, -65, -9}));
+    assertEquals(0, Library.findMax(new int[] {-4, -3, -2, -1, 0}));
+    assertEquals(1, Library.findMax(new int[] {1, 1, 1, 1, 1, 1}));
   }
 
   /**
@@ -151,6 +151,7 @@ public class LibraryTest {
 
   /**
    * Tests for {@link Library#readLines(String)}.
+   *
    * @throws IOException if an I/O error occurs
    */
   @Test
@@ -242,9 +243,9 @@ public class LibraryTest {
   @Test
   void testPerformLottery() {
     var numbers0 = Library.performLottery(0, 0);
-    assertArrayEquals(new Integer[]{}, numbers0);
+    assertArrayEquals(new Integer[] {}, numbers0);
     var numbers1 = Library.performLottery(1, 1);
-    assertArrayEquals(new Integer[]{1}, numbers1);
+    assertArrayEquals(new Integer[] {1}, numbers1);
     var numbers2 = Library.performLottery(2, 2);
     assertEquals(2, numbers2.length);
     assertTrue(numbers2[0] == 1 || numbers2[0] == 2);
@@ -287,7 +288,7 @@ public class LibraryTest {
    */
   @Test
   void testQuickSort() {
-    var arr = new int[]{7, 13, 3, 1, 8, 5};
+    var arr = new int[] {7, 13, 3, 1, 8, 5};
     Library.quickSort(arr, 0, arr.length - 1);
     assertEquals(6, arr.length);
     assertEquals(1, arr[0]);
@@ -339,10 +340,10 @@ public class LibraryTest {
    */
   @Test
   void testGcd() {
-    assertEquals(2,Library.gcd(2, 4));
+    assertEquals(2, Library.gcd(2, 4));
     assertEquals(1, Library.gcd(2, 5));
     assertEquals(6, Library.gcd(18, 24));
-    assertEquals(7,Library.gcd(7, 7));
+    assertEquals(7, Library.gcd(7, 7));
   }
 
   /**
@@ -350,11 +351,11 @@ public class LibraryTest {
    */
   @Test
   void testIsAnagram() {
-    assertTrue(Library.isAnagram("Aditya","aytdiA"));
-    assertFalse(Library.isAnagram("Aditya","aytida"));
-    assertTrue(Library.isAnagram("~~# @!","~@!#~ "));
-    assertTrue(Library.isAnagram("Mother In Law","hIt Ler woMan"));
-    assertFalse(Library.isAnagram("aa","aaa"));
+    assertTrue(Library.isAnagram("Aditya", "aytdiA"));
+    assertFalse(Library.isAnagram("Aditya", "aytida"));
+    assertTrue(Library.isAnagram("~~# @!", "~@!#~ "));
+    assertTrue(Library.isAnagram("Mother In Law", "hIt Ler woMan"));
+    assertFalse(Library.isAnagram("aa", "aaa"));
   }
 
   /**
@@ -374,7 +375,7 @@ public class LibraryTest {
    */
   @Test
   void testBubbleSort() {
-    var arr = new int[]{6,3,1,5,4,2};
+    var arr = new int[] {6, 3, 1, 5, 4, 2};
     Library.bubbleSort(arr);
     assertEquals(6, arr.length);
     assertEquals(1, arr[0]);
@@ -406,7 +407,7 @@ public class LibraryTest {
    */
   @Test
   void testSelectionSort() {
-    var arr = new int[]{6,3,1,5,4,2};
+    var arr = new int[] {6, 3, 1, 5, 4, 2};
     Library.selectionSort(arr);
     assertEquals(6, arr.length);
     assertEquals(1, arr[0]);
@@ -422,11 +423,11 @@ public class LibraryTest {
    */
   @Test
   void testFindLevenshteinDistance() {
-    assertEquals(3, Library.findLevenshteinDistance("kitten","kit"));
-    assertEquals(6, Library.findLevenshteinDistance("kitten",""));
-    assertEquals(7, Library.findLevenshteinDistance("","sitting"));
-    assertEquals(3, Library.findLevenshteinDistance("kitten","sitting"));
-    assertEquals(5, Library.findLevenshteinDistance("intention","execution"));
-    assertEquals(10, Library.findLevenshteinDistance("zoologicoarchaeologist","zoogeologist"));
+    assertEquals(3, Library.findLevenshteinDistance("kitten", "kit"));
+    assertEquals(6, Library.findLevenshteinDistance("kitten", ""));
+    assertEquals(7, Library.findLevenshteinDistance("", "sitting"));
+    assertEquals(3, Library.findLevenshteinDistance("kitten", "sitting"));
+    assertEquals(5, Library.findLevenshteinDistance("intention", "execution"));
+    assertEquals(10, Library.findLevenshteinDistance("zoologicoarchaeologist", "zoogeologist"));
   }
 }

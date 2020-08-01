@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-import javax.imageio.ImageIO;
-
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -55,6 +53,7 @@ import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import javax.imageio.ImageIO;
 
 /*
  * 30 Seconds of Java code library
@@ -62,11 +61,11 @@ import java.util.zip.ZipOutputStream;
  */
 public class Library {
   /**
-   * Generic 2 array concatenation
-   * Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java
-   * @param first is the first array (not null)
+   * Generic 2 array concatenation Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java
+   *
+   * @param first  is the first array (not null)
    * @param second is the second array (not null)
-   * @param <T> the element type
+   * @param <T>    the element type
    * @return concatenated array
    */
   public static <T> T[] arrayConcat(T[] first, T[] second) {
@@ -76,11 +75,11 @@ public class Library {
   }
 
   /**
-   * Generic N array concatenation
-   * Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java
+   * Generic N array concatenation Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java
+   *
    * @param first is the first array (not null)
-   * @param rest the rest of the arrays (optional)
-   * @param <T> the element type
+   * @param rest  the rest of the arrays (optional)
+   * @param <T>   the element type
    * @return concatenated array
    */
   public static <T> T[] multiArrayConcat(T[] first, T[]... rest) {
@@ -99,6 +98,7 @@ public class Library {
 
   /**
    * Returns true if all elements in array are equal.
+   *
    * @param arr the array to check (not null)
    * @param <T> the element type
    * @return true if all elements in the array are equal
@@ -108,7 +108,7 @@ public class Library {
   }
 
   /**
-   * Returns the maximum integer from the array using reduction
+   * Returns the maximum integer from the array using reduction.
    * @param arr the array of integers (not null)
    * @return the maximum element from the array
    */
@@ -117,8 +117,8 @@ public class Library {
   }
 
   /**
-   * Recursive Fibonacci series.
-   * Works only for small n and is spectacularly inefficient
+   * Recursive Fibonacci series. Works only for small n and is spectacularly inefficient
+   *
    * @param n given number
    * @return fibonacci number for given n
    */
@@ -131,8 +131,8 @@ public class Library {
   }
 
   /**
-   * Factorial.
-   * Works only for small numbers
+   * Factorial. Works only for small numbers
+   *
    * @param number for which factorial is to be calculated for
    * @return factorial
    */
@@ -146,6 +146,7 @@ public class Library {
 
   /**
    * Reverse string.
+   *
    * @param s the string to reverse
    * @return reversed string
    */
@@ -155,6 +156,7 @@ public class Library {
 
   /**
    * Read file as list of strings.
+   *
    * @param filename the filename to read from
    * @return list of strings
    * @throws IOException if an I/O error occurs
@@ -164,11 +166,11 @@ public class Library {
   }
 
   /**
-   * Capture screenshot and save it to PNG file.
-   * Credits: https://viralpatel.net/blogs/how-to-take-screen-shots-in-java-taking-screenshots-java/
+   * Capture screenshot and save it to PNG file. Credits: https://viralpatel.net/blogs/how-to-take-screen-shots-in-java-taking-screenshots-java/
+   *
    * @param filename the name of the file
    * @throws AWTException if the platform configuration does not allow low-level input control
-   * @throws IOException if an I/O error occurs
+   * @throws IOException  if an I/O error occurs
    */
   public static void captureScreen(String filename) throws AWTException, IOException {
     var screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -180,7 +182,8 @@ public class Library {
 
   /**
    * Convert string to date.
-   * @param date the date string
+   *
+   * @param date   the date string
    * @param format expected date format
    * @return Date
    * @throws ParseException in case of an unparseable date string
@@ -192,6 +195,7 @@ public class Library {
 
   /**
    * List directories.
+   *
    * @param path the path where to look
    * @return array of File
    */
@@ -200,9 +204,9 @@ public class Library {
   }
 
   /**
-   * Checks if given string is palindrome (same forward and backward).
-   * Skips non-letter characters
+   * Checks if given string is palindrome (same forward and backward). Skips non-letter characters
    * Credits: https://github.com/kousen/java_8_recipes
+   *
    * @param s string to check
    * @return true if palindrome
    */
@@ -219,11 +223,12 @@ public class Library {
   }
 
   /**
-  * Checks if two words are anagrams (contains same characters with same frequency in any order).
-  * @param s1 The first string to be checked
-  * @param s2 The second string to be checked
-  * @return true if they are anagrams of each other
-  */
+   * Checks if two words are anagrams (contains same characters with same frequency in any order).
+   *
+   * @param s1 The first string to be checked
+   * @param s2 The second string to be checked
+   * @return true if they are anagrams of each other
+   */
   public static boolean isAnagram(String s1, String s2) {
     var l1 = s1.length();
     var l2 = s2.length();
@@ -241,6 +246,7 @@ public class Library {
 
   /**
    * List files in directory.
+   *
    * @param folder the path where to look
    * @return array of File
    */
@@ -250,6 +256,7 @@ public class Library {
 
   /**
    * Recursively list all the files in directory.
+   *
    * @param path the path to start the search from
    * @return list of all files
    */
@@ -270,7 +277,8 @@ public class Library {
 
   /**
    * Generate random lottery numbers.
-   * @param numNumbers how many performLottery numbers are available (e.g. 49)
+   *
+   * @param numNumbers    how many performLottery numbers are available (e.g. 49)
    * @param numbersToPick how many numbers the player needs to pick (e.g. 6)
    * @return array with the random numbers
    */
@@ -285,6 +293,7 @@ public class Library {
 
   /**
    * Zip single file.
+   *
    * @param srcFilename the filename of the source file
    * @param zipFilename the filename of the destination zip file
    * @throws IOException if an I/O error occurs
@@ -308,8 +317,9 @@ public class Library {
 
   /**
    * Zip multiples files.
+   *
    * @param srcFilenames array of source file names
-   * @param zipFilename the filename of the destination zip file
+   * @param zipFilename  the filename of the destination zip file
    * @throws IOException if an I/O error occurs
    */
   public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
@@ -334,8 +344,9 @@ public class Library {
 
   /**
    * Sort an array with quicksort algorithm.
-   * @param arr array to sort
-   * @param left left index where to begin sort (e.g. 0)
+   *
+   * @param arr   array to sort
+   * @param left  left index where to begin sort (e.g. 0)
    * @param right right index where to end sort (e.g. array length - 1)
    */
   public static void quickSort(int[] arr, int left, int right) {
@@ -368,6 +379,7 @@ public class Library {
 
   /**
    * Performs HTTP GET request.
+   *
    * @param uri the URI of the connection
    * @return response object
    * @throws Exception i/o error, interruption error, etc
@@ -381,12 +393,12 @@ public class Library {
   }
 
   /**
-   * Performs HTTP POST request.
-   * Credits https://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
-   * @param address the URL of the connection in String format, like "http://www.google.com"
+   * Performs HTTP POST request. Credits https://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
+   *
+   * @param address   the URL of the connection in String format, like "http://www.google.com"
    * @param arguments the body of the POST request, as a HashMap
    * @return response object
-   * @throws IOException if an I/O error occurs
+   * @throws IOException          if an I/O error occurs
    * @throws InterruptedException if the operation is interrupted
    */
   public static HttpResponse<String> httpPost(String address, HashMap<String, String> arguments)
@@ -407,9 +419,9 @@ public class Library {
   }
 
   /**
-   * Checks if given number is a prime number.
-   * Prime number is a number that is greater than 1 and divided by 1 or itself only
-   * Credits: https://en.wikipedia.org/wiki/Prime_number
+   * Checks if given number is a prime number. Prime number is a number that is greater than 1 and
+   * divided by 1 or itself only Credits: https://en.wikipedia.org/wiki/Prime_number
+   *
    * @param number number to check prime
    * @return true if prime
    */
@@ -432,6 +444,7 @@ public class Library {
 
   /**
    * Greatest common divisor calculation.
+   *
    * @param a one of the numbers whose gcd is to be computed
    * @param b other number whose gcd is to be computed
    * @return gcd of the two numbers
@@ -444,7 +457,7 @@ public class Library {
   }
 
   /**
-   * Print all declared methods of the class
+   * Print all declared methods of the class.
    * @param cls Tested class
    * @return list of methods name
    */
@@ -455,20 +468,22 @@ public class Library {
     }
     return list;
   }
-  
+
   /**
-   * Print all declared public field names of the class or the interface the class extends
+   * Print all declared public field names of the class or the interface
+   * the class extends.
    * @param cls Tested class
    * @return list of name of public fields
    */
   public static List<String> getAllFieldNames(final Class<?> cls) {
     return Arrays.stream(cls.getFields())
-            .map(Field::getName)
-            .collect(Collectors.toList());
+        .map(Field::getName)
+        .collect(Collectors.toList());
   }
 
   /**
    * Sort an array with bubbleSort algorithm.
+   *
    * @param arr array to sort
    */
   public static void bubbleSort(int[] arr) {
@@ -484,9 +499,10 @@ public class Library {
       }
     }
   }
-  
+
   /**
    * Sort an array with selectionSort algorithm.
+   *
    * @param arr array to sort
    */
   public static void selectionSort(int[] arr) {
@@ -496,8 +512,9 @@ public class Library {
       var minIndex = i;
 
       for (var j = i + 1; j < len; j++) {
-        if(arr[j] < arr[minIndex])
+        if (arr[j] < arr[minIndex]) {
           minIndex = j;
+        }
       }
 
       var tmp = arr[minIndex];
@@ -505,11 +522,11 @@ public class Library {
       arr[i] = tmp;
     }
   }
- 
+
 
   /**
-   * Find the Levenshtein distance between two words.
-   * https://en.wikipedia.org/wiki/Levenshtein_distance
+   * Find the Levenshtein distance between two words. https://en.wikipedia.org/wiki/Levenshtein_distance
+   *
    * @param word1 first word
    * @param word2 second word
    * @return distance
