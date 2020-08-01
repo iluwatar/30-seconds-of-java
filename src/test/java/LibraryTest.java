@@ -398,7 +398,7 @@ public class LibraryTest {
       public int fieldTwo;
     }
     var list = Library.getAllFieldNames(TestClass.class);
-    assertEquals(list.size(), 2);
+    assertEquals(2, list.size());
     assert (list.contains("fieldOne"));
     assert (list.contains("fieldTwo"));
   }
