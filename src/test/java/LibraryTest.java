@@ -21,11 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.*;
 
-import java.awt.AWTException;
-import java.awt.HeadlessException;
+import org.junit.jupiter.api.Test;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -36,7 +35,9 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import org.junit.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.junit.jupiter.api.Assertions.*;
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -52,12 +53,7 @@ public class LibraryTest {
     assertEquals(integers.length, 10);
     var strings = Library.arrayConcat(new String[0], new String[0]);
     assertEquals(strings.length, 0);
-    try {
-      var doubles = Library.arrayConcat(null, null);
-      fail("Did not throw NPE as expected");
-    } catch (NullPointerException e) {
-      // expected behaviour, everything is fine
-    }
+    assertThrows(NullPointerException.class, () -> Library.arrayConcat(null, null));
   }
 
   /**
@@ -70,12 +66,7 @@ public class LibraryTest {
     var multiple
         = Library.multiArrayConcat(new String[5], new String[12], new String[3], new String[8]);
     assertEquals(multiple.length, 28);
-    try {
-      var doubles = Library.multiArrayConcat(null, null, null, null);
-      fail("Did not throw NPE as expected");
-    } catch (NullPointerException e) {
-      // expected behaviour, everything is fine
-    }
+    assertThrows(NullPointerException.class, () -> Library.multiArrayConcat(null, null, null, null));
   }
 
   /**
@@ -94,12 +85,7 @@ public class LibraryTest {
     assertFalse(Library.allEqual(stringArray));
     var doubleArray = new Double[1];
     assertTrue(Library.allEqual(doubleArray));
-    try {
-      var res = Library.allEqual(null);
-      fail("Did not throw NPE as expected");
-    } catch (NullPointerException e) {
-      // expected behaviour, everything is fine
-    }
+    assertThrows(NullPointerException.class, () -> Library.allEqual(null));
   }
 
   /**
@@ -158,12 +144,7 @@ public class LibraryTest {
     assertEquals("foo", somelines.get(0));
     assertEquals("bar", somelines.get(1));
     assertEquals("baz", somelines.get(2));
-    try {
-      Library.readLines("some/nonexistent/filename.txt");
-      fail("Did not throw IOException as expected");
-    } catch (IOException e) {
-      // catched the expected exception
-    }
+    assertThrows(IOException.class, () -> Library.readLines("some/nonexistent/filename.txt"));
   }
 
   /**
@@ -201,9 +182,9 @@ public class LibraryTest {
   @Test
   public void testListDirectories() {
     var files = Library.listDirectories("src/test/resources");
-    Arrays.stream(files).allMatch(f -> f.isDirectory());
-    assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir1")::equals));
-    assertTrue(Arrays.stream(files).anyMatch(new File("src/test/resources/dir2")::equals));
+    assertTrue(Arrays.stream(files).allMatch(File::isDirectory));
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/dir1")));
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/dir2")));
   }
 
   /**
