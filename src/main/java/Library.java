@@ -21,20 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+import javax.imageio.ImageIO;
+
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -56,7 +55,6 @@ import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-import javax.imageio.ImageIO;
 
 /*
  * 30 Seconds of Java code library
@@ -296,7 +294,7 @@ public class Library {
     try (
         var fileOut = new FileOutputStream(zipFilename);
         var zipOut = new ZipOutputStream(fileOut);
-        var fileIn = new FileInputStream(srcFile);
+        var fileIn = new FileInputStream(srcFile)
     ) {
       var zipEntry = new ZipEntry(srcFile.getName());
       zipOut.putNextEntry(zipEntry);
@@ -317,10 +315,10 @@ public class Library {
   public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
     try (
         var fileOut = new FileOutputStream(zipFilename);
-        var zipOut = new ZipOutputStream(fileOut);
+        var zipOut = new ZipOutputStream(fileOut)
     ) {
-      for (var i = 0; i < srcFilenames.length; i++) {
-        var srcFile = new File(srcFilenames[i]);
+      for (String srcFilename : srcFilenames) {
+        var srcFile = new File(srcFilename);
         try (var fileIn = new FileInputStream(srcFile)) {
           var zipEntry = new ZipEntry(srcFile.getName());
           zipOut.putNextEntry(zipEntry);
@@ -395,8 +393,8 @@ public class Library {
       throws IOException, InterruptedException {
     var sj = new StringJoiner("&");
     for (var entry : arguments.entrySet()) {
-      sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "="
-          + URLEncoder.encode(entry.getValue(), "UTF-8"));
+      sj.add(URLEncoder.encode(entry.getKey(), StandardCharsets.UTF_8) + "="
+          + URLEncoder.encode(entry.getValue(), StandardCharsets.UTF_8));
     }
     var out = sj.toString().getBytes(StandardCharsets.UTF_8);
     var request = HttpRequest.newBuilder()
@@ -510,38 +508,29 @@ public class Library {
  
 
   /**
-   * Find the Levenshtein distnace between two words.
+   * Find the Levenshtein distance between two words.
    * https://en.wikipedia.org/wiki/Levenshtein_distance
-   * @param word1
-   * @param word2
-   * @return
+   * @param word1 first word
+   * @param word2 second word
+   * @return distance
    */
   public static int findLevenshteinDistance(String word1, String word2) {
-
-    /**
-     * If word2 is empty, removing
-     */
+    // If word2 is empty, removing
     int[][] ans = new int[word1.length() + 1][word2.length() + 1];
     for (int i = 0; i <= word1.length(); i++) {
       ans[i][0] = i;
     }
-    /**
-     * if word1 is empty, adding
-     */
+    // if word1 is empty, adding
     for (int i = 0; i <= word2.length(); i++) {
       ans[0][i] = i;
     }
-
-    /**
-     * None is empty
-     */
+    // None is empty
     for (int i = 1; i <= word1.length(); i++) {
       for (int j = 1; j <= word2.length(); j++) {
         int min = Math.min(Math.min(ans[i][j - 1], ans[i - 1][j]), ans[i - 1][j - 1]);
         ans[i][j] = word1.charAt(i - 1) == word2.charAt(j - 1) ? ans[i - 1][j - 1] : min + 1;
       }
     }
-
     return ans[word1.length()][word2.length()];
   }
 }

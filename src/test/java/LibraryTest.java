@@ -22,13 +22,7 @@
  * SOFTWARE.
  */
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
@@ -42,7 +36,13 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -53,7 +53,7 @@ public class LibraryTest {
    * Tests for {@link Library#arrayConcat(Object[], Object[])}.
    */
   @Test
-  public void testArrayConcat() {
+  void testArrayConcat() {
     var integers = Library.arrayConcat(new Integer[5], new Integer[5]);
     assertEquals(integers.length, 10);
     var strings = Library.arrayConcat(new String[0], new String[0]);
@@ -65,7 +65,7 @@ public class LibraryTest {
    * Tests for {@link Library#multiArrayConcat(Object[], Object[][])}.
    */
   @Test
-  public void testNArrayConcat() {
+  void testNArrayConcat() {
     var single = Library.multiArrayConcat(new Integer[1]);
     assertEquals(single.length, 1);
     var multiple
@@ -78,7 +78,7 @@ public class LibraryTest {
    * Tests for {@link Library#allEqual(Object[])}.
    */
   @Test
-  public void testAllEqual() {
+  void testAllEqual() {
     var intArray = new Integer[5];
     assertTrue(Library.allEqual(intArray));
     intArray[0] = 1;
@@ -97,7 +97,7 @@ public class LibraryTest {
    * Tests for {@link Library#fibonacci(int)}.
    */
   @Test
-  public void testFibonacci() {
+  void testFibonacci() {
     assertEquals(0, Library.fibonacci(0));
     assertEquals(1, Library.fibonacci(1));
     assertEquals(1, Library.fibonacci(2));
@@ -115,7 +115,7 @@ public class LibraryTest {
    * Tests for {@link Library#factorial(int)}.
    */
   @Test
-  public void testFactorial() {
+  void testFactorial() {
     assertEquals(1, Library.factorial(0));
     assertEquals(1, Library.factorial(1));
     assertEquals(2, Library.factorial(2));
@@ -133,21 +133,18 @@ public class LibraryTest {
    * Tests for {@link Library#findMax(int[])}.
    */
   @Test
-  public void test_findMax() {
-
+  void test_findMax() {
     assertEquals(9, Library.findMax(new int[]{1,2,4,9,8,1}));
     assertEquals(-8, Library.findMax(new int[]{-43,-23,-51,-10,-8,-65,-9}));
     assertEquals(0, Library.findMax(new int[]{-4,-3,-2,-1,0}));
     assertEquals(1, Library.findMax(new int[]{1,1,1,1,1,1}));
-
   }
-
 
   /**
    * Tests for {@link Library#reverseString(String)}.
    */
   @Test
-  public void testReverseString() {
+  void testReverseString() {
     assertEquals("oof", Library.reverseString("foo"));
     assertEquals("ÖÄÅ321FED cba", Library.reverseString("abc DEF123ÅÄÖ"));
   }
@@ -157,7 +154,7 @@ public class LibraryTest {
    * @throws IOException if an I/O error occurs
    */
   @Test
-  public void testReadLines() throws IOException {
+  void testReadLines() throws IOException {
     var somelines = Library.readLines("src/test/resources/somelines.txt");
     assertEquals(3, somelines.size());
     assertEquals("foo", somelines.get(0));
@@ -170,7 +167,7 @@ public class LibraryTest {
    * Tests for {@link Library#captureScreen(String)}.
    */
   @Test
-  public void testCaptureScreen() throws IOException, AWTException {
+  void testCaptureScreen() throws IOException, AWTException {
     final var filename = "src/test/resources/screenshot.png";
     try {
       Library.captureScreen(filename);
@@ -187,7 +184,7 @@ public class LibraryTest {
    * Tests for {@link Library#stringToDate(String, String)}.
    */
   @Test
-  public void testStringToDate() throws ParseException {
+  void testStringToDate() throws ParseException {
     var calendar = Calendar.getInstance();
     calendar.setTime(Library.stringToDate("2017-08-18", "yyyy-MM-dd"));
     assertEquals(2017, calendar.get(Calendar.YEAR));
@@ -199,7 +196,7 @@ public class LibraryTest {
    * Tests for {@link Library#listDirectories(String)}.
    */
   @Test
-  public void testListDirectories() {
+  void testListDirectories() {
     var files = Library.listDirectories("src/test/resources");
     assertTrue(Arrays.stream(files).allMatch(File::isDirectory));
     assertTrue(Arrays.asList(files).contains(new File("src/test/resources/dir1")));
@@ -210,7 +207,7 @@ public class LibraryTest {
    * Tests for {@link Library#isPalindrome(String)}.
    */
   @Test
-  public void testIsPalindrome() {
+  void testIsPalindrome() {
     assertTrue(Library.isPalindrome("saippuakauppias"));
     // non-letter characters are skipped
     assertTrue(Library.isPalindrome("111 Saippua - Kauppias 321"));
@@ -222,7 +219,7 @@ public class LibraryTest {
    * Tests for {@link Library#listFilesInDirectory(File)}.
    */
   @Test
-  public void testListFilesInDirectory() {
+  void testListFilesInDirectory() {
     var files = Library.listFilesInDirectory(new File("src/test/resources"));
     assertEquals(2, files.length);
     var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
@@ -234,7 +231,7 @@ public class LibraryTest {
    * Tests for {@link Library#listAllFiles(String)}.
    */
   @Test
-  public void testListAllFiles() {
+  void testListAllFiles() {
     var files = Library.listAllFiles("src/test/resources");
     assertEquals(4, files.size());
   }
@@ -243,7 +240,7 @@ public class LibraryTest {
    * Tests for {@link Library#performLottery(int, int)}.
    */
   @Test
-  public void testPerformLottery() {
+  void testPerformLottery() {
     var numbers0 = Library.performLottery(0, 0);
     assertArrayEquals(new Integer[]{}, numbers0);
     var numbers1 = Library.performLottery(1, 1);
@@ -258,7 +255,7 @@ public class LibraryTest {
    * Tests for {@link Library#zipFile(String, String)}.
    */
   @Test
-  public void testZipFile() throws IOException {
+  void testZipFile() throws IOException {
     final var src = "src/test/resources/somelines.txt";
     final var dst = "src/test/resources/somelines.zip";
     try {
@@ -273,7 +270,7 @@ public class LibraryTest {
    * Tests for {@link Library#zipFiles(String[], String)}.
    */
   @Test
-  public void testZipFiles() throws IOException {
+  void testZipFiles() throws IOException {
     final String[] srcFilenames =
         {"src/test/resources/somelines.txt", "src/test/resources/someotherlines.txt"};
     final var dst = "src/test/resources/multiple.zip";
@@ -289,7 +286,7 @@ public class LibraryTest {
    * Tests for {@link Library#quickSort(int[], int, int)}.
    */
   @Test
-  public void testQuickSort() {
+  void testQuickSort() {
     var arr = new int[]{7, 13, 3, 1, 8, 5};
     Library.quickSort(arr, 0, arr.length - 1);
     assertEquals(6, arr.length);
@@ -305,7 +302,7 @@ public class LibraryTest {
    * Tests for {@link Library#httpGet(String)}.
    */
   @Test
-  public void testHttpGet() throws Exception {
+  void testHttpGet() throws Exception {
     var response = Library.httpGet("http://www.google.com");
     assertEquals(200, response.statusCode());
   }
@@ -314,7 +311,7 @@ public class LibraryTest {
    * Tests for {@link Library#httpPost(String, HashMap)}.
    */
   @Test
-  public void testHttpPost() throws IOException, InterruptedException {
+  void testHttpPost() throws IOException, InterruptedException {
     HashMap<String, String> arguments = new HashMap<>();
     arguments.put("data", "Hello World");
     var result = Library.httpPost("https://postman-echo.com/post", arguments);
@@ -328,7 +325,7 @@ public class LibraryTest {
    * Tests for {@link Library#isPrime(int)}.
    */
   @Test
-  public void testIsPrime() {
+  void testIsPrime() {
     assertTrue(Library.isPrime(2));
     assertTrue(Library.isPrime(3));
     assertTrue(Library.isPrime(17));
@@ -341,7 +338,7 @@ public class LibraryTest {
    * Tests for {@link Library#gcd(int, int)}.
    */
   @Test
-  public void testGcd() {
+  void testGcd() {
     assertEquals(2,Library.gcd(2, 4));
     assertEquals(1, Library.gcd(2, 5));
     assertEquals(6, Library.gcd(18, 24));
@@ -352,7 +349,7 @@ public class LibraryTest {
    * Tests for {@link Library#isAnagram(String, String)}.
    */
   @Test
-  public void testIsAnagram() {
+  void testIsAnagram() {
     assertTrue(Library.isAnagram("Aditya","aytdiA"));
     assertFalse(Library.isAnagram("Aditya","aytida"));
     assertTrue(Library.isAnagram("~~# @!","~@!#~ "));
@@ -364,7 +361,7 @@ public class LibraryTest {
    * Tests for {@link Library#getAllMethods(Class)}.
    */
   @Test
-  public void testGetAllMethods() {
+  void testGetAllMethods() {
     var list = Library.getAllMethods(Library.class);
     assertTrue(list.contains("arrayConcat"));
     assertTrue(list.contains("multiArrayConcat"));
@@ -376,7 +373,7 @@ public class LibraryTest {
    * Tests for {@link Library#bubbleSort(int[])}.
    */
   @Test
-  public void testBubbleSort() {
+  void testBubbleSort() {
     var arr = new int[]{6,3,1,5,4,2};
     Library.bubbleSort(arr);
     assertEquals(6, arr.length);
@@ -392,7 +389,7 @@ public class LibraryTest {
    * Tests for {@link Library#getAllFieldNames(Class)}.
    */
   @Test
-  public void testGetAllFieldNames() {
+  void testGetAllFieldNames() {
     class TestClass {
       public int fieldOne;
       public int fieldTwo;
@@ -408,7 +405,7 @@ public class LibraryTest {
    * Tests for {@link Library#selectionSort(int[])}.
    */
   @Test
-  public void testSelectionSort() {
+  void testSelectionSort() {
     var arr = new int[]{6,3,1,5,4,2};
     Library.selectionSort(arr);
     assertEquals(6, arr.length);
@@ -424,7 +421,7 @@ public class LibraryTest {
    * Tests for {@link Library#findLevenshteinDistance(String, String)}.
    */
   @Test
-  public void testFindLevenshteinDistance() {
+  void testFindLevenshteinDistance() {
     assertEquals(3, Library.findLevenshteinDistance("kitten","kit"));
     assertEquals(6, Library.findLevenshteinDistance("kitten",""));
     assertEquals(7, Library.findLevenshteinDistance("","sitting"));
