@@ -1,7 +1,7 @@
 
 # 30 Seconds of Java
 
-[![Build status](https://api.travis-ci.org/iluwatar/30-seconds-of-java.svg?branch=master)](https://travis-ci.org/iluwatar/30-seconds-of-java)
+![Java CI with Gradle](https://github.com/iluwatar/30-seconds-of-java/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
 Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
 
