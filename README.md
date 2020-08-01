@@ -22,11 +22,13 @@ For new snippets the general steps are
 ### Algorithm
 * [Quicksort](#quicksort)
 * [Bubblesort](#bubblesort)
+* [Selectionsort](#selectionsort)
 
 ### Array
 * [Generic two array concatenation](#generic-two-array-concatenation)
 * [Generic N array concatenation](#generic-N-array-concatenation)
 * [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
+* [Find maximum integer from the array](#find-maximum-integer-from-the-array)
 
 ### File
 * [List directories](#list-directories)
@@ -100,7 +102,7 @@ For new snippets the general steps are
 ### Bubblesort
 
 ```java
-public static void bubbleSort(int[] arr) {
+  public static void bubbleSort(int[] arr) {
     var lastIndex = arr.length - 1;
 
     for(var j = 0; j < lastIndex; j++) {
@@ -113,6 +115,29 @@ public static void bubbleSort(int[] arr) {
       }
     }
   }
+```
+
+[⬆ back to top](#table-of-contents)
+
+### Selectionsort
+
+```java
+    public static void selectionSort(int[] arr) {
+        var len = arr.length;
+        
+        for (var i = 0; i < len - 1; i++) {
+            var minIndex = i;
+        
+            for (var j = i + 1; j < len; j++) {
+                if(arr[j] < arr[minIndex])
+                  minIndex = j;
+            }
+        
+            var tmp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = tmp;
+        }
+    }
 ```
 
 [⬆ back to top](#table-of-contents)
@@ -160,6 +185,18 @@ public static void bubbleSort(int[] arr) {
 ```
 
 [⬆ back to top](#table-of-contents)
+
+### Find maximum integer from the array
+
+```java
+   public static int findMax(int[] arr) {
+      return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
+    }
+```
+
+[⬆ back to top](#table-of-contents)
+
+
 
 ## File
 

@@ -110,6 +110,15 @@ public class Library {
   }
 
   /**
+   * Returns the maximum integer from the array using reduction
+   * @param arr the array of integers (not null)
+   * @return the maximum element from the array
+   */
+  public static int findMax(int[] arr) {
+    return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
+  }
+
+  /**
    * Recursive Fibonacci series.
    * Works only for small n and is spectacularly inefficient
    * @param n given number
@@ -477,6 +486,28 @@ public class Library {
       }
     }
   }
+  
+  /**
+   * Sort an array with selectionSort algorithm.
+   * @param arr array to sort
+   */
+  public static void selectionSort(int arr[]) {
+    var len = arr.length;
+
+    for (var i = 0; i < len - 1; i++) {
+      var minIndex = i;
+
+      for (var j = i + 1; j < len; j++) {
+        if(arr[j] < arr[minIndex])
+          minIndex = j;
+      }
+
+      var tmp = arr[minIndex];
+      arr[minIndex] = arr[i];
+      arr[i] = tmp;
+    }
+  }
+ 
 
   /**
    * Find the Levenshtein distnace between two words.
@@ -513,5 +544,4 @@ public class Library {
 
     return ans[word1.length()][word2.length()];
   }
-
 }

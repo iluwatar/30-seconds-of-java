@@ -139,6 +139,20 @@ public class LibraryTest {
   }
 
   /**
+   * Tests for {@link Library#findMax(int[])}.
+   */
+  @Test
+  public void test_findMax() {
+
+    assertEquals(9, Library.findMax(new int[]{1,2,4,9,8,1}));
+    assertEquals(-8, Library.findMax(new int[]{-43,-23,-51,-10,-8,-65,-9}));
+    assertEquals(0, Library.findMax(new int[]{-4,-3,-2,-1,0}));
+    assertEquals(1, Library.findMax(new int[]{1,1,1,1,1,1}));
+
+  }
+
+
+  /**
    * Tests for {@link Library#reverseString(String)}.
    */
   @Test
@@ -292,13 +306,13 @@ public class LibraryTest {
   public void testQuickSort() {
     var arr = new int[]{7, 13, 3, 1, 8, 5};
     Library.quickSort(arr, 0, arr.length - 1);
-    assertEquals(arr.length, 6);
-    assertEquals(arr[0], 1);
-    assertEquals(arr[1], 3);
-    assertEquals(arr[2], 5);
-    assertEquals(arr[3], 7);
-    assertEquals(arr[4], 8);
-    assertEquals(arr[5], 13);
+    assertEquals(6, arr.length);
+    assertEquals(1, arr[0]);
+    assertEquals(3, arr[1]);
+    assertEquals(5, arr[2]);
+    assertEquals(7, arr[3]);
+    assertEquals(8, arr[4]);
+    assertEquals(13, arr[5]);
   }
 
   /**
@@ -342,10 +356,10 @@ public class LibraryTest {
    */
   @Test
   public void testGcd() {
-    assertEquals(Library.gcd(2, 4), 2);
-    assertEquals(Library.gcd(2, 5), 1);
-    assertEquals(Library.gcd(18, 24), 6);
-    assertEquals(Library.gcd(7, 7), 7);
+    assertEquals(2,Library.gcd(2, 4));
+    assertEquals(1, Library.gcd(2, 5));
+    assertEquals(6, Library.gcd(18, 24));
+    assertEquals(7,Library.gcd(7, 7));
   }
 
   /**
@@ -379,13 +393,13 @@ public class LibraryTest {
   public void testBubbleSort() {
     var arr = new int[]{6,3,1,5,4,2};
     Library.bubbleSort(arr);
-    assertEquals(arr.length, 6);
-    assertEquals(arr[0], 1);
-    assertEquals(arr[1], 2);
-    assertEquals(arr[2], 3);
-    assertEquals(arr[3], 4);
-    assertEquals(arr[4], 5);
-    assertEquals(arr[5], 6);
+    assertEquals(6, arr.length);
+    assertEquals(1, arr[0]);
+    assertEquals(2, arr[1]);
+    assertEquals(3, arr[2]);
+    assertEquals(4, arr[3]);
+    assertEquals(5, arr[4]);
+    assertEquals(6, arr[5]);
   }
 
   /**
@@ -398,9 +412,25 @@ public class LibraryTest {
       public int fieldTwo;
     }
     var list = Library.getAllFieldNames(TestClass.class);
-    assertEquals(list.size(), 2);
-    assert (list.contains("fieldOne"));
-    assert (list.contains("fieldTwo"));
+    assertEquals(2, list.size());
+    assertTrue(list.contains("fieldOne"));
+    assertTrue(list.contains("fieldTwo"));
+  }
+
+  /**
+   * Tests for {@link Library#selectionSort(int[])}.
+   */
+  @Test
+  public void testSelectionSort() {
+    var arr = new int[]{6,3,1,5,4,2};
+    Library.selectionSort(arr);
+    assertEquals(arr.length, 6);
+    assertEquals(arr[0], 1);
+    assertEquals(arr[1], 2);
+    assertEquals(arr[2], 3);
+    assertEquals(arr[3], 4);
+    assertEquals(arr[4], 5);
+    assertEquals(arr[5], 6);
   }
 
   /**
