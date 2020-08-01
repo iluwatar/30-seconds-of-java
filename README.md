@@ -1,4 +1,3 @@
-
 # 30 Seconds of Java
 
 ![Java CI with Gradle](https://github.com/iluwatar/30-seconds-of-java/workflows/Java%20CI%20with%20Gradle/badge.svg)
@@ -15,7 +14,6 @@ For new snippets the general steps are
  - Add a test for the new code snippet in `LibraryTest.java`
  - Finally insert the new snippet into this `README.md`
  - Submit pull request against `master` branch
-
 
 ## Table of Contents
 
@@ -97,8 +95,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Bubblesort
 
 ```java
@@ -116,8 +112,6 @@ For new snippets the general steps are
     }
   }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Selectionsort
 
@@ -140,8 +134,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## Array
 
 ### Generic two array concatenation
@@ -153,8 +145,6 @@ For new snippets the general steps are
         return result;
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Generic N array concatenation
 
@@ -174,8 +164,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Check if all elements of array are equal
 
 ```java
@@ -184,8 +172,6 @@ For new snippets the general steps are
   }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Find maximum integer from the array
 
 ```java
@@ -193,10 +179,6 @@ For new snippets the general steps are
       return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
     }
 ```
-
-[⬆ back to top](#table-of-contents)
-
-
 
 ## File
 
@@ -208,8 +190,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### List files in directory
 
 ```java
@@ -217,8 +197,6 @@ For new snippets the general steps are
         return folder.listFiles(File::isFile);
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### List files in directory recursively
 
@@ -239,8 +217,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Read lines from file to string list
 
 ```java
@@ -248,8 +224,6 @@ For new snippets the general steps are
         return Files.readAllLines(new File(filename).toPath());
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Zip file
 
@@ -296,8 +270,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## Math
 
 ### Fibonacci
@@ -308,8 +280,6 @@ For new snippets the general steps are
         else return fibonacci(n-1) + fibonacci(n-2);
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Factorial
 
@@ -322,8 +292,6 @@ For new snippets the general steps are
         return result;
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Lottery
 
@@ -338,8 +306,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Greatest Common Divisor
 
 ```java
@@ -349,8 +315,6 @@ For new snippets the general steps are
         return gcd(b, a % b);  
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Prime
 
@@ -373,8 +337,6 @@ For new snippets the general steps are
 	}
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## Media
 
 ### Capture screen
@@ -389,8 +351,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## Networking
 
 ### HTTP GET
@@ -404,8 +364,6 @@ For new snippets the general steps are
         return client.send(request, BodyHandlers.ofString());
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### HTTP POST
 
@@ -427,8 +385,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## String
 
 ### Palindrome check
@@ -447,8 +403,6 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Reverse string
 
 ```java
@@ -456,8 +410,6 @@ For new snippets the general steps are
         return new StringBuilder(s).reverse().toString();
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### String to date
 
@@ -467,8 +419,6 @@ For new snippets the general steps are
         return simpleDateFormat.parse(date);
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Anagram Check
 
@@ -488,8 +438,6 @@ public boolean isAnagram(String s1, String s2) {
 	return Arrays.equals(arr1, arr2);
   }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ## Class
 
@@ -515,8 +463,6 @@ public boolean isAnagram(String s1, String s2) {
   }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Find Levenshtein distance
 
 ```java
@@ -540,5 +486,3 @@ public boolean isAnagram(String s1, String s2) {
     return ans[word1.length()][word2.length()];
   }
 ```
-
-[⬆ back to top](#table-of-contents)
