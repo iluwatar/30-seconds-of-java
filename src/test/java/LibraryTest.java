@@ -399,7 +399,7 @@ public class LibraryTest {
     }
     var list = Library.getAllFieldNames(TestClass.class);
     assertEquals(2, list.size());
-    assert (list.contains("fieldOne"));
-    assert (list.contains("fieldTwo"));
+    assertTrue(list.contains("fieldOne"));
+    assertTrue(list.contains("fieldTwo"));
   }
 }
