@@ -24,7 +24,12 @@
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
@@ -432,7 +437,7 @@ public class LibraryTest {
    * Tests for {@link Library#readFile(String)}.
    */
   @Test
-  void testReadFile() throws FileNotFoundException {
+  void testReadFile() throws FileNotFoundException, FileNotFoundException {
     assertEquals("foo", Library.readFile("src/test/resources/somelines.txt").get(0));
     assertEquals("bar", Library.readFile("src/test/resources/somelines.txt").get(1));
     assertEquals("baz", Library.readFile("src/test/resources/somelines.txt").get(2));

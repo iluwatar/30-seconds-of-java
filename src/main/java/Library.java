@@ -305,9 +305,9 @@ public class Library {
   public static void zipFile(String srcFilename, String zipFilename) throws IOException {
     var srcFile = new File(srcFilename);
     try (
-            var fileOut = new FileOutputStream(zipFilename);
-            var zipOut = new ZipOutputStream(fileOut);
-            var fileIn = new FileInputStream(srcFile)
+        var fileOut = new FileOutputStream(zipFilename);
+        var zipOut = new ZipOutputStream(fileOut);
+        var fileIn = new FileInputStream(srcFile)
     ) {
       var zipEntry = new ZipEntry(srcFile.getName());
       zipOut.putNextEntry(zipEntry);
@@ -559,6 +559,7 @@ public class Library {
    * Read file using stream and return list of string lines.
    *
    * @param fileName file to read
+   * @throws FileNotFoundException if an I/O error occurs
    */
   public static List<String> readFile(String fileName) throws FileNotFoundException {
     try (Stream<String> stream = new BufferedReader(new FileReader(fileName)).lines()) {
