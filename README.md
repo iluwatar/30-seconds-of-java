@@ -5,9 +5,6 @@
 Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable 
 tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
 
-The contents of this `README.md` are automatically deployed to 
-[Java Design Patterns web site](https://java-design-patterns.com/snippets.html).
-
 ## How to contribute
 
 In general we are interested in well implemented standalone code snippets. There are some tasks that we would like to
