@@ -26,10 +26,7 @@ import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -51,6 +48,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import javax.imageio.ImageIO;
@@ -549,5 +547,15 @@ public class Library {
       }
     }
     return ans[word1.length()][word2.length()];
+  }
+
+  /**
+   * Read file using stream and return list of string lines
+   * @param fileName file to read
+   */
+  public static List<String> readFile(String fileName) throws FileNotFoundException {
+    try (Stream<String> stream = new BufferedReader(new FileReader(fileName)).lines()) {
+      return stream.collect(Collectors.toList());
+    }
   }
 }
