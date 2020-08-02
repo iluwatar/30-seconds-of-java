@@ -2,33 +2,41 @@
 
 ![Java CI with Gradle](https://github.com/iluwatar/30-seconds-of-java/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
-Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
+Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable 
+tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
+
+The contents of this `README.md` are automatically deployed to 
+[Java Design Patterns web site](https://java-design-patterns.com/snippets.html).
 
 ## How to contribute
-Find an open issue that needs help at https://github.com/iluwatar/30-seconds-of-java/issues. Or if there's nothing that
-interests you, you can just raise a pull request. If you have an interesting snippet you would like to see in this library
-but can't implement yourself, please [raise an issue](https://github.com/iluwatar/30-seconds-of-java/issues).
 
-For new snippets the general steps are
- - Update `Library.java` with the new code snippet 
- - Add a test for the new code snippet in `LibraryTest.java`
- - Finally insert the new snippet into this `README.md`
- - Submit pull request against `master` branch
+In general we are interested in well implemented standalone code snippets. There are some tasks that we would like to
+see implemented in the [issue list](https://github.com/iluwatar/30-seconds-of-java/issues). Please raise a new issue
+if there's an interesting snippet you would like to see in this library but can't implement yourself.
+
+For new snippets the general implementation steps are:
+ - Update `Library.java` with the new code snippet. 
+ - Add a test for the new code snippet in `LibraryTest.java`.
+ - Finally insert the new snippet into this `README.md`.
+ - Submit pull request against `master` branch.
 
 ## Table of Contents
 
 ### Algorithm
+
 * [Quicksort](#quicksort)
 * [Bubblesort](#bubblesort)
 * [Selectionsort](#selectionsort)
 
 ### Array
+
 * [Generic two array concatenation](#generic-two-array-concatenation)
 * [Generic N array concatenation](#generic-N-array-concatenation)
 * [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
 * [Find maximum integer from the array](#find-maximum-integer-from-the-array)
 
 ### File
+
 * [List directories](#list-directories)
 * [List files in directory](#list-files-in-directory)
 * [List files in directory recursively](#list-files-in-directory-recursively)
@@ -37,6 +45,7 @@ For new snippets the general steps are
 * [Zip multiple files](#zip-multiple-files)
 
 ### Math
+
 * [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
 * [Lottery](#lottery)
@@ -44,13 +53,16 @@ For new snippets the general steps are
 * [Prime](#prime)
 
 ### Media
+
 * [Capture screen](#capture-screen)
 
 ### Networking
+
 * [HTTP GET](#http-get)
 * [HTTP POST](#http-post)
 
 ### String
+
 * [Palindrome check](#palindrome-check)
 * [Reverse string](#reverse-string)
 * [String to date](#string-to-date)
@@ -58,6 +70,7 @@ For new snippets the general steps are
 * [Find Levenshtein distance](#find-levenshtein-distance)
 
 ### Class
+
 * [Get methods name](#Get-methods-name)
 * [Get fields name](#Get-fields-name)
 
