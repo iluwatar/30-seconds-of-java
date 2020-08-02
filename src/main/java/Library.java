@@ -26,7 +26,13 @@ import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -299,9 +305,9 @@ public class Library {
   public static void zipFile(String srcFilename, String zipFilename) throws IOException {
     var srcFile = new File(srcFilename);
     try (
-        var fileOut = new FileOutputStream(zipFilename);
-        var zipOut = new ZipOutputStream(fileOut);
-        var fileIn = new FileInputStream(srcFile)
+            var fileOut = new FileOutputStream(zipFilename);
+            var zipOut = new ZipOutputStream(fileOut);
+            var fileIn = new FileInputStream(srcFile)
     ) {
       var zipEntry = new ZipEntry(srcFile.getName());
       zipOut.putNextEntry(zipEntry);
@@ -550,7 +556,8 @@ public class Library {
   }
 
   /**
-   * Read file using stream and return list of string lines
+   * Read file using stream and return list of string lines.
+   *
    * @param fileName file to read
    */
   public static List<String> readFile(String fileName) throws FileNotFoundException {
