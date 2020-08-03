@@ -572,21 +572,21 @@ public class Library {
   /**
    * Convert InputStream to String.
    *
-   * @param fileName file to read
+   * @param inputStream InputStream to convert
+   * @return String
    * @throws IOException if an I/O error occurs
    */
-  public static String inputStreamToString(String fileName) throws IOException {
-    InputStream inputStream = new FileInputStream(fileName);
-    InputStreamReader reader = new InputStreamReader(inputStream);
+  public static String inputStreamToString(InputStream inputStream) throws IOException {
+    var stringBuilder = new StringBuilder();
 
-    StringBuilder stringBuilder = new StringBuilder();
-    int data = reader.read();
+    try (var reader = new InputStreamReader(inputStream)) {
+      int data = reader.read();
 
-    while (data != -1) {
-      stringBuilder.append((char) data);
-      data = reader.read();
+      while (data != -1) {
+        stringBuilder.append((char) data);
+        data = reader.read();
+      }
     }
-    reader.close();
 
     return stringBuilder.toString();
   }
