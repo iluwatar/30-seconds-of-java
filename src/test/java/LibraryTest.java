@@ -443,4 +443,19 @@ public class LibraryTest {
     assertEquals("baz", Library.readFile("src/test/resources/somelines.txt").get(2));
     assertNotEquals("abc", Library.readFile("src/test/resources/somelines.txt").get(1));
   }
+
+  /**
+   * Tests for {@link Library#inputStreamToString(String)}.
+   */
+  @Test
+  void testInputStreamToString() throws IOException {
+    String str = "ąćśź\n"
+            + "←≠²³¢²€\n"
+            + "июля\n"
+            + "åøä\n"
+            + "ñí\n"
+            + "7月15日起\n"
+            + "خەيرلىك ئەتىگەن!";
+    assertEquals(str, Library.inputStreamToString("src/test/resources/dir1/placeholder.txt"));
+  }
 }

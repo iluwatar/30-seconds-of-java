@@ -33,6 +33,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -565,5 +567,27 @@ public class Library {
     try (Stream<String> stream = new BufferedReader(new FileReader(fileName)).lines()) {
       return stream.collect(Collectors.toList());
     }
+  }
+
+  /**
+   * Convert InputStream to String.
+   *
+   * @param fileName file to read
+   * @throws IOException if an I/O error occurs
+   */
+  public static String inputStreamToString(String fileName) throws IOException {
+    InputStream inputStream = new FileInputStream(fileName);
+    InputStreamReader reader = new InputStreamReader(inputStream);
+
+    StringBuilder stringBuilder = new StringBuilder();
+    int data = reader.read();
+
+    while (data != -1) {
+      stringBuilder.append((char) data);
+      data = reader.read();
+    }
+    reader.close();
+
+    return stringBuilder.toString();
   }
 }

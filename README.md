@@ -73,6 +73,7 @@ For new snippets the general implementation steps are:
 
 ### I/O
 * [Read file by stream](#read-file-by-stream)
+* [Convert InputStream to String](#inputstream-to-string)
 
 ## Algorithm
 
@@ -509,5 +510,25 @@ public boolean isAnagram(String s1, String s2) {
     try (Stream<String> stream = new BufferedReader(new FileReader(fileName)).lines()) {
       return stream.collect(Collectors.toList());
     }
+  }
+```
+
+### InputStream to String
+
+```java
+  public static String inputStreamToString(String fileName) throws IOException {
+    InputStream inputStream = new FileInputStream(fileName);
+    InputStreamReader reader = new InputStreamReader(inputStream);
+
+    StringBuilder stringBuilder = new StringBuilder();
+    int data = reader.read();
+
+    while (data != -1) {
+      stringBuilder.append((char) data);
+      data = reader.read();
+    }
+    reader.close();
+
+    return stringBuilder.toString();
   }
 ```
