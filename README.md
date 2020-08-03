@@ -71,6 +71,9 @@ For new snippets the general implementation steps are:
 * [Get methods name](#Get-methods-name)
 * [Get fields name](#Get-fields-name)
 
+### I/O
+* [Read file by stream](#Read-file-by-stream)
+
 ## Algorithm
 
 ### Quicksort
@@ -494,5 +497,17 @@ public boolean isAnagram(String s1, String s2) {
       }
     }
     return ans[word1.length()][word2.length()];
+  }
+```
+
+## I/O
+
+### Read file by stream
+
+```java
+  public static List<String> readFile(String fileName) throws FileNotFoundException {
+    try (Stream<String> stream = new BufferedReader(new FileReader(fileName)).lines()) {
+      return stream.collect(Collectors.toList());
+    }
   }
 ```

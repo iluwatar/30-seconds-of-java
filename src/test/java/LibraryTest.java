@@ -27,12 +27,14 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -429,5 +431,16 @@ public class LibraryTest {
     assertEquals(3, Library.findLevenshteinDistance("kitten", "sitting"));
     assertEquals(5, Library.findLevenshteinDistance("intention", "execution"));
     assertEquals(10, Library.findLevenshteinDistance("zoologicoarchaeologist", "zoogeologist"));
+  }
+
+  /**
+   * Tests for {@link Library#readFile(String)}.
+   */
+  @Test
+  void testReadFile() throws FileNotFoundException, FileNotFoundException {
+    assertEquals("foo", Library.readFile("src/test/resources/somelines.txt").get(0));
+    assertEquals("bar", Library.readFile("src/test/resources/somelines.txt").get(1));
+    assertEquals("baz", Library.readFile("src/test/resources/somelines.txt").get(2));
+    assertNotEquals("abc", Library.readFile("src/test/resources/somelines.txt").get(1));
   }
 }
