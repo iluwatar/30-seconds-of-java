@@ -28,7 +28,7 @@ For new snippets the general implementation steps are:
 ### Array
 
 * [Generic two array concatenation](#generic-two-array-concatenation)
-* [Generic N array concatenation](#generic-N-array-concatenation)
+* [Generic N array concatenation](#generic-n-array-concatenation)
 * [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
 * [Find maximum integer from the array](#find-maximum-integer-from-the-array)
 
@@ -68,11 +68,11 @@ For new snippets the general implementation steps are:
 
 ### Class
 
-* [Get methods name](#Get-methods-name)
-* [Get fields name](#Get-fields-name)
+* [Get methods name](#get-methods-name)
+* [Get fields name](#get-fields-name)
 
 ### I/O
-* [Read file by stream](#Read-file-by-stream)
+* [Read file by stream](#read-file-by-stream)
 
 ## Algorithm
 
