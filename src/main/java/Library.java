@@ -577,17 +577,15 @@ public class Library {
    * @throws IOException if an I/O error occurs
    */
   public static String inputStreamToString(InputStream inputStream) throws IOException {
-    var stringBuilder = new StringBuilder();
-
-    try (var reader = new InputStreamReader(inputStream)) {
-      int data = reader.read();
+    try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
+      var stringBuilder = new StringBuilder();
+      var data = reader.read();
 
       while (data != -1) {
         stringBuilder.append((char) data);
         data = reader.read();
       }
+      return stringBuilder.toString();
     }
-
-    return stringBuilder.toString();
   }
 }

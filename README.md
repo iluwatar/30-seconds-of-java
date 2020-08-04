@@ -516,18 +516,16 @@ public boolean isAnagram(String s1, String s2) {
 ### InputStream to String
 
 ```java
-  public static String inputStreamToString(InputStream inputStream) throws IOException {
-    var stringBuilder = new StringBuilder();
-
-    try (var reader = new InputStreamReader(inputStream)) {
-      int data = reader.read();
-
-      while (data != -1) {
-        stringBuilder.append((char) data);
-        data = reader.read();
-      }
-    }
-
-    return stringBuilder.toString();
-  }
+   public static String inputStreamToString(InputStream inputStream) throws IOException {
+     try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
+       var stringBuilder = new StringBuilder();
+       var data = reader.read();
+ 
+       while (data != -1) {
+         stringBuilder.append((char) data);
+         data = reader.read();
+       }
+       return stringBuilder.toString();
+     }
+   }
 ```
