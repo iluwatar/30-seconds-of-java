@@ -34,8 +34,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.awt.AWTException;
 import java.awt.HeadlessException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -442,5 +444,23 @@ public class LibraryTest {
     assertEquals("bar", Library.readFile("src/test/resources/somelines.txt").get(1));
     assertEquals("baz", Library.readFile("src/test/resources/somelines.txt").get(2));
     assertNotEquals("abc", Library.readFile("src/test/resources/somelines.txt").get(1));
+  }
+
+  /**
+   * Tests for {@link Library#inputStreamToString(InputStream)}.
+   */
+  @Test
+  void testInputStreamToString() throws IOException {
+    String str = "ąćśź\n"
+            + "←≠²³¢²€\n"
+            + "июля\n"
+            + "åøä\n"
+            + "ñí\n"
+            + "7月15日起\n"
+            + "خەيرلىك ئەتىگەن!";
+    assertEquals(str, Library.inputStreamToString(
+            new FileInputStream("src/test/resources/dir1/placeholder.txt")));
+    assertNotEquals(str.toUpperCase(), Library.inputStreamToString(
+            new FileInputStream("src/test/resources/dir1/placeholder.txt")));
   }
 }
