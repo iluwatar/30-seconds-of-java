@@ -25,6 +25,7 @@ For new snippets the general implementation steps are:
 * [Quicksort](#quicksort)
 * [Bubblesort](#bubblesort)
 * [Selectionsort](#selectionsort)
+* [Binarysearch](#binarysearch)
 
 ### Array
 
@@ -147,6 +148,30 @@ For new snippets the general implementation steps are:
             arr[i] = tmp;
         }
     }
+```
+
+### Binarysearch
+
+```java
+  public static String binarySearch(int[] arr, int item){
+    int low = 0;
+    int high = arr.length - 1;
+
+    while(low <= high) {
+
+      int mid = (low + high) / 2;
+      int cur_guess = arr[mid];
+
+      if(cur_guess == item) {
+        return mid;
+      } else if(cur_guess > item) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return -1; 
+  }
 ```
 
 ## Array

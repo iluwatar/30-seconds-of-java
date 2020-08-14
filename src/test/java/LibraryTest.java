@@ -464,3 +464,19 @@ public class LibraryTest {
             new FileInputStream("src/test/resources/dir1/placeholder.txt")));
   }
 }
+
+
+  /**
+   * Tests for {@link Library#binarySearch(int[], int)}.
+   */
+  @Test
+  void testBinarySearch {
+    var arr = new int[] {1, 2, 3, 4, 5, 6};
+    Library.binarySearch(arr, 2);
+    assertEquals(0, Library.binarySearch(arr, 1));
+    assertEquals(1, Library.binarySearch(arr, 2));
+    assertEquals(2, Library.binarySearch(arr, 3));
+    assertEquals(3, Library.binarySearch(arr, 4));
+    assertEquals(4, Library.binarySearch(arr, 5));
+    assertEquals(5, Library.binarySearch(arr, 6));
+  }

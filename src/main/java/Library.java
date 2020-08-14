@@ -589,3 +589,30 @@ public class Library {
     }
   }
 }
+
+  /**
+   * Finds the index of a desired number in a sorted integer array using binary search (non-recursive for performance).
+   * 
+   * @param arr A sorted array of integers
+   * @param item The integer the user wants to find within arr
+   * @return The index of the item in the arr, or -1 if the item is not present.
+   */
+  public static String binarySearch(int[] arr, int item){
+    int low = 0;
+    int high = arr.length - 1;
+
+    while(low <= high) {
+
+      int mid = (low + high) / 2;
+      int cur_guess = arr[mid];
+
+      if(cur_guess == item) {
+        return mid;
+      } else if(cur_guess > item) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return -1; 
+  }
