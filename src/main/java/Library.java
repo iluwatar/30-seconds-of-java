@@ -588,7 +588,6 @@ public class Library {
       return stringBuilder.toString();
     }
   }
-}
 
   /**
    * Finds the index of a desired number in a sorted integer array using binary search (non-recursive for performance).
@@ -616,3 +615,7 @@ public class Library {
     }
     return -1; 
   }
+}
+
+
+
