@@ -1,34 +1,40 @@
-
 # 30 Seconds of Java
 
-[![Build status](https://api.travis-ci.org/iluwatar/30-seconds-of-java.svg?branch=master)](https://travis-ci.org/iluwatar/30-seconds-of-java)
+![Java CI with Gradle](https://github.com/iluwatar/30-seconds-of-java/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
-Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
+Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable 
+tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
 
 ## How to contribute
-Find an open issue that needs help at https://github.com/iluwatar/30-seconds-of-java/issues. Or if there's nothing that
-interests you, you can just raise a pull request. If you have an interesting snippet you would like to see in this library
-but can't implement yourself, please [raise an issue](https://github.com/iluwatar/30-seconds-of-java/issues).
 
-For new snippets the general steps are
- - Update `Library.java` with the new code snippet 
- - Add a test for the new code snippet in `LibraryTest.java`
- - Finally insert the new snippet into this `README.md`
- - Submit pull request against `master` branch
+In general we are interested in well implemented standalone code snippets. There are some tasks that we would like to
+see implemented in the [issue list](https://github.com/iluwatar/30-seconds-of-java/issues). Please raise a new issue
+if there's an interesting snippet you would like to see in this library but can't implement yourself.
 
+For new snippets the general implementation steps are:
+
+* Update `Library.java` with the new code snippet. 
+* Add a test for the new code snippet in `LibraryTest.java`.
+* Finally insert the new snippet into this `README.md`.
+* Submit pull request against `master` branch.
 
 ## Table of Contents
 
 ### Algorithm
+
 * [Quicksort](#quicksort)
 * [Bubblesort](#bubblesort)
+* [Selectionsort](#selectionsort)
 
 ### Array
+
 * [Generic two array concatenation](#generic-two-array-concatenation)
-* [Generic N array concatenation](#generic-N-array-concatenation)
+* [Generic N array concatenation](#generic-n-array-concatenation)
 * [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
+* [Find maximum integer from the array](#find-maximum-integer-from-the-array)
 
 ### File
+
 * [List directories](#list-directories)
 * [List files in directory](#list-files-in-directory)
 * [List files in directory recursively](#list-files-in-directory-recursively)
@@ -37,6 +43,7 @@ For new snippets the general steps are
 * [Zip multiple files](#zip-multiple-files)
 
 ### Math
+
 * [Factorial](#factorial)
 * [Fibonacci](#fibonacci)
 * [Lottery](#lottery)
@@ -44,21 +51,30 @@ For new snippets the general steps are
 * [Prime](#prime)
 
 ### Media
+
 * [Capture screen](#capture-screen)
 
 ### Networking
+
 * [HTTP GET](#http-get)
 * [HTTP POST](#http-post)
 
 ### String
+
 * [Palindrome check](#palindrome-check)
 * [Reverse string](#reverse-string)
 * [String to date](#string-to-date)
 * [Anagram check](#anagram-check)
+* [Find Levenshtein distance](#find-levenshtein-distance)
 
 ### Class
-* [Get methods name](#Get-methods-name)
-* [Get fields name](#Get-fields-name)
+
+* [Get methods name](#get-methods-name)
+* [Get fields name](#get-fields-name)
+
+### I/O
+* [Read file by stream](#read-file-by-stream)
+* [Convert InputStream to String](#inputstream-to-string)
 
 ## Algorithm
 
@@ -94,12 +110,10 @@ For new snippets the general steps are
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Bubblesort
 
 ```java
-public static void bubbleSort(int[] arr) {
+  public static void bubbleSort(int[] arr) {
     var lastIndex = arr.length - 1;
 
     for(var j = 0; j < lastIndex; j++) {
@@ -114,7 +128,26 @@ public static void bubbleSort(int[] arr) {
   }
 ```
 
-[⬆ back to top](#table-of-contents)
+### Selectionsort
+
+```java
+    public static void selectionSort(int[] arr) {
+        var len = arr.length;
+        
+        for (var i = 0; i < len - 1; i++) {
+            var minIndex = i;
+        
+            for (var j = i + 1; j < len; j++) {
+                if(arr[j] < arr[minIndex])
+                  minIndex = j;
+            }
+        
+            var tmp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = tmp;
+        }
+    }
+```
 
 ## Array
 
@@ -127,8 +160,6 @@ public static void bubbleSort(int[] arr) {
         return result;
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Generic N array concatenation
 
@@ -148,8 +179,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Check if all elements of array are equal
 
 ```java
@@ -158,7 +187,13 @@ public static void bubbleSort(int[] arr) {
   }
 ```
 
-[⬆ back to top](#table-of-contents)
+### Find maximum integer from the array
+
+```java
+   public static int findMax(int[] arr) {
+      return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
+    }
+```
 
 ## File
 
@@ -170,8 +205,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### List files in directory
 
 ```java
@@ -179,8 +212,6 @@ public static void bubbleSort(int[] arr) {
         return folder.listFiles(File::isFile);
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### List files in directory recursively
 
@@ -201,8 +232,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Read lines from file to string list
 
 ```java
@@ -210,8 +239,6 @@ public static void bubbleSort(int[] arr) {
         return Files.readAllLines(new File(filename).toPath());
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Zip file
 
@@ -258,8 +285,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## Math
 
 ### Fibonacci
@@ -270,8 +295,6 @@ public static void bubbleSort(int[] arr) {
         else return fibonacci(n-1) + fibonacci(n-2);
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Factorial
 
@@ -284,8 +307,6 @@ public static void bubbleSort(int[] arr) {
         return result;
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Lottery
 
@@ -300,8 +321,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Greatest Common Divisor
 
 ```java
@@ -311,8 +330,6 @@ public static void bubbleSort(int[] arr) {
         return gcd(b, a % b);  
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Prime
 
@@ -335,8 +352,6 @@ public static void bubbleSort(int[] arr) {
 	}
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## Media
 
 ### Capture screen
@@ -351,8 +366,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## Networking
 
 ### HTTP GET
@@ -366,8 +379,6 @@ public static void bubbleSort(int[] arr) {
         return client.send(request, BodyHandlers.ofString());
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### HTTP POST
 
@@ -389,8 +400,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ## String
 
 ### Palindrome check
@@ -409,8 +418,6 @@ public static void bubbleSort(int[] arr) {
     }
 ```
 
-[⬆ back to top](#table-of-contents)
-
 ### Reverse string
 
 ```java
@@ -418,8 +425,6 @@ public static void bubbleSort(int[] arr) {
         return new StringBuilder(s).reverse().toString();
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### String to date
 
@@ -429,8 +434,6 @@ public static void bubbleSort(int[] arr) {
         return simpleDateFormat.parse(date);
     }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ### Anagram Check
 
@@ -450,8 +453,6 @@ public boolean isAnagram(String s1, String s2) {
 	return Arrays.equals(arr1, arr2);
   }
 ```
-
-[⬆ back to top](#table-of-contents)
 
 ## Class
 
@@ -477,4 +478,55 @@ public boolean isAnagram(String s1, String s2) {
   }
 ```
 
-[⬆ back to top](#table-of-contents)
+### Find Levenshtein distance
+
+```java
+  public static int findLevenshteinDistance(String word1, String word2) {
+    // If word2 is empty, removing
+    int[][] ans = new int[word1.length() + 1][word2.length() + 1];
+    for (int i = 0; i <= word1.length(); i++) {
+      ans[i][0] = i;
+    }
+    // if word1 is empty, adding
+    for (int i = 0; i <= word2.length(); i++) {
+      ans[0][i] = i;
+    }
+    // None is empty
+    for (int i = 1; i <= word1.length(); i++) {
+      for (int j = 1; j <= word2.length(); j++) {
+        int min = Math.min(Math.min(ans[i][j - 1], ans[i - 1][j]), ans[i - 1][j - 1]);
+        ans[i][j] = word1.charAt(i - 1) == word2.charAt(j - 1) ? ans[i - 1][j - 1] : min + 1;
+      }
+    }
+    return ans[word1.length()][word2.length()];
+  }
+```
+
+## I/O
+
+### Read file by stream
+
+```java
+  public static List<String> readFile(String fileName) throws FileNotFoundException {
+    try (Stream<String> stream = new BufferedReader(new FileReader(fileName)).lines()) {
+      return stream.collect(Collectors.toList());
+    }
+  }
+```
+
+### InputStream to String
+
+```java
+   public static String inputStreamToString(InputStream inputStream) throws IOException {
+     try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
+       var stringBuilder = new StringBuilder();
+       var data = reader.read();
+ 
+       while (data != -1) {
+         stringBuilder.append((char) data);
+         data = reader.read();
+       }
+       return stringBuilder.toString();
+     }
+   }
+```
