@@ -1,6 +1,7 @@
 # 30 Seconds of Java
 
 ![Java CI with Gradle](https://github.com/iluwatar/30-seconds-of-java/workflows/Java%20CI%20with%20Gradle/badge.svg)
+[![Join the chat at https://gitter.im/iluwatar/30-seconds-of-java](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iluwatar/30-seconds-of-java?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable 
 tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
