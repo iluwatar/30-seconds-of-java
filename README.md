@@ -71,6 +71,7 @@ For new snippets the general implementation steps are:
 
 * [Get methods name](#get-methods-name)
 * [Get fields name](#get-fields-name)
+* [Create object](#create-object)
 
 ### I/O
 * [Read file by stream](#read-file-by-stream)
@@ -475,6 +476,20 @@ public boolean isAnagram(String s1, String s2) {
     return Arrays.stream(cls.getFields())
             .map(Field::getName)
             .collect(Collectors.toList());
+  }
+```
+
+### Create object
+
+```java
+  public static String createObject(String str)
+          throws NoSuchMethodException,
+          IllegalAccessException,
+          InvocationTargetException,
+          InstantiationException {
+    var stringClass = String.class;
+    var stringConstructor = stringClass.getConstructor(String.class);
+    return stringConstructor.newInstance(str);
   }
 ```
 
