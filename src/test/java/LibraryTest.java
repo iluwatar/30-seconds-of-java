@@ -24,6 +24,7 @@
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -473,9 +474,9 @@ public class LibraryTest {
           throws InvocationTargetException,
           NoSuchMethodException,
           InstantiationException,
-          IllegalAccessException {
-    String str = "test";
-    assertEquals(str, Library.createObject(str));
-    assertNotEquals("demo", Library.createObject(str));
+          IllegalAccessException,
+          ClassNotFoundException {
+    assertEquals(String.class, Library.createObject("java.lang.String").getClass());
+    assertNotEquals(Integer.class, Library.createObject("java.lang.String").getClass());
   }
 }

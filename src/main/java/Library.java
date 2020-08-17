@@ -593,8 +593,8 @@ public class Library {
   /**
    * Create object using reflection.
    *
-   * @param str as String
-   * @return String object
+   * @param cls fully qualified name of class includes the package name as String
+   * @return object
    * @throws NoSuchMethodException if a method that does not exist at runtime.
    * @throws IllegalAccessException <p>if an currently executing method
    * does not have access to the definition of the specified class, field, method or constructor</p>
@@ -602,14 +602,17 @@ public class Library {
    * that wraps an exception thrown by an invoked method or constructor.</p>
    * @throws InstantiationException <p>when an method tries to create an instance of a class
    * using the newInstance method in class Class.</p>
+   * @throws ClassNotFoundException <p>when an application tries to load in a class
+   * through its string name.</p>
    */
-  public static String createObject(String str)
+  public static Object createObject(String cls)
           throws NoSuchMethodException,
           IllegalAccessException,
           InvocationTargetException,
-          InstantiationException {
-    var stringClass = String.class;
-    var stringConstructor = stringClass.getConstructor(String.class);
-    return stringConstructor.newInstance(str);
+          InstantiationException,
+          ClassNotFoundException {
+    var objectClass = Class.forName(cls);
+    var objectConstructor = objectClass.getConstructor();
+    return objectConstructor.newInstance();
   }
 }

@@ -482,15 +482,16 @@ public boolean isAnagram(String s1, String s2) {
 ### Create object
 
 ```java
-  public static String createObject(String str)
-          throws NoSuchMethodException,
-          IllegalAccessException,
-          InvocationTargetException,
-          InstantiationException {
-    var stringClass = String.class;
-    var stringConstructor = stringClass.getConstructor(String.class);
-    return stringConstructor.newInstance(str);
-  }
+  public static Object createObject(String cls)
+            throws NoSuchMethodException,
+            IllegalAccessException,
+            InvocationTargetException,
+            InstantiationException,
+            ClassNotFoundException {
+      var objectClass = Class.forName(cls);
+      var objectConstructor = objectClass.getConstructor();
+      return objectConstructor.newInstance();
+    }
 ```
 
 ### Find Levenshtein distance
