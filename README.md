@@ -8,7 +8,7 @@ tested Java 11 compatible code snippets that you can understand in 30 seconds or
 
 ## How to contribute
 
-In general we are interested in well implemented standalone code snippets. There are some tasks that we would like to
+In general, we are interested in well implemented standalone code snippets. There are some tasks that we would like to
 see implemented in the [issue list](https://github.com/iluwatar/30-seconds-of-java/issues). Please raise a new issue
 if there's an interesting snippet you would like to see in this library but can't implement yourself.
 
@@ -16,7 +16,7 @@ For new snippets the general implementation steps are:
 
 * Update `Library.java` with the new code snippet. 
 * Add a test for the new code snippet in `LibraryTest.java`.
-* Finally insert the new snippet into this `README.md`.
+* Finally, insert the new snippet into this `README.md`.
 * Submit pull request against `master` branch.
 
 ## Table of Contents
