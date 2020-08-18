@@ -24,6 +24,7 @@
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -38,6 +39,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -462,5 +464,19 @@ public class LibraryTest {
             new FileInputStream("src/test/resources/dir1/placeholder.txt")));
     assertNotEquals(str.toUpperCase(), Library.inputStreamToString(
             new FileInputStream("src/test/resources/dir1/placeholder.txt")));
+  }
+
+  /**
+   * Tests for {@link Library#createObject(String)}.
+   */
+  @Test
+  void testCreateObject()
+          throws InvocationTargetException,
+          NoSuchMethodException,
+          InstantiationException,
+          IllegalAccessException,
+          ClassNotFoundException {
+    assertEquals(String.class, Library.createObject("java.lang.String").getClass());
+    assertNotEquals(Integer.class, Library.createObject("java.lang.String").getClass());
   }
 }

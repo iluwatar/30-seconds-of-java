@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
@@ -587,5 +588,31 @@ public class Library {
       }
       return stringBuilder.toString();
     }
+  }
+
+  /**
+   * Create object using reflection.
+   *
+   * @param cls fully qualified name of class includes the package name as String
+   * @return object
+   * @throws NoSuchMethodException if a method that does not exist at runtime.
+   * @throws IllegalAccessException <p>if an currently executing method
+   * does not have access to the definition of the specified class, field, method or constructor</p>
+   * @throws InvocationTargetException <p>InvocationTargetException is a checked exception
+   * that wraps an exception thrown by an invoked method or constructor.</p>
+   * @throws InstantiationException <p>when an method tries to create an instance of a class
+   * using the newInstance method in class Class.</p>
+   * @throws ClassNotFoundException <p>when an application tries to load in a class
+   * through its string name.</p>
+   */
+  public static Object createObject(String cls)
+          throws NoSuchMethodException,
+          IllegalAccessException,
+          InvocationTargetException,
+          InstantiationException,
+          ClassNotFoundException {
+    var objectClass = Class.forName(cls);
+    var objectConstructor = objectClass.getConstructor();
+    return objectConstructor.newInstance();
   }
 }

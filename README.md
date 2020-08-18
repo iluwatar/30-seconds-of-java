@@ -72,6 +72,7 @@ For new snippets the general implementation steps are:
 
 * [Get methods name](#get-methods-name)
 * [Get fields name](#get-fields-name)
+* [Create object](#create-object)
 
 ### I/O
 * [Read file by stream](#read-file-by-stream)
@@ -477,6 +478,21 @@ public boolean isAnagram(String s1, String s2) {
             .map(Field::getName)
             .collect(Collectors.toList());
   }
+```
+
+### Create object
+
+```java
+  public static Object createObject(String cls)
+            throws NoSuchMethodException,
+            IllegalAccessException,
+            InvocationTargetException,
+            InstantiationException,
+            ClassNotFoundException {
+      var objectClass = Class.forName(cls);
+      var objectConstructor = objectClass.getConstructor();
+      return objectConstructor.newInstance();
+    }
 ```
 
 ### Find Levenshtein distance
