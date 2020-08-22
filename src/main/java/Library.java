@@ -596,7 +596,7 @@ public class Library {
    * @param item The integer the user wants to find within arr
    * @return The index of the item in the arr, or -1 if the item is not present.
    */
-  public static String binarySearch(int[] arr, int item){
+  public static int binarySearch(int[] arr, int item){
     int low = 0;
     int high = arr.length - 1;
 
