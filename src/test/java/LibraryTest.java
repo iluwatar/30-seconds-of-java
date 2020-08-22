@@ -470,7 +470,7 @@ public class LibraryTest {
    * Tests for {@link Library#binarySearch(int[], int)}.
    */
   @Test
-  void testBinarySearch {
+  void testBinarySearch() {
     var arr = new int[] {1, 2, 3, 4, 5, 6};
     Library.binarySearch(arr, 2);
     assertEquals(0, Library.binarySearch(arr, 1));
