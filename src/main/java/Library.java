@@ -588,20 +588,18 @@ public class Library {
       return stringBuilder.toString();
     }
   }
-
-  /**
-   * Finds the index of a desired number in a sorted integer array using binary search (non-recursive for performance).
-   * 
-   * @param arr A sorted array of integers
-   * @param item The integer the user wants to find within arr
-   * @return The index of the item in the arr, or -1 if the item is not present.
-   */
-  public static int binarySearch(int[] arr, int item){
+  
+/**
+  * Searches a sorted array for a given value using Binary Search.
+  * @param arr the sorted array
+  * @param item the item being searched
+  * @return the index of the item; returns -1 if item does not exist
+  */
+  public static int binarySearch(int[] arr, int item) {
     int low = 0;
     int high = arr.length - 1;
-
+    
     while(low <= high) {
-
       int mid = (low + high) / 2;
       int cur_guess = arr[mid];
 

@@ -389,6 +389,21 @@ public class LibraryTest {
     assertEquals(5, arr[4]);
     assertEquals(6, arr[5]);
   }
+  
+  /**
+  * Tests for {@link Library#binarySearch(int[], int)}.
+  */
+  @Test
+  public void testBinarySearch() {
+    var arr = new int[]{1,2,3,4,5,6};
+    assertEquals(Library.binarySearch(arr,1), 0);
+    assertEquals(Library.binarySearch(arr,2), 1);
+    assertEquals(Library.binarySearch(arr,3), 2);
+    assertEquals(Library.binarySearch(arr,4), 3);
+    assertEquals(Library.binarySearch(arr,5), 4);
+    assertEquals(Library.binarySearch(arr,6), 5);
+    assertEquals(Library.binarySearch(arr,10), -1);
+  }
 
   /**
    * Tests for {@link Library#getAllFieldNames(Class)}.
