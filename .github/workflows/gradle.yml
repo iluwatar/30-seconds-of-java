@@ -30,4 +30,4 @@ jobs:
       env:
         # These two env variables are needed for sonar analysis
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.REPOSITORY_ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
