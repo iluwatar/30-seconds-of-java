@@ -14,9 +14,9 @@ if there's an interesting snippet you would like to see in this library but can'
 
 For new snippets the general implementation steps are:
 
-* Update one of the section for example`AlgorithmLibrary.java` with the new code snippet. 
-* Add a test for the new code snippet in `AlgorithmLibraryTest.java`.
-* If you want to create new section then create new class and tests for it.
+* Create new class inside section-package for example`algorithm.BubbleSortSnippet.java` with the new code snippet. 
+* Add a test for the new code snippet in `algorithm.BubbleSortSnippetTest.java`.
+* If you want to create new section then create new package, class and tests for it.
 * Finally, insert the new snippet into this `README.md`.
 * Submit pull request against `master` branch.
 
@@ -35,7 +35,7 @@ For new snippets the general implementation steps are:
 * [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
 * [Find maximum integer from the array](#find-maximum-integer-from-the-array)
 
-### File
+### file
 
 * [List directories](#list-directories)
 * [List files in directory](#list-files-in-directory)
@@ -84,33 +84,33 @@ For new snippets the general implementation steps are:
 ### Quicksort
 
 ```java
-    public static void quickSort(int[] arr, int left, int right) {
-        var pivotIndex = left + (right - left) / 2;
-        var pivotValue = arr[pivotIndex];
-        var i = left;
-        var j = right;
-        while (i <= j) {
-            while (arr[i] < pivotValue) {
-                i++;
-            }
-            while (arr[j] > pivotValue) {
-                j--;
-            }
-            if (i <= j) {
-                var tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
-                i++;
-                j--;
-            }
-            if (left < i) {
-                quickSort(arr, left, j);
-            }
-            if (right > i) {
-                quickSort(arr, i, right);
-            }
-        }
+  public static void quickSort(int[] arr, int left, int right) {
+    var pivotIndex = left + (right - left) / 2;
+    var pivotValue = arr[pivotIndex];
+    var i = left;
+    var j = right;
+    while (i <= j) {
+      while (arr[i] < pivotValue) {
+        i++;
+      }
+      while (arr[j] > pivotValue) {
+        j--;
+      }
+      if (i <= j) {
+        var tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+        i++;
+        j--;
+      }
+      if (left < i) {
+        quickSort(arr, left, j);
+      }
+      if (right > i) {
+        quickSort(arr, i, right);
+      }
     }
+  }
 ```
 
 ### Bubblesort
@@ -134,22 +134,22 @@ For new snippets the general implementation steps are:
 ### Selectionsort
 
 ```java
-    public static void selectionSort(int[] arr) {
-        var len = arr.length;
+  public static void selectionSort(int[] arr) {
+    var len = arr.length;
         
-        for (var i = 0; i < len - 1; i++) {
-            var minIndex = i;
+    for (var i = 0; i < len - 1; i++) {
+      var minIndex = i;
         
-            for (var j = i + 1; j < len; j++) {
-                if(arr[j] < arr[minIndex])
-                  minIndex = j;
-            }
+      for (var j = i + 1; j < len; j++) {
+        if(arr[j] < arr[minIndex])
+          minIndex = j;
+      }
         
-            var tmp = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i] = tmp;
-        }
+      var tmp = arr[minIndex];
+      arr[minIndex] = arr[i];
+      arr[i] = tmp;
     }
+  }
 ```
 
 ## Array
@@ -157,29 +157,29 @@ For new snippets the general implementation steps are:
 ### Generic two array concatenation
 
 ```java
-    public static <T> T[] arrayConcat(T[] first, T[] second) {
-        var result = Arrays.copyOf(first, first.length + second.length);
-        System.arraycopy(second, 0, result, first.length, second.length);
-        return result;
-    }
+  public static <T> T[] arrayConcat(T[] first, T[] second) {
+    var result = Arrays.copyOf(first, first.length + second.length);
+    System.arraycopy(second, 0, result, first.length, second.length);
+    return result;
+  }
 ```
 
 ### Generic N array concatenation
 
 ```java
-    public static <T> T[] nArrayConcat(T[] first, T[]... rest) {
-        var totalLength = first.length;
-        for (var array : rest) {
-            totalLength += array.length;
-        }
-        var result = Arrays.copyOf(first, totalLength);
-        var offset = first.length;
-        for (var array : rest) {
-            System.arraycopy(array, 0, result, offset, array.length);
-            offset += array.length;
-        }
-        return result;
+  public static <T> T[] nArrayConcat(T[] first, T[]... rest) {
+    var totalLength = first.length;
+    for (var array : rest) {
+      totalLength += array.length;
     }
+    var result = Arrays.copyOf(first, totalLength);
+    var offset = first.length;
+    for (var array : rest) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 ```
 
 ### Check if all elements of array are equal
@@ -193,9 +193,9 @@ For new snippets the general implementation steps are:
 ### Find maximum integer from the array
 
 ```java
-   public static int findMax(int[] arr) {
-      return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
-    }
+  public static int findMax(int[] arr) {
+    return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
+  }
 ```
 
 ## File
@@ -203,89 +203,90 @@ For new snippets the general implementation steps are:
 ### List directories
 
 ```java
-    public static File[] listDirectories(String path) {
-        return new File(path).listFiles(File::isDirectory);
-    }
+  public static File[] listDirectories(String path) {
+    return new File(path).listFiles(File::isDirectory);
+  }
 ```
 
 ### List files in directory
 
 ```java
-    public static File[] listFilesInDirectory(final File folder) {
-        return folder.listFiles(File::isFile);
-    }
+  public static File[] listFilesInDirectory(final File folder) {
+    return folder.listFiles(File::isFile);
+  }
 ```
 
 ### List files in directory recursively
 
 ```java
-    public static List<File> listAllFiles(String path) {
-        var all = new ArrayList<File>();
-        var list = new File(path).listFiles();
-        if (list != null) {  // In case of access error, list is null
-            for (var f : list) {
-                if (f.isDirectory()) {
-                    all.addAll(listAllFiles(f.getAbsolutePath()));
-                } else {
-                    all.add(f.getAbsoluteFile());
-                }
-            }
+  public static List<File> listAllFiles(String path) {
+    var all = new ArrayList<File>();
+    var list = new File(path).listFiles();
+
+    if (list != null) {  // In case of access error, list is null
+      for (var f : list) {
+        if (f.isDirectory()) {
+          all.addAll(listAllFiles(f.getAbsolutePath()));
+        } else {
+          all.add(f.getAbsoluteFile());
         }
-        return all;
+      }
     }
+    return all;
+  }
 ```
 
 ### Read lines from file to string list
 
 ```java
-    public static List<String> readLines(String filename) throws IOException {
-        return Files.readAllLines(new File(filename).toPath());
-    }
+  public static List<String> readLines(String filename) throws IOException {
+    return Files.readAllLines(new File(filename).toPath());
+  }
 ```
 
 ### Zip file
 
 ```java
-    public static void zipFile(String srcFilename, String zipFilename) throws IOException {
-        var srcFile = new File(srcFilename);
-        try (
+  public static void zipFile(String srcFilename, String zipFilename) throws IOException {
+    var srcFile = new File(srcFilename);
+    try (
             var fileOut = new FileOutputStream(zipFilename);
             var zipOut = new ZipOutputStream(fileOut);
             var fileIn = new FileInputStream(srcFile);
-        ) {
-            var zipEntry = new ZipEntry(srcFile.getName());
-            zipOut.putNextEntry(zipEntry);
-            final var bytes = new byte[1024];
-            int length;
-            while ((length = fileIn.read(bytes)) >= 0) {
-                zipOut.write(bytes, 0, length);
-            }
-        }
+    ) {
+      var zipEntry = new ZipEntry(srcFile.getName());
+      zipOut.putNextEntry(zipEntry);
+      final var bytes = new byte[1024];
+      int length;
+      while ((length = fileIn.read(bytes)) >= 0) {
+        zipOut.write(bytes, 0, length);
+      }
     }
+  }
 ```
 
 ### Zip multiple files
 
 ```java
-    public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
-        try (
-            var fileOut = new FileOutputStream(zipFilename);
-            var zipOut = new ZipOutputStream(fileOut);
-        ) {
-            for (var i=0; i<srcFilenames.length; i++) {
-                var srcFile = new File(srcFilenames[i]);
-                try (var fileIn = new FileInputStream(srcFile)) {
-                    var zipEntry = new ZipEntry(srcFile.getName());
-                    zipOut.putNextEntry(zipEntry);
-                    final var bytes = new byte[1024];
-                    int length;
-                    while ((length = fileIn.read(bytes)) >= 0) {
-                        zipOut.write(bytes, 0, length);
-                    }
-                }
-            }
+  public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
+    try (
+      var fileOut = new FileOutputStream(zipFilename);
+      var zipOut = new ZipOutputStream(fileOut);
+    ) {
+      for (var i=0; i<srcFilenames.length; i++) {
+        var srcFile = new File(srcFilenames[i]);
+        try (var fileIn = new FileInputStream(srcFile)) {
+          var zipEntry = new ZipEntry(srcFile.getName());
+          zipOut.putNextEntry(zipEntry);
+          final var bytes = new byte[1024];
+          int length;
+          while ((length = fileIn.read(bytes)) >= 0) {
+            zipOut.write(bytes, 0, length);
+          }
         }
+      }
     }
+  }
 ```
 
 ## Math
@@ -293,66 +294,72 @@ For new snippets the general implementation steps are:
 ### Fibonacci
 
 ```java
-    public static int fibonacci(int n) {
-        if (n <= 1) return n;
-        else return fibonacci(n-1) + fibonacci(n-2);
+  public static int fibonacci(int n) {
+    if (n <= 1) {
+      return n;
+    } else {
+      return fibonacci(n - 1) + fibonacci(n - 2);
     }
+  }
 ```
 
 ### Factorial
 
 ```java
-    public static int factorial(int number) {
-        var result = 1;
-        for (var factor = 2; factor <= number; factor++) {
-            result *= factor;
-        }
-        return result;
+  public static int factorial(int number) {
+    var result = 1;
+    for (var factor = 2; factor <= number; factor++) {
+      result *= factor;
     }
+    return result;
+  }
 ```
 
 ### Lottery
 
 ```java
-    public static Integer[] performLottery(int numNumbers, int numbersToPick) {
-        var numbers = new ArrayList<Integer>();
-        for(var i = 0; i < numNumbers; i++) {
-            numbers.add(i+1);
-        }
-        Collections.shuffle(numbers);
-        return numbers.subList(0, numbersToPick).toArray(new Integer[numbersToPick]);
+  public static Integer[] performLottery(int numNumbers, int numbersToPick) {
+    var numbers = new ArrayList<Integer>();
+    for(var i = 0; i < numNumbers; i++) {
+      numbers.add(i+1);
     }
+
+    Collections.shuffle(numbers);
+    return numbers.subList(0, numbersToPick).toArray(new Integer[numbersToPick]);
+  }
 ```
 
 ### Greatest Common Divisor
 
 ```java
-    public static int gcd(int a, int b) { 
-        if (b == 0) 
-            return a; 
-        return gcd(b, a % b);  
-    }
+  public static int gcd(int a, int b) { 
+    if (b == 0) 
+      return a; 
+    return gcd(b, a % b);  
+  }
 ```
 
 ### Prime
 
 ```java
-	public static boolean isPrime(int number) {
-		if (number < 3) {
-			return true;
-		}
-		// check if n is a multiple of 2
-		if (number % 2 == 0) {
-			return false;
-		}
-		// if not, then just check the odds
-		for (var i = 3; i * i <= number; i += 2) {
-			if (number % i == 0) {
-				return false;
-			}
-		}
-		return true;
-	}
+  public static boolean isPrime(int number) {
+    if (number < 3) {
+      return true;
+    }
+
+    // check if n is a multiple of 2
+    if (number % 2 == 0) {
+      return false;
+    }
+
+    // if not, then just check the odds
+    for (var i = 3; i * i <= number; i += 2) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
 ```
 
 ## Media
@@ -360,13 +367,13 @@ For new snippets the general implementation steps are:
 ### Capture screen
 
 ```java
-    public static void captureScreen(String filename) throws AWTException, IOException {
-        var screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        var screenRectangle = new Rectangle(screenSize);
-        var robot = new Robot();
-        var image = robot.createScreenCapture(screenRectangle);
-        ImageIO.write(image, "png", new File(filename));
-    }
+  public static void captureScreen(String filename) throws AWTException, IOException {
+    var screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    var screenRectangle = new Rectangle(screenSize);
+    var robot = new Robot();
+    var image = robot.createScreenCapture(screenRectangle);
+    ImageIO.write(image, "png", new File(filename));
+  }
 ```
 
 ## Networking
@@ -374,33 +381,35 @@ For new snippets the general implementation steps are:
 ### HTTP GET
 
 ```java
-    public static HttpResponse<String> httpGet(String uri) throws Exception {
-        var client = HttpClient.newHttpClient();
-        var request = HttpRequest.newBuilder()
-                .uri(URI.create(uri))
-                .build();
-        return client.send(request, BodyHandlers.ofString());
-    }
+  public static HttpResponse<String> httpGet(String uri) throws Exception {
+    var client = HttpClient.newHttpClient();
+    var request = HttpRequest.newBuilder()
+            .uri(URI.create(uri))
+            .build();
+    return client.send(request, BodyHandlers.ofString());
+  }
 ```
 
 ### HTTP POST
 
 ```java
-    public static HttpResponse<String> httpPost(String address, HashMap<String,String> arguments) throws IOException, InterruptedException{
-        var sj = new StringJoiner("&");
-        for(var entry : arguments.entrySet()) {
-            sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
-                 + URLEncoder.encode(entry.getValue(), "UTF-8"));
-        }
-        var out = sj.toString().getBytes(StandardCharsets.UTF_8);
-        var request = HttpRequest.newBuilder()
-                           .uri(URI.create(address))
-                           .headers("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
-                           .POST(BodyPublishers.ofByteArray(out))
-                           .build();
-
-        return HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+  public static HttpResponse<String> httpPost(String address, HashMap<String,String> arguments) 
+    throws IOException, InterruptedException {
+    var sj = new StringJoiner("&");
+    for(var entry : arguments.entrySet()) {
+      sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "="
+              + URLEncoder.encode(entry.getValue(), "UTF-8"));
     }
+
+    var out = sj.toString().getBytes(StandardCharsets.UTF_8);
+    var request = HttpRequest.newBuilder()
+            .uri(URI.create(address))
+            .headers("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+            .POST(BodyPublishers.ofByteArray(out))
+            .build();
+
+    return HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+  }
 ```
 
 ## String
@@ -408,52 +417,81 @@ For new snippets the general implementation steps are:
 ### Palindrome check
 
 ```java
-    public static boolean isPalindrome(String s) {
-        var sb = new StringBuilder();
-        for (var c : s.toCharArray()) {
-            if (Character.isLetter(c)) {
-                sb.append(c);
-            }
-        }
-        var forward = sb.toString().toLowerCase();
-        var backward = sb.reverse().toString().toLowerCase();
-        return forward.equals(backward);
+  public static boolean isPalindrome(String s) {
+    var sb = new StringBuilder();
+    for (var c : s.toCharArray()) {
+      if (Character.isLetter(c)) {
+        sb.append(c);
+      }
     }
+
+    var forward = sb.toString().toLowerCase();
+    var backward = sb.reverse().toString().toLowerCase();
+    return forward.equals(backward);
+  }
 ```
 
 ### Reverse string
 
 ```java
-    public static String reverseString(String s) {
-        return new StringBuilder(s).reverse().toString();
-    }
+  public static String reverseString(String s) {
+    return new StringBuilder(s).reverse().toString();
+  }
 ```
 
 ### String to date
 
 ```java
-    public static Date stringToDate(String date, String format) throws ParseException {
-        var simpleDateFormat = new SimpleDateFormat(format);
-        return simpleDateFormat.parse(date);
-    }
+  public static Date stringToDate(String date, String format) throws ParseException {
+    var simpleDateFormat = new SimpleDateFormat(format);
+    return simpleDateFormat.parse(date);
+  }
 ```
 
 ### Anagram Check
 
 ```java
-public boolean isAnagram(String s1, String s2) {
-	var l1 = s1.length();
-	var l2 = s2.length();
-	var arr1 = new int[256];
-	var arr2 = new int[256];
-	if (l1 != l2) {
-	  return false;
-	}
-	for (var i = 0; i < l1; i++) {
-	  arr1[s1.charAt(i)]++;
-	  arr2[s2.charAt(i)]++;
-	}
-	return Arrays.equals(arr1, arr2);
+  public boolean isAnagram(String s1, String s2) { 
+    var l1 = s1.length();
+    var l2 = s2.length();
+    var arr1 = new int[256];
+    var arr2 = new int[256];
+    if (l1 != l2) {
+      return false;
+    }
+    
+    for (var i = 0; i < l1; i++) {
+      arr1[s1.charAt(i)]++;
+      arr2[s2.charAt(i)]++;
+    }
+
+    return Arrays.equals(arr1, arr2);
+  }
+```
+
+### Find Levenshtein distance
+
+```java
+  public static int findLevenshteinDistance(String word1, String word2) {
+    // If word2 is empty, removing
+    int[][] ans = new int[word1.length() + 1][word2.length() + 1];
+    for (int i = 0; i <= word1.length(); i++) {
+      ans[i][0] = i;
+    }
+
+    // if word1 is empty, adding
+    for (int i = 0; i <= word2.length(); i++) {
+      ans[0][i] = i;
+    }
+
+    // None is empty
+    for (int i = 1; i <= word1.length(); i++) {
+      for (int j = 1; j <= word2.length(); j++) {
+        int min = Math.min(Math.min(ans[i][j - 1], ans[i - 1][j]), ans[i - 1][j - 1]);
+        ans[i][j] = word1.charAt(i - 1) == word2.charAt(j - 1) ? ans[i - 1][j - 1] : min + 1;
+      }
+    }
+    return ans[word1.length()][word2.length()];
   }
 ```
 
@@ -462,13 +500,13 @@ public boolean isAnagram(String s1, String s2) {
 ### Get methods name
 
 ```java
-    public static List<String> getAllMethods(final Class<?> cls) {
-        var list = new ArrayList<String>();
-        for (var method : cls.getDeclaredMethods()) {
-          list.add(method.getName());
-        }
-        return list;
+  public static List<String> getAllMethods(final Class<?> cls) {
+    var list = new ArrayList<String>();
+    for (var method : cls.getDeclaredMethods()) {
+      list.add(method.getName());
     }
+    return list;
+  }
 ```
 
 ### Get fields name
@@ -490,35 +528,12 @@ public boolean isAnagram(String s1, String s2) {
             InvocationTargetException,
             InstantiationException,
             ClassNotFoundException {
-      var objectClass = Class.forName(cls);
-      var objectConstructor = objectClass.getConstructor();
-      return objectConstructor.newInstance();
-    }
-```
-
-### Find Levenshtein distance
-
-```java
-  public static int findLevenshteinDistance(String word1, String word2) {
-    // If word2 is empty, removing
-    int[][] ans = new int[word1.length() + 1][word2.length() + 1];
-    for (int i = 0; i <= word1.length(); i++) {
-      ans[i][0] = i;
-    }
-    // if word1 is empty, adding
-    for (int i = 0; i <= word2.length(); i++) {
-      ans[0][i] = i;
-    }
-    // None is empty
-    for (int i = 1; i <= word1.length(); i++) {
-      for (int j = 1; j <= word2.length(); j++) {
-        int min = Math.min(Math.min(ans[i][j - 1], ans[i - 1][j]), ans[i - 1][j - 1]);
-        ans[i][j] = word1.charAt(i - 1) == word2.charAt(j - 1) ? ans[i - 1][j - 1] : min + 1;
-      }
-    }
-    return ans[word1.length()][word2.length()];
+    var objectClass = Class.forName(cls);
+    var objectConstructor = objectClass.getConstructor();
+    return objectConstructor.newInstance();
   }
 ```
+
 
 ## I/O
 
@@ -535,16 +550,16 @@ public boolean isAnagram(String s1, String s2) {
 ### InputStream to String
 
 ```java
-   public static String inputStreamToString(InputStream inputStream) throws IOException {
-     try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
-       var stringBuilder = new StringBuilder();
-       var data = reader.read();
+  public static String inputStreamToString(InputStream inputStream) throws IOException {
+    try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
+      var stringBuilder = new StringBuilder();
+      var data = reader.read();
  
-       while (data != -1) {
-         stringBuilder.append((char) data);
-         data = reader.read();
-       }
-       return stringBuilder.toString();
-     }
-   }
+      while (data != -1) {
+        stringBuilder.append((char) data);
+        data = reader.read();
+      }
+      return stringBuilder.toString();
+    }
+  }
 ```
