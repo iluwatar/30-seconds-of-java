@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
  */
 class PerformLotterySnippetTest {
   /**
-   * Tests for {@link MathLibrary#performLottery(int, int)}.
+   * Tests for {@link PerformLotterySnippet#performLottery(int, int)}.
    */
   @Test
   void testPerformLottery() {

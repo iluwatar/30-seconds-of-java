@@ -35,7 +35,7 @@ For new snippets the general implementation steps are:
 * [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
 * [Find maximum integer from the array](#find-maximum-integer-from-the-array)
 
-### file
+### File
 
 * [List directories](#list-directories)
 * [List files in directory](#list-files-in-directory)
