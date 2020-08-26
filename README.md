@@ -14,8 +14,9 @@ if there's an interesting snippet you would like to see in this library but can'
 
 For new snippets the general implementation steps are:
 
-* Update `Library.java` with the new code snippet. 
-* Add a test for the new code snippet in `LibraryTest.java`.
+* Create new class inside section-package for example`algorithm.BubbleSortSnippet.java` with the new code snippet. 
+* Add a test for the new code snippet in `algorithm.BubbleSortSnippetTest.java`.
+* If you want to create new section then create new package, class and tests for it.
 * Finally, insert the new snippet into this `README.md`.
 * Submit pull request against `master` branch.
 

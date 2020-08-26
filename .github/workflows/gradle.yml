@@ -24,3 +24,10 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: SonarQube analysis
+      if: github.ref == 'refs/heads/master'
+      run: ./gradlew sonarqube
+      env:
+        # These two env variables are needed for sonar analysis
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
