@@ -80,7 +80,7 @@ For new snippets the general implementation steps are:
 
 ## Algorithm
 
-### Quicksort
+### [Quicksort](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/QuickSortSnippet.java)
 
 ```java
   public static void quickSort(int[] arr, int left, int right) {
@@ -112,7 +112,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Bubblesort
+### [Bubblesort](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)
 
 ```java
   public static void bubbleSort(int[] arr) {
@@ -130,7 +130,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Selectionsort
+### [Selectionsort](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)
 
 ```java
   public static void selectionSort(int[] arr) {
@@ -153,7 +153,7 @@ For new snippets the general implementation steps are:
 
 ## Array
 
-### Generic two array concatenation
+### [Generic two array concatenation](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArrayConcatSnippet.java)
 
 ```java
   public static <T> T[] arrayConcat(T[] first, T[] second) {
@@ -163,7 +163,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Generic N array concatenation
+### [Generic N array concatenation](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/MultiArrayConcatenationSnippet.java)
 
 ```java
   public static <T> T[] nArrayConcat(T[] first, T[]... rest) {
@@ -181,7 +181,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Check if all elements of array are equal
+### [Check if all elements of array are equal](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/AllEqualSnippet.java)
 
 ```java
   public static <T> boolean allEqual(T[] arr) {
@@ -189,7 +189,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Find maximum integer from the array
+### [Find maximum integer from the array](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/FindMaxSnippet.java)
 
 ```java
   public static int findMax(int[] arr) {
@@ -199,7 +199,7 @@ For new snippets the general implementation steps are:
 
 ## File
 
-### List directories
+### [List directories](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListDirectoriesSnippet.java)
 
 ```java
   public static File[] listDirectories(String path) {
@@ -207,7 +207,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### List files in directory
+### [List files in directory](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListFilesInDirectorySnippet.java)
 
 ```java
   public static File[] listFilesInDirectory(final File folder) {
@@ -215,7 +215,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### List files in directory recursively
+### [List files in directory recursively](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListAllFilesSnippet.java)
 
 ```java
   public static List<File> listAllFiles(String path) {
@@ -235,7 +235,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Read lines from file to string list
+### [Read lines from file to string list](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ReadLinesSnippet.java)
 
 ```java
   public static List<String> readLines(String filename) throws IOException {
@@ -243,7 +243,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Zip file
+### [Zip file](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)
 
 ```java
   public static void zipFile(String srcFilename, String zipFilename) throws IOException {
@@ -264,7 +264,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Zip multiple files
+### [Zip multiple files](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)
 
 ```java
   public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
@@ -290,7 +290,7 @@ For new snippets the general implementation steps are:
 
 ## Math
 
-### Fibonacci
+### [Fibonacci](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)
 
 ```java
   public static int fibonacci(int n) {
@@ -302,7 +302,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Factorial
+### [Factorial](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)
 
 ```java
   public static int factorial(int number) {
@@ -314,7 +314,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Lottery
+### [Lottery](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)
 
 ```java
   public static Integer[] performLottery(int numNumbers, int numbersToPick) {
@@ -328,7 +328,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Greatest Common Divisor
+### [Greatest Common Divisor](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)
 
 ```java
   public static int gcd(int a, int b) { 
@@ -338,7 +338,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Prime
+### [Prime](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
 
 ```java
   public static boolean isPrime(int number) {
@@ -363,7 +363,7 @@ For new snippets the general implementation steps are:
 
 ## Media
 
-### Capture screen
+### [Capture screen](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/media/CaptureScreenSnippet.java)
 
 ```java
   public static void captureScreen(String filename) throws AWTException, IOException {
@@ -377,7 +377,7 @@ For new snippets the general implementation steps are:
 
 ## Networking
 
-### HTTP GET
+### [HTTP GET](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpGetSnippet.java)
 
 ```java
   public static HttpResponse<String> httpGet(String uri) throws Exception {
@@ -389,7 +389,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### HTTP POST
+### [HTTP POST](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpPostSnippet.java)
 
 ```java
   public static HttpResponse<String> httpPost(String address, HashMap<String,String> arguments) 
@@ -413,7 +413,7 @@ For new snippets the general implementation steps are:
 
 ## String
 
-### Palindrome check
+### [Palindrome check](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/PalindromCheckSnippet.java)
 
 ```java
   public static boolean isPalindrome(String s) {
@@ -430,7 +430,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Reverse string
+### [Reverse string](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/ReversStringSnippet.java)
 
 ```java
   public static String reverseString(String s) {
@@ -438,7 +438,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### String to date
+### [String to date](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/StringToDateSnippet.java)
 
 ```java
   public static Date stringToDate(String date, String format) throws ParseException {
@@ -447,7 +447,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Anagram Check
+### [Anagram Check](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/AnagramSnippet.java)
 
 ```java
   public boolean isAnagram(String s1, String s2) { 
@@ -468,7 +468,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Find Levenshtein distance
+### [Find Levenshtein distance](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/LevenshteinDistanceSnippet.java)
 
 ```java
   public static int findLevenshteinDistance(String word1, String word2) {
@@ -496,7 +496,7 @@ For new snippets the general implementation steps are:
 
 ## Class
 
-### Get methods name
+### [Get methods name](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllMethodsSnippet.java)
 
 ```java
   public static List<String> getAllMethods(final Class<?> cls) {
@@ -508,7 +508,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Get fields name
+### [Get fields name](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllFieldNamesSnippet.java)
 
 ```java
   public static List<String> getAllFieldNames(final Class<?> cls) {
@@ -518,7 +518,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Create object
+### [Create object](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/CreatingObjectSnippet.java)
 
 ```java
   public static Object createObject(String cls)
@@ -536,7 +536,7 @@ For new snippets the general implementation steps are:
 
 ## I/O
 
-### Read file by stream
+### [Read file by stream](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/ReadFileSnippet.java)
 
 ```java
   public static List<String> readFile(String fileName) throws FileNotFoundException {
@@ -546,7 +546,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### InputStream to String
+### [InputStream to String](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/InputStreamToStringSnippet.java)
 
 ```java
   public static String inputStreamToString(InputStream inputStream) throws IOException {
