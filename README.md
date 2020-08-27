@@ -24,64 +24,64 @@ For new snippets the general implementation steps are:
 
 ### Algorithm
 
-* [Quicksort](#quicksort)
-* [Bubblesort](#bubblesort)
-* [Selectionsort](#selectionsort)
+[![Quicksort](https://img.shields.io/badge/-Quicksort-e1b050?logo=github)](#quicksort) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/QuickSortSnippet.java)  
+[![Bubblesort](https://img.shields.io/badge/-Bubblesort-e1b050?logo=github)](#bubblesort) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)  
+[![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050?logo=github)](#selectionsort) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)
 
 ### Array
 
-* [Generic two array concatenation](#generic-two-array-concatenation)
-* [Generic N array concatenation](#generic-n-array-concatenation)
-* [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
-* [Find maximum integer from the array](#find-maximum-integer-from-the-array)
+[![Generic two array concatenation](https://img.shields.io/badge/-Generic%20two%20array%20concatenation-e1b050?logo=github)](#generic-two-array-concatenation) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArrayConcatSnippet.java)  
+[![Generic N array concatenation](https://img.shields.io/badge/-Generic%20N%20array%20concatenation-e1b050?logo=github)](#generic-n-array-concatenation) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/MultiArrayConcatenationSnippet.java)  
+[![Check if all elements of array are equal](https://img.shields.io/badge/-Check%20if%20all%20elements%20of%20array%20are%20equal-e1b050?logo=github)](#check-if-all-elements-of-array-are-equal) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/AllEqualSnippet.java)  
+[![Find maximum integer from the array](https://img.shields.io/badge/-Find%20maximum%20integer%20from%20the%20array-e1b050?logo=github)](#find-maximum-integer-from-the-array) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/FindMaxSnippet.java)
 
 ### File
 
-* [List directories](#list-directories)
-* [List files in directory](#list-files-in-directory)
-* [List files in directory recursively](#list-files-in-directory-recursively)
-* [Read lines from file to string list](#read-lines-from-file-to-string-list)
-* [Zip file](#zip-file)
-* [Zip multiple files](#zip-multiple-files)
+[![List directories](https://img.shields.io/badge/-List%20directories-e1b050?logo=github)](#list-directories) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListDirectoriesSnippet.java)  
+[![List files in directory](https://img.shields.io/badge/-List%20files%20in%20directory-e1b050?logo=github)](#list-files-in-directory) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListFilesInDirectorySnippet.java)  
+[![List files in directory recursively](https://img.shields.io/badge/-List%20files%20in%20directory%20recursively-e1b050?logo=github)](#list-files-in-directory-recursively) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListAllFilesSnippet.java)  
+[![Read lines from file to string list](https://img.shields.io/badge/-Read%20lines%20from%20file%20to%20string%20list-e1b050?logo=github)](#read-lines-from-file-to-string-list) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ReadLinesSnippet.java)  
+[![Zip file](https://img.shields.io/badge/-Zip%20file-e1b050?logo=github)](#zip-file) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)  
+[![Zip multiple files](https://img.shields.io/badge/-Zip%20multiple%20files-e1b050?logo=github)](#zip-multiple-files) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)
 
 ### Math
 
-* [Factorial](#factorial)
-* [Fibonacci](#fibonacci)
-* [Lottery](#lottery)
-* [Euclid's algorithm for greatest common divisor](#greatest-common-divisor)
-* [Prime](#prime)
+[![Factorial](https://img.shields.io/badge/-Factorial-e1b050?logo=github)](#factorial) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)  
+[![Fibonacci](https://img.shields.io/badge/-Fibonacci-e1b050?logo=github)](#fibonacci) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)  
+[![Lottery](https://img.shields.io/badge/-Lottery-e1b050?logo=github)](#lottery) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
+[![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050?logo=github)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
+[![Prime](https://img.shields.io/badge/-Prime-e1b050?logo=github)](#prime) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
 
 ### Media
 
-* [Capture screen](#capture-screen)
+[![Capture screen](https://img.shields.io/badge/-Capture%20screen-e1b050?logo=github)](#capture-screen) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/media/CaptureScreenSnippet.java)
 
 ### Networking
 
-* [HTTP GET](#http-get)
-* [HTTP POST](#http-post)
+[![HTTP GET](https://img.shields.io/badge/-HTTP%20GET-e1b050?logo=github)](#http-get) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpGetSnippet.java)  
+[![HTTP POST](https://img.shields.io/badge/-HTTP%20POST-e1b050?logo=github)](#http-post) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpPostSnippet.java)
 
 ### String
 
-* [Palindrome check](#palindrome-check)
-* [Reverse string](#reverse-string)
-* [String to date](#string-to-date)
-* [Anagram check](#anagram-check)
-* [Find Levenshtein distance](#find-levenshtein-distance)
+[![Palindrome check](https://img.shields.io/badge/-Palindrome%20check-e1b050?logo=github)](#palindrome-check) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/PalindromCheckSnippet.java)  
+[![Reverse string](https://img.shields.io/badge/-Reverse%20string-e1b050?logo=github)](#reverse-string) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/ReversStringSnippet.java)  
+[![String to date](https://img.shields.io/badge/-String%20to%20date-e1b050?logo=github)](#string-to-date) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/StringToDateSnippet.java)  
+[![Anagram Check](https://img.shields.io/badge/-Anagram%20Check-e1b050?logo=github)](#anagram-check) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/AnagramSnippet.java)  
+[![Find Levenshtein distance](https://img.shields.io/badge/-Find%20Levenshtein%20distance-e1b050?logo=github)](#find-levenshtein-distance) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/LevenshteinDistanceSnippet.java)
 
 ### Class
 
-* [Get methods name](#get-methods-name)
-* [Get fields name](#get-fields-name)
-* [Create object](#create-object)
+[![Get methods name](https://img.shields.io/badge/-Get%20methods%20name-e1b050?logo=github)](#get-methods-name) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllMethodsSnippet.java)  
+[![Get fields name](https://img.shields.io/badge/-Get%20fields%20name-e1b050?logo=github)](#get-fields-name) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllFieldNamesSnippet.java)  
+[![Create object](https://img.shields.io/badge/-Create%20object-e1b050?logo=github)](#create-object) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/CreatingObjectSnippet.java)
 
 ### I/O
-* [Read file by stream](#read-file-by-stream)
-* [Convert InputStream to String](#inputstream-to-string)
+[![Read file by stream](https://img.shields.io/badge/-Read%20file%20by%20stream-e1b050?logo=github)](#read-file-by-stream) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/ReadFileSnippet.java)  
+[![InputStream to String](https://img.shields.io/badge/-InputStream%20to%20String-e1b050?logo=github)](#inputstream-to-string) [![link](https://img.shields.io/badge/-repo%20link-969c56)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/InputStreamToStringSnippet.java)
 
 ## Algorithm
 
-### [Quicksort](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/QuickSortSnippet.java)
+### Quicksort
 
 ```java
   public static void quickSort(int[] arr, int left, int right) {
@@ -113,7 +113,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Bubblesort](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)
+### Bubblesort
 
 ```java
   public static void bubbleSort(int[] arr) {
@@ -131,7 +131,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Selectionsort](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)
+### Selectionsort
 
 ```java
   public static void selectionSort(int[] arr) {
@@ -154,7 +154,7 @@ For new snippets the general implementation steps are:
 
 ## Array
 
-### [Generic two array concatenation](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArrayConcatSnippet.java)
+### Generic two array concatenation
 
 ```java
   public static <T> T[] arrayConcat(T[] first, T[] second) {
@@ -164,7 +164,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Generic N array concatenation](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/MultiArrayConcatenationSnippet.java)
+### Generic N array concatenation
 
 ```java
   public static <T> T[] nArrayConcat(T[] first, T[]... rest) {
@@ -182,7 +182,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Check if all elements of array are equal](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/AllEqualSnippet.java)
+### Check if all elements of array are equal
 
 ```java
   public static <T> boolean allEqual(T[] arr) {
@@ -190,7 +190,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Find maximum integer from the array](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/FindMaxSnippet.java)
+### Find maximum integer from the array
 
 ```java
   public static int findMax(int[] arr) {
@@ -200,7 +200,7 @@ For new snippets the general implementation steps are:
 
 ## File
 
-### [List directories](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListDirectoriesSnippet.java)
+### List directories
 
 ```java
   public static File[] listDirectories(String path) {
@@ -208,7 +208,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [List files in directory](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListFilesInDirectorySnippet.java)
+### List files in directory
 
 ```java
   public static File[] listFilesInDirectory(final File folder) {
@@ -216,7 +216,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [List files in directory recursively](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListAllFilesSnippet.java)
+### List files in directory recursively
 
 ```java
   public static List<File> listAllFiles(String path) {
@@ -236,7 +236,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Read lines from file to string list](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ReadLinesSnippet.java)
+### Read lines from file to string list
 
 ```java
   public static List<String> readLines(String filename) throws IOException {
@@ -244,7 +244,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Zip file](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)
+### Zip file
 
 ```java
   public static void zipFile(String srcFilename, String zipFilename) throws IOException {
@@ -265,7 +265,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Zip multiple files](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)
+### Zip multiple files
 
 ```java
   public static void zipFiles(String[] srcFilenames, String zipFilename) throws IOException {
@@ -291,7 +291,7 @@ For new snippets the general implementation steps are:
 
 ## Math
 
-### [Fibonacci](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)
+### Fibonacci
 
 ```java
   public static int fibonacci(int n) {
@@ -303,7 +303,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Factorial](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)
+### Factorial
 
 ```java
   public static int factorial(int number) {
@@ -315,7 +315,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Lottery](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)
+### Lottery
 
 ```java
   public static Integer[] performLottery(int numNumbers, int numbersToPick) {
@@ -329,7 +329,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Greatest Common Divisor](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)
+### Greatest Common Divisor
 
 ```java
   public static int gcd(int a, int b) { 
@@ -339,7 +339,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Prime](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
+### Prime
 
 ```java
   public static boolean isPrime(int number) {
@@ -364,7 +364,7 @@ For new snippets the general implementation steps are:
 
 ## Media
 
-### [Capture screen](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/media/CaptureScreenSnippet.java)
+### Capture screen
 
 ```java
   public static void captureScreen(String filename) throws AWTException, IOException {
@@ -378,7 +378,7 @@ For new snippets the general implementation steps are:
 
 ## Networking
 
-### [HTTP GET](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpGetSnippet.java)
+### HTTP GET
 
 ```java
   public static HttpResponse<String> httpGet(String uri) throws Exception {
@@ -390,7 +390,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [HTTP POST](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpPostSnippet.java)
+### HTTP POST
 
 ```java
   public static HttpResponse<String> httpPost(String address, HashMap<String,String> arguments) 
@@ -414,7 +414,7 @@ For new snippets the general implementation steps are:
 
 ## String
 
-### [Palindrome check](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/PalindromCheckSnippet.java)
+### Palindrome check
 
 ```java
   public static boolean isPalindrome(String s) {
@@ -431,7 +431,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Reverse string](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/ReversStringSnippet.java)
+### Reverse string
 
 ```java
   public static String reverseString(String s) {
@@ -439,7 +439,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [String to date](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/StringToDateSnippet.java)
+### String to date
 
 ```java
   public static Date stringToDate(String date, String format) throws ParseException {
@@ -448,7 +448,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Anagram Check](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/AnagramSnippet.java)
+### Anagram Check
 
 ```java
   public boolean isAnagram(String s1, String s2) { 
@@ -469,7 +469,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Find Levenshtein distance](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/LevenshteinDistanceSnippet.java)
+### Find Levenshtein distance
 
 ```java
   public static int findLevenshteinDistance(String word1, String word2) {
@@ -497,7 +497,7 @@ For new snippets the general implementation steps are:
 
 ## Class
 
-### [Get methods name](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllMethodsSnippet.java)
+### Get methods name
 
 ```java
   public static List<String> getAllMethods(final Class<?> cls) {
@@ -509,7 +509,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Get fields name](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllFieldNamesSnippet.java)
+### Get fields name
 
 ```java
   public static List<String> getAllFieldNames(final Class<?> cls) {
@@ -519,7 +519,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [Create object](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/CreatingObjectSnippet.java)
+### Create object
 
 ```java
   public static Object createObject(String cls)
@@ -537,7 +537,7 @@ For new snippets the general implementation steps are:
 
 ## I/O
 
-### [Read file by stream](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/ReadFileSnippet.java)
+### Read file by stream
 
 ```java
   public static List<String> readFile(String fileName) throws FileNotFoundException {
@@ -547,7 +547,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### [InputStream to String](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/InputStreamToStringSnippet.java)
+### InputStream to String
 
 ```java
   public static String inputStreamToString(InputStream inputStream) throws IOException {
