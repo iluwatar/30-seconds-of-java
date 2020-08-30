@@ -24,60 +24,61 @@ For new snippets the general implementation steps are:
 
 ### Algorithm
 
-* [Quicksort](#quicksort)
-* [Bubblesort](#bubblesort)
-* [Selectionsort](#selectionsort)
+[![Quicksort](https://img.shields.io/badge/-Quicksort-e1b050)](#quicksort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/QuickSortSnippet.java)  
+[![Bubblesort](https://img.shields.io/badge/-Bubblesort-e1b050)](#bubblesort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)  
+[![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050)](#selectionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)
 
 ### Array
 
-* [Generic two array concatenation](#generic-two-array-concatenation)
-* [Generic N array concatenation](#generic-n-array-concatenation)
-* [Check if all elements of array are equal](#check-if-all-elements-of-array-are-equal)
-* [Find maximum integer from the array](#find-maximum-integer-from-the-array)
+[![Generic two array concatenation](https://img.shields.io/badge/-Generic%20two%20array%20concatenation-e1b050)](#generic-two-array-concatenation) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArrayConcatSnippet.java)  
+[![Generic N array concatenation](https://img.shields.io/badge/-Generic%20N%20array%20concatenation-e1b050)](#generic-n-array-concatenation) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/MultiArrayConcatenationSnippet.java)  
+[![Check if all elements of array are equal](https://img.shields.io/badge/-Check%20if%20all%20elements%20of%20array%20are%20equal-e1b050)](#check-if-all-elements-of-array-are-equal) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/AllEqualSnippet.java)  
+[![Find maximum integer from the array](https://img.shields.io/badge/-Find%20maximum%20integer%20from%20the%20array-e1b050?)](#find-maximum-integer-from-the-array) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/FindMaxSnippet.java)
 
 ### File
 
-* [List directories](#list-directories)
-* [List files in directory](#list-files-in-directory)
-* [List files in directory recursively](#list-files-in-directory-recursively)
-* [Read lines from file to string list](#read-lines-from-file-to-string-list)
-* [Zip file](#zip-file)
-* [Zip multiple files](#zip-multiple-files)
+[![List directories](https://img.shields.io/badge/-List%20directories-e1b050)](#list-directories) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListDirectoriesSnippet.java)  
+[![List files in directory](https://img.shields.io/badge/-List%20files%20in%20directory-e1b050)](#list-files-in-directory) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListFilesInDirectorySnippet.java)  
+[![List files in directory recursively](https://img.shields.io/badge/-List%20files%20in%20directory%20recursively-e1b050)](#list-files-in-directory-recursively) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListAllFilesSnippet.java)  
+[![Read lines from file to string list](https://img.shields.io/badge/-Read%20lines%20from%20file%20to%20string%20list-e1b050)](#read-lines-from-file-to-string-list) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ReadLinesSnippet.java)  
+[![Zip file](https://img.shields.io/badge/-Zip%20file-e1b050)](#zip-file) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)  
+[![Zip multiple files](https://img.shields.io/badge/-Zip%20multiple%20files-e1b050)](#zip-multiple-files) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)
 
 ### Math
 
-* [Factorial](#factorial)
-* [Fibonacci](#fibonacci)
-* [Lottery](#lottery)
-* [Euclid's algorithm for greatest common divisor](#greatest-common-divisor)
-* [Prime](#prime)
+[![Factorial](https://img.shields.io/badge/-Factorial-e1b050)](#factorial) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)  
+[![Fibonacci](https://img.shields.io/badge/-Fibonacci-e1b050)](#fibonacci) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)  
+[![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
+[![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
+[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
 
 ### Media
 
-* [Capture screen](#capture-screen)
+[![Capture screen](https://img.shields.io/badge/-Capture%20screen-e1b050)](#capture-screen) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/media/CaptureScreenSnippet.java)
 
 ### Networking
 
-* [HTTP GET](#http-get)
-* [HTTP POST](#http-post)
+[![HTTP GET](https://img.shields.io/badge/-HTTP%20GET-e1b050)](#http-get) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpGetSnippet.java)  
+[![HTTP POST](https://img.shields.io/badge/-HTTP%20POST-e1b050)](#http-post) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/network/HttpPostSnippet.java)
 
 ### String
 
-* [Palindrome check](#palindrome-check)
-* [Reverse string](#reverse-string)
-* [String to date](#string-to-date)
-* [Anagram check](#anagram-check)
-* [Find Levenshtein distance](#find-levenshtein-distance)
+[![Palindrome check](https://img.shields.io/badge/-Palindrome%20check-e1b050)](#palindrome-check) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/PalindromCheckSnippet.java)  
+[![Reverse string](https://img.shields.io/badge/-Reverse%20string-e1b050)](#reverse-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/ReversStringSnippet.java)  
+[![String to date](https://img.shields.io/badge/-String%20to%20date-e1b050)](#string-to-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/StringToDateSnippet.java)  
+[![Anagram Check](https://img.shields.io/badge/-Anagram%20Check-e1b050)](#anagram-check) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/AnagramSnippet.java)  
+[![Find Levenshtein distance](https://img.shields.io/badge/-Find%20Levenshtein%20distance-e1b050)](#find-levenshtein-distance) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/LevenshteinDistanceSnippet.java)
 
 ### Class
 
-* [Get methods name](#get-methods-name)
-* [Get fields name](#get-fields-name)
-* [Create object](#create-object)
+[![Get methods name](https://img.shields.io/badge/-Get%20methods%20name-e1b050)](#get-methods-name) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllMethodsSnippet.java)  
+[![Get fields name](https://img.shields.io/badge/-Get%20fields%20name-e1b050)](#get-fields-name) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllFieldNamesSnippet.java)  
+[![Create object](https://img.shields.io/badge/-Create%20object-e1b050)](#create-object) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/CreatingObjectSnippet.java)
 
 ### I/O
-* [Read file by stream](#read-file-by-stream)
-* [Convert InputStream to String](#inputstream-to-string)
+
+[![Read file by stream](https://img.shields.io/badge/-Read%20file%20by%20stream-e1b050)](#read-file-by-stream) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/ReadFileSnippet.java)  
+[![InputStream to String](https://img.shields.io/badge/-InputStream%20to%20String-e1b050)](#inputstream-to-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/InputStreamToStringSnippet.java)
 
 ## Algorithm
 
