@@ -35,16 +35,16 @@ import org.junit.jupiter.api.Test;
  * Tests for 30 Seconds of Java code library
  *
  */
-class ExecutorServiceFullCoreTest {
+class ThreadPoolTest {
   /**
-   * Tests for {@link ExecutorServiceFullCore#getExecutorFullCore()}.
+   * Tests for {@link ThreadPool#createFixedThreadPool()}.
    */
   @Test
-  public void testExecutorServiceFullCore() {
-    var core = Runtime.getRuntime().availableProcessors();
+  public void testCreateFixedThreadPool() {
+    int numProcessors = Runtime.getRuntime().availableProcessors();
     ThreadPoolExecutor executorService =
-            (ThreadPoolExecutor) ExecutorServiceFullCore.getExecutorFullCore();
-    assertEquals(core, executorService.getCorePoolSize());
-    assertNotEquals(core + 1, executorService.getCorePoolSize());
+            (ThreadPoolExecutor) ThreadPool.createFixedThreadPool();
+    assertEquals(numProcessors, executorService.getCorePoolSize());
+    assertNotEquals(0, ThreadPool.createFixedThreadPool());
   }
 }

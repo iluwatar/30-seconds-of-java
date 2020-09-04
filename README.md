@@ -82,7 +82,7 @@ For new snippets the general implementation steps are:
 
 ### Thread
 
-[![Create pool of threads](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#create-pool-of-threads) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/thread/ExecutorServiceFullCore.java)
+[![Create pool of threads](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#create-pool-of-threads) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/thread/ThreadPool.java)
 
 
 ## Algorithm
@@ -576,7 +576,7 @@ For new snippets the general implementation steps are:
 ### Create pool of threads
 
 ```java
-  public static ExecutorService getExecutorFullCore() {
+  public static ExecutorService createFixedThreadPool() {
     return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
   }
 ```
