@@ -80,6 +80,11 @@ For new snippets the general implementation steps are:
 [![Read file by stream](https://img.shields.io/badge/-Read%20file%20by%20stream-e1b050)](#read-file-by-stream) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/ReadFileSnippet.java)  
 [![InputStream to String](https://img.shields.io/badge/-InputStream%20to%20String-e1b050)](#inputstream-to-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/InputStreamToStringSnippet.java)
 
+### Thread
+
+[![Create pool of threads](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#create-pool-of-threads) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/thread/ThreadPool.java)
+
+
 ## Algorithm
 
 ### Quicksort
@@ -562,5 +567,16 @@ For new snippets the general implementation steps are:
       }
       return stringBuilder.toString();
     }
+  }
+```
+
+
+## Thread
+
+### Create pool of threads
+
+```java
+  public static ExecutorService createFixedThreadPool() {
+    return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
   }
 ```
