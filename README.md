@@ -299,10 +299,10 @@ For new snippets the general implementation steps are:
 ### Zip a directory
 
 ```java
-  public static void zipDirectory (String srcDirectoryName, String destinationFileName) throws IOException {
+  public static void zipDirectory (String srcDirectoryName, String zipFileName) throws IOException {
     var srcDirectory = new File(srcDirectoryName);
     try (
-      var fileOut = new FileOutputStream(destinationFileName);
+      var fileOut = new FileOutputStream(zipFileName);
       var zipOut = new ZipOutputStream(fileOut);
     ) {
       zipFile(srcDirectory, srcDirectory.getName(), zipOut);

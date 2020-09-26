@@ -36,58 +36,59 @@ import java.util.zip.ZipOutputStream;
  *
  */
 public class ZipDirectorySnippet {
-    /**
-     * Zip a complete directory
-     *
-     * @param srcDirectoryName The path to the directory to be zipped
-     * @param destinationFileName The name of the zipped file. If prefixed with a path, will be output at that location
-     * @throws IOException if an I/O error occurs
-     * */
-    public static void zipDirectory (String srcDirectoryName, String destinationFileName) throws IOException {
-        var srcDirectory = new File(srcDirectoryName);
-        try (
-                var fileOut = new FileOutputStream(destinationFileName);
-                var zipOut = new ZipOutputStream(fileOut);
-        ) {
-            zipFile(srcDirectory, srcDirectory.getName(), zipOut);
-        }
+  /**
+   * Zip a complete directory.
+   *
+   * @param srcDirectoryName The path to the directory to be zipped
+   * @param zipFileName The location and name of the zipped file.
+   * @throws IOException if an I/O error occurs
+   * */
+  public static void zipDirectory(String srcDirectoryName, String zipFileName) throws IOException {
+    var srcDirectory = new File(srcDirectoryName);
+    try (
+        var fileOut = new FileOutputStream(zipFileName);
+        var zipOut = new ZipOutputStream(fileOut);
+    ) {
+      zipFile(srcDirectory, srcDirectory.getName(), zipOut);
     }
+  }
 
-    /**
-     * Utility function which either zips a single file, or recursively calls itself for a directory to traverse down
-     * to the files contained within it
-     *
-     * @param fileToZip The file as a resource
-     * @param fileName The actual name of the file
-     * @param zipOut The output stream to which all data is being written
-     * */
-    public static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut) throws IOException{
-        if (fileToZip.isHidden()) { // Ignore hidden files as standard
-            return;
-        }
-        if (fileToZip.isDirectory()) {
-            if (fileName.endsWith("/")) {
-                zipOut.putNextEntry(new ZipEntry(fileName)); // To be zipped next
-                zipOut.closeEntry();
-            } else {
-                // Add the "/" mark explicitly to preserve structure while unzipping action is performed
-                zipOut.putNextEntry(new ZipEntry(fileName + "/"));
-                zipOut.closeEntry();
-            }
-            var children = fileToZip.listFiles();
-            for (var childFile : children) { // Recursively apply function to all children
-                zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
-            }
-            return;
-        }
-        var fis = new FileInputStream(fileToZip); // Start zipping once we know it is a file, not directory
-        var zipEntry = new ZipEntry(fileName);
-        zipOut.putNextEntry(zipEntry);
-        var bytes = new byte[1024];
-        var length = 0;
-        while ((length = fis.read(bytes)) >= 0) {
-            zipOut.write(bytes, 0, length);
-        }
-        fis.close();
+  /**
+   * Utility function which either zips a single file, or recursively calls itself for 
+   * a directory to traverse down to the files contained within it.
+   *
+   * @param fileToZip The file as a resource
+   * @param fileName The actual name of the file
+   * @param zipOut The output stream to which all data is being written
+   * */
+  public static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut) 
+      throws IOException {
+    if (fileToZip.isHidden()) { // Ignore hidden files as standard
+      return;
     }
+    if (fileToZip.isDirectory()) {
+      if (fileName.endsWith("/")) {
+        zipOut.putNextEntry(new ZipEntry(fileName)); // To be zipped next
+        zipOut.closeEntry();
+      } else {
+        // Add the "/" mark explicitly to preserve structure while unzipping action is performed
+        zipOut.putNextEntry(new ZipEntry(fileName + "/"));
+        zipOut.closeEntry();
+      }
+      var children = fileToZip.listFiles();
+      for (var childFile : children) { // Recursively apply function to all children
+        zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
+      }
+      return;
+    }
+    var fis = new FileInputStream(fileToZip); // Start zipping once we know it is a file
+    var zipEntry = new ZipEntry(fileName);
+    zipOut.putNextEntry(zipEntry);
+    var bytes = new byte[1024];
+    var length = 0;
+    while ((length = fis.read(bytes)) >= 0) {
+      zipOut.write(bytes, 0, length);
+    }
+    fis.close();
+  }
 }
