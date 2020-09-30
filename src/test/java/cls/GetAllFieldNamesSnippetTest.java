@@ -39,14 +39,20 @@ class GetAllFieldNamesSnippetTest {
    */
   @Test
   void testGetAllFieldNames() {
-    class TestClass {
+    class SuperClass{
+      public int superFieldOne;
+      private int superFieldTwo;
+    }
+    class TestClass extends SuperClass {
       public int fieldOne;
-      public int fieldTwo;
+      private int fieldTwo;
     }
 
     var list = GetAllFieldNamesSnippet.getAllFieldNames(TestClass.class);
-    assertEquals(2, list.size());
+    assertEquals(4, list.size());
     assertTrue(list.contains("fieldOne"));
     assertTrue(list.contains("fieldTwo"));
+    assertTrue(list.contains("superFieldOne"));
+    assertTrue(list.contains("superFieldTwo"));
   }
 }
