@@ -35,6 +35,11 @@ For new snippets the general implementation steps are:
 [![Check if all elements of array are equal](https://img.shields.io/badge/-Check%20if%20all%20elements%20of%20array%20are%20equal-e1b050)](#check-if-all-elements-of-array-are-equal) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/AllEqualSnippet.java)  
 [![Find maximum integer from the array](https://img.shields.io/badge/-Find%20maximum%20integer%20from%20the%20array-e1b050?)](#find-maximum-integer-from-the-array) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/FindMaxSnippet.java)
 
+### Encoding
+
+[![Encode Base64](https://img.shields.io/badge/-Encode%20Base64%20string-e1b050)](#base64-encode-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/encoding/Base64EncodeSnippet.java)  
+[![Decode Base64](https://img.shields.io/badge/-Decode%20Base64%20string-e1b050)](#base64-decode-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/encoding/Base64DecodeSnippet.java)  
+
 ### File
 
 [![List directories](https://img.shields.io/badge/-List%20directories-e1b050)](#list-directories) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListDirectoriesSnippet.java)  
@@ -201,6 +206,24 @@ For new snippets the general implementation steps are:
 ```java
   public static int findMax(int[] arr) {
     return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
+  }
+```
+
+## Encoding
+
+### Base64 encode string
+
+```java
+  public static String encodeBase64(String input) {
+    return Base64.getEncoder().encodeToString(input.getBytes());
+  }
+```
+
+### Base64 decode string
+
+```java
+  public static String decodeBase64(String input) {
+    return new String(Base64.getDecoder().decode(input.getBytes()));
   }
 ```
 
