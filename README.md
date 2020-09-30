@@ -48,6 +48,7 @@ For new snippets the general implementation steps are:
 
 [![Factorial](https://img.shields.io/badge/-Factorial-e1b050)](#factorial) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)  
 [![Fibonacci](https://img.shields.io/badge/-Fibonacci-e1b050)](#fibonacci) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)  
+[![Haversine Formula](https://img.shields.io/badge/-Haversine%20formula-e1b050)](#haversine-formula) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/HaversineFormulaSnippet.java)  
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
 [![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
@@ -318,6 +319,28 @@ For new snippets the general implementation steps are:
       result *= factor;
     }
     return result;
+  }
+```
+
+### Haversine formula
+
+```java
+  public static double findHaversineDistance(double latA, double longA, double latB, double longB) {
+    // Radius of sphere on which the points are, in this case Earth.
+    var sphereRadiusInKm = 6372.8;
+
+    // Calculate the latitude and longitude differences
+    var latitudeDiff = Math.toRadians(latB - latA);
+    var longitudeDiff = Math.toRadians(longB - longA);
+
+    var latitudeA = Math.toRadians(latA);
+    var latitudeB = Math.toRadians(latB);
+
+    //Calculating the distance as per haversine formula
+    double a = Math.pow(Math.sin(latitudeDiff / 2), 2)
+            + Math.pow(Math.sin(longitudeDiff / 2), 2) * Math.cos(latitudeA) * Math.cos(latitudeB);
+    double c = 2 * Math.asin(Math.sqrt(a));
+    return sphereRadiusInKm * c;
   }
 ```
 

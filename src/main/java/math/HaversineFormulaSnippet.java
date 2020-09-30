@@ -1,0 +1,58 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2017-2019 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+package math;
+
+/*
+ * 30 Seconds of Java code library
+ *
+ */
+public class HaversineFormulaSnippet {
+  /**
+   * Haversine formula for calculating distance between two latitude,longitude points.
+   *
+   * @param latA Latitude of point A
+   * @param longA Longitude of point A
+   * @param latB Latitude of point B
+   * @param longB Longitude of point B
+   * @return the distance between the two points.
+   */
+  public static double findHaversineDistance(double latA, double longA, double latB, double longB) {
+    // Radius of sphere on which the points are, in this case Earth.
+    var sphereRadiusInKm = 6372.8;
+
+    // Calculate the latitude and longitude differences
+    var latitudeDiff = Math.toRadians(latB - latA);
+    var longitudeDiff = Math.toRadians(longB - longA);
+
+    var latitudeA = Math.toRadians(latA);
+    var latitudeB = Math.toRadians(latB);
+
+    //Calculating the distance as per haversine formula
+    double a = Math.pow(Math.sin(latitudeDiff / 2), 2)
+            + Math.pow(Math.sin(longitudeDiff / 2), 2) * Math.cos(latitudeA) * Math.cos(latitudeB);
+    double c = 2 * Math.asin(Math.sqrt(a));
+    return sphereRadiusInKm * c;
+  }
+}
