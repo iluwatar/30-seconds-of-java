@@ -34,12 +34,10 @@ import org.junit.jupiter.api.Test;
  *
  */
 class GetAllFieldNamesSnippetTest {
-  /**
-   * Tests for {@link GetAllFieldNamesSnippet#getAllFieldNames(Class)}.
-   */
+  /** Tests for {@link GetAllFieldNamesSnippet#getAllFieldNames(Class)}. */
   @Test
   void testGetAllFieldNames() {
-    class SuperClass{
+    class SuperClass {
       public int superFieldOne;
       private int superFieldTwo;
     }
