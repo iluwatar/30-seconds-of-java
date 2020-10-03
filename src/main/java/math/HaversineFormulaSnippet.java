@@ -30,7 +30,7 @@ package math;
  */
 public class HaversineFormulaSnippet {
   /**
-   * Haversine formula for calculating distance between two latitude,longitude points.
+   * Haversine formula for calculating distance between two latitude, longitude points.
    *
    * @param latA Latitude of point A
    * @param longA Longitude of point A
@@ -49,7 +49,7 @@ public class HaversineFormulaSnippet {
     var latitudeA = Math.toRadians(latA);
     var latitudeB = Math.toRadians(latB);
 
-    //Calculating the distance as per haversine formula
+    // Calculating the distance as per haversine formula
     var a = Math.pow(Math.sin(latitudeDiff / 2), 2)
             + Math.pow(Math.sin(longitudeDiff / 2), 2) * Math.cos(latitudeA) * Math.cos(latitudeB);
     var c = 2 * Math.asin(Math.sqrt(a));
