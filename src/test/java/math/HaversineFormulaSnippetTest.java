@@ -39,8 +39,8 @@ class HaversineFormulaSnippetTest {
    */
   @Test
   void testFindHaversineDistance() {
-    var distance =
-        HaversineFormulaSnippet.findHaversineDistance(28.7041, 77.1025, 30.9661, 76.5231);
+    var distance = HaversineFormulaSnippet
+        .findHaversineDistance(28.7041, 77.1025, 30.9661, 76.5231);
     assertEquals(257.7, distance, 0.1);
   }
 }
