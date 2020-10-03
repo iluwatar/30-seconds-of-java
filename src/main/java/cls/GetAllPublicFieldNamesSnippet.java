@@ -38,11 +38,11 @@ public class GetAllPublicFieldNamesSnippet {
   /**
    * Print all declared public field names of the class or the interface the class extends.
    *
-   * @param cls Tested class
+   * @param clazz Tested class
    * @return list of name of public fields
    */
-  public static List<String> getAllPublicFieldNames(final Class<?> cls) {
-    return Arrays.stream(cls.getFields())
+  public static List<String> getAllPublicFieldNames(final Class<?> clazz) {
+    return Arrays.stream(clazz.getFields())
         .map(Field::getName)
         .collect(Collectors.toList());
   }
