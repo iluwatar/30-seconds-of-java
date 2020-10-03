@@ -34,7 +34,7 @@ public class Base64DecodeSnippet {
   /**
    * Decodes a Base64 encoded string to the actual representation.
    *
-   * @param input The base64 encoded string
+   * @param input base64 encoded string
    * @return decoded string
    */
   public static String decodeBase64(String input) {
