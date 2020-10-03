@@ -40,7 +40,7 @@ public class HaversineFormulaSnippet {
    */
   public static double findHaversineDistance(double latA, double longA, double latB, double longB) {
     // Radius of sphere on which the points are, in this case Earth.
-    final double SPHERE_RADIUS_IN_KM = 6372.8;
+    var sphereRadiusInKm = 6372.8;
 
     // Calculate the latitude and longitude differences
     var latitudeDiff = Math.toRadians(latB - latA);
@@ -53,6 +53,6 @@ public class HaversineFormulaSnippet {
     var a = Math.pow(Math.sin(latitudeDiff / 2), 2)
             + Math.pow(Math.sin(longitudeDiff / 2), 2) * Math.cos(latitudeA) * Math.cos(latitudeB);
     var c = 2 * Math.asin(Math.sqrt(a));
-    return SPHERE_RADIUS_IN_KM * c;
+    return sphereRadiusInKm * c;
   }
 }
