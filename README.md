@@ -337,9 +337,9 @@ For new snippets the general implementation steps are:
     var latitudeB = Math.toRadians(latB);
 
     //Calculating the distance as per haversine formula
-    double a = Math.pow(Math.sin(latitudeDiff / 2), 2)
+    var a = Math.pow(Math.sin(latitudeDiff / 2), 2)
             + Math.pow(Math.sin(longitudeDiff / 2), 2) * Math.cos(latitudeA) * Math.cos(latitudeB);
-    double c = 2 * Math.asin(Math.sqrt(a));
+    var c = 2 * Math.asin(Math.sqrt(a));
     return sphereRadiusInKm * c;
   }
 ```
