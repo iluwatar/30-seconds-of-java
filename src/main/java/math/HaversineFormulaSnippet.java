@@ -39,6 +39,12 @@ public class HaversineFormulaSnippet {
    * @return the distance between the two points.
    */
   public static double findHaversineDistance(double latA, double longA, double latB, double longB) {
+    if (!isValidLatitude(latA)
+        || !isValidLatitude(latB)
+        || !isValidLongitude(longA)
+        || !isValidLongitude(longB)) {
+      throw new IllegalArgumentException();
+    }
     // Radius of sphere on which the points are, in this case Earth.
     var sphereRadiusInKm = 6372.8;
 
@@ -54,5 +60,15 @@ public class HaversineFormulaSnippet {
             + Math.pow(Math.sin(longitudeDiff / 2), 2) * Math.cos(latitudeA) * Math.cos(latitudeB);
     var c = 2 * Math.asin(Math.sqrt(a));
     return sphereRadiusInKm * c;
+  }
+
+  //Check for valid latitude value
+  private static boolean isValidLatitude(double latitude) {
+    return latitude >= -90 && latitude <= 90;
+  }
+
+  //Check for valid longitude value
+  private static boolean isValidLongitude(double longitude) {
+    return longitude >= -180 && longitude <= 180;
   }
 }

@@ -26,6 +26,7 @@ package math;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /*
@@ -33,14 +34,30 @@ import org.junit.jupiter.api.Test;
  *
  */
 class HaversineFormulaSnippetTest {
+
   /**
    * Tests for {@link HaversineFormulaSnippet#findHaversineDistance(double, double, double,
    * double)}.
    */
   @Test
   void testFindHaversineDistance() {
-    var distance = HaversineFormulaSnippet
+    var distance1 = HaversineFormulaSnippet
         .findHaversineDistance(28.7041, 77.1025, 30.9661, 76.5231);
-    assertEquals(257.7, distance, 0.1);
+    assertEquals(257.7, distance1, 0.1);
+
+    var distance2 = HaversineFormulaSnippet
+        .findHaversineDistance(
+            -17.947826, 177.221232, -16.603513, -179.779055);
+    assertEquals(351.9, distance2, 0.1);
+  }
+
+  // Test for out of range inputs, as latitudes should be in range [-90,90] and longitudes in
+  // [-180,180]
+  @Test
+  void testFindHaversineDistanceInvalidRange() {
+    Assertions.assertThrows(IllegalArgumentException.class,
+        () -> {
+          HaversineFormulaSnippet.findHaversineDistance(666, 0, 0, 0);
+        });
   }
 }
