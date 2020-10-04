@@ -45,6 +45,7 @@ public class HaversineFormulaSnippet {
         || !isValidLongitude(longB)) {
       throw new IllegalArgumentException();
     }
+
     // Radius of sphere on which the points are, in this case Earth.
     var sphereRadiusInKm = 6372.8;
 
@@ -62,12 +63,12 @@ public class HaversineFormulaSnippet {
     return sphereRadiusInKm * c;
   }
 
-  //Check for valid latitude value
+  // Check for valid latitude value
   private static boolean isValidLatitude(double latitude) {
     return latitude >= -90 && latitude <= 90;
   }
 
-  //Check for valid longitude value
+  // Check for valid longitude value
   private static boolean isValidLongitude(double longitude) {
     return longitude >= -180 && longitude <= 180;
   }
