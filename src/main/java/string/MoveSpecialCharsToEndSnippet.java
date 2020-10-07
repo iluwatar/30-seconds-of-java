@@ -29,7 +29,7 @@ package string;
  *
  */
 
-public class MoveSpecialCharsToEnd {
+public class MoveSpecialCharsToEndSnippet {
   /**
    * Find the Levenshtein distance between two words. https://en.wikipedia.org/wiki/Levenshtein_distance
    *
