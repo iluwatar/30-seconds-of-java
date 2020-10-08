@@ -24,6 +24,8 @@
 
 package string;
 
+import java.nio.charset.StandardCharsets;
+
 /*
  * 30 Seconds of Java code library
  *
@@ -36,6 +38,7 @@ public class ReversStringSnippet {
    * @return reversed string
    */
   public static String reverseString(String s) {
-    return new StringBuilder(s).reverse().toString();
+    String  result  = new String(s.getBytes(), StandardCharsets.UTF_8);
+    return new StringBuilder(result).reverse().toString();
   }
 }

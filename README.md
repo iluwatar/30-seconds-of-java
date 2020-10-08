@@ -43,6 +43,7 @@ For new snippets the general implementation steps are:
 [![Read lines from file to string list](https://img.shields.io/badge/-Read%20lines%20from%20file%20to%20string%20list-e1b050)](#read-lines-from-file-to-string-list) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ReadLinesSnippet.java)  
 [![Zip file](https://img.shields.io/badge/-Zip%20file-e1b050)](#zip-file) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)  
 [![Zip multiple files](https://img.shields.io/badge/-Zip%20multiple%20files-e1b050)](#zip-multiple-files) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)
+[![Convert newline caracter unix to dos](http://img.shields.io/badge/-Convert%20newline%20caracter%20unix%20to%20dos-e1b050)](#Convert-new-line-caracter-unix-to-dos) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/ConvertNewLineFileToDosOrUnix.java)
 
 ### Math
 
@@ -293,6 +294,45 @@ For new snippets the general implementation steps are:
       }
     }
   }
+```
+
+
+### Convert new line caracter unix to dos
+
+```java
+    public static void convertLFToCRLF(String fileIn, String fileOut, String charSet)  throws IOException {
+            charSet = charSet != null ? charSet : "ISO-8859-1";
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(new FileOutputStream(new File(fileOut)), charSet));
+            new BufferedReader(new FileReader(new File(fileIn))).lines().forEach(linha -> {
+                try {
+                    writer.write(linha.replaceAll("\r", "") + "\r\n");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            writer.flush();
+            writer.close();
+
+    }
+```
+
+```java
+    public static void convertCRLFToLF(String fileIn, String fileOut, String charSet)  throws IOException {
+        charSet = charSet != null ? charSet : "UTF-8";
+        BufferedWriter writer = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(new File(fileOut)), charSet));
+        new BufferedReader(new FileReader(new File(fileIn))).lines().forEach(linha -> {
+            try {
+                writer.write(linha.replaceAll("\r", "\n") + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        writer.flush();
+        writer.close();
+    }
+
 ```
 
 ## Math
@@ -569,7 +609,6 @@ For new snippets the general implementation steps are:
     }
   }
 ```
-
 
 ## Thread
 

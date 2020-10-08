@@ -26,6 +26,7 @@ package file;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 import org.junit.jupiter.api.Test;
 
 /*
@@ -39,6 +40,6 @@ class ListAllFilesSnippetTest {
   @Test
   void testListAllFiles() {
     var files = ListAllFilesSnippet.listAllFiles("src/test/resources");
-    assertEquals(4, files.size());
+    assertEquals(6, files.size());
   }
 }

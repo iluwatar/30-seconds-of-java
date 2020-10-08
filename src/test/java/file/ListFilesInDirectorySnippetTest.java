@@ -27,9 +27,11 @@ package file;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -44,9 +46,13 @@ class ListFilesInDirectorySnippetTest {
   @Test
   void testListFilesInDirectory() {
     var files = ListFilesInDirectorySnippet.listFilesInDirectory(new File("src/test/resources"));
-    assertEquals(2, files.length);
-    var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains("src/test/resources/somelines.txt"));
-    assertTrue(filenames.contains("src/test/resources/someotherlines.txt"));
+    assertEquals(4, files.length);
+    var filenames = Set.of(files[0].toString(), files[1].toString());
+    final String fileSeparate = File.separator;
+    assertTrue(filenames.contains(String
+        .format("src%stest%sresources%ssomelines.txt", fileSeparate, fileSeparate, fileSeparate)));
+    assertTrue(filenames.contains(String
+        .format("src%stest%sresources%ssomeotherlines.txt", fileSeparate, fileSeparate,
+            fileSeparate)));
   }
 }
