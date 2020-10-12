@@ -6,7 +6,7 @@ package math;
  */
 public class PagesCountSnippet {
   /**
-   * Calculates how many pages required to fit items depending on page size
+   * Pages Count function. Calculates how many pages required to fit items depending on page size
    *
    * @param numberOfObjects total items to split onto pages
    * @param pageSize how many items 1 page can fit
