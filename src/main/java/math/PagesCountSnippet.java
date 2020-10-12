@@ -5,7 +5,6 @@ package math;
  *
  */
 public class PagesCountSnippet {
-
   /**
    * Calculates how many pages required to fit items depending on page size
    *
