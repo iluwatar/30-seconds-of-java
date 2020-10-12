@@ -50,7 +50,8 @@ For new snippets the general implementation steps are:
 [![Fibonacci](https://img.shields.io/badge/-Fibonacci-e1b050)](#fibonacci) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)  
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
-[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
+[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)  
+[![Pages Count](https://img.shields.io/badge/-Pages_Count-e1b050)](#pages-count) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PagesCountSnippet.java)
 
 ### Media
 
@@ -365,6 +366,17 @@ For new snippets the general implementation steps are:
       }
     }
     return true;
+  }
+```
+
+### Pages Count
+
+```java
+  public static int pagesCount(int numberOfObjects, int pageSize) throws IllegalArgumentException {
+    if (pageSize <= 0) {
+      throw new IllegalArgumentException("Page Size should be greater than 0");
+    }
+    return numberOfObjects / pageSize + (numberOfObjects % pageSize == 0 ? 0 : 1);
   }
 ```
 
