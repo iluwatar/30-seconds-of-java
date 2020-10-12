@@ -1,17 +1,16 @@
 package math;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static math.PagesCountSnippet.pagesCount;
+
+import org.junit.jupiter.api.Test;
 
 /*
  * Tests for 30 Seconds of Java code library
  *
  */
 class PagesCountSnippetTest {
-
   /**
    * Tests for {@link PagesCountSnippet#pagesCount(int, int)} )}.
    */
