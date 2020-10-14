@@ -51,6 +51,7 @@ For new snippets the general implementation steps are:
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
 [![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
+[![Point](https://img.shields.io/badge/-Point-e1b050)](#point) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PointSnippet.java)
 
 ### Media
 
@@ -365,6 +366,79 @@ For new snippets the general implementation steps are:
       }
     }
     return true;
+  }
+```
+
+### Point
+
+```java
+  class Point extends Pair<Integer, Integer> {
+
+    public Point(Integer x, Integer y) {
+      super(x, y);
+    }
+    
+    public Integer getX() {
+      return t1;
+    }
+    
+    public Integer getY() {
+      return t2;
+    }
+
+    public double distanceTo(Point other) {
+      return Math.sqrt(square(deltaX(other)) + square(deltaY(other)));
+    }
+
+    public double angleWithXAxis(Point other) {
+      return Math.atan2(deltaY(other), deltaX(other));
+    }
+
+    @Override
+    public String toString() {
+      return "(" + getX() + ", " + getY() + ")";
+    }
+
+    private int deltaX(Point other) {
+      return getX() - other.getX();
+    }
+
+    private int deltaY(Point other) {
+      return getY() - other.getY();
+    }
+
+    private static int square(int x) {
+      return x * x;
+    }
+  }
+
+  class Pair<T1, T2> {
+
+    protected final T1 t1;
+    protected final T2 t2;
+
+    public Pair(T1 t1, T2 t2) {
+      this.t1 = t1;
+      this.t2 = t2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      Pair<?, ?> pair = (Pair<?, ?>) o;
+      return Objects.equals(t1, pair.t1)
+          && Objects.equals(t2, pair.t2);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(t1, t2);
+    }
   }
 ```
 
