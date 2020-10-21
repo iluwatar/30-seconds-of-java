@@ -158,6 +158,18 @@ For new snippets the general implementation steps are:
   }
 ```
 
+### BinarySearch
+
+```java
+   public static void binarySearch (int arr[]){
+      Scanner sc = new Scanner(System.in);
+      System.out.print("Enter a number: ");
+      int n = sc.nextInt();
+      int r = Arrays.binarySearch(arr, n);
+      System.out.print(r>=-1?"number found at index "+r:"number not found");
+    }
+ ```
+
 ## Array
 
 ### Generic two array concatenation
