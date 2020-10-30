@@ -6,6 +6,11 @@ plugins {
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 // Apply the checkstyle plugin
 apply plugin: 'checkstyle'
 checkstyle {
