@@ -41,4 +41,13 @@ class Base64EncodeSnippetTest {
     var encodedString = Base64EncodeSnippet.encodeBase64("TestString");
     assertEquals("VGVzdFN0cmluZw==",encodedString);
   }
+
+  /**
+   * Tests for {@link Base64EncodeSnippet#encodeBase64(String)} for empty input.
+   */
+  @Test
+  void testEmptyBase64Encoding() {
+    var encodedString = Base64EncodeSnippet.encodeBase64("");
+    assertEquals("",encodedString);
+  }
 }

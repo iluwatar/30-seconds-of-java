@@ -24,11 +24,7 @@
 
 package encoding;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.Base64;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /*
  * 30 Seconds of Java code library

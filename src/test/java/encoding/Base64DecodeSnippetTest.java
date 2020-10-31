@@ -41,4 +41,13 @@ class Base64DecodeSnippetTest {
     var decodedString = Base64DecodeSnippet.decodeBase64("VGVzdFN0cmluZw==");
     assertEquals("TestString",decodedString);
   }
+
+  /**
+   * Tests for {@link Base64DecodeSnippet#decodeBase64(String)} with empty input.
+   */
+  @Test
+  void testEmptyBase64Decoding() {
+    var decodedString = Base64DecodeSnippet.decodeBase64("");
+    assertEquals("",decodedString);
+  }
 }
