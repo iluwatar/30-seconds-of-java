@@ -34,24 +34,16 @@ import java.util.stream.Collectors;
  * 30 Seconds of Java code library
  *
  */
-public class GetAllFieldNamesSnippet {
+public class GetAllPublicFieldNamesSnippet {
   /**
-   * Print all declared field names of the class or the interface the class extends.
+   * Print all declared public field names of the class or the interface the class extends.
    *
    * @param clazz Tested class
-   * @return list of names of all fields
+   * @return list of name of public fields
    */
-  public static List<String> getAllFieldNames(final Class<?> clazz) {
-    var fields = new ArrayList<String>();
-    var currentClazz = clazz;
-    while (currentClazz != null) {
-      fields.addAll(
-          Arrays.stream(currentClazz.getDeclaredFields())
-              .filter(field -> !field.isSynthetic())
-              .map(Field::getName)
-              .collect(Collectors.toList()));
-      currentClazz = currentClazz.getSuperclass();
-    }
-    return fields;
+  public static List<String> getAllPublicFieldNames(final Class<?> clazz) {
+    return Arrays.stream(clazz.getFields())
+        .map(Field::getName)
+        .collect(Collectors.toList());
   }
 }

@@ -24,34 +24,29 @@
 
 package cls;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 /*
- * 30 Seconds of Java code library
+ * Tests for 30 Seconds of Java code library
  *
  */
-public class GetAllFieldNamesSnippet {
+class GetAllPublicFieldNamesSnippetTest {
   /**
-   * Print all declared field names of the class or the interface the class extends.
-   *
-   * @param clazz Tested class
-   * @return list of names of all fields
+   * Tests for {@link GetAllPublicFieldNamesSnippet#getAllPublicFieldNames(Class)}.
    */
-  public static List<String> getAllFieldNames(final Class<?> clazz) {
-    var fields = new ArrayList<String>();
-    var currentClazz = clazz;
-    while (currentClazz != null) {
-      fields.addAll(
-          Arrays.stream(currentClazz.getDeclaredFields())
-              .filter(field -> !field.isSynthetic())
-              .map(Field::getName)
-              .collect(Collectors.toList()));
-      currentClazz = currentClazz.getSuperclass();
+  @Test
+  void testGetAllPublicFieldNames() {
+    class TestClass {
+      public int fieldOne;
+      public int fieldTwo;
     }
-    return fields;
+
+    var list = GetAllPublicFieldNamesSnippet.getAllPublicFieldNames(TestClass.class);
+    assertEquals(2, list.size());
+    assertTrue(list.contains("fieldOne"));
+    assertTrue(list.contains("fieldTwo"));
   }
 }

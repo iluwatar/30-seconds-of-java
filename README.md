@@ -72,7 +72,8 @@ For new snippets the general implementation steps are:
 ### Class
 
 [![Get methods name](https://img.shields.io/badge/-Get%20methods%20name-e1b050)](#get-methods-name) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllMethodsSnippet.java)  
-[![Get fields name](https://img.shields.io/badge/-Get%20fields%20name-e1b050)](#get-fields-name) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllFieldNamesSnippet.java)  
+[![Get public field names](https://img.shields.io/badge/-Get%20public%20fields%20name-e1b050)](#get-public-field-names) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllPublicFieldNamesSnippet.java)  
+[![Get all field names](https://img.shields.io/badge/-Get%20all%20fields%20name-e1b050)](#get-all-field-names) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/GetAllFieldNamesSnippet.java)  
 [![Create object](https://img.shields.io/badge/-Create%20object-e1b050)](#create-object) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/cls/CreatingObjectSnippet.java)
 
 ### I/O
@@ -515,7 +516,7 @@ For new snippets the general implementation steps are:
   }
 ```
 
-### Get fields name
+### Get public field names
 
 ```java
   public static List<String> getAllFieldNames(final Class<?> cls) {
@@ -523,6 +524,24 @@ For new snippets the general implementation steps are:
             .map(Field::getName)
             .collect(Collectors.toList());
   }
+```
+
+### Get all field names
+
+```java
+  public static List<String> getAllFieldNames(final Class<?> cls) {
+      var fields = new ArrayList<String>();
+      var currentCls = cls;
+      while (currentCls != null) {
+        fields.addAll(
+            Arrays.stream(currentCls.getDeclaredFields())
+                .filter(field -> !field.isSynthetic())
+                .map(Field::getName)
+                .collect(Collectors.toList()));
+        currentCls = currentCls.getSuperclass();
+      }
+      return fields;
+    }
 ```
 
 ### Create object
