@@ -28,8 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -43,10 +42,17 @@ class ListFilesInDirectorySnippetTest {
    */
   @Test
   void testListFilesInDirectory() {
-    var files = ListFilesInDirectorySnippet.listFilesInDirectory(new File("src/test/resources"));
-    assertEquals(2, files.length);
-    var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains("src/test/resources/somelines.txt"));
-    assertTrue(filenames.contains("src/test/resources/someotherlines.txt"));
+    File[] files = ListFilesInDirectorySnippet.listFilesInDirectory(new File("src/test/resources"));
+    assertEquals(4, files.length);
+    Set<String> filenames = Set.of(files[0].toString(), files[1].toString(), 
+            files[2].toString(), files[3].toString());
+    final String fileSeparate = File.separator;
+    final String basePath = String.format("src%stest%sresources%s", 
+        fileSeparate,fileSeparate,fileSeparate);
+
+    assertTrue(filenames.contains(basePath + "somelines.txt"));
+    assertTrue(filenames.contains(basePath + "someotherlines.txt"));
+    assertTrue(filenames.contains(basePath + "windowsFileText.txt"));
+    assertTrue(filenames.contains(basePath + "zlinuxFileText.txt"));
   }
 }

@@ -26,6 +26,7 @@ package string;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 
 /*
@@ -39,6 +40,7 @@ class ReversStringSnippetTest {
   @Test
   void testReverseString() {
     assertEquals("oof", ReversStringSnippet.reverseString("foo"));
-    assertEquals("ÖÄÅ321FED cba", ReversStringSnippet.reverseString("abc DEF123ÅÄÖ"));
+    String normalizestring = new String("ÖÄÅ321FED cba".getBytes(), StandardCharsets.UTF_8);
+    assertEquals(normalizestring, ReversStringSnippet.reverseString("abc DEF123ÅÄÖ"));
   }
 }
