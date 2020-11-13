@@ -47,7 +47,7 @@ public class ZipDirectorySnippet {
     var srcDirectory = new File(srcDirectoryName);
     try (
         var fileOut = new FileOutputStream(zipFileName);
-        var zipOut = new ZipOutputStream(fileOut);
+        var zipOut = new ZipOutputStream(fileOut)
     ) {
       zipFile(srcDirectory, srcDirectory.getName(), zipOut);
     }
@@ -81,14 +81,16 @@ public class ZipDirectorySnippet {
       }
       return;
     }
-    var fis = new FileInputStream(fileToZip); // Start zipping once we know it is a file
-    var zipEntry = new ZipEntry(fileName);
-    zipOut.putNextEntry(zipEntry);
-    var bytes = new byte[1024];
-    var length = 0;
-    while ((length = fis.read(bytes)) >= 0) {
-      zipOut.write(bytes, 0, length);
+    try (
+        var fis = new FileInputStream(fileToZip) // Start zipping once we know it is a file
+    ) {
+      var zipEntry = new ZipEntry(fileName);
+      zipOut.putNextEntry(zipEntry);
+      var bytes = new byte[1024];
+      var length = 0;
+      while ((length = fis.read(bytes)) >= 0) {
+        zipOut.write(bytes, 0, length);
+      }
     }
-    fis.close();
   }
 }
