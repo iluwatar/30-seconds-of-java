@@ -303,39 +303,43 @@ For new snippets the general implementation steps are:
     var srcDirectory = new File(srcDirectoryName);
     try (
       var fileOut = new FileOutputStream(zipFileName);
-      var zipOut = new ZipOutputStream(fileOut);
+      var zipOut = new ZipOutputStream(fileOut)
     ) {
       zipFile(srcDirectory, srcDirectory.getName(), zipOut);
     }
   }
-  public static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut) throws IOException{
-    if (fileToZip.isHidden()) { 
+  public static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut) 
+      throws IOException {
+    if (fileToZip.isHidden()) { // Ignore hidden files as standard
       return;
     }
     if (fileToZip.isDirectory()) {
-       if (fileName.endsWith("/")) {
-          zipOut.putNextEntry(new ZipEntry(fileName)); 
-           zipOut.closeEntry();
-       } else {
-         zipOut.putNextEntry(new ZipEntry(fileName + "/"));
-         zipOut.closeEntry();
-       }
-       var children = fileToZip.listFiles();
-       for (var childFile : children) {
-         zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
-       }
-       return;
+      if (fileName.endsWith("/")) {
+        zipOut.putNextEntry(new ZipEntry(fileName)); // To be zipped next
+        zipOut.closeEntry();
+      } else {
+        // Add the "/" mark explicitly to preserve structure while unzipping action is performed
+        zipOut.putNextEntry(new ZipEntry(fileName + "/"));
+        zipOut.closeEntry();
+      }
+      var children = fileToZip.listFiles();
+      for (var childFile : children) { // Recursively apply function to all children
+        zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
+      }
+      return;
     }
-    var fis = new FileInputStream(fileToZip);
-    var zipEntry = new ZipEntry(fileName);
-    zipOut.putNextEntry(zipEntry);
-    var bytes = new byte[1024];
-    var length = 0;
-    while ((length = fis.read(bytes)) >= 0) {
-      zipOut.write(bytes, 0, length);
+    try (
+        var fis = new FileInputStream(fileToZip) // Start zipping once we know it is a file
+    ) {
+      var zipEntry = new ZipEntry(fileName);
+      zipOut.putNextEntry(zipEntry);
+      var bytes = new byte[1024];
+      var length = 0;
+      while ((length = fis.read(bytes)) >= 0) {
+        zipOut.write(bytes, 0, length);
+      }
     }
-    fis.close();
- }
+  }
 ```
 
 ## Math

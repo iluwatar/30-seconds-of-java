@@ -25,6 +25,7 @@
 package file;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
@@ -32,9 +33,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.zip.ZipFile;
-
 import org.junit.jupiter.api.Test;
-
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -69,5 +68,16 @@ class ZipDirectorySnippetTest {
     } finally {
       Files.deleteIfExists(new File(dst).toPath());
     }
+  }
+
+  @Test()
+  void testZipFileDirectoryInvalid() throws IOException {
+
+    final var src = "src/test/resources/dirUnknown";
+    final var dst = "src/test/resources/dirUnknown.zip";
+    assertThrows(IOException.class, () -> {
+      ZipDirectorySnippet.zipDirectory(src, dst);
+    });
+    Files.deleteIfExists(new File(dst).toPath());
   }
 }
