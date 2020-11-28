@@ -67,7 +67,8 @@ For new snippets the general implementation steps are:
 [![Reverse string](https://img.shields.io/badge/-Reverse%20string-e1b050)](#reverse-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/ReversStringSnippet.java)  
 [![String to date](https://img.shields.io/badge/-String%20to%20date-e1b050)](#string-to-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/StringToDateSnippet.java)  
 [![Anagram Check](https://img.shields.io/badge/-Anagram%20Check-e1b050)](#anagram-check) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/AnagramSnippet.java)  
-[![Find Levenshtein distance](https://img.shields.io/badge/-Find%20Levenshtein%20distance-e1b050)](#find-levenshtein-distance) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/LevenshteinDistanceSnippet.java)
+[![Find Levenshtein distance](https://img.shields.io/badge/-Find%20Levenshtein%20distance-e1b050)](#find-levenshtein-distance) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/LevenshteinDistanceSnippet.java)  
+[![Compare Version](https://img.shields.io/badge/-Compare%20Version-e1b050)](#compare-version) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/string/CompareVersionSnippet.java)
 
 ### Class
 
@@ -499,6 +500,28 @@ For new snippets the general implementation steps are:
       }
     }
     return ans[word1.length()][word2.length()];
+  }
+```
+
+### Compare Version
+
+```java
+  public static int compareVersion(String v1, String v2) {
+    Function<String, String[]> getVersionComponents = version -> version.replaceAll(".*?((?<!\\w)\\d+([.-]\\d+)*).*", "$1", "$1").split("\\.");
+
+    var components1 = getVersionComponents.apply(v1);
+    var components2 = getVersionComponents.apply(v2);
+    int length = Math.max(components1.length, components2.length);
+
+    for (int i = 0; i < length; i++) {
+      Integer c1 = i < components1.length ? Integer.parseInt(components1[i]) : 0;
+      Integer c2 = i < components2.length ? Integer.parseInt(components2[i]) : 0;
+      int result = c1.compareTo(c2);
+      if (result != 0) {
+        return result;
+      }
+    }
+    return 0;
   }
 ```
 
