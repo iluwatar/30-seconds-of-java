@@ -47,7 +47,8 @@ For new snippets the general implementation steps are:
 [![List files in directory recursively](https://img.shields.io/badge/-List%20files%20in%20directory%20recursively-e1b050)](#list-files-in-directory-recursively) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ListAllFilesSnippet.java)  
 [![Read lines from file to string list](https://img.shields.io/badge/-Read%20lines%20from%20file%20to%20string%20list-e1b050)](#read-lines-from-file-to-string-list) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ReadLinesSnippet.java)  
 [![Zip file](https://img.shields.io/badge/-Zip%20file-e1b050)](#zip-file) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)  
-[![Zip multiple files](https://img.shields.io/badge/-Zip%20multiple%20files-e1b050)](#zip-multiple-files) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)
+[![Zip multiple files](https://img.shields.io/badge/-Zip%20multiple%20files-e1b050)](#zip-multiple-files) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)  
+[![Zip a directory](https://img.shields.io/badge/-Zip%20a%20directory-e1b050)](#zip-a-directory) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipDirectorySnippet.java)
 
 ### Math
 
@@ -316,6 +317,52 @@ For new snippets the general implementation steps are:
             zipOut.write(bytes, 0, length);
           }
         }
+      }
+    }
+  }
+```
+
+### Zip a directory
+
+```java
+  public static void zipDirectory (String srcDirectoryName, String zipFileName) throws IOException {
+    var srcDirectory = new File(srcDirectoryName);
+    try (
+      var fileOut = new FileOutputStream(zipFileName);
+      var zipOut = new ZipOutputStream(fileOut)
+    ) {
+      zipFile(srcDirectory, srcDirectory.getName(), zipOut);
+    }
+  }
+  public static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut) 
+      throws IOException {
+    if (fileToZip.isHidden()) { // Ignore hidden files as standard
+      return;
+    }
+    if (fileToZip.isDirectory()) {
+      if (fileName.endsWith("/")) {
+        zipOut.putNextEntry(new ZipEntry(fileName)); // To be zipped next
+        zipOut.closeEntry();
+      } else {
+        // Add the "/" mark explicitly to preserve structure while unzipping action is performed
+        zipOut.putNextEntry(new ZipEntry(fileName + "/"));
+        zipOut.closeEntry();
+      }
+      var children = fileToZip.listFiles();
+      for (var childFile : children) { // Recursively apply function to all children
+        zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
+      }
+      return;
+    }
+    try (
+        var fis = new FileInputStream(fileToZip) // Start zipping once we know it is a file
+    ) {
+      var zipEntry = new ZipEntry(fileName);
+      zipOut.putNextEntry(zipEntry);
+      var bytes = new byte[1024];
+      var length = 0;
+      while ((length = fis.read(bytes)) >= 0) {
+        zipOut.write(bytes, 0, length);
       }
     }
   }
