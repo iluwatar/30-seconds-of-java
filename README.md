@@ -641,11 +641,9 @@ For new snippets the general implementation steps are:
 
 ```java
   public static List<String> getAllMethods(final Class<?> cls) {
-    var list = new ArrayList<String>();
-    for (var method : cls.getDeclaredMethods()) {
-      list.add(method.getName());
-    }
-    return list;
+    return Arrays.stream(cls.getDeclaredMethods())
+            .map(Method::getName)
+            .collect(Collectors.toList());
   }
 ```
 

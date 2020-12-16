@@ -24,8 +24,10 @@
 
 package cls;
 
-import java.util.ArrayList;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /*
  * 30 Seconds of Java code library
@@ -38,10 +40,8 @@ public class GetAllMethodsSnippet {
    * @return list of methods name
    */
   public static List<String> getAllMethods(final Class<?> cls) {
-    var list = new ArrayList<String>();
-    for (var method : cls.getDeclaredMethods()) {
-      list.add(method.getName());
-    }
-    return list;
+    return Arrays.stream(cls.getDeclaredMethods())
+        .map(Method::getName)
+        .collect(Collectors.toList());
   }
 }
