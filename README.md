@@ -26,7 +26,8 @@ For new snippets the general implementation steps are:
 
 [![Quicksort](https://img.shields.io/badge/-Quicksort-e1b050)](#quicksort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/QuickSortSnippet.java)  
 [![Bubblesort](https://img.shields.io/badge/-Bubblesort-e1b050)](#bubblesort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)  
-[![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050)](#selectionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)
+[![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050)](#selectionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)   
+[![Insertionsort](https://img.shields.io/badge/-Insertionsort-e1b050)](#insertionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/InsertionSortSnippet.java)
 
 ### Array
 
@@ -163,6 +164,23 @@ For new snippets the general implementation steps are:
       var tmp = arr[minIndex];
       arr[minIndex] = arr[i];
       arr[i] = tmp;
+    }
+  }
+```
+
+### InsertionSort
+
+```java
+  public static void insertionSort(int[] arr) {
+    for (var i = 1; i < arr.length; i++) {
+      var tmp = arr[i];
+      var j = i - 1;
+
+      while (j >= 0 && arr[j] > tmp) {
+        arr[j + 1] = arr[j];
+        j--;
+      }
+      arr[j + 1] = tmp;
     }
   }
 ```
