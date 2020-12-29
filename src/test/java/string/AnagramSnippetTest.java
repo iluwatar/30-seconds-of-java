@@ -39,6 +39,9 @@ class AnagramSnippetTest {
    */
   @Test
   void testIsAnagram() {
+    assertTrue(AnagramSnippet.isAnagram("周数波 hello", "ollhe波数周 "));
+    assertTrue(AnagramSnippet.isAnagram("возвращаться", "атврсьщавозя"));
+    assertFalse(AnagramSnippet.isAnagram("ચિકન દૂધ", "ચિકન દૂન"));
     assertTrue(AnagramSnippet.isAnagram("Aditya", "aytdiA"));
     assertFalse(AnagramSnippet.isAnagram("Aditya", "aytida"));
     assertTrue(AnagramSnippet.isAnagram("~~# @!", "~@!#~ "));

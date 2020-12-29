@@ -24,7 +24,8 @@
 
 package string;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * 30 Seconds of Java code library
@@ -41,15 +42,35 @@ public class AnagramSnippet {
   public static boolean isAnagram(String s1, String s2) {
     var l1 = s1.length();
     var l2 = s2.length();
-    var arr1 = new int[256];
-    var arr2 = new int[256];
     if (l1 != l2) {
       return false;
     }
-    for (var i = 0; i < l1; i++) {
-      arr1[s1.charAt(i)]++;
-      arr2[s2.charAt(i)]++;
+    Map<Character, Integer> charFrequencyArray = new HashMap<>();
+    Character ch;
+    for (int i = 0; i < l1; i++) {
+      ch = s1.charAt(i);
+      if (charFrequencyArray.containsKey(ch)) {
+        var count = charFrequencyArray.get(ch);
+        count++;
+        charFrequencyArray.put(ch, count);
+      } else {
+        charFrequencyArray.put(ch, 1);
+      }
     }
-    return Arrays.equals(arr1, arr2);
+    for (int i = 0; i < l2; i++) {
+      ch = s2.charAt(i);
+      if (charFrequencyArray.containsKey(ch)) {
+        var count = charFrequencyArray.get(ch);
+        count--;
+        if (count < 0) {
+          return false;
+        } else {
+          charFrequencyArray.put(ch, count);
+        }
+      } else {
+        return false;
+      }
+    }
+    return true;
   }
 }
