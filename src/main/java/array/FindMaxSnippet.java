@@ -37,6 +37,6 @@ public class FindMaxSnippet {
    * @return the maximum element from the array
    */
   public static int findMax(int[] arr) {
-    return Arrays.stream(arr).reduce(Integer.MIN_VALUE, Integer::max);
+    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::max);
   }
 }
