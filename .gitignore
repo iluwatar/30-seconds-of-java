@@ -3,3 +3,6 @@
 java-snippets.iml
 out/
 build/
+
+.vscode
+bin
