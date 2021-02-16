@@ -27,7 +27,8 @@ For new snippets the general implementation steps are:
 [![Quicksort](https://img.shields.io/badge/-Quicksort-e1b050)](#quicksort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/QuickSortSnippet.java)  
 [![Bubblesort](https://img.shields.io/badge/-Bubblesort-e1b050)](#bubblesort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)  
 [![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050)](#selectionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)   
-[![Insertionsort](https://img.shields.io/badge/-Insertionsort-e1b050)](#insertionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/InsertionSortSnippet.java)
+[![Insertionsort](https://img.shields.io/badge/-Insertionsort-e1b050)](#insertionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/InsertionSortSnippet.java)  
+[![Mergesort](https://img.shields.io/badge/-Mergesort-e1b050)](#Mergesort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/MergeSortSnippet.java)
 
 ### Array
 
@@ -182,6 +183,50 @@ For new snippets the general implementation steps are:
       }
       arr[j + 1] = tmp;
     }
+  }
+```
+
+### MergeSort
+
+```java
+  private static int[] tmpBuffer;
+
+  private static void recursiveMergeSortTask(int[] arr, int leftPointer, int rightPointer) {
+    if (leftPointer >= rightPointer) {
+      return;
+    }
+
+    int arrPosition;
+    int centerPointer = (leftPointer + rightPointer) / 2;
+
+    recursiveMergeSortTask(arr, leftPointer, centerPointer);
+    recursiveMergeSortTask(arr, centerPointer + 1, rightPointer);
+
+    int tmpLeftPointer = 0;
+    int tmpRightPointer = 0;
+    int mergePosition = leftPointer;
+
+    for (arrPosition = leftPointer; arrPosition <= centerPointer; arrPosition++) {
+      tmpBuffer[tmpRightPointer++] = arr[arrPosition];
+    }
+
+    while (arrPosition <= rightPointer && tmpLeftPointer < tmpRightPointer) {
+      arr[mergePosition++] = (tmpBuffer[tmpLeftPointer] <= arr[arrPosition])  
+                              ? tmpBuffer[tmpLeftPointer++]
+                              : arr[arrPosition++];
+    }
+
+    while (tmpLeftPointer < tmpRightPointer) {
+      arr[mergePosition++] = tmpBuffer[tmpLeftPointer++];
+    }
+  }
+
+  public static void mergeSort(int[] arr) {
+    tmpBuffer = new int[arr.length];
+
+    recursiveMergeSortTask(arr, 0, arr.length - 1);
+
+    tmpBuffer = null;
   }
 ```
 

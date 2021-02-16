@@ -30,6 +30,9 @@ package algorithm;
  */
 public class MergeSortSnippet {
 
+  private MergeSortSnippet() {
+  }
+
   private static int[] tmpBuffer;
 
   private static void recursiveMergeSortTask(int[] arr, int leftPointer, int rightPointer) {
