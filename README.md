@@ -1,24 +1,6 @@
 # 30 Seconds of Java
 
-![Java CI with Gradle](https://github.com/iluwatar/30-seconds-of-java/workflows/Java%20CI%20with%20Gradle/badge.svg)
-[![Join the chat at https://gitter.im/iluwatar/30-seconds-of-java](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iluwatar/30-seconds-of-java?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable 
-tested Java 11 compatible code snippets that you can understand in 30 seconds or less.
-
-## How to contribute
-
-In general, we are interested in well implemented standalone code snippets. There are some tasks that we would like to
-see implemented in the [issue list](https://github.com/iluwatar/30-seconds-of-java/issues). Please raise a new issue
-if there's an interesting snippet you would like to see in this library but can't implement yourself.
-
-For new snippets the general implementation steps are:
-
-* Create new class inside section-package for example`algorithm.BubbleSortSnippet.java` with the new code snippet. 
-* Add a test for the new code snippet in `algorithm.BubbleSortSnippetTest.java`.
-* If you want to create new section then create new package, class and tests for it.
-* Finally, insert the new snippet into this `README.md`.
-* Submit pull request against `master` branch.
+Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), this is a collection of reusable tested copy-pasteable Java 11 compatible code snippets that you can understand in 30 seconds or less. If you're interested in contributing to this library, please see the [instructions](https://github.com/iluwatar/30-seconds-of-java/blob/master/CONTRIBUTE.md).
 
 ## Table of Contents
 
