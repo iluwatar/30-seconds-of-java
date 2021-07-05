@@ -10,6 +10,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Bubblesort](https://img.shields.io/badge/-Bubblesort-e1b050)](#bubblesort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)  
 [![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050)](#selectionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)   
 [![Insertionsort](https://img.shields.io/badge/-Insertionsort-e1b050)](#insertionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/InsertionSortSnippet.java)
+[![Mergesort](https://img.shields.io/badge/-Mergesort-e1b050)](#mergesort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/MergeSortSnippet.java)
 
 ### Array
 
@@ -163,6 +164,61 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
         j--;
       }
       arr[j + 1] = tmp;
+    }
+  }
+```
+
+### MergeSort
+```java
+  public static void mergeSort(int[] arr, int left, int right) {
+    if (left >= right) {
+      return;
+    }
+
+    var pivotIndex = (left + right) / 2;
+
+    mergeSort(arr, left, pivotIndex);
+    mergeSort(arr, pivotIndex + 1, right);
+
+    var leftArrLength = pivotIndex - left + 1;
+    var rightArrLength = right - pivotIndex;
+
+    var leftArr = new int[leftArrLength];
+    var rightArr = new int[rightArrLength];
+
+    IntStream
+      .range(0, leftArrLength)
+      .forEach(i -> leftArr[i] = arr[left + i]);
+
+    IntStream
+      .range(0, rightArrLength)
+      .forEach(i -> rightArr[i] = arr[pivotIndex + i + 1]);
+
+    var i = 0;
+    var j = 0;
+    var k = left;
+
+    while (i < leftArrLength && j < rightArrLength) {
+      if (leftArr[i] <= rightArr[j]) {
+        arr[k] = leftArr[i];
+        i++;
+      } else {
+        arr[k] = rightArr[j];
+        j++;
+      }
+      k++;
+    }
+
+    while (i < leftArrLength) {
+      arr[k] = leftArr[i];
+      i++;
+      k++;
+    }
+
+    while (j < rightArrLength) {
+      arr[k] = rightArr[j];
+      j++;
+      k++;
     }
   }
 ```
