@@ -24,8 +24,6 @@
 
 package algorithm;
 
-import java.util.stream.IntStream;
-
 /*
  * 30 Seconds of Java code library
  *
@@ -54,13 +52,13 @@ public class MergeSortSnippet {
     var leftArr = new int[leftArrLength];
     var rightArr = new int[rightArrLength];
 
-    IntStream
-      .range(0, leftArrLength)
-      .forEach(i -> leftArr[i] = arr[left + i]);
+    for (var i = 0; i < leftArrLength; i++) {
+      leftArr[i] = arr[left + i];
+    }
 
-    IntStream
-      .range(0, rightArrLength)
-      .forEach(i -> rightArr[i] = arr[pivotIndex + i + 1]);
+    for (var j = 0; j < rightArrLength; j++) {
+      rightArr[j] = arr[pivotIndex + j + 1];
+    }
 
     var i = 0;
     var j = 0;
@@ -68,25 +66,18 @@ public class MergeSortSnippet {
 
     while (i < leftArrLength && j < rightArrLength) {
       if (leftArr[i] <= rightArr[j]) {
-        arr[k] = leftArr[i];
-        i++;
+        arr[k++] = leftArr[i++];
       } else {
-        arr[k] = rightArr[j];
-        j++;
+        arr[k++] = rightArr[j++];
       }
-      k++;
     }
 
     while (i < leftArrLength) {
-      arr[k] = leftArr[i];
-      i++;
-      k++;
+      arr[k++] = leftArr[i++];
     }
 
     while (j < rightArrLength) {
-      arr[k] = rightArr[j];
-      j++;
-      k++;
+      arr[k++] = rightArr[j++];
     }
   }
 }
