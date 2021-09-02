@@ -28,29 +28,31 @@ package math;
  * 30 Seconds of Java code library
  *
  */
-public class EloRatingSnippet {
-    /**
-     * Elo rating adjustment. Returns new player rating based on the system
-     * invented by Arpad Elo
-     *
-     * @param playerElo Current player rating
-     * @param opponentElo Current opponent rating
-     * @param score Score (1.0 win, 0.0 loss, 0.5 draw)
-     * @param kFactor K-factor constant controls the sensitivity of rating updates
-     * @return Adjusted elo rating
-     */
-    public static int eloAdjustment(int playerElo, int opponentElo, double score, double kFactor) {
-        return (int)(playerElo + kFactor * (score - expectedWinProbability(playerElo, opponentElo)));
-    }
+class EloRatingSnippet {
+  /**
+   * Elo rating adjustment. Returns new player rating based on the system
+   * invented by Arpad Elo
+   *
+   * @param playerElo Current player rating
+   * @param opponentElo Current opponent rating
+   * @param score Score (1.0 win, 0.0 loss, 0.5 draw)
+   * @param kfactor K-factor constant controls the sensitivity of rating updates
+   * @return Adjusted elo rating
+   */
+  public static int eloAdjustment(int playerElo, int opponentElo, double score, double kfactor) {
+    return (int) (playerElo + kfactor * (score - expectedWinProbability(playerElo, opponentElo)));
+  }
 
-    /**
-     * Expected win probability. Returns the odds of a player winning based on elo comparisons
-     *
-     * @param playerElo Current player rating
-     * @param opponentElo Current opponent rating
-     * @return Expected win probability
-     */
-    public static double expectedWinProbability(int playerElo, int opponentElo) {
-        return (1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0)));
-    }
+
+  /**
+   * Expected win probability. Returns the odds of a player winning based on elo comparisons
+   *
+   * @param playerElo Current player rating
+   * @param opponentElo Current opponent rating
+   * @return Expected win probability
+   */
+  public static double expectedWinProbability(int playerElo, int opponentElo) {
+    return (1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0)));
+  }
 }
+
