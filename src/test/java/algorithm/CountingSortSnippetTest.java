@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
  */
 class CountingSortSnippetTest {
   /**
-   * Tests for {@link CountingSortSnippet#countingSort(int[], int, int)}.
+   * Tests for {@link CountingSortSnippet#countingSort(int[])}.
    */
   @Test
   void testCountingSort() {
