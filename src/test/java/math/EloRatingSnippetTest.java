@@ -34,15 +34,15 @@ import org.junit.jupiter.api.Test;
  */
 class EloRatingSnippetTest {
   /**
-   * Tests for {@link EloRatingSnippet#eloAdjustment(int,int,double,double)}
+   * Tests for EloRatingSnippet. {@link EloRatingSnippet#eloAdjustment(int,int,double,double)}
    */
   @Test
   void testEloRating() {
-      assertEquals(1400, EloRatingSnippet.eloAdjustment(1400, 1400, 0.5, 32));
-      assertEquals(1416, EloRatingSnippet.eloAdjustment(1400, 1400, 1.0, 32));
-      assertEquals(1384, EloRatingSnippet.eloAdjustment(1400, 1400, 0.0, 32));
-      assertEquals(1885, EloRatingSnippet.eloAdjustment(1900, 1400, 0.5, 32));
-      assertEquals(1901, EloRatingSnippet.eloAdjustment(1900, 1400, 1.0, 32));
-      assertEquals(1869, EloRatingSnippet.eloAdjustment(1900, 1400, 0.0, 32));
+    assertEquals(1400, EloRatingSnippet.eloAdjustment(1400, 1400, 0.5, 32));
+    assertEquals(1416, EloRatingSnippet.eloAdjustment(1400, 1400, 1.0, 32));
+    assertEquals(1384, EloRatingSnippet.eloAdjustment(1400, 1400, 0.0, 32));
+    assertEquals(1885, EloRatingSnippet.eloAdjustment(1900, 1400, 0.5, 32));
+    assertEquals(1901, EloRatingSnippet.eloAdjustment(1900, 1400, 1.0, 32));
+    assertEquals(1869, EloRatingSnippet.eloAdjustment(1900, 1400, 0.0, 32));
   }
 }
