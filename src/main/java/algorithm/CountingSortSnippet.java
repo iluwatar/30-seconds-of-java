@@ -46,7 +46,7 @@ public class CountingSortSnippet {
       count[num]++;
     }
 
-    for (var i = 0; i <= max; i++) {
+    for (var i = 1; i <= max; i++) {
       count[i] += count[i - 1];
     }
 
