@@ -9,7 +9,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Quicksort](https://img.shields.io/badge/-Quicksort-e1b050)](#quicksort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/QuickSortSnippet.java)  
 [![Bubblesort](https://img.shields.io/badge/-Bubblesort-e1b050)](#bubblesort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BubbleSortSnippet.java)  
 [![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050)](#selectionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)   
-[![Insertionsort](https://img.shields.io/badge/-Insertionsort-e1b050)](#insertionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/InsertionSortSnippet.java)
+[![Insertionsort](https://img.shields.io/badge/-Insertionsort-e1b050)](#insertionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/InsertionSortSnippet.java)   
+[![Countingsort](https://img.shields.io/badge/-Countingsort-e1b050)](#countingsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/CountingSortSnippet.java)
 
 ### Array
 
@@ -163,6 +164,35 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
         j--;
       }
       arr[j + 1] = tmp;
+    }
+  }
+```
+
+### CountingSort
+```java
+  public static void countingSort(int[] arr) {
+    var max = Arrays.stream(arr).max().getAsInt();
+
+    var count = new int[max + 1];
+
+    for (var num : arr) {
+      count[num]++;
+    }
+
+    for (var i = 1; i <= max; i++) {
+      count[i] += count[i - 1];
+    }
+
+    var sorted = new int[arr.length];
+    for (var i = arr.length - 1; i >= 0; i--) {
+      var cur = arr[i];
+      sorted[count[cur] - 1] = cur;
+      count[cur]--;
+    }
+
+    var index = 0;
+    for (var num : sorted) {
+      arr[index++] = num;
     }
   }
 ```
