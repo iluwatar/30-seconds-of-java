@@ -39,7 +39,8 @@ class EloRatingSnippet {
    * @param kfactor K-factor constant controls the sensitivity of rating updates
    * @return Adjusted elo rating
    */
-  public static int eloAdjustment(int playerElo, int opponentElo, double score, double kfactor) {
+  public static int calculateEloAdjustment(int playerElo, int opponentElo,
+                                             double score, double kfactor) {
     return (int) (playerElo + kfactor * (score - expectedWinProbability(playerElo, opponentElo)));
   }
 
@@ -52,7 +53,9 @@ class EloRatingSnippet {
    * @return Expected win probability
    */
   public static double expectedWinProbability(int playerElo, int opponentElo) {
-    return (1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0)));
+    double probability = 1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0));
+    return Math.round(probability * 100.0) / 100.0;
+    //Math.round((1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0))) * 100.0) / 100.0;
   }
 }
 

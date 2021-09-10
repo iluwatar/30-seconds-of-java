@@ -40,7 +40,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Haversine Formula](https://img.shields.io/badge/-Haversine%20formula-e1b050)](#haversine-formula) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/HaversineFormulaSnippet.java)  
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
-[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
+[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)  
+[![Elo Rating](https://img.shields.io/badge/-Elo%20Rating-e1b050)](#elo-rating) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/EloRatingSnippet.java)
 
 ### Media
 
@@ -477,6 +478,21 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
       }
     }
     return true;
+  }
+```
+
+### Elo Rating
+```java
+  // Calculate rating adjustments using player ratings, game score, and the desired K-Factor
+  // K-Factors range from ~10-40 to adjust variance; Larger values cause bigger rating adjustments
+  public static int calculateEloAdjustment(int playerElo, int opponentElo,
+                                             double score, double kfactor) {
+    return (int) (playerElo + kfactor * (score - expectedWinProbability(playerElo, opponentElo)));
+  }
+  
+  // Calculate a player's probability to win given current ratings (Algorithm of 400)	  
+  public static double expectedWinProbability(int playerElo, int opponentElo) {
+	return Math.round((1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0))) * 100.0) / 100.0;
   }
 ```
 
