@@ -492,7 +492,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   
   // Calculate a player's probability to win given current ratings (Algorithm of 400)	  
   public static double expectedWinProbability(int playerElo, int opponentElo) {
-	return Math.round((1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0))) * 100.0) / 100.0;
+    double probability = 1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0));
+    return Math.round(probability * 100.0) / 100.0;
   }
 ```
 

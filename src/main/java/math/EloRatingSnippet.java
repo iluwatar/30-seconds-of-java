@@ -55,7 +55,6 @@ class EloRatingSnippet {
   public static double expectedWinProbability(int playerElo, int opponentElo) {
     double probability = 1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0));
     return Math.round(probability * 100.0) / 100.0;
-    //Math.round((1.0 / (1 + Math.pow(10.0, (opponentElo - playerElo) / 400.0))) * 100.0) / 100.0;
   }
 }
 
