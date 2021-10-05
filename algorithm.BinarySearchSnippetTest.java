@@ -2,9 +2,9 @@ package algorithm;
 
 import java.util.Scanner;
 
-import static algorithm.Binary_Search.binarySearch;
+import static algorithm.BinarySearchSnippet.binarySearch;
 
-public class Binary_SearchTest {
+public class BinarySearchTest {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
 
