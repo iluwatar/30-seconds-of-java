@@ -21,35 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package algorithm;
 
-/*
- * 30 Seconds of Java code library
- *
- */
-import java.util.Scanner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static algorithm.BinarySearchSnippet.binarySearch;
+import algorithm.BinarySearchSnippet;
 
-public class BinarySearchSnippetTest {
-    public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in);
+import org.junit.jupiter.api.Test;
 
-        int n;
-        System.out.println("Enter the number of elements in array :: ");
-        n=sc.nextInt();
-        int arr[]=new int[n];
-        System.out.println("Enter the elements .");
-        for(int i=0;i<n;i++){
-            int a;
-            a=sc.nextInt();
-            arr[i]=a;
-        }
-        System.out.println("Enter the element to be searched :: ");
-        int x=sc.nextInt();
-        int i=  binarySearch(arr,0,arr.length-1,x);
-        System.out.println("Element found at ::"+(i+1));
+class BinarySearchTest {
 
+    private final BinarySearchSnippet finding = new BinarySearchSnippet();
 
+    @Test
+    void toFind() {
+        int [] arr={1,2,3,4,5,6};
+        Assert.assertEquals(1, finding.binarySearch(arr, 0,(arr.length)-1,2));
     }
+
 }
