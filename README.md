@@ -32,7 +32,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Read lines from file to string list](https://img.shields.io/badge/-Read%20lines%20from%20file%20to%20string%20list-e1b050)](#read-lines-from-file-to-string-list) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ReadLinesSnippet.java)  
 [![Zip file](https://img.shields.io/badge/-Zip%20file-e1b050)](#zip-file) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)  
 [![Zip multiple files](https://img.shields.io/badge/-Zip%20multiple%20files-e1b050)](#zip-multiple-files) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)  
-[![Zip a directory](https://img.shields.io/badge/-Zip%20a%20directory-e1b050)](#zip-a-directory) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipDirectorySnippet.java)
+[![Zip a directory](https://img.shields.io/badge/-Zip%20a%20directory-e1b050)](#zip-a-directory) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipDirectorySnippet.java)  
+[![Unzip a file](https://img.shields.io/badge/-Unzip%20a%20file-e1b050)](#unzip-a-file) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/UnZipFileSnippetTest.java) 
 
 ### Math
 
@@ -396,6 +397,47 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
       }
     }
   }
+```
+
+### Unzip a file
+
+```java
+    public static String[] unzipFiles(String fileZip, String destDir) throws IOException {
+        try (
+                var zipIn = new ZipInputStream(new BufferedInputStream(new FileInputStream(fileZip)))
+        ) {
+            ArrayList<String> files = new ArrayList<>();
+            ZipEntry zipEntry = zipIn.getNextEntry();
+
+            while (zipEntry != null) {
+                File newFile = new File(destDir, zipEntry.getName());
+                if (zipEntry.isDirectory()) {
+                    if (!newFile.isDirectory() && !newFile.mkdirs()) {
+                        throw new IOException("Failed to create directory " + newFile);
+                    }
+                } else {
+                    // fix for Windows-created archives
+                    File parent = newFile.getParentFile();
+                    files.add(parent.getParent());
+                    if (!parent.isDirectory() && !parent.mkdirs()) {
+                        throw new IOException("Failed to create directory " + parent);
+                    }
+
+                    try (var fileOut = new FileOutputStream(newFile)) {
+                        final var bytes = new byte[1024];
+                        int length;
+                        while ((length = zipIn.read(bytes)) > 0) {
+                            fileOut.write(bytes, 0, length);
+                        }
+                    }
+
+                }
+                zipEntry = zipIn.getNextEntry();
+            }
+
+            return files.toArray(String[]::new);
+        }
+    }
 ```
 
 ## Math
