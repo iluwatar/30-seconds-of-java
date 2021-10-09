@@ -31,23 +31,26 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class NaturalNumberBinaryConversionSnippetTest {
 
-    @Test
-    void convertPositiveIntegerToBinary() {
-        assertEquals("11", NaturalNumberBinaryConversionSnippet.toBinary(3));
-    }
+  @Test
+  void convertPositiveIntegerToBinary() {
+    assertEquals("11", NaturalNumberBinaryConversionSnippet.toBinary(3));
+  }
 
-    @Test
-    void negativeIntegerToBinaryConversionThrowsException() {
-        assertThrows(NumberFormatException.class,()-> NaturalNumberBinaryConversionSnippet.toBinary(-3));
-    }
+  @Test
+  void negativeIntegerToBinaryConversionThrowsException() {
+    assertThrows(NumberFormatException.class
+            , () -> NaturalNumberBinaryConversionSnippet.toBinary(-3));
+  }
 
-    @Test
-    void convertBinaryStringToInteger() {
-        assertEquals(3, NaturalNumberBinaryConversionSnippet.fromBinary("11"));
-    }
-    @Test
-    void invalidBinaryStringToIntegerConversionThrowsException() {
-        assertThrows(NumberFormatException.class,()-> NaturalNumberBinaryConversionSnippet.fromBinary("12"));
-    }
+  @Test
+  void convertBinaryStringToInteger() {
+    assertEquals(3, NaturalNumberBinaryConversionSnippet.fromBinary("11"));
+  }
+
+  @Test
+  void invalidBinaryStringToIntegerConversionThrowsException() {
+    assertThrows(NumberFormatException.class
+            , () -> NaturalNumberBinaryConversionSnippet.fromBinary("12"));
+  }
 
 }
