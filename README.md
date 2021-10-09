@@ -41,7 +41,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Haversine Formula](https://img.shields.io/badge/-Haversine%20formula-e1b050)](#haversine-formula) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/HaversineFormulaSnippet.java)  
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
-[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
+[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)  
+[![Natural Number Binary Conversion](https://img.shields.io/badge/-Natural%20Number%20Binary%20Conversion-e1b050)](#natural-number-binary-conversion) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/NaturalNumberBinaryConversionSnippet.java)
 
 ### Media
 
