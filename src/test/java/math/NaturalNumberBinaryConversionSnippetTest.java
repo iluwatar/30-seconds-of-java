@@ -24,10 +24,10 @@
 
 package math;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 class NaturalNumberBinaryConversionSnippetTest {
 
@@ -38,8 +38,8 @@ class NaturalNumberBinaryConversionSnippetTest {
 
   @Test
   void negativeIntegerToBinaryConversionThrowsException() {
-    assertThrows(NumberFormatException.class
-            , () -> NaturalNumberBinaryConversionSnippet.toBinary(-3));
+    assertThrows(NumberFormatException.class,
+        () -> NaturalNumberBinaryConversionSnippet.toBinary(-3));
   }
 
   @Test
@@ -49,8 +49,8 @@ class NaturalNumberBinaryConversionSnippetTest {
 
   @Test
   void invalidBinaryStringToIntegerConversionThrowsException() {
-    assertThrows(NumberFormatException.class
-            , () -> NaturalNumberBinaryConversionSnippet.fromBinary("12"));
+    assertThrows(NumberFormatException.class,
+        () -> NaturalNumberBinaryConversionSnippet.fromBinary("12"));
   }
 
 }
