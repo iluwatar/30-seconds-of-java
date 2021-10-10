@@ -39,7 +39,7 @@ public class BinarySearchSnippet {
 
           
             if (arr[mid] == x)
-                return mid;
+                return mid+1;
 
            
             if (arr[mid] > x)
