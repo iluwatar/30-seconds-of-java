@@ -11,7 +11,6 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Selectionsort](https://img.shields.io/badge/-Selectionsort-e1b050)](#selectionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/SelectionSortSnippet.java)   
 [![Insertionsort](https://img.shields.io/badge/-Insertionsort-e1b050)](#insertionsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/InsertionSortSnippet.java)   
 [![Countingsort](https://img.shields.io/badge/-Countingsort-e1b050)](#countingsort) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/CountingSortSnippet.java)
-
 [![BinarySearch](https://img.shields.io/badge/-Binarysearch-e1b050)](#binarysearch) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/algorithm/BinarySearchSnippet.java)
 
 ### Array
@@ -198,7 +197,29 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
     }
   }
 ```
+### BinarySearch
+```java
+   public static int binarySearch(int[] arr,int l,int r,int x){
 
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+
+           
+            if (arr[mid] == x)
+                return mid+1;
+
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+
+         
+            return binarySearch(arr, mid + 1, r, x);
+        }
+
+        
+        return -1;
+    }
+    
+```
 ## Array
 
 ### Generic two array concatenation
@@ -554,211 +575,4 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
     var out = sj.toString().getBytes(StandardCharsets.UTF_8);
     var request = HttpRequest.newBuilder()
             .uri(URI.create(address))
-            .headers("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
-            .POST(BodyPublishers.ofByteArray(out))
-            .build();
-
-    return HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
-  }
-```
-
-## String
-
-### Palindrome check
-
-```java
-  public static boolean isPalindrome(String s) {
-    var sb = new StringBuilder();
-    for (var c : s.toCharArray()) {
-      if (Character.isLetter(c)) {
-        sb.append(c);
-      }
-    }
-
-    var forward = sb.toString().toLowerCase();
-    var backward = sb.reverse().toString().toLowerCase();
-    return forward.equals(backward);
-  }
-```
-
-### Reverse string
-
-```java
-  public static String reverseString(String s) {
-    return new StringBuilder(s).reverse().toString();
-  }
-```
-
-### String to date
-
-```java
-  public static Date stringToDate(String date, String format) throws ParseException {
-    var simpleDateFormat = new SimpleDateFormat(format);
-    return simpleDateFormat.parse(date);
-  }
-```
-
-### Anagram Check
-
-```java
-  public boolean isAnagram(String s1, String s2) { 
-    var l1 = s1.length();
-    var l2 = s2.length();
-    var arr1 = new int[256];
-    var arr2 = new int[256];
-    if (l1 != l2) {
-      return false;
-    }
-    
-    for (var i = 0; i < l1; i++) {
-      arr1[s1.charAt(i)]++;
-      arr2[s2.charAt(i)]++;
-    }
-
-    return Arrays.equals(arr1, arr2);
-  }
-```
-
-### Find Levenshtein distance
-
-```java
-  public static int findLevenshteinDistance(String word1, String word2) {
-    // If word2 is empty, removing
-    int[][] ans = new int[word1.length() + 1][word2.length() + 1];
-    for (int i = 0; i <= word1.length(); i++) {
-      ans[i][0] = i;
-    }
-
-    // if word1 is empty, adding
-    for (int i = 0; i <= word2.length(); i++) {
-      ans[0][i] = i;
-    }
-
-    // None is empty
-    for (int i = 1; i <= word1.length(); i++) {
-      for (int j = 1; j <= word2.length(); j++) {
-        int min = Math.min(Math.min(ans[i][j - 1], ans[i - 1][j]), ans[i - 1][j - 1]);
-        ans[i][j] = word1.charAt(i - 1) == word2.charAt(j - 1) ? ans[i - 1][j - 1] : min + 1;
-      }
-    }
-    return ans[word1.length()][word2.length()];
-  }
-```
-
-### Compare Version
-
-```java
-  public static int compareVersion(String v1, String v2) {
-    Function<String, String[]> getVersionComponents = version -> version.replaceAll(".*?((?<!\\w)\\d+([.-]\\d+)*).*", "$1", "$1").split("\\.");
-
-    var components1 = getVersionComponents.apply(v1);
-    var components2 = getVersionComponents.apply(v2);
-    int length = Math.max(components1.length, components2.length);
-
-    for (int i = 0; i < length; i++) {
-      Integer c1 = i < components1.length ? Integer.parseInt(components1[i]) : 0;
-      Integer c2 = i < components2.length ? Integer.parseInt(components2[i]) : 0;
-      int result = c1.compareTo(c2);
-      if (result != 0) {
-        return result;
-      }
-    }
-    return 0;
-  }
-```
-
-## Class
-
-### Get methods name
-
-```java
-  public static List<String> getAllMethods(final Class<?> cls) {
-    return Arrays.stream(cls.getDeclaredMethods())
-            .map(Method::getName)
-            .collect(Collectors.toList());
-  }
-```
-
-### Get public field names
-
-```java
-  public static List<String> getAllFieldNames(final Class<?> cls) {
-    return Arrays.stream(cls.getFields())
-            .map(Field::getName)
-            .collect(Collectors.toList());
-  }
-```
-
-### Get all field names
-
-```java
-  public static List<String> getAllFieldNames(final Class<?> cls) {
-      var fields = new ArrayList<String>();
-      var currentCls = cls;
-      while (currentCls != null) {
-        fields.addAll(
-            Arrays.stream(currentCls.getDeclaredFields())
-                .filter(field -> !field.isSynthetic())
-                .map(Field::getName)
-                .collect(Collectors.toList()));
-        currentCls = currentCls.getSuperclass();
-      }
-      return fields;
-    }
-```
-
-### Create object
-
-```java
-  public static Object createObject(String cls)
-            throws NoSuchMethodException,
-            IllegalAccessException,
-            InvocationTargetException,
-            InstantiationException,
-            ClassNotFoundException {
-    var objectClass = Class.forName(cls);
-    var objectConstructor = objectClass.getConstructor();
-    return objectConstructor.newInstance();
-  }
-```
-
-
-## I/O
-
-### Read file by stream
-
-```java
-  public static List<String> readFile(String fileName) throws FileNotFoundException {
-    try (Stream<String> stream = new BufferedReader(new FileReader(fileName)).lines()) {
-      return stream.collect(Collectors.toList());
-    }
-  }
-```
-
-### InputStream to String
-
-```java
-  public static String inputStreamToString(InputStream inputStream) throws IOException {
-    try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
-      var stringBuilder = new StringBuilder();
-      var data = reader.read();
- 
-      while (data != -1) {
-        stringBuilder.append((char) data);
-        data = reader.read();
-      }
-      return stringBuilder.toString();
-    }
-  }
-```
-
-
-## Thread
-
-### Create pool of threads
-
-```java
-  public static ExecutorService createFixedThreadPool() {
-    return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-  }
-```
+            .headers("Content-Type", "application/x-www-form-urlencoded
