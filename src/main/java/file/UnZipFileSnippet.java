@@ -24,7 +24,11 @@
 
 package file;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -34,47 +38,47 @@ import java.util.zip.ZipInputStream;
  *
  */
 public class UnZipFileSnippet {
-    /**
-     * Unzip a zip file.
-     *
-     * @param fileZip source zip file
-     * @param destDir the directory of the destination unzipped files
-     * @throws IOException if an I/O error occurs
-     */
-    public static String[] unzipFiles(String fileZip, String destDir) throws IOException {
-        try (
-                var zipIn = new ZipInputStream(new BufferedInputStream(new FileInputStream(fileZip)))
-        ) {
-            ArrayList<String> files = new ArrayList<>();
-            ZipEntry zipEntry = zipIn.getNextEntry();
+  /**
+   * Unzip a zip file.
+   *
+   * @param fileZip source zip file
+   * @param destDir the directory of the destination unzipped files
+   * @throws IOException if an I/O error occurs
+   */
+  public static String[] unzipFiles(String fileZip, String destDir) throws IOException {
+    try (
+            var zipIn = new ZipInputStream(new BufferedInputStream(new FileInputStream(fileZip)))
+    ) {
+      ArrayList<String> files = new ArrayList<>();
+      ZipEntry zipEntry = zipIn.getNextEntry();
 
-            while (zipEntry != null) {
-                File newFile = new File(destDir, zipEntry.getName());
-                if (zipEntry.isDirectory()) {
-                    if (!newFile.isDirectory() && !newFile.mkdirs()) {
-                        throw new IOException("Failed to create directory " + newFile);
-                    }
-                } else {
-                    // fix for Windows-created archives
-                    File parent = newFile.getParentFile();
-                    files.add(parent.getParent());
-                    if (!parent.isDirectory() && !parent.mkdirs()) {
-                        throw new IOException("Failed to create directory " + parent);
-                    }
+      while (zipEntry != null) {
+        File newFile = new File(destDir, zipEntry.getName());
+        if (zipEntry.isDirectory()) {
+          if (!newFile.isDirectory() && !newFile.mkdirs()) {
+            throw new IOException("Failed to create directory " + newFile);
+          }
+        } else {
+          // fix for Windows-created archives
+          File parent = newFile.getParentFile();
+          files.add(parent.getParent());
+          if (!parent.isDirectory() && !parent.mkdirs()) {
+            throw new IOException("Failed to create directory " + parent);
+          }
 
-                    try (var fileOut = new FileOutputStream(newFile)) {
-                        final var bytes = new byte[1024];
-                        int length;
-                        while ((length = zipIn.read(bytes)) > 0) {
-                            fileOut.write(bytes, 0, length);
-                        }
-                    }
-
-                }
-                zipEntry = zipIn.getNextEntry();
+          try (var fileOut = new FileOutputStream(newFile)) {
+            final var bytes = new byte[1024];
+            int length;
+            while ((length = zipIn.read(bytes)) > 0) {
+              fileOut.write(bytes, 0, length);
             }
+          }
 
-            return files.toArray(String[]::new);
         }
+        zipEntry = zipIn.getNextEntry();
+      }
+
+      return files.toArray(String[]::new);
     }
+  }
 }
