@@ -518,6 +518,9 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
       throw new NumberFormatException("Negative Integer, this snippet only accepts "
               + "positive integers");
     }
+    if (naturalNumber == 0) {
+      return "0";
+    }    
     final Stack<Long> binaryBits =
             Stream.iterate(naturalNumber, n -> n > 0, n -> n / 2).map(n -> n % 2)
                     .collect(Stack::new, Stack::push, Stack::addAll);

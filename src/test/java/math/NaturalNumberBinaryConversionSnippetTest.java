@@ -33,6 +33,7 @@ class NaturalNumberBinaryConversionSnippetTest {
 
   @Test
   void convertPositiveIntegerToBinary() {
+    assertEquals("0", NaturalNumberBinaryConversionSnippet.toBinary(0));
     assertEquals("11", NaturalNumberBinaryConversionSnippet.toBinary(3));
     assertEquals("101",NaturalNumberBinaryConversionSnippet.toBinary(5));
     assertEquals("10000000000",NaturalNumberBinaryConversionSnippet.toBinary(0b10000000000));
@@ -45,8 +46,6 @@ class NaturalNumberBinaryConversionSnippetTest {
   void negativeIntegerToBinaryConversionThrowsException() {
     assertThrows(NumberFormatException.class,
         () -> NaturalNumberBinaryConversionSnippet.toBinary(-3));
-    assertThrows(NumberFormatException.class,
-        () -> NaturalNumberBinaryConversionSnippet.toBinary(0));
   }
 
   @Test
