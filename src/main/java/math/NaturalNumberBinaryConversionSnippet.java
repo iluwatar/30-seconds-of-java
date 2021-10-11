@@ -43,14 +43,15 @@ public class NaturalNumberBinaryConversionSnippet {
    * @return Binary string representation of naturalNumber
    */
   public static String toBinary(long naturalNumber) {
-    if (naturalNumber < 0) {
+    if (naturalNumber <= 0) {
       throw new NumberFormatException("Negative Integer, this snippet only accepts "
               + "positive integers");
     }
     final Stack<Long> binaryBits =
             Stream.iterate(naturalNumber, n -> n > 0, n -> n / 2).map(n -> n % 2)
                     .collect(Stack::new, Stack::push, Stack::addAll);
-    return binaryBits.stream().map(String::valueOf).collect(Collectors.joining());
+    return Stream.generate(binaryBits::pop)
+            .limit(binaryBits.size()).map(String::valueOf).collect(Collectors.joining());
   }
 
   /**

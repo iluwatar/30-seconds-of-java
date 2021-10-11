@@ -34,17 +34,27 @@ class NaturalNumberBinaryConversionSnippetTest {
   @Test
   void convertPositiveIntegerToBinary() {
     assertEquals("11", NaturalNumberBinaryConversionSnippet.toBinary(3));
+    assertEquals("101",NaturalNumberBinaryConversionSnippet.toBinary(5));
+    assertEquals("10000000000",NaturalNumberBinaryConversionSnippet.toBinary(0b10000000000));
+    assertEquals("10000000000",NaturalNumberBinaryConversionSnippet.toBinary(1024));
+    assertEquals("11111111",NaturalNumberBinaryConversionSnippet.toBinary(0xFF));
+    assertEquals("110110",NaturalNumberBinaryConversionSnippet.toBinary(066));
   }
 
   @Test
   void negativeIntegerToBinaryConversionThrowsException() {
     assertThrows(NumberFormatException.class,
         () -> NaturalNumberBinaryConversionSnippet.toBinary(-3));
+    assertThrows(NumberFormatException.class,
+        () -> NaturalNumberBinaryConversionSnippet.toBinary(0));
   }
 
   @Test
   void convertBinaryStringToInteger() {
     assertEquals(3, NaturalNumberBinaryConversionSnippet.fromBinary("11"));
+    assertEquals(6,NaturalNumberBinaryConversionSnippet.fromBinary("110"));
+    assertEquals(0x5c,NaturalNumberBinaryConversionSnippet.fromBinary("01011100"));
+    assertEquals(127,NaturalNumberBinaryConversionSnippet.fromBinary("1111111"));
   }
 
   @Test
