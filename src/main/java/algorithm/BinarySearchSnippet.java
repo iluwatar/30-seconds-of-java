@@ -27,11 +27,17 @@ package algorithm;
  * 30 Seconds of Java code library
  *
  */
-import java.util.*;
+import java.util.Arrays;
 public class BinarySearchSnippet {
-    //
-    //     Sorted Array will be given and element will be found
-    //
+    /**
+    *Sorted Array will be given and element will be found
+    *
+    * @param arr array to be searched
+    * @param l first index
+    * @param r last index
+    * @param x element to be searched
+    * @return index where x is found in arr or -1
+    */
     public static int binarySearch(int[] arr,int l,int r,int x){
 
         if (r >= l) {
