@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import algorithm;
+package algorithm;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -44,9 +44,12 @@ class BinarySearchSnippetTest {
     void testBinarySearch() {
       
         var arr=new int[] {1,2,3,4,5,6};
-        assertEquals(2,BinarySearchSnippet.binarySearch(arr,0,arr.length-1,2));   // It tests if 2 is present in arr and compares the index returned
-        assertEquals(4,BinarySearchSnippet.binarySearch(arr,0,arr.length-1,4));   // It tests if 4 is present in arr and compares the index returned
-        assertEquals(-1,BinarySearchSnippet.binarySearch(arr,0,arr.length-1,9));  // It tests if 9 is present and gets -1 as return because 9 is not present in arr
+        int a=BinarySearchSnippet.binarySearch(arr,0,arr.length-1,2);
+        assertEquals(2,a);   // It tests if 2 is present in arr and compares the index returned
+        a=BinarySearchSnippet.binarySearch(arr,0,arr.length-1,4);
+        assertEquals(4,a);   // It tests if 4 is present in arr and compares the index returned
+        a=BinarySearchSnippet.binarySearch(arr,0,arr.length-1,9);
+        assertEquals(-1,a);  // It tests if 9 is present and gets -1 as return because 9 is not present in arr
         
        
     }
