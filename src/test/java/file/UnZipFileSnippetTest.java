@@ -38,31 +38,31 @@ import org.junit.jupiter.api.Test;
  *
  */
 public class UnZipFileSnippetTest {
-    /**
-     * Tests for {@link UnZipFileSnippet#unzipFiles(String, String)}.
-     */
-    @Test
-    void testUnzipFiles() throws IOException {
-        final String zipInput = "src/test/resources/multiple.zip";
-        final var destDir = "src/test/resources/dir1";
-        String[] destFiles = null;
-        try {
-            destFiles = UnZipFileSnippet.unzipFiles(zipInput, destDir);
+  /**
+   * Tests for {@link UnZipFileSnippet#unzipFiles(String, String)}.
+   */
+  @Test
+  void testUnzipFiles() throws IOException {
+    final String zipInput = "src/test/resources/multiple.zip";
+    final var destDir = "src/test/resources/dir1";
+    String[] destFiles = null;
+    try {
+      destFiles = UnZipFileSnippet.unzipFiles(zipInput, destDir);
 
-            for (String file : destFiles) {
-                assertTrue(Files.exists(Paths.get(file)));
-            }
-        } finally {
-            if (destFiles != null) {
-                File deleteFile;
-                for (String file : destFiles) {
-                    deleteFile = new File(file);
+      for (String file : destFiles) {
+        assertTrue(Files.exists(Paths.get(file)));
+      }
+    } finally {
+      if (destFiles != null) {
+        File deleteFile;
+        for (String file : destFiles) {
+          deleteFile = new File(file);
 
-                    if (!deleteFile.isDirectory()) {
-                        Files.deleteIfExists(deleteFile.toPath());
-                    }
-                }
-            }
+          if (!deleteFile.isDirectory()) {
+            Files.deleteIfExists(deleteFile.toPath());
+          }
         }
+      }
     }
+  }
 }
