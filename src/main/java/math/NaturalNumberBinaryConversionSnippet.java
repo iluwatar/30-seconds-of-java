@@ -65,14 +65,13 @@ public class NaturalNumberBinaryConversionSnippet {
    * @return Unsigned Long value for the binary number
    */
   public static Long fromBinary(String binary) {
-    final boolean invalidBinaryString = binary.chars().anyMatch(c -> c != '0' && c != '1');
-    if (invalidBinaryString) {
-      throw new NumberFormatException("Binary string contains values other than '0' and '1'");
-    }
+    binary.chars().filter(c -> c != '0' && c != '1').findFirst().ifPresent(in -> {
+      throw new RuntimeException(
+              "Binary string contains values other than '0' and '1'");
+    });
     return IntStream.range(0, binary.length())
             .filter(in -> binary.charAt(binary.length() - 1 - in) == '1')
             .mapToLong(in -> ((long) 0b1) << in).sum();
   }
-
 
 }

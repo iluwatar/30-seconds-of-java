@@ -58,7 +58,7 @@ class NaturalNumberBinaryConversionSnippetTest {
 
   @Test
   void invalidBinaryStringToIntegerConversionThrowsException() {
-    assertThrows(NumberFormatException.class,
+    assertThrows(RuntimeException.class,
         () -> NaturalNumberBinaryConversionSnippet.fromBinary("12"));
   }
 

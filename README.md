@@ -514,24 +514,26 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ### Natural Number Binary Conversion
 
 ```java
-    if (naturalNumber <= 0) {
+  public static String toBinary(long naturalNumber) {
+    if (naturalNumber < 0) {
       throw new NumberFormatException("Negative Integer, this snippet only accepts "
               + "positive integers");
     }
     if (naturalNumber == 0) {
       return "0";
-    }    
+    }
     final Stack<Long> binaryBits =
             Stream.iterate(naturalNumber, n -> n > 0, n -> n / 2).map(n -> n % 2)
                     .collect(Stack::new, Stack::push, Stack::addAll);
     return Stream.generate(binaryBits::pop)
             .limit(binaryBits.size()).map(String::valueOf).collect(Collectors.joining());
+  }
   
   public static Long fromBinary(String binary) {
-    final boolean invalidBinaryString = binary.chars().anyMatch(c -> c != '0' && c != '1');
-    if (invalidBinaryString) {
-      throw new NumberFormatException("Binary string contains values other than '0' and '1'");
-    }
+    binary.chars().filter(c -> c != '0' && c != '1').findFirst().ifPresent(in -> {
+      throw new RuntimeException(
+              "Binary string contains values other than '0' and '1'");
+    });
     return IntStream.range(0, binary.length())
             .filter(in -> binary.charAt(binary.length() - 1 - in) == '1')
             .mapToLong(in -> ((long) 0b1) << in).sum();
