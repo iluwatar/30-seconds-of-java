@@ -40,6 +40,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Fibonacci](https://img.shields.io/badge/-Fibonacci-e1b050)](#fibonacci) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)  
 [![Haversine Formula](https://img.shields.io/badge/-Haversine%20formula-e1b050)](#haversine-formula) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/HaversineFormulaSnippet.java)  
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
+[![Luhn algorithm](https://img.shields.io/badge/-Luhn%20algorithm-e1b050)](#Luhn algorithm) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/LuhnSnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
 [![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
 
@@ -474,6 +475,33 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
     Collections.shuffle(numbers);
     return numbers.subList(0, numbersToPick).toArray(new Integer[numbersToPick]);
+  }
+```
+
+### Luhn algorithm
+```java
+public static int calculateChecksum(long num) {
+    if (num < 0) {
+      throw new IllegalArgumentException("Non-negative numbers only.");
+    }
+    final var numStr = String.valueOf(num);
+
+    var sum = 0;
+    var isOddPosition = true;
+    // We loop on digits in numStr from right to left.
+    for (var i = numStr.length() - 1; i >= 0; i--) {
+      final var digit = Integer.parseInt(Character.toString(numStr.charAt(i)));
+      final var substituteDigit = (isOddPosition ? 2 : 1) * digit;
+
+      final var tensPlaceDigit = substituteDigit / 10;
+      final var onesPlaceDigit = substituteDigit % 10;
+      sum += tensPlaceDigit + onesPlaceDigit;
+
+      isOddPosition = !isOddPosition;
+    }
+    final var checksumDigit = (10 - (sum % 10)) % 10;
+    // Outermost modulus handles edge case `num = 0`.
+    return checksumDigit;
   }
 ```
 
