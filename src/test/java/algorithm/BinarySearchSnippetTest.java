@@ -34,15 +34,15 @@ import org.junit.jupiter.api.Test;
  */
 
 class BinarySearchSnippetTest {
-  /**
-   * Tests for {@link BinarSearchSnippet#binarySearch(int[] arr,int l,int r,int x)}.
-   */
+    /**
+     * Tests for {@link BinarySearchSnippet#binarySearch(int[] arr,int l,int r,int x)}.
+     */
 
     private final BinarySearchSnippet finding = new BinarySearchSnippet();
 
     @Test
     void testBinarySearch() {
-      
+
         var arr=new int[] {1,2,3,4,5,6};
         int a=BinarySearchSnippet.binarySearch(arr,0,arr.length-1,2);
         assertEquals(2,a);   // It tests if 2 is present in arr and compares the index returned
@@ -50,8 +50,8 @@ class BinarySearchSnippetTest {
         assertEquals(4,a);   // It tests if 4 is present in arr and compares the index returned
         a=BinarySearchSnippet.binarySearch(arr,0,arr.length-1,9);
         assertEquals(-1,a);  // It tests if 9 is present and gets -1 as return because 9 is not present in arr
-        
-       
+
+
     }
 
 }
