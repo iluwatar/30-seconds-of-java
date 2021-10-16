@@ -59,12 +59,7 @@ public class UnZipFileSnippet {
             throw new IOException("Failed to create directory " + newFile);
           }
         } else {
-          // fix for Windows-created archives
-          File parent = newFile.getParentFile();
-          files.add(parent.getParent());
-          if (!parent.isDirectory() && !parent.mkdirs()) {
-            throw new IOException("Failed to create directory " + parent);
-          }
+          files.add(newFile.getAbsolutePath());
 
           try (var fileOut = new FileOutputStream(newFile)) {
             final var bytes = new byte[1024];
