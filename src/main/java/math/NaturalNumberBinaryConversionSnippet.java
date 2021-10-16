@@ -66,7 +66,7 @@ public class NaturalNumberBinaryConversionSnippet {
    */
   public static Long fromBinary(String binary) {
     binary.chars().filter(c -> c != '0' && c != '1').findFirst().ifPresent(in -> {
-      throw new RuntimeException(
+      throw new NumberFormatException(
               "Binary string contains values other than '0' and '1'");
     });
     return IntStream.range(0, binary.length())
