@@ -30,32 +30,32 @@ package algorithm;
 import java.util.Arrays;
 public class BinarySearchSnippet {
     /**
-    *Sorted Array will be given and element will be found
-    *
-    * @param arr array to be searched
-    * @param l first index
-    * @param r last index
-    * @param x element to be searched
-    * @return index where x is found in arr or -1
-    */
+     *Sorted Array will be given and element will be found
+     *
+     * @param arr array to be searched
+     * @param l first index
+     * @param r last index
+     * @param x element to be searched
+     * @return index where x is found in arr or -1
+     */
     public static int binarySearch(int[] arr,int l,int r,int x){
 
         if (r >= l) {
             int mid = l + (r - l) / 2;
 
-          
+
             if (arr[mid] == x)
                 return mid+1;
 
-           
+
             if (arr[mid] > x)
                 return binarySearch(arr, l, mid - 1, x);
 
-           
+
             return binarySearch(arr, mid + 1, r, x);
         }
 
-       
+
         return -1;
     }
 }
