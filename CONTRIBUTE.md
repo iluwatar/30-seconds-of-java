@@ -2,7 +2,7 @@
 
 In general, we are interested in well implemented standalone code snippets. There are some tasks that we would like to
 see implemented in the [issue list](https://github.com/iluwatar/30-seconds-of-java/issues). Please raise a new issue
-if there's an interesting snippet you would like to see in this library but can't implement yourself.
+if there's an interesting snippet you would like to see in this library but can't implement yourself. Please comment on the issue that you are implementing it so that others do not work on the same thing.
 
 For new snippets the general implementation steps are:
 
