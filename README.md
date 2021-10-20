@@ -402,42 +402,37 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ### Unzip a file
 
 ```java
-    public static String[] unzipFiles(String fileZip, String destDir) throws IOException {
-        try (
-                var zipIn = new ZipInputStream(new BufferedInputStream(new FileInputStream(fileZip)))
-        ) {
-            ArrayList<String> files = new ArrayList<>();
-            ZipEntry zipEntry = zipIn.getNextEntry();
+  public static String[] unzipFiles(String fileZip, String destDir) throws IOException {
+    try (
+            var zipIn = new ZipInputStream(new BufferedInputStream(new FileInputStream(fileZip)))
+    ) {
+      ArrayList<String> files = new ArrayList<>();
+      ZipEntry zipEntry = zipIn.getNextEntry();
 
-            while (zipEntry != null) {
-                File newFile = new File(destDir, zipEntry.getName());
-                if (zipEntry.isDirectory()) {
-                    if (!newFile.isDirectory() && !newFile.mkdirs()) {
-                        throw new IOException("Failed to create directory " + newFile);
-                    }
-                } else {
-                    // fix for Windows-created archives
-                    File parent = newFile.getParentFile();
-                    files.add(parent.getParent());
-                    if (!parent.isDirectory() && !parent.mkdirs()) {
-                        throw new IOException("Failed to create directory " + parent);
-                    }
+      while (zipEntry != null) {
+        File newFile = new File(destDir, zipEntry.getName());
+        if (zipEntry.isDirectory()) {
+          if (!newFile.isDirectory() && !newFile.mkdirs()) {
+            throw new IOException("Failed to create directory " + newFile);
+          }
+        } else {
+          files.add(newFile.getAbsolutePath());
 
-                    try (var fileOut = new FileOutputStream(newFile)) {
-                        final var bytes = new byte[1024];
-                        int length;
-                        while ((length = zipIn.read(bytes)) > 0) {
-                            fileOut.write(bytes, 0, length);
-                        }
-                    }
-
-                }
-                zipEntry = zipIn.getNextEntry();
+          try (var fileOut = new FileOutputStream(newFile)) {
+            final var bytes = new byte[1024];
+            int length;
+            while ((length = zipIn.read(bytes)) > 0) {
+              fileOut.write(bytes, 0, length);
             }
+          }
 
-            return files.toArray(String[]::new);
         }
+        zipEntry = zipIn.getNextEntry();
+      }
+
+      return files.toArray(String[]::new);
     }
+  }
 ```
 
 ## Math

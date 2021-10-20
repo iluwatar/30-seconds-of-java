@@ -44,6 +44,7 @@ public class UnZipFileSnippet {
    * @param fileZip source zip file
    * @param destDir the directory of the destination unzipped files
    * @throws IOException if an I/O error occurs
+   * @return List of extracted files
    */
   public static String[] unzipFiles(String fileZip, String destDir) throws IOException {
     try (
