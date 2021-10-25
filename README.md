@@ -42,7 +42,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Luhn algorithm](https://img.shields.io/badge/-Luhn%20algorithm-e1b050)](#Luhn algorithm) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/LuhnSnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
-[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)
+[![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)  
+[![Natural Number Binary Conversion](https://img.shields.io/badge/-Natural%20Number%20Binary%20Conversion-e1b050)](#natural-number-binary-conversion) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/NaturalNumberBinaryConversionSnippet.java)
 
 ### Media
 
@@ -536,6 +537,36 @@ public static int calculateLuhnChecksum(long num) {
     }
     return true;
   }
+```
+
+### Natural Number Binary Conversion
+
+```java
+  public static String toBinary(long naturalNumber) {
+    if (naturalNumber < 0) {
+      throw new NumberFormatException("Negative Integer, this snippet only accepts "
+              + "positive integers");
+    }
+    if (naturalNumber == 0) {
+      return "0";
+    }
+    final Stack<Long> binaryBits =
+            Stream.iterate(naturalNumber, n -> n > 0, n -> n / 2).map(n -> n % 2)
+                    .collect(Stack::new, Stack::push, Stack::addAll);
+    return Stream.generate(binaryBits::pop)
+            .limit(binaryBits.size()).map(String::valueOf).collect(Collectors.joining());
+  }
+  
+  public static Long fromBinary(String binary) {
+    binary.chars().filter(c -> c != '0' && c != '1').findFirst().ifPresent(in -> {
+      throw new NumberFormatException(
+              "Binary string contains values other than '0' and '1'");
+    });
+    return IntStream.range(0, binary.length())
+            .filter(in -> binary.charAt(binary.length() - 1 - in) == '1')
+            .mapToLong(in -> ((long) 0b1) << in).sum();
+  }
+  
 ```
 
 ## Media
