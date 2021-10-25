@@ -84,7 +84,7 @@ class LuhnSnippetTest {
   })
   @ParameterizedTest
   void testLuhnCalculateChecksum(long num, int expectedChecksum) {
-    assertEquals(expectedChecksum, LuhnSnippet.calculateChecksum(num));
+    assertEquals(expectedChecksum, LuhnSnippet.calculateLuhnChecksum(num));
   }
 
 }

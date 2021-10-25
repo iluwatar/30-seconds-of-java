@@ -35,8 +35,9 @@ public class LuhnSnippet {
    * @param num number whose checksum is to be calculated
    * @return checksum value for num
    * @see <a href="https://patents.google.com/patent/US2950048A">Hans P. LUHN's patent US2950048A</a>
+   * @see <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm on Wikipedia</a>
    */
-  public static int calculateChecksum(long num) {
+  public static int calculateLuhnChecksum(long num) {
     if (num < 0) {
       throw new IllegalArgumentException("Non-negative numbers only.");
     }

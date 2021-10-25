@@ -480,7 +480,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ### Luhn algorithm
 ```java
-public static int calculateChecksum(long num) {
+public static int calculateLuhnChecksum(long num) {
     if (num < 0) {
       throw new IllegalArgumentException("Non-negative numbers only.");
     }
