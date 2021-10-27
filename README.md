@@ -41,6 +41,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Haversine Formula](https://img.shields.io/badge/-Haversine%20formula-e1b050)](#haversine-formula) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/HaversineFormulaSnippet.java)  
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Luhn algorithm](https://img.shields.io/badge/-Luhn%20algorithm-e1b050)](#Luhn algorithm) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/LuhnSnippet.java)  
+[![Random number](https://img.shields.io/badge/-Random%20number-e1b050)](#random-number) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GenerateRandomNumbersSnippet.java)  
 [![Greatest Common Divisor](https://img.shields.io/badge/-Greatest%20Common%20Divisor-e1b050)](#greatest-common-divisor) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/GreatestCommonDivisorSnippet.java)  
 [![Prime](https://img.shields.io/badge/-Prime-e1b050)](#prime) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PrimeNumberSnippet.java)  
 [![Natural Number Binary Conversion](https://img.shields.io/badge/-Natural%20Number%20Binary%20Conversion-e1b050)](#natural-number-binary-conversion) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/NaturalNumberBinaryConversionSnippet.java)
@@ -481,7 +482,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ### Luhn algorithm
 ```java
-public static int calculateLuhnChecksum(long num) {
+  public static int calculateLuhnChecksum(long num) {
     if (num < 0) {
       throw new IllegalArgumentException("Non-negative numbers only.");
     }
@@ -503,6 +504,21 @@ public static int calculateLuhnChecksum(long num) {
     final var checksumDigit = (10 - (sum % 10)) % 10;
     // Outermost modulus handles edge case `num = 0`.
     return checksumDigit;
+  }
+```    
+
+### Random number
+
+```java
+  private static Random random = new Random();
+
+  public static int generateRandomNumberBetweenXAndY(int x, int y) {
+    int exclusiveRightBound = y - x + 1;
+    return random.nextInt(exclusiveRightBound) + x;
+  }
+
+  public static int throwDice() {
+    return random.nextInt(5) + 1;
   }
 ```
 
