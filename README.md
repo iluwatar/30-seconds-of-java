@@ -512,13 +512,17 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ```java
   private static Random random = new Random();
 
-  public static int generateRandomNumberBetweenXAndY(int x, int y) {
+  public static int generateRandomNumberBetween(int x, int y) {
     int exclusiveRightBound = y - x + 1;
     return random.nextInt(exclusiveRightBound) + x;
   }
 
-  public static int throwDice() {
-    return random.nextInt(5) + 1;
+  public static int throwDice(int numberOfDice, int typeOfDice) {
+    int total = 0;
+    for (int i = 0; i < numberOfDice; i++) {
+      total += random.nextInt(typeOfDice) + 1;
+    }
+    return total;
   }
 ```
 

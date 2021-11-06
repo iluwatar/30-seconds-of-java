@@ -40,7 +40,7 @@ public class GenerateRandomNumbersSnippet {
      * @param y right bound
      * @return random integer between x and y
      */
-    public static int generateRandomNumberBetweenXAndY(int x, int y) {
+    public static int generateRandomNumberBetween(int x, int y) {
         int exclusiveRightBound = y - x + 1;
         return random.nextInt(exclusiveRightBound) + x;
     }
@@ -48,9 +48,15 @@ public class GenerateRandomNumbersSnippet {
     /**
      * Throw dice (3d6)
      *
+     * @param numberOfDice represents number of dice being thrown
+     * @param typeOfDice   represents number of sides of the dice
      * @return random integer between 1 and 6 (inclusive)
      */
-    public static int throwDice() {
-        return random.nextInt(5) + 1;
+    public static int throwDice(int numberOfDice, int typeOfDice) {
+        int total = 0;
+        for (int i = 0; i < numberOfDice; i++) {
+            total += random.nextInt(typeOfDice) + 1;
+        }
+        return total;
     }
 }

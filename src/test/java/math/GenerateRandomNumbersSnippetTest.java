@@ -1,6 +1,8 @@
 package math;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
@@ -12,29 +14,39 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class GenerateRandomNumbersSnippetTest {
     /**
-     * Tests for {@link GenerateRandomNumbersSnippet#generateRandomNumberBetweenXAndY(int, int)}.
+     * Tests for {@link GenerateRandomNumbersSnippet#generateRandomNumberBetween(int, int)}.
      */
-    @Test
-    void testGenerateRandomNumberBetweenXAndY() {
-        var randomInteger0 = GenerateRandomNumbersSnippet.generateRandomNumberBetweenXAndY(0, 0);
-        assertEquals(0, randomInteger0);
-
-        var randomInteger1 = GenerateRandomNumbersSnippet.generateRandomNumberBetweenXAndY(3, 10);
-        var listOfPossibleResults1 = List.of(3, 4, 5, 6, 7, 8, 9, 10);
-        assertTrue(listOfPossibleResults1.contains(randomInteger1));
-
-        var randomInteger2 = GenerateRandomNumbersSnippet.generateRandomNumberBetweenXAndY(42, 43);
-        var listOfPossibleResults2 = List.of(42, 43);
-        assertTrue(listOfPossibleResults2.contains(randomInteger2));
+    @CsvSource({
+            "-2147483648, -2147483648",
+            "-2147483648, -2",
+            "-100, 100",
+            "0, 0",
+            "3, 10",
+            "1, 2147483647",
+            "2147483647, 2147483647"
+    })
+    @ParameterizedTest
+    void testGenerateRandomNumberBetween(int min, int max) {
+        var randomInteger = GenerateRandomNumbersSnippet.generateRandomNumberBetween(min, max);
+        assertTrue(randomInteger >= min && randomInteger <= max);
     }
 
     /**
-     * Tests for {@link GenerateRandomNumbersSnippet#throwDice()}.
+     * Tests for {@link GenerateRandomNumbersSnippet#throwDice(int, int)}.
      */
-    @Test
-    void testThrowDice() {
-        var number = GenerateRandomNumbersSnippet.throwDice();
-        var listOfPossibleResults = List.of(1, 2, 3, 4, 5, 6);
-        assertTrue(listOfPossibleResults.contains(number));
+    @CsvSource({
+            "1, 6",
+            "2, 6",
+            "3, 6",
+            "1, 10",
+            "2, 10",
+            "10, 6",
+            "10, 10",
+            "20, 5"
+    })
+    @ParameterizedTest
+    void testThrowDice(int numberOfDice, int typeOfDice) {
+        var number = GenerateRandomNumbersSnippet.throwDice(numberOfDice, typeOfDice);
+        assertTrue(number >= numberOfDice && number <= typeOfDice * numberOfDice);
     }
 }
