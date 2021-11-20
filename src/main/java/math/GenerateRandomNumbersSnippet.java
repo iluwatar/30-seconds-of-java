@@ -31,27 +31,27 @@ import java.util.Random;
  *
  */
 public class GenerateRandomNumbersSnippet {
-  private static Random random = new Random();
+  private static final Random random = new Random();
 
   /**
-  * Generate a random number between x (inclusive) and y (inclusive).
-  *
-  * @param x left bound
-  * @param y right bound
-  * @return random integer between x and y
-  */
+   * Generate a random number between x (inclusive) and y (inclusive).
+   *
+   * @param x left bound
+   * @param y right bound
+   * @return random integer between x and y
+   */
   public static int generateRandomNumberBetween(int x, int y) {
     int exclusiveRightBound = y - x + 1;
     return random.nextInt(exclusiveRightBound) + x;
   }
 
   /**
-  * Throw dice.
-  *
-  * @param numberOfDice represents number of dice being thrown
-  * @param typeOfDice   represents number of sides of the dice
-  * @return random integer between 1 and 6 (inclusive)
-  */
+   * Throw dice.
+   *
+   * @param numberOfDice represents number of dice being thrown
+   * @param typeOfDice   represents number of sides of the dice
+   * @return random integer between 1 and 6 (inclusive)
+   */
   public static int throwDice(int numberOfDice, int typeOfDice) {
     int total = 0;
     for (int i = 0; i < numberOfDice; i++) {
