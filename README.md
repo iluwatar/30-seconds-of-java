@@ -510,7 +510,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ### Random number
 
 ```java
-  private static Random random = new Random();
+  private static final Random random = new Random();
 
   public static int generateRandomNumberBetween(int x, int y) {
     int exclusiveRightBound = y - x + 1;
