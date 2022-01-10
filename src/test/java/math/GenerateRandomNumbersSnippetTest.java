@@ -64,7 +64,10 @@ class GenerateRandomNumbersSnippetTest {
       listOfResults.add(GenerateRandomNumbersSnippet.generateRandomNumberBetween(1, 10));
     }
     List<Integer> listOfDistinctResults =
-        listOfResults.stream().distinct().sorted(Integer::compareTo).collect(Collectors.toList());
+        listOfResults.stream()
+            .distinct()
+            .sorted(Integer::compareTo)
+            .collect(Collectors.toList());
 
     List<Integer> expectedResult = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
