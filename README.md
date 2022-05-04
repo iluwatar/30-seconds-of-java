@@ -583,6 +583,33 @@ public static int calculateLuhnChecksum(long num) {
   }
 ```
 
+### Play sound
+
+```java
+  public static void playSound(String soundFile) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+      File f = new File("./" + soundFile);
+      AudioInputStream audioIn = null;
+      Clip clip = null;
+      try {
+        audioIn = AudioSystem.getAudioInputStream(f.toURI().toURL());
+        clip = AudioSystem.getClip();
+        clip.open(audioIn);
+        clip.start();
+        FloatControl volume = (FloatControl)clip.getControl(FloatControl.Type.MASTER_GAIN);
+        volume.setValue(1.0f); // Reduce volume by 10 decibels.
+        clip.drain();
+      }
+       finally {
+        try {
+          clip.close();
+        }
+        catch (Exception exp) {
+          exp.printStackTrace();
+        }
+      }
+    }
+```
+
 ## Networking
 
 ### HTTP GET
