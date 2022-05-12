@@ -79,6 +79,10 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 [![Create pool of threads](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#create-pool-of-threads) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/thread/ThreadPool.java)
 
+### Date
+
+[![Check if a date is between two dates](https://img.shields.io/badge/-Check%20date%20between%20two%20dates%20-e1b050)](#create-pool-of-threads) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/ptr-cln/30-seconds-of-java/blob/30-seconds-of-dates/src/main/java/date/DateInRange.java)
+
 
 ## Algorithm
 
@@ -818,4 +822,14 @@ public static int calculateLuhnChecksum(long num) {
   public static ExecutorService createFixedThreadPool() {
     return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
   }
+```
+
+## Date
+
+### Check if a date is bewteen two dates
+
+```java
+public static boolean isDateInRange(Date startDate, Date endDate , Date dateToCheck) {
+        return !(dateToCheck.before(startDate) || dateToCheck.after(endDate));
+    }
 ```
