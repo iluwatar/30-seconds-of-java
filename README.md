@@ -83,6 +83,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ### Date 
 
 [![Add no of days to date](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#add-no-of-days-to-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
+
 [![Add no of days to LocalDate](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#add-no-of-days-to-local-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
 
 
