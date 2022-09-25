@@ -80,6 +80,13 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Create pool of threads](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#create-pool-of-threads) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/thread/ThreadPool.java)
 
 
+### Date 
+
+[![Add no of days to date](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#add-no-of-days-to-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
+
+[![Add no of days to LocalDate](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#add-no-of-days-to-local-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
+
+
 ## Algorithm
 
 ### Quicksort
@@ -818,4 +825,27 @@ public static int calculateLuhnChecksum(long num) {
   public static ExecutorService createFixedThreadPool() {
     return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
   }
+```
+
+## Date
+
+### Add no of days to date
+```java
+  public static Date addDaysToDate(Date date, int noOfDays){
+    if(date!=null){
+      Calendar cal = Calendar.getInstance();
+      cal.setTime(date);
+      cal.add(Calendar.DAY_OF_MONTH, noOfDays);
+      return cal.getTime();
+    }
+    return null;
+   }
+```
+
+
+### Add no of days to local date
+```java
+ public static LocalDate addDaysToLocalDate(LocalDate date, long noOfDays){
+    return date!=null ? date.plusDays(noOfDays) : null;
+ }
 ```
