@@ -31,13 +31,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import string.CompareVersionSnippet;
 
 class CompareVersionSnippetTest {
   /**
    * Tests for {@link CompareVersionSnippet#compareVersion(String, String)}.
    */
   @Test
-  public void testCompareVersion() {
+  void testCompareVersion() {
     assertEquals(0, CompareVersionSnippet.compareVersion("awesome-app-2.3.4-SNAPSHOT", "2.3.4"));
     assertEquals(0, CompareVersionSnippet.compareVersion("2.3.4-SNAPSHOT", "2.3.4"));
     assertEquals(1, CompareVersionSnippet.compareVersion("2.3.4.1-SNAPSHOT", "2.3.4"));

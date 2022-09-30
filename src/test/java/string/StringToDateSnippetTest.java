@@ -30,6 +30,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 
 import org.junit.jupiter.api.Test;
+import string.StringToDateSnippet;
 
 /*
  * Tests for 30 Seconds of Java code library

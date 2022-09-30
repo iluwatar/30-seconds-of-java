@@ -62,8 +62,8 @@ class ZipDirectorySnippetTest {
         }
       }
       assertEquals(4, zipFile.size());
-      assertEquals(directories, 2); // The root directory + inner directory
-      assertEquals(regularFiles, 2); // Two simple files
+      assertEquals(2,directories); // The root directory + inner directory
+      assertEquals(2,regularFiles ); // Two simple files
       zipFile.close();
     } finally {
       Files.deleteIfExists(new File(dst).toPath());

@@ -40,9 +40,9 @@ class ArrayConcatSnippetTest {
   @Test
   void testArrayConcat() {
     var integers = ArrayConcatSnippet.arrayConcat(new Integer[5], new Integer[5]);
-    assertEquals(integers.length, 10);
+    assertEquals(10, integers.length);
     var strings = ArrayConcatSnippet.arrayConcat(new String[0], new String[0]);
-    assertEquals(strings.length, 0);
+    assertEquals(0, strings.length);
     assertThrows(NullPointerException.class, () -> ArrayConcatSnippet.arrayConcat(null, null));
   }
 }

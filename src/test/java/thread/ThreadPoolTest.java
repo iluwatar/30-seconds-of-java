@@ -40,7 +40,7 @@ class ThreadPoolTest {
    * Tests for {@link ThreadPool#createFixedThreadPool()}.
    */
   @Test
-  public void testCreateFixedThreadPool() {
+  void testCreateFixedThreadPool() {
     var numProcessors = Runtime.getRuntime().availableProcessors();
     var executorService = (ThreadPoolExecutor) ThreadPool.createFixedThreadPool();
     assertEquals(numProcessors, executorService.getCorePoolSize());

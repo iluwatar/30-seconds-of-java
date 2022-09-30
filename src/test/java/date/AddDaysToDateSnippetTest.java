@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests for AddDaysToDateSnippet.
  */
-public class AddDaysToDateSnippetTest {
+class AddDaysToDateSnippetTest {
 
   /**
   * Test add days to date.

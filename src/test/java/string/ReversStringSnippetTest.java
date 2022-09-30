@@ -27,6 +27,7 @@ package string;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import string.ReversStringSnippet;
 
 /*
  * Tests for 30 Seconds of Java code library
