@@ -58,6 +58,18 @@ class AddDaysToDateSnippetTest {
     Assertions.assertEquals(dateAfterTwoDaysExpected, dateAfterTwoDaysActual);
   }
 
+  @Test
+  void testAddDaysButNull() {
+    Date date = AddDaysToDateSnippet.addDaysToDate(null, 2);
+    Assertions.assertNull(date);
+  }
+
+  @Test
+  void testAddLocalDateButNull() {
+    LocalDate date = AddDaysToDateSnippet.addDaysToLocalDate(null, 2);
+    Assertions.assertNull(date);
+  }
+
   /**
   * Test add days to local date.
   */
