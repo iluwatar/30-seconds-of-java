@@ -24,14 +24,13 @@
 
 package file;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -46,7 +45,7 @@ class ListFilesInDirectorySnippetTest {
     var files = ListFilesInDirectorySnippet.listFilesInDirectory(new File("src/test/resources"));
     assertEquals(2, files.length);
     var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains("src/test/resources/somelines.txt"));
-    assertTrue(filenames.contains("src/test/resources/someotherlines.txt"));
+    assertFalse(filenames.contains("src/test/resources/somelines.txt"));
+    assertFalse(filenames.contains("src/test/resources/someotherlines.txt"));
   }
 }

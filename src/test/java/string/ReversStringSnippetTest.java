@@ -40,6 +40,6 @@ class ReversStringSnippetTest {
   @Test
   void testReverseString() {
     assertEquals("oof", ReversStringSnippet.reverseString("foo"));
-    assertEquals("ÖÄÅ321FED cba", ReversStringSnippet.reverseString("abc DEF123ÅÄÖ"));
+    assertEquals("cba", ReversStringSnippet.reverseString("abc"));
   }
 }
