@@ -24,6 +24,9 @@
 
 package file;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,7 @@ import java.util.List;
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ListAllFilesSnippet {
   /**
    * Recursively list all the files in directory.

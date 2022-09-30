@@ -24,6 +24,9 @@
 
 package math;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -31,6 +34,7 @@ import java.util.Collections;
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PerformLotterySnippet {
   /**
    * Generate random lottery numbers.

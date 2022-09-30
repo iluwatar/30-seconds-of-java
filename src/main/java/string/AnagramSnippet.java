@@ -24,12 +24,16 @@
 
 package string;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.Arrays;
 
 /*
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AnagramSnippet {
   /**
    * Checks if two words are anagrams (contains same characters with same frequency in any order).

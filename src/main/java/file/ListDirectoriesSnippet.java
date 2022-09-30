@@ -24,12 +24,16 @@
 
 package file;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.io.File;
 
 /*
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ListDirectoriesSnippet {
   /**
    * List directories.

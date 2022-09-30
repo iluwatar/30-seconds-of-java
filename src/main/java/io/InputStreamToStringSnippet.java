@@ -24,6 +24,9 @@
 
 package io;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +36,7 @@ import java.io.InputStreamReader;
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class InputStreamToStringSnippet {
   /**
    * Convert InputStream to String.

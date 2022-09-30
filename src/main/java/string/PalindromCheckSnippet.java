@@ -24,10 +24,14 @@
 
 package string;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /*
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PalindromCheckSnippet {
   /**
    * Checks if given string is palindrome (same forward and backward). Skips non-letter characters

@@ -24,6 +24,9 @@
 
 package file;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -35,6 +38,7 @@ import java.util.zip.ZipOutputStream;
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ZipFilesSnippet {
   /**
    * Zip multiples files.

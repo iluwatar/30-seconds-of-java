@@ -24,6 +24,9 @@
 
 package thread;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -31,6 +34,7 @@ import java.util.concurrent.Executors;
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ThreadPool {
   /**
    * <p>Creates pool of threads. Where the pool is the size of the number of processors

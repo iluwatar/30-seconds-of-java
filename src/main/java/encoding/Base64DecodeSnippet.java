@@ -24,12 +24,16 @@
 
 package encoding;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.Base64;
 
 /*
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Base64DecodeSnippet {
   /**
    * Decodes a Base64 encoded string to the actual representation.

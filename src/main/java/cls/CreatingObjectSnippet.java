@@ -24,12 +24,16 @@
 
 package cls;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.lang.reflect.InvocationTargetException;
 
 /*
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CreatingObjectSnippet {
   /**
    * Create object using reflection.

@@ -24,6 +24,9 @@
 
 package cls;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
@@ -33,6 +36,7 @@ import java.util.stream.Collectors;
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GetAllMethodsSnippet {
   /**
    * Print all declared methods of the class.

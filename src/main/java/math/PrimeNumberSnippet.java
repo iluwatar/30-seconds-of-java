@@ -24,10 +24,14 @@
 
 package math;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /*
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PrimeNumberSnippet {
   /**
    * Checks if given number is a prime number. Prime number is a number that is greater than 1 and

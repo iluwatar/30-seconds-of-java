@@ -24,6 +24,9 @@
 
 package io;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -35,6 +38,7 @@ import java.util.stream.Stream;
  * 30 Seconds of Java code library
  *
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ReadFileSnippet {
   /**
    * Read file using stream and return list of string lines.

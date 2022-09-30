@@ -28,6 +28,11 @@ package algorithm;
  * 30 Seconds of Java code library
  *
  */
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class QuickSortSnippet {
   /**
    * Sort an array with quicksort algorithm.
