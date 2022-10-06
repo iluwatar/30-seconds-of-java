@@ -14,16 +14,10 @@ java {
 // Apply the checkstyle plugin
 apply plugin: 'checkstyle'
 checkstyle {
-    toolVersion '8.26'
-    configFile file("config/checkstyle.xml")
-    maxErrors(0)
-    maxWarnings(0)
-}
-checkstyleMain {
-    source ='src/main/java'
-}
-checkstyleTest {
-    source ='src/test/java'
+    toolVersion = '10.3.4'
+    configFile = file("${rootDir}/config/google_checks.xml")
+    maxErrors = 0
+    maxWarnings = 0
 }
 
 sonarqube {
