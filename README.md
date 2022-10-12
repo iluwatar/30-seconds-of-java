@@ -255,15 +255,15 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ### Find minimum integer from the array
 
 ```java
-    public static int findMin(int[] array){
+  public static int findMin(int[] array) {
         int min = array[0];
-        for(int i = 1; i<array.length;i++){
-            if(min>array[i]){
-                min = array[i];
-            }
+        for (int i = 1; i < array.length; i++) {
+        if (min > array[i]) {
+        min = array[i];
+        }
         }
         return min;
-    }
+        }
 ```
 
 
