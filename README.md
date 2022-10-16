@@ -33,6 +33,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Zip file](https://img.shields.io/badge/-Zip%20file-e1b050)](#zip-file) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFileSnippet.java)  
 [![Zip multiple files](https://img.shields.io/badge/-Zip%20multiple%20files-e1b050)](#zip-multiple-files) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipFilesSnippet.java)  
 [![Zip a directory](https://img.shields.io/badge/-Zip%20a%20directory-e1b050)](#zip-a-directory) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/ZipDirectorySnippet.java)
+[![Length of File](https://img.shields.io/badge/-Zip%20a%20directory-e1b050)](#zip-a-directory) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/file/LengthOfFileSnippet.java)
 
 ### Math
 
@@ -405,7 +406,17 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
       }
     }
   }
+  
 ```
+### Length of File
+
+```java
+    public static long getLengthofFile(String filename) throws IOException {
+        File f = new File(filename);
+        return f.length();
+        }
+```
+
 
 ## Math
 
