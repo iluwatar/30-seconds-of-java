@@ -33,13 +33,13 @@ import java.io.IOException;
  *
  */
 public class LengthOfFileSnippet {
-    /**
-     * Read file as list of strings.
-     *
-     * @param filename the filename to read from
-     * @return length of the file denoted by this abstract pathname.
-     * @throws IOException if an I/O error occurs
-     */
+  /**
+  * Read file as list of strings.
+  *
+  * @param filename the filename to read from
+  * @return length of the file denoted by this abstract pathname.
+  * @throws IOException if an I/O error occurs
+  **/
 
   public static long getLengthofFile(String filename) throws IOException {
     File f = new File(filename);
