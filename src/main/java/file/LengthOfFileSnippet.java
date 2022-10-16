@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package file;
 
 import java.io.File;
@@ -41,8 +42,8 @@ public class LengthOfFileSnippet {
      */
 
     public static long getLengthofFile(String filename) throws IOException {
-        File f = new File(filename);
-        return f.length();
+                File f = new File(filename);
+                return f.length();
     }
 
 }
