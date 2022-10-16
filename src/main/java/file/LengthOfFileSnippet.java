@@ -41,9 +41,9 @@ public class LengthOfFileSnippet {
      * @throws IOException if an I/O error occurs
      */
 
-    public static long getLengthofFile(String filename) throws IOException {
-                File f = new File(filename);
-                return f.length();
-    }
+  public static long getLengthofFile(String filename) throws IOException {
+    File f = new File(filename);
+    return f.length();
+  }
 
 }
