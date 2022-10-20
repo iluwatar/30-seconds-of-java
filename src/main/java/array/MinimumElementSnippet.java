@@ -29,6 +29,8 @@ package array;
  *
  */
 
+import java.util.*;
+
 public class MinimumElementSnippet {
   /**
      * Returns minimum element of the array.
@@ -36,12 +38,7 @@ public class MinimumElementSnippet {
      * @return the minimum element from the array
   */
   public static int findMin(int[] array) {
-    int min = array[0];
-    for (int i = 1; i < array.length; i++) {
-      if (min > array[i]) {
-        min = array[i];
-      }
-    }
-    return min;
+    return Arrays.stream(array).min().getAsInt();
   }
 }
+
