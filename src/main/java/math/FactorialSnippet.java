@@ -42,4 +42,18 @@ public class FactorialSnippet {
     }
     return result;
   }
+
+  /**
+   * Factorial. Example of what the recursive implementation looks like.
+   *
+   * @param number for which factorial is to be calculated for
+   * @return factorial
+   */
+  public static int recursiveFactorial(int number) {
+    var initial = 0;
+    if (number == initial) {
+      return initial + 1;
+    }
+    return number * recursiveFactorial(number - 1);
+  }
 }
