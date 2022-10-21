@@ -24,6 +24,9 @@
 
 package math;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * FibonacciSnippet.
  */
@@ -41,5 +44,21 @@ public class FibonacciSnippet {
     } else {
       return fibonacci(n - 1) + fibonacci(n - 2);
     }
+  }
+
+  /**
+   * Example of what an iterative implementation of Fibonacci looks like.
+   *
+   * @param number given number
+   * @return fibonacci number for given n
+   */
+  public static int interactiveFibonacci(int number) {
+    List<Integer> list = new ArrayList<>();
+    list.add(0);
+    list.add(1);
+    for (int i = 2; i < number + 1; i++) {
+      list.add(list.get(i - 2) + list.get(i - 1));
+    }
+    return list.get(number);
   }
 }
