@@ -29,11 +29,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ReadLinesSnippet.
  */
 public class ReadLinesSnippet {
+
   /**
    * Read file as list of strings.
    *

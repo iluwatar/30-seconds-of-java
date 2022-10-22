@@ -26,9 +26,8 @@ package encoding;
 
 import java.util.Base64;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * Base64EncodeSnippet.
  */
 public class Base64EncodeSnippet {
   /**

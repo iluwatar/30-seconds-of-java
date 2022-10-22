@@ -24,11 +24,11 @@
 
 package algorithm;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * BubbleSortSnippet.
  */
 public class BubbleSortSnippet {
+
   /**
    * Sort an array with bubbleSort algorithm.
    *

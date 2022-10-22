@@ -29,11 +29,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * InputStreamToStringSnippet.
  */
 public class InputStreamToStringSnippet {
+
   /**
    * Convert InputStream to String.
    *

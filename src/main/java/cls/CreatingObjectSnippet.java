@@ -26,25 +26,25 @@ package cls;
 
 import java.lang.reflect.InvocationTargetException;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * CreatingObjectSnippet.
  */
 public class CreatingObjectSnippet {
+
   /**
    * Create object using reflection.
    *
    * @param cls fully qualified name of class includes the package name as String
    * @return object
    * @throws NoSuchMethodException if a method that does not exist at runtime.
-   * @throws IllegalAccessException <p>if an currently executing method
-   * does not have access to the definition of the specified class, field, method or constructor</p>
+   * @throws IllegalAccessException <p>if an currently executing method does not have access to
+   *     the definition of the specified class, field, method or constructor</p>
    * @throws InvocationTargetException <p>InvocationTargetException is a checked exception
-   * that wraps an exception thrown by an invoked method or constructor.</p>
+   *     that wraps an exception thrown by an invoked method or constructor.</p>
    * @throws InstantiationException <p>when an method tries to create an instance of a class
-   * using the newInstance method in class Class.</p>
+   *     using the newInstance method in class Class.</p>
    * @throws ClassNotFoundException <p>when an application tries to load in a class
-   * through its string name.</p>
+   *     through its string name.</p>
    */
   public static Object createObject(String cls)
           throws NoSuchMethodException,

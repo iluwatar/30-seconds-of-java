@@ -30,11 +30,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * 30 Seconds of Java code library.
- * AddDaysToDateSnippet
- *
+ * AddDaysToDateSnippet.
  */
 public class AddDaysToDateSnippet {
+
   /**
    * Add days to given date.
    *

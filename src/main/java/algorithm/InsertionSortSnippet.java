@@ -24,9 +24,8 @@
 
 package algorithm;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * InsertionSortSnippet.
  */
 public class InsertionSortSnippet {
 

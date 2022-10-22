@@ -29,11 +29,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * HttpGetSnippet.
  */
 public class HttpGetSnippet {
+
   /**
    * Performs HTTP GET request.
    *

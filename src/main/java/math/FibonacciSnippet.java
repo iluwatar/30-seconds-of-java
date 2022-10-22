@@ -24,11 +24,11 @@
 
 package math;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * FibonacciSnippet.
  */
 public class FibonacciSnippet {
+
   /**
    * Recursive Fibonacci series. Works only for small n and is spectacularly inefficient
    *
