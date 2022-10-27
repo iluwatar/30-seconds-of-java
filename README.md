@@ -47,7 +47,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ### Media
 
-[![Capture screen](https://img.shields.io/badge/-Capture%20screen-e1b050)](#capture-screen) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/media/CaptureScreenSnippet.java)
+[![Capture screen](https://img.shields.io/badge/-Capture%20screen-e1b050)](#capture-screen) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/media/CaptureScreenSnippet.java)  
+[![Play Video](https://img.shields.io/badge/-Play%20video-e1b050)](#play-video) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/media/PlayVideoSnippet.java)
 
 ### Networking
 
@@ -587,6 +588,24 @@ public static int calculateLuhnChecksum(long num) {
     var robot = new Robot();
     var image = robot.createScreenCapture(screenRectangle);
     ImageIO.write(image, "png", new File(filename));
+  }
+```
+### Play Video
+
+```java
+  public void start(Stage stage)throws InterruptedException{
+    //args will contain the media url to play. We can add File selector to show popup
+    Media media = new Media(new File(getParameters().getRaw().get(0)).toURI().toString());
+    media.setOnError(()->Platform.exit());
+    MediaPlayer mediaPlayer = new MediaPlayer(media);
+    mediaPlayer.setAutoPlay(true);
+    mediaPlayer.setOnEndOfMedia(()->Platform.exit());
+    MediaView mediaView = new MediaView(mediaPlayer);
+    Scene scene = new Scene(new Group(),media.getWidth(),media.getHeight());
+    stage.setScene(scene);
+    stage.setTitle("Video Player");
+    ((Group)scene.getRoot()).getChildren().add(mediaView);
+    stage.show();
   }
 ```
 
