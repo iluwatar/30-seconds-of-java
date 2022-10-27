@@ -1,6 +1,7 @@
 plugins {
     id "com.github.hierynomus.license" version "0.15.0"
     id "org.sonarqube" version "3.0"
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 // Apply the java plugin to add support for Java
@@ -9,6 +10,10 @@ apply plugin: 'java'
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
+}
+javafx {
+    version = "19"
+    modules = [ 'javafx.controls' , 'javafx.fxml', 'javafx.media']
 }
 
 // Apply the checkstyle plugin
@@ -62,6 +67,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+    testCompile "org.testfx:testfx-junit5:4.0.16-alpha"
 }
 
 test {
