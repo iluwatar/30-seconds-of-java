@@ -44,9 +44,10 @@ class ListFilesInDirectorySnippetTest {
   @Test
   void testListFilesInDirectory() {
     var files = ListFilesInDirectorySnippet.listFilesInDirectory(new File("src/test/resources"));
-    assertEquals(2, files.length);
-    var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains("src/test/resources/somelines.txt"));
-    assertTrue(filenames.contains("src/test/resources/someotherlines.txt"));
+    assertEquals(4, files.length);
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/somelines.txt")));
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/someotherlines.txt")));
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.mp4")));
+    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.wmv")));
   }
 }

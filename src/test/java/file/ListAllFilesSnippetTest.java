@@ -39,6 +39,6 @@ class ListAllFilesSnippetTest {
   @Test
   void testListAllFiles() {
     var files = ListAllFilesSnippet.listAllFiles("src/test/resources");
-    assertEquals(6, files.size());
+    assertEquals(8, files.size());
   }
 }
