@@ -44,8 +44,8 @@ class PlayVideoSnippetTest extends ApplicationTest {
    * Tests for {@link PlayVideoSnippet#main(String[] args)}}.
    */
 
-  final String pathOfSupportedFile = "src/test/resources/file_example_MP4_480_1_5MG.mp4";
-  final String pathOfUnsupportedFile = "src/test/resources/file_example_WMV_480_1_2MB.wmv";
+  final String pathOfSupportedFile = "src/test/resources/video.mp4";
+  final String pathOfUnsupportedFile = "src/test/resources/video.wmv";
 
 
   @Test
