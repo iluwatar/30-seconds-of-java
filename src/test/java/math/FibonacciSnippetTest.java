@@ -55,7 +55,7 @@ class FibonacciSnippetTest {
    * Tests for {@link FibonacciSnippet#iterativeFibonacci(int)}.
    */
   @Test
-  void testInteractiveFibonacci() {
+  void testIterativeFibonacci() {
     assertEquals(0, FibonacciSnippet.iterativeFibonacci(0));
     assertEquals(1, FibonacciSnippet.iterativeFibonacci(1));
     assertEquals(1, FibonacciSnippet.iterativeFibonacci(2));
