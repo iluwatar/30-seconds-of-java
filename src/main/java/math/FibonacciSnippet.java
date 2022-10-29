@@ -52,7 +52,7 @@ public class FibonacciSnippet {
    * @param number given number
    * @return fibonacci number for given n
    */
-  public static int interactiveFibonacci(int number) {
+  public static int iterativeFibonacci(int number) {
     List<Integer> list = new ArrayList<>();
     list.add(0);
     list.add(1);
