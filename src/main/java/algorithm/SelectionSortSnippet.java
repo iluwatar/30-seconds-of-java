@@ -24,11 +24,11 @@
 
 package algorithm;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * SelectionSortSnippet.
  */
 public class SelectionSortSnippet {
+
   /**
    * Sort an array with selectionSort algorithm.
    *

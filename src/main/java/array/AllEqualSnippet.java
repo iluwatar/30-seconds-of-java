@@ -26,11 +26,11 @@ package array;
 
 import java.util.Arrays;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * AllEqualSnippet.
  */
 public class AllEqualSnippet {
+
   /**
    * Returns true if all elements in array are equal.
    *

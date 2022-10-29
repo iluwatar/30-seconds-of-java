@@ -24,11 +24,11 @@
 
 package math;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * GreatestCommonDivisorSnippet.
  */
 public class GreatestCommonDivisorSnippet {
+
   /**
    * Greatest common divisor calculation.
    *

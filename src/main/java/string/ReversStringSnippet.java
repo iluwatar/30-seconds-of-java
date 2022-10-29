@@ -24,11 +24,11 @@
 
 package string;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ReversStringSnippet.
  */
 public class ReversStringSnippet {
+
   /**
    * Reverse string.
    *

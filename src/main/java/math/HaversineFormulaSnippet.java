@@ -24,9 +24,8 @@
 
 package math;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * HaversineFormulaSnippet.
  */
 public class HaversineFormulaSnippet {
 

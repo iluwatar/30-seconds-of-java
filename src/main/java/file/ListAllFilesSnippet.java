@@ -28,11 +28,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ListAllFilesSnippet.
  */
 public class ListAllFilesSnippet {
+
   /**
    * Recursively list all the files in directory.
    *

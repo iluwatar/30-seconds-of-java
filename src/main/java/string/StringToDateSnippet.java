@@ -28,11 +28,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * StringToDateSnippet.
  */
 public class StringToDateSnippet {
+
   /**
    * Convert string to date.
    *

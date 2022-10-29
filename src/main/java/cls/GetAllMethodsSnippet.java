@@ -29,13 +29,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * GetAllMethodsSnippet.
  */
 public class GetAllMethodsSnippet {
+
   /**
    * Print all declared methods of the class.
+   *
    * @param cls Tested class
    * @return list of methods name
    */

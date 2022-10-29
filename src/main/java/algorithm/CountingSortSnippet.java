@@ -26,9 +26,8 @@ package algorithm;
 
 import java.util.Arrays;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * CountingSortSnippet.
  */
 public class CountingSortSnippet {
 

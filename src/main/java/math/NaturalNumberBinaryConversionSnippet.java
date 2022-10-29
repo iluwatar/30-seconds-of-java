@@ -29,9 +29,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * NaturalNumberBinaryConversionSnippet.
  */
 public class NaturalNumberBinaryConversionSnippet {
 

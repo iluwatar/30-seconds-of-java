@@ -24,11 +24,11 @@
 
 package algorithm;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * QuickSortSnippet.
  */
 public class QuickSortSnippet {
+
   /**
    * Sort an array with quicksort algorithm.
    *

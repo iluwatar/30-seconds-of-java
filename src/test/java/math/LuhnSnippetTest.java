@@ -32,55 +32,55 @@ import org.junit.jupiter.params.provider.CsvSource;
 class LuhnSnippetTest {
 
   @CsvSource({
-          "0, 0",
-          "1, 8",
-          "4, 2",
-          "5, 9",
-          "9, 1",
+    "0, 0",
+    "1, 8",
+    "4, 2",
+    "5, 9",
+    "9, 1",
 
-          "42, 2",
+    "42, 2",
 
-          // Moderately interesting patterns.
-          "10, 9",
-          "11, 7",
-          "12, 5",
-          "100, 8",
-          "101, 6",
-          "102, 4",
-          "1000, 9",
-          "1001, 7",
-          "1002, 5",
-          "10000, 8",
-          "10001, 6",
-          "10002, 4", // etc.
+    // Moderately interesting patterns.
+    "10, 9",
+    "11, 7",
+    "12, 5",
+    "100, 8",
+    "101, 6",
+    "102, 4",
+    "1000, 9",
+    "1001, 7",
+    "1002, 5",
+    "10000, 8",
+    "10001, 6",
+    "10002, 4", // etc.
 
-          // Can detect any single-digit error.
-          "4872148, 4", // Original number (Luhn's example in patent US2950048A).
-          "4872143, 5",
-          //     ^
-          "4872178, 1",
-          //    ^
+    // Can detect any single-digit error.
+    "4872148, 4", // Original number (Luhn's example in patent US2950048A).
+    "4872143, 5",
+    //     ^
+    "4872178, 1",
+    //    ^
 
-          // Can detect many transposition of adjacent digits.
-          "4872418, 1",
-          //   ^^
-          "4872184, 9",
-          //    ^^
+    // Can detect many transposition of adjacent digits.
+    "4872418, 1",
+    //   ^^
+    "4872184, 9",
+    //    ^^
 
-          // Can not detect some transposition of adjacent digits.
-          "109223344, 2", // Original number.
-          "190223344, 2", // 09<-->90
-          //^^
-          "109553344, 2", // 22<-->55
-          //  ^^
-          "109226644, 2", // 33<-->66
-          //    ^^
-          "109223377, 2", // 44<-->77
-          //      ^^
-          "190226644, 2", // Some of the above together.
-          //^^  ^^
-          "190556677, 2", // All of the above together.
-          //^^^^^^^^
+    // Can not detect some transposition of adjacent digits.
+    "109223344, 2", // Original number.
+    "190223344, 2", // 09<-->90
+    //^^
+    "109553344, 2", // 22<-->55
+    //  ^^
+    "109226644, 2", // 33<-->66
+    //    ^^
+    "109223377, 2", // 44<-->77
+    //      ^^
+    "190226644, 2", // Some of the above together.
+    //^^  ^^
+    "190556677, 2", // All of the above together.
+    //^^^^^^^^
   })
   @ParameterizedTest
   void testLuhnCalculateChecksum(long num, int expectedChecksum) {
