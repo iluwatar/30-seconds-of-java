@@ -8,12 +8,12 @@ public class FindNonRepetitiveInArraySnippet {
      * @param numsArray array of numbers
      * @return non-repetitive number in array
      */
-    public static int findNonRepetitiveInArray(int[] numsArray){
-        if(numsArray==null) return 0;
-        int nonRepetitiveNumber = 0;
-        for(int num:numsArray){
-            nonRepetitiveNumber = nonRepetitiveNumber ^ num;
-        }
-        return nonRepetitiveNumber;
+public static int findNonRepetitiveInArray(int[] numsArray){
+    if(numsArray == null) return 0;
+    int nonRepetitiveNumber = 0;
+    for(int num:numsArray){
+        nonRepetitiveNumber = nonRepetitiveNumber ^ num;
     }
+    return nonRepetitiveNumber;
+}
 }
