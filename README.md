@@ -82,9 +82,14 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ### Date 
 
-[![Add no of days to date](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#add-no-of-days-to-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
+[![Add no of days to date](https://img.shields.io/badge/-Add%20no%20of%20days%20to%20date-e1b050)](#add-no-of-days-to-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
 
-[![Add no of days to LocalDate](https://img.shields.io/badge/-Create%20pool%20of%20threads-e1b050)](#add-no-of-days-to-local-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
+[![Add no of days to LocalDate](https://img.shields.io/badge/-Add%20no%20of%20days%20to%20LocalDate-e1b050)](#add-no-of-days-to-local-date) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/date/AddDaysToDateSnippet.java)
+
+### Bit-Manipulation
+[![Swap Two Numbers](https://img.shields.io/badge/-Swap%20two%20numbers-e1b050)](#inputstream-to-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/InputStreamToStringSnippet.java)
+
+[![Find non repetitive number in array](https://img.shields.io/badge/-Find%20non%20repetitive%20number%20in%20array-e1b050)](#inputstream-to-string) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/io/InputStreamToStringSnippet.java)
 
 
 ## Algorithm
@@ -848,4 +853,28 @@ public static int calculateLuhnChecksum(long num) {
  public static LocalDate addDaysToLocalDate(LocalDate date, long noOfDays){
     return date!=null ? date.plusDays(noOfDays) : null;
  }
+```
+## Bit-Manipulation
+
+### Swap two numbers without third variable 
+```java
+public static Integer[] swapTwoNumbers(Integer num1,Integer num2){
+    num1 = num1 ^ num2;
+    num2 = num1 ^ num2;
+    num1 = num1 ^ num2;
+    return new Integer[]{num1, num2};
+}
+```
+
+
+### Find non-repetitive number in array
+```java
+public static int findNonRepetitiveInArray(int[] numsArray){
+    if(numsArray==null) return 0;
+    int nonRepetitiveNumber = 0;
+    for(int num:numsArray){
+        nonRepetitiveNumber = nonRepetitiveNumber ^ num;
+    }
+    return nonRepetitiveNumber;
+}
 ```
