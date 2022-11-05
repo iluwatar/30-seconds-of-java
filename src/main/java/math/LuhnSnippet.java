@@ -24,6 +24,9 @@
 
 package math;
 
+/**
+ * LuhnSnippet.
+ */
 public class LuhnSnippet {
 
   /**

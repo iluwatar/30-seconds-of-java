@@ -38,14 +38,14 @@ class MultiArrayConcatenationSnippetTest {
    * Tests for {@link MultiArrayConcatenationSnippet#multiArrayConcat(Object[], Object[][])}.
    */
   @Test
-  void testNArrayConcat() {
+  void testnArrayConcat() {
     var single = MultiArrayConcatenationSnippet.multiArrayConcat(new Integer[1]);
     assertEquals(single.length, 1);
     var multiple
             = MultiArrayConcatenationSnippet.multiArrayConcat(new String[5],
-            new String[12],
-            new String[3],
-            new String[8]);
+                                                              new String[12],
+                                                              new String[3],
+                                                              new String[8]);
     assertEquals(multiple.length, 28);
     assertThrows(NullPointerException.class, () -> MultiArrayConcatenationSnippet
             .multiArrayConcat(null, null, null, null));

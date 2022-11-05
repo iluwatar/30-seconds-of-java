@@ -30,11 +30,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * GetAllFieldNamesSnippet.
  */
 public class GetAllFieldNamesSnippet {
+
   /**
    * Print all declared field names of the class or the interface the class extends.
    *

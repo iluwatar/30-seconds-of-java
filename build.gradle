@@ -16,19 +16,17 @@ javafx {
     modules = [ 'javafx.controls' , 'javafx.fxml', 'javafx.media']
 }
 
+configurations {
+    checkstyleConfig
+}
+
 // Apply the checkstyle plugin
 apply plugin: 'checkstyle'
 checkstyle {
-    toolVersion '8.26'
-    configFile file("config/checkstyle.xml")
-    maxErrors(0)
-    maxWarnings(0)
-}
-checkstyleMain {
-    source ='src/main/java'
-}
-checkstyleTest {
-    source ='src/test/java'
+    toolVersion = '10.3.4'
+    config = resources.text.fromArchiveEntry(configurations.checkstyleConfig, 'google_checks.xml')
+    maxErrors = 0
+    maxWarnings = 0
 }
 
 sonarqube {
@@ -68,6 +66,10 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
     testCompile "org.testfx:testfx-junit5:4.0.16-alpha"
+
+    checkstyleConfig dependencies.create("com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}") {
+        transitive = false
+    }
 }
 
 test {

@@ -27,14 +27,15 @@ package thread;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ThreadPool.
  */
 public class ThreadPool {
+
   /**
    * <p>Creates pool of threads. Where the pool is the size of the number of processors
    * available to the Java virtual machine.</p>
+   *
    * @return the newly created thread pool
    */
   public static ExecutorService createFixedThreadPool() {

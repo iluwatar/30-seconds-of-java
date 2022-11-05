@@ -27,11 +27,11 @@ package math;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * PerformLotterySnippet.
  */
 public class PerformLotterySnippet {
+
   /**
    * Generate random lottery numbers.
    *

@@ -32,11 +32,11 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * CaptureScreenSnippet.
  */
 public class CaptureScreenSnippet {
+
   /**
    * Capture screenshot and save it to PNG file. Credits: https://viralpatel.net/blogs/how-to-take-screen-shots-in-java-taking-screenshots-java/
    *

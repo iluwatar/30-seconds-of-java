@@ -26,11 +26,11 @@ package array;
 
 import java.util.Arrays;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ArrayConcatSnippet.
  */
 public class ArrayConcatSnippet {
+
   /**
    * Generic 2 array concatenation Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java
    *

@@ -39,7 +39,7 @@ class Base64DecodeSnippetTest {
   @Test
   void testBase64Decoding() {
     var decodedString = Base64DecodeSnippet.decodeBase64("VGVzdFN0cmluZw==");
-    assertEquals("TestString",decodedString);
+    assertEquals("TestString", decodedString);
   }
 
   /**
@@ -48,6 +48,6 @@ class Base64DecodeSnippetTest {
   @Test
   void testEmptyBase64Decoding() {
     var decodedString = Base64DecodeSnippet.decodeBase64("");
-    assertEquals("",decodedString);
+    assertEquals("", decodedString);
   }
 }

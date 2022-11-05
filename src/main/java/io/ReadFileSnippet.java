@@ -31,11 +31,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ReadFileSnippet.
  */
 public class ReadFileSnippet {
+
   /**
    * Read file using stream and return list of string lines.
    *

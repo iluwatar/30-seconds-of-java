@@ -31,11 +31,11 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ZipFilesSnippet.
  */
 public class ZipFilesSnippet {
+
   /**
    * Zip multiples files.
    *

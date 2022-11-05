@@ -26,11 +26,11 @@ package string;
 
 import java.util.Arrays;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * AnagramSnippet.
  */
 public class AnagramSnippet {
+
   /**
    * Checks if two words are anagrams (contains same characters with same frequency in any order).
    *

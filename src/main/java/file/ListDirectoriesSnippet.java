@@ -26,11 +26,11 @@ package file;
 
 import java.io.File;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ListDirectoriesSnippet.
  */
 public class ListDirectoriesSnippet {
+
   /**
    * List directories.
    *

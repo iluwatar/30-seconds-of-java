@@ -24,11 +24,11 @@
 
 package math;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * FactorialSnippet.
  */
 public class FactorialSnippet {
+
   /**
    * Factorial. Works only for small numbers
    *

@@ -26,13 +26,14 @@ package array;
 
 import java.util.Arrays;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * FindMaxSnippet.
  */
 public class FindMaxSnippet {
+
   /**
    * Returns the maximum integer from the array using reduction.
+   *
    * @param arr the array of integers (not null)
    * @return the maximum element from the array
    */
