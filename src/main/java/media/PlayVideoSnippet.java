@@ -34,8 +34,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
-/*
- * 30 Seconds of Java code library
+/**
+ * PlayVideoSnippet.
  *
  */
 
@@ -49,8 +49,17 @@ public class PlayVideoSnippet extends Application {
     Application.launch(PlayVideoSnippet.class, args);
   }
 
+  /**
+   * Plays video.
+   *
+   * @param stage the primary stage for this application,
+   *              onto which the application scene can be set.
+   *              Applications may create other stages, if needed,
+   *              but they will not be primary stages.
+   */
+
   @Override
-  public void start(Stage stage) throws InterruptedException {
+  public void start(Stage stage) {
     //args will contain the media url to play. We can add File selector to show popup
     media = new Media(new File(getParameters().getRaw().get(0)).toURI().toString());
     media.setOnError(() -> Platform.exit());

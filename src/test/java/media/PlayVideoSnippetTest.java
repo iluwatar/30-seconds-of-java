@@ -29,9 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javafx.scene.media.MediaException;
-
 import org.junit.jupiter.api.Test;
-
 import org.testfx.framework.junit5.ApplicationTest;
 
 /*
