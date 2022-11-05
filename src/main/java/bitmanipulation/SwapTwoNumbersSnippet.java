@@ -1,4 +1,4 @@
-package bitManipulation;
+package bitmanipulation;
 
 public class SwapTwoNumbersSnippet {
     /**

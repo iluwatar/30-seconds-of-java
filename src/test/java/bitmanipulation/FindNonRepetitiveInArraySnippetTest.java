@@ -1,4 +1,4 @@
-package bitManipulation;
+package bitmanipulation;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
