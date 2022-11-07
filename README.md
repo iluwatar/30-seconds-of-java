@@ -36,8 +36,10 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ### Math
 
-[![Factorial](https://img.shields.io/badge/-Factorial-e1b050)](#factorial) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)  
+[![Factorial](https://img.shields.io/badge/-Factorial-e1b050)](#factorial) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)
+[![Recursive Factorial](https://img.shields.io/badge/-Recursive%20Factorial-e1b050)](#recursive-factorial) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FactorialSnippet.java)
 [![Fibonacci](https://img.shields.io/badge/-Fibonacci-e1b050)](#fibonacci) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)  
+[![Iterative Fibonacci](https://img.shields.io/badge/-Interactive%20Fibonacci-e1b050)](#iterative-fibonacci) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/FibonacciSnippet.java)  
 [![Haversine Formula](https://img.shields.io/badge/-Haversine%20formula-e1b050)](#haversine-formula) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/HaversineFormulaSnippet.java)  
 [![Lottery](https://img.shields.io/badge/-Lottery-e1b050)](#lottery) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/PerformLotterySnippet.java)  
 [![Luhn algorithm](https://img.shields.io/badge/-Luhn%20algorithm-e1b050)](#luhn-algorithm) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/math/LuhnSnippet.java)  
@@ -421,6 +423,20 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   }
 ```
 
+### Iterative Fibonacci
+
+```java
+  public static int iterativeFibonacci(int number) {
+    List<Integer> list = new ArrayList<>();
+    list.add(0);
+    list.add(1);
+    for (int i = 2; i < number + 1; i++) {
+      list.add(list.get(i - 2) + list.get(i - 1));
+    }
+    return list.get(number);
+  }
+```
+
 ### Factorial
 
 ```java
@@ -430,6 +446,18 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
       result *= factor;
     }
     return result;
+  }
+```
+
+### Recursive Factorial
+
+```java
+  public static int recursiveFactorial(int number) {
+    var initial = 0;
+    if (number == initial) {
+      return initial + 1;
+    }
+    return number * recursiveFactorial(number - 1);
   }
 ```
 

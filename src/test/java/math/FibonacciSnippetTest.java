@@ -50,4 +50,22 @@ class FibonacciSnippetTest {
     assertEquals(34, FibonacciSnippet.fibonacci(9));
     assertEquals(55, FibonacciSnippet.fibonacci(10));
   }
+
+  /**
+   * Tests for {@link FibonacciSnippet#iterativeFibonacci(int)}.
+   */
+  @Test
+  void testIterativeFibonacci() {
+    assertEquals(0, FibonacciSnippet.iterativeFibonacci(0));
+    assertEquals(1, FibonacciSnippet.iterativeFibonacci(1));
+    assertEquals(1, FibonacciSnippet.iterativeFibonacci(2));
+    assertEquals(2, FibonacciSnippet.iterativeFibonacci(3));
+    assertEquals(3, FibonacciSnippet.iterativeFibonacci(4));
+    assertEquals(5, FibonacciSnippet.iterativeFibonacci(5));
+    assertEquals(8, FibonacciSnippet.iterativeFibonacci(6));
+    assertEquals(13, FibonacciSnippet.iterativeFibonacci(7));
+    assertEquals(21, FibonacciSnippet.iterativeFibonacci(8));
+    assertEquals(34, FibonacciSnippet.iterativeFibonacci(9));
+    assertEquals(55, FibonacciSnippet.iterativeFibonacci(10));
+  }
 }
