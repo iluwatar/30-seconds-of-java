@@ -24,13 +24,12 @@
 
 package array;
 
+import java.util.Arrays;
+
 /*
  * 30 Seconds of Java code library
  *
  */
-
-import java.util.Arrays;
-
 public class MinimumElementSnippet {
   /**
      * Returns minimum element of the array.
