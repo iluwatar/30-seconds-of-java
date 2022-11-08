@@ -32,10 +32,10 @@ import java.util.Arrays;
  */
 public class MinimumElementSnippet {
   /**
-     * Returns minimum element of the array.
-     * @param array , the array of integers (not null)
-     * @return the minimum element from the array
-  */
+   * Returns the maximum integer from the array using reduction.
+   * @param array the array of integers (not null)
+   * @return the minimum element from the array
+   */
   public static int findMin(int[] array) {
     return Arrays.stream(array).min().getAsInt();
   }
