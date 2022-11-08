@@ -256,14 +256,8 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ```java
   public static int findMin(int[] array) {
-        int min = array[0];
-        for (int i = 1; i < array.length; i++) {
-        if (min > array[i]) {
-        min = array[i];
-        }
-        }
-        return min;
-        }
+    return Arrays.stream(array).min().getAsInt();
+  }
 ```
 
 
