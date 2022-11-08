@@ -31,10 +31,15 @@ package array;
 
 import java.util.Arrays;
 
+/*
+ * 30 Seconds of Java code library
+ *
+ */
 public class MinimumElementSnippet {
   /**
      * Returns minimum element of the array.
      * @param array , the array of integers (not null)
+     *
      * @return the minimum element from the array
   */
   public static int findMin(int[] array) {
