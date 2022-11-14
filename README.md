@@ -17,6 +17,9 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 [![Generic two array concatenation](https://img.shields.io/badge/-Generic%20two%20array%20concatenation-e1b050)](#generic-two-array-concatenation) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArrayConcatSnippet.java)  
 [![Generic N array concatenation](https://img.shields.io/badge/-Generic%20N%20array%20concatenation-e1b050)](#generic-n-array-concatenation) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/MultiArrayConcatenationSnippet.java)  
 [![Check if all elements of array are equal](https://img.shields.io/badge/-Check%20if%20all%20elements%20of%20array%20are%20equal-e1b050)](#check-if-all-elements-of-array-are-equal) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/AllEqualSnippet.java)  
+[![Find mean of integer array](https://img.shields.io/badge/-Find%20mean%20of%20integer%20array-e1b050)](#find-mean-of-integer-array) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArrayMeanSnippet.java)
+[![Find median of integer array](https://img.shields.io/badge/-Find%20median%20of%20integer%20array-e1b050)](#find-median-of-integer-array) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArrayMedianSnippet.java)
+[![Find sum of integer array](https://img.shields.io/badge/-Find%20sum%20of%20integer%20array-e1b050)](#find-sum-of-integer-array) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/ArraySumSnippet.java)
 [![Find maximum integer from the array](https://img.shields.io/badge/-Find%20maximum%20integer%20from%20the%20array-e1b050?)](#find-maximum-integer-from-the-array) [![link](https://img.shields.io/badge/-Repository%20link-969c56?logo=github)](https://github.com/iluwatar/30-seconds-of-java/blob/master/src/main/java/array/FindMaxSnippet.java)
 
 ### Encoding
@@ -243,6 +246,32 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ```java
   public static <T> boolean allEqual(T[] arr) {
     return Arrays.stream(arr).distinct().count() == 1;
+  }
+```
+
+### Find mean of integer array
+
+```java
+  public static double arrayMean(int[] arr) {
+    return (double) Arrays.stream(arr).sum() / arr.length;
+  }
+```
+
+### Find median of integer array
+
+```java
+  public static double arrayMedian(int[] arr) {
+    Arrays.sort(arr);
+    int mid = arr.length / 2;
+    return arr.length % 2 != 0 ? (double) arr[mid] : (double) (arr[mid] + arr[mid - 1]) / 2;
+  }
+```
+
+### Find sum of integer array
+
+```java
+  public static int arraySum(int[] arr) {
+    return Arrays.stream(arr).sum();
   }
 ```
 
