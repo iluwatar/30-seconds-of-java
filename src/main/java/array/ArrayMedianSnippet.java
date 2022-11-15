@@ -39,7 +39,7 @@ public class ArrayMedianSnippet {
    */
   public static double arrayMedian(int[] arr) {
     Arrays.sort(arr);
-    int mid = arr.length / 2;
+    var mid = arr.length / 2;
     return arr.length % 2 != 0 ? (double) arr[mid] : (double) (arr[mid] + arr[mid - 1]) / 2;
   }
 }
