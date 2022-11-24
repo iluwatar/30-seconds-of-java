@@ -593,19 +593,22 @@ public static int calculateLuhnChecksum(long num) {
 ### Play Video
 
 ```java 
-  public void start(Stage stage)throws InterruptedException{
-    //args will contain the media url to play. We can add File selector to show popup
-    Media media = new Media(new File(getParameters().getRaw().get(0)).toURI().toString());
-    media.setOnError(()->Platform.exit());
-    MediaPlayer mediaPlayer = new MediaPlayer(media);
-    mediaPlayer.setAutoPlay(true);
-    mediaPlayer.setOnEndOfMedia(()->Platform.exit());
-    MediaView mediaView = new MediaView(mediaPlayer);
-    Scene scene = new Scene(new Group(),media.getWidth(),media.getHeight());
-    stage.setScene(scene);
-    stage.setTitle("Video Player");
-    ((Group)scene.getRoot()).getChildren().add(mediaView);
-    stage.show();
+  public class PlayVideoSnippet extends Application {
+  
+    public static void main(String[] args) {
+      Application.launch(PlayVideoSnippet.class, args);
+    }
+    
+    public void start(Stage stage)throws InterruptedException{
+      var media = new Media(new File(getParameters().getRaw().get(0)).toURI().toString());
+      var mediaPlayer = new MediaPlayer(media);
+      mediaPlayer.setAutoPlay(true);
+      var mediaView = new MediaView(mediaPlayer);
+      var scene = new Scene(new Group(), media.getWidth(), media.getHeight());
+      stage.setScene(scene);
+      ((Group) scene.getRoot()).getChildren().add(mediaView);
+      stage.show();
+    }
   }
 ```
 

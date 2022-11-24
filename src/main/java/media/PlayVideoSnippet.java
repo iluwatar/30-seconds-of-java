@@ -40,11 +40,12 @@ import javafx.stage.Stage;
  */
 
 public class PlayVideoSnippet extends Application {
-  private Media media = null;
-  private MediaPlayer mediaPlayer = null;
-  private MediaView mediaView = null;
-  private Scene scene = null;
 
+  /**
+   * Main method that launch the video player.
+   *
+   * @param args : should contain one arg, referring to path of video file to play.
+   */
   public static void main(String[] args) {
     Application.launch(PlayVideoSnippet.class, args);
   }
@@ -60,16 +61,12 @@ public class PlayVideoSnippet extends Application {
 
   @Override
   public void start(Stage stage) {
-    //args will contain the media url to play. We can add File selector to show popup
-    media = new Media(new File(getParameters().getRaw().get(0)).toURI().toString());
-    media.setOnError(() -> Platform.exit());
-    mediaPlayer = new MediaPlayer(media);
+    var media = new Media(new File(getParameters().getRaw().get(0)).toURI().toString());
+    var mediaPlayer = new MediaPlayer(media);
     mediaPlayer.setAutoPlay(true);
-    mediaPlayer.setOnEndOfMedia(() -> Platform.exit());
-    mediaView = new MediaView(mediaPlayer);
-    scene = new Scene(new Group(), media.getWidth(), media.getHeight());
+    var mediaView = new MediaView(mediaPlayer);
+    var scene = new Scene(new Group(), media.getWidth(), media.getHeight());
     stage.setScene(scene);
-    stage.setTitle("Video Player");
     ((Group) scene.getRoot()).getChildren().add(mediaView);
     stage.show();
   }
