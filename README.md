@@ -159,6 +159,32 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   }
 ```
 
+### Find mean of integer array
+
+```java
+  public static double arrayMean(int[] arr) {
+    return (double) Arrays.stream(arr).sum() / arr.length;
+  }
+```
+
+### Find median of integer array
+
+```java
+  public static double arrayMedian(int[] arr) {
+    Arrays.sort(arr);
+    var mid = arr.length / 2;
+    return arr.length % 2 != 0 ? (double) arr[mid] : (double) (arr[mid] + arr[mid - 1]) / 2;
+  }
+```
+
+### Find sum of integer array
+
+```java
+  public static int arraySum(int[] arr) {
+    return Arrays.stream(arr).sum();
+  }
+```
+
 ### Find maximum integer from the array
 
 ```java
