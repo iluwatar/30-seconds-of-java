@@ -1,5 +1,6 @@
 plugins {
     id "org.sonarqube" version "3.0"
+    id 'org.cadixdev.licenser' version '0.6.1'
 }
 
 // Apply the java plugin to add support for Java
@@ -60,4 +61,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+license {
+    skipExistingHeaders = true
+    include '**/*.java'
 }
