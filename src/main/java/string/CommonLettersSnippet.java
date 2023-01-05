@@ -32,24 +32,24 @@ import java.util.Set;
  */
 public class CommonLettersSnippet {
 
-    /**
-     * Find Common Characters inside given two strings
-     *
-     * @param firstStr
-     * @param secondStr
-     * @return Common Characters
-     */
-    public static String getCommonLetters(String firstStr, String secondStr) {
-        Set<String> commonLetters = new HashSet<>();
-        for (Character currentCharacter : firstStr.toCharArray()) {
-            if (isCommonLetter(secondStr, currentCharacter)) {
-                commonLetters.add(currentCharacter.toString());
-            }
-        }
-        return String.join(" ", commonLetters);
+  /**
+   * Find Common Characters inside given two strings.
+   *
+   * @param firstStr  d
+   * @param secondStr fddf
+   * @return Common Characters.
+   */
+  public static String getCommonLetters(String firstStr, String secondStr) {
+    Set<String> commonLetters = new HashSet<>();
+    for (Character currentCharacter : firstStr.toCharArray()) {
+      if (isCommonLetter(secondStr, currentCharacter)) {
+        commonLetters.add(currentCharacter.toString());
+      }
     }
+    return String.join(" ", commonLetters);
+  }
 
-    private static boolean isCommonLetter(String str, Character character) {
-        return str.contains(character.toString()) && Character.isLetter(character);
-    }
+  private static boolean isCommonLetter(String str, Character character) {
+    return str.contains(character.toString()) && Character.isLetter(character);
+  }
 }
