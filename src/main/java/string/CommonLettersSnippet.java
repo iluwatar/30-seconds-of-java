@@ -35,8 +35,8 @@ public class CommonLettersSnippet {
   /**
    * Find Common Characters inside given two strings.
    *
-   * @param firstStr  d
-   * @param secondStr fddf
+   * @param firstStr  first string
+   * @param secondStr second string
    * @return Common Characters.
    */
   public static String getCommonLetters(String firstStr, String secondStr) {

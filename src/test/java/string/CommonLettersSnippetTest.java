@@ -38,7 +38,7 @@ class CommonLettersSnippetTest {
    * Tests for {@link CommonLettersSnippet#getCommonLetters(String, String)}.
   */
   @Test
-  public void testgetCommonLetters() {
+  void testgetCommonLetters() {
     String str = "abfcd!?055bcxaz^fg#)";
     String str2 = "b45893fndg%+1vc";
     assertEquals("b c d f g", CommonLettersSnippet.getCommonLetters(str, str2));
