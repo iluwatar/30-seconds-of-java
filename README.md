@@ -698,6 +698,24 @@ public static int calculateLuhnChecksum(long num) {
   }
 ```
 
+### Get common letters
+
+```java
+  public static String getCommonLetters(String firstStr, String secondStr) {
+    Set<String> commonLetters = new HashSet<>();
+    for (Character currentCharacter : firstStr.toCharArray()) {
+    if (isCommonLetter(secondStr, currentCharacter)) {
+      commonLetters.add(currentCharacter.toString());
+     }
+    }
+    return String.join(" ", commonLetters);
+  }
+
+  private static boolean isCommonLetter(String str, Character character) {
+    return str.contains(character.toString()) && Character.isLetter(character);
+  }
+```
+
 ## Class
 
 ### Get methods name
