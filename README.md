@@ -733,6 +733,19 @@ public static int calculateLuhnChecksum(long num) {
     return maxCharacterCount;
  }
 ```
+### Remove Duplicate Characters from a string
+
+```java
+  public static String removeDuplicateCharacters(String str) {
+    char[] charsOfStr = str.toCharArray();
+    Set<String> uniqueCharacters = new HashSet<>();
+    for (char character : charsOfStr) {
+      uniqueCharacters.add(String.valueOf(character));
+    }
+    return String.join("", uniqueCharacters);
+  }
+```
+
 ## Class
 
 ### Get methods name
