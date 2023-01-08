@@ -716,6 +716,23 @@ public static int calculateLuhnChecksum(long num) {
   }
 ```
 
+### Maximum count of one character
+
+```java
+ public static int getMaxCharacterCount(String str, char character) {
+   int characterCount = 0;
+   int maxCharacterCount = 0;
+   for (int i = 0; i < str.length(); i++) {
+     if ((str.charAt(i)) == character) {
+        characterCount++;
+        maxCharacterCount = Math.max(maxCharacterCount, characterCount);
+     } else {
+        characterCount = 0;
+     }
+    }
+    return maxCharacterCount;
+ }
+```
 ## Class
 
 ### Get methods name
