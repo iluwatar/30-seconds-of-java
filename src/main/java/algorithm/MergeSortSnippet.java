@@ -37,7 +37,7 @@ public class MergeSortSnippet {
    * @param right right index where to end sort (e.g. array length - 1)
    */
 
-    public void mergeSort(int arr[], int low, int high){
+    public static void mergeSort(int arr[], int low, int high){
         if(low>=high){
             return;
         }
@@ -47,7 +47,7 @@ public class MergeSortSnippet {
         merge(arr, low, high, mid);
     }
 
-    private void merge(int[] arr, int low, int high, int mid) {
+    private static void merge(int[] arr, int low, int high, int mid) {
         int temp[] = new int[(high-low+1)];
         int i = low;
         int j = mid+1;
