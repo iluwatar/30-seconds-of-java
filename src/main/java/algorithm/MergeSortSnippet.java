@@ -42,7 +42,7 @@ public static void mergeSort(int arr[], int low, int high){
     if(low>=high){
         return;
     }
-    int mid = (low+high)/2;
+    var mid = (low+high)/2;
     mergeSort(arr, low, mid);
     mergeSort(arr, mid+1, high);
     merge(arr, low, high, mid);
@@ -50,9 +50,9 @@ public static void mergeSort(int arr[], int low, int high){
 
 private static void merge(int[] arr, int low, int high, int mid) {
     int temp[] = new int[(high-low+1)];
-    int i = low;
-    int j = mid+1;
-    int k = 0;
+    var i = low;
+    var j = mid+1;
+    var k = 0;
 
     while(i<=mid && j<=high){
         if(arr[i]<arr[j]){
