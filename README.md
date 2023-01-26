@@ -7,7 +7,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ### Mergesort
 
 ```java
-    public void mergeSort(int arr[], int low, int high){
+    public static void mergeSort(int arr[], int low, int high){
         if(low>=high){
             return;
         }
