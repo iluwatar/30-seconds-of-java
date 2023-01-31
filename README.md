@@ -121,6 +121,17 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   }
 ```
 
+### LinearSearch
+```java
+ public static int linearSearch(int[] arr, int item) {
+    for (int i = 0; i < arr.length; i++) {
+        if (item == arr[i]) {
+          return i; 
+        }
+    }
+    return -1;
+ }
+```
 ## Array
 
 ### Generic two array concatenation
