@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,5 +41,19 @@ public class FactorialSnippet {
       result *= factor;
     }
     return result;
+  }
+
+  /**
+   * Factorial. Example of what the recursive implementation looks like.
+   *
+   * @param number for which factorial is to be calculated for
+   * @return factorial
+   */
+  public static int recursiveFactorial(int number) {
+    var initial = 0;
+    if (number == initial) {
+      return initial + 1;
+    }
+    return number * recursiveFactorial(number - 1);
   }
 }

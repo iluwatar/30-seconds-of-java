@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -49,5 +49,23 @@ class FactorialSnippetTest {
     assertEquals(40320, FactorialSnippet.factorial(8));
     assertEquals(362880, FactorialSnippet.factorial(9));
     assertEquals(3628800, FactorialSnippet.factorial(10));
+  }
+
+  /**
+   * Tests for {@link FactorialSnippet#recursiveFactorial(int)}.
+   */
+  @Test
+  void testRecursiveFactorial() {
+    assertEquals(1, FactorialSnippet.recursiveFactorial(0));
+    assertEquals(1, FactorialSnippet.recursiveFactorial(1));
+    assertEquals(2, FactorialSnippet.recursiveFactorial(2));
+    assertEquals(6, FactorialSnippet.recursiveFactorial(3));
+    assertEquals(24, FactorialSnippet.recursiveFactorial(4));
+    assertEquals(120, FactorialSnippet.recursiveFactorial(5));
+    assertEquals(720, FactorialSnippet.recursiveFactorial(6));
+    assertEquals(5040, FactorialSnippet.recursiveFactorial(7));
+    assertEquals(40320, FactorialSnippet.recursiveFactorial(8));
+    assertEquals(362880, FactorialSnippet.recursiveFactorial(9));
+    assertEquals(3628800, FactorialSnippet.recursiveFactorial(10));
   }
 }
