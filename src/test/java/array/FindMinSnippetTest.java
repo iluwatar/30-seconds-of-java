@@ -38,9 +38,9 @@ class FindMinSnippetTest {
     */
   @Test
    void test_findMin() {
-    assertEquals(9, FindMinSnippet.findMin(new int[] {1, 2, 4, 9, 8, 1}));
-    assertEquals(-8, FindMinSnippet.findMin(new int[] {-43, -23, -51, -10, -8, -65, -9}));
-    assertEquals(0, FindMinSnippet.findMin(new int[] {-4, -3, -2, -1, 0}));
+    assertEquals(1, FindMinSnippet.findMin(new int[] {1, 2, 4, 9, 8, 1}));
+    assertEquals(-65, FindMinSnippet.findMin(new int[] {-43, -23, -51, -10, -8, -65, -9}));
+    assertEquals(-4, FindMinSnippet.findMin(new int[] {-4, -3, -2, -1, 0}));
     assertEquals(1, FindMinSnippet.findMin(new int[] {1, 1, 1, 1, 1, 1})); 
   }
 }
