@@ -28,6 +28,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
 /**
  * InputStreamToStringSnippet.
@@ -39,18 +41,9 @@ public class InputStreamToStringSnippet {
    *
    * @param inputStream InputStream to convert
    * @return String
-   * @throws IOException if an I/O error occurs
    */
-  public static String inputStreamToString(InputStream inputStream) throws IOException {
-    try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
-      var stringBuilder = new StringBuilder();
-      var data = reader.read();
-
-      while (data != -1) {
-        stringBuilder.append((char) data);
-        data = reader.read();
-      }
-      return stringBuilder.toString();
-    }
+  public static String inputStreamToString(InputStream inputStream) {
+    return new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))
+            .lines().collect(Collectors.joining(System.lineSeparator()));
   }
 }
