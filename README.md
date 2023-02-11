@@ -250,6 +250,14 @@ private static void merge(int[] arr, int low, int high, int mid) {
   }
 ```
 
+### Find minimum integer from the array
+
+```java
+  public static int findMin(int[] arr) {
+    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+  }
+```
+
 ## Encoding
 
 ### Base64 encode string
