@@ -4,7 +4,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ## Algorithm
 
-## Mergesort
+### Mergesort
 ```java
   public static void mergeSort(int arr[], int low, int high){
     if(low>=high){
@@ -606,6 +606,22 @@ public static int calculateLuhnChecksum(long num) {
             .mapToLong(in -> ((long) 0b1) << in).sum();
   }
   
+```
+
+### Least Common Multiple
+
+```java
+  public static int lcm(int a, int b) {
+    int max = a > b ? a : b;
+    int min = a < b ? a : b;
+    for (int i = 1; i <= min; i += 1) {
+      int prod = max * i;
+      if (prod % min == 0) {
+        return prod;
+      }
+    }
+    return max * min;
+  }
 ```
 
 ## Media
