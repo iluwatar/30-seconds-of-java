@@ -34,7 +34,6 @@ public class EvenOrOddSnippet {
      * 
      * @param num integer value;
      * @return "even" if even, "odd" is odd;
-     *
      */
   public static String evenOrOdd(int num) {
     if ((num & 1) != 1) {
