@@ -31,9 +31,7 @@ public class EvenOrOddSnippet {
   
   /**
      * Find the number is Odd or Even using bitmanipulation.
-      
-     * @param num integer value
-     * @return "even" if even, "odd" is odd
+     * 
      */
   public static String evenOrOdd(int num) {
     if ((num & 1) != 1) {

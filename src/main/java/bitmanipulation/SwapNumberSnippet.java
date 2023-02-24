@@ -31,8 +31,6 @@ public class SwapNumberSnippet {
  
   /**
     * Swap two number using bit-manipulation.
-
-    * @param arr array in which element to swap;
     */
   public static void swap(int[] arr) {
     arr[0] = arr[0] ^ arr[1];
