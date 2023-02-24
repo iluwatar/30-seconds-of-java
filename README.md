@@ -258,6 +258,29 @@ private static void merge(int[] arr, int low, int high, int mid) {
   }
 ```
 
+## Bit Manipulation
+
+### Swapping two numbers
+
+```java
+  public static void swap(int[] arr) {
+    arr[0] = arr[0] ^ arr[1];
+    arr[1] = arr[0] ^ arr[1];
+    arr[0] = arr[0] ^ arr[1];
+  }
+```
+
+### Even or Odd
+
+```java
+  public static String evenOrOdd(int num) {
+    if ((num & 1) != 1) {
+      return "Even";
+    }
+    return "Odd";
+  }
+```
+
 ## Encoding
 
 ### Base64 encode string
