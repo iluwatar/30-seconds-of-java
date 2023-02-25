@@ -22,40 +22,23 @@
  * SOFTWARE.
  */
 
-package file;
+package array;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.io.File;
-import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.HashSet;
-import org.junit.jupiter.api.Test;
-
-
-/*
- * Tests for 30 Seconds of Java code library
- *
- */
-class ListFilesInDirectorySnippetTest {
+ 
+/**
+  * FindMaxSnippet.
+  */
+public class FindMinSnippet {
+ 
   /**
-   * Tests for {@link ListFilesInDirectorySnippet#listFilesInDirectory(File)}.
-   */
-  @Test
-  void testListFilesInDirectory() {
-    var files = ListFilesInDirectorySnippet.listFilesInDirectory(
-        Paths.get("src", "test", "resources").toString()
-    );
-    assertEquals(2, files.length);
-    var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains(
-        Paths.get("src", "test", "resources", "somelines.txt").toString()
-    ));
-    assertTrue(filenames.contains(
-        Paths.get("src", "test", "resources", "someotherlines.txt").toString()
-    ));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.mp4")));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.wmv")));
+    * Returns the maximum integer from the array using reduction.
+    *
+    * @param arr the array of integers (not null)
+    * @return the maximum element from the array
+    */
+  public static int findMin(int[] arr) {
+    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
   }
 }
+ 

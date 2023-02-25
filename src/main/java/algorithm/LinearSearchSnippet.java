@@ -22,40 +22,27 @@
  * SOFTWARE.
  */
 
-package file;
+package algorithm;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.io.File;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashSet;
-import org.junit.jupiter.api.Test;
-
-
-/*
- * Tests for 30 Seconds of Java code library
- *
+/**
+ * LinearSearchSnippet.
  */
-class ListFilesInDirectorySnippetTest {
+public class LinearSearchSnippet {
+
   /**
-   * Tests for {@link ListFilesInDirectorySnippet#listFilesInDirectory(File)}.
+   * Search an item with linearSearch algorithm.
+   *
+   * @param arr array to search
+   * @param item an item to search
+   * @return if item is found, return the index position of the array item otherwise return -1
    */
-  @Test
-  void testListFilesInDirectory() {
-    var files = ListFilesInDirectorySnippet.listFilesInDirectory(
-        Paths.get("src", "test", "resources").toString()
-    );
-    assertEquals(2, files.length);
-    var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains(
-        Paths.get("src", "test", "resources", "somelines.txt").toString()
-    ));
-    assertTrue(filenames.contains(
-        Paths.get("src", "test", "resources", "someotherlines.txt").toString()
-    ));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.mp4")));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.wmv")));
+  public static int linearSearch(int[] arr, int item) {
+    for (int i = 0; i < arr.length; i++) {
+      if (item == arr[i]) {
+        return i;
+      }
+    }
+    return -1;
   }
+
 }

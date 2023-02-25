@@ -22,40 +22,30 @@
  * SOFTWARE.
  */
 
-package file;
+package algorithm;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.io.File;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashSet;
+ import static org.junit.jupiter.api.Assertions.assertEquals;
+ 
 import org.junit.jupiter.api.Test;
-
-
+ 
 /*
- * Tests for 30 Seconds of Java code library
- *
- */
-class ListFilesInDirectorySnippetTest {
+  * Tests for 30 Seconds of Java code library
+  *
+  */
+class MergeSortSnippetTest {
   /**
-   * Tests for {@link ListFilesInDirectorySnippet#listFilesInDirectory(File)}.
-   */
+    * Tests for {@link MergeSortSnippet#mergeSort(int[], int, int)}.
+    */
   @Test
-  void testListFilesInDirectory() {
-    var files = ListFilesInDirectorySnippet.listFilesInDirectory(
-        Paths.get("src", "test", "resources").toString()
-    );
-    assertEquals(2, files.length);
-    var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains(
-        Paths.get("src", "test", "resources", "somelines.txt").toString()
-    ));
-    assertTrue(filenames.contains(
-        Paths.get("src", "test", "resources", "someotherlines.txt").toString()
-    ));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.mp4")));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.wmv")));
+   void testMergeSort() {
+    var arr = new int[] {7, 13, 3, 1, 8, 5};
+    MergeSortSnippet.mergeSort(arr, 0, arr.length - 1);
+    assertEquals(6, arr.length);
+    assertEquals(1, arr[0]);
+    assertEquals(3, arr[1]);
+    assertEquals(5, arr[2]);
+    assertEquals(7, arr[3]);
+    assertEquals(8, arr[4]);
+    assertEquals(13, arr[5]);
   }
 }

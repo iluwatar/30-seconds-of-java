@@ -22,40 +22,25 @@
  * SOFTWARE.
  */
 
-package io;
+package array;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+ 
 import org.junit.jupiter.api.Test;
-
+ 
 /*
- * Tests for 30 Seconds of Java code library
- *
- */
-class InputStreamToStringSnippetTest {
+  * Tests for 30 Seconds of Java code library
+  *
+  */
+class FindMinSnippetTest {
   /**
-   * Tests for {@link InputStreamToStringSnippet#inputStreamToString(InputStream)}.
-   */
+    * Tests for {@link FindMinSnippet#findMin(int[])}.
+    */
   @Test
-  void testInputStreamToString() throws IOException {
-    String newLine = System.getProperty("line.separator");
-    String str = new StringBuilder()
-            .append("ąćśź").append(newLine)
-            .append("←≠²³¢²€").append(newLine)
-            .append("июля").append(newLine)
-            .append("åøä").append(newLine)
-            .append("ñí").append(newLine)
-            .append("7月15日起").append(newLine)
-            .append("خەيرلىك ئەتىگەن!")
-            .toString();
-    assertEquals(str, InputStreamToStringSnippet.inputStreamToString(
-            new FileInputStream("src/test/resources/dir1/placeholder.txt")));
-    assertNotEquals(str.toUpperCase(), InputStreamToStringSnippet.inputStreamToString(
-            new FileInputStream("src/test/resources/dir1/placeholder.txt")));
+   void test_findMin() {
+    assertEquals(1, FindMinSnippet.findMin(new int[] {1, 2, 4, 9, 8, 1}));
+    assertEquals(-65, FindMinSnippet.findMin(new int[] {-43, -23, -51, -10, -8, -65, -9}));
+    assertEquals(-4, FindMinSnippet.findMin(new int[] {-4, -3, -2, -1, 0}));
+    assertEquals(1, FindMinSnippet.findMin(new int[] {1, 1, 1, 1, 1, 1})); 
   }
 }
