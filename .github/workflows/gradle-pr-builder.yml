@@ -24,6 +24,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'zulu'
+        java-package: jdk+fx
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build and analyze with Gradle
