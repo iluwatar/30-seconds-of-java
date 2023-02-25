@@ -31,6 +31,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 
@@ -47,15 +48,20 @@ class ListFilesInDirectorySnippetTest {
     var files = ListFilesInDirectorySnippet.listFilesInDirectory(
         Paths.get("src", "test", "resources").toString()
     );
-    assertEquals(2, files.length);
-    var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
+    assertEquals(4, files.length);
+    var filenames = new HashSet<>(Arrays.stream(files).map(File::toString)
+            .collect(Collectors.toList()));
     assertTrue(filenames.contains(
         Paths.get("src", "test", "resources", "somelines.txt").toString()
     ));
     assertTrue(filenames.contains(
         Paths.get("src", "test", "resources", "someotherlines.txt").toString()
     ));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.mp4")));
-//    assertTrue(Arrays.asList(files).contains(new File("src/test/resources/video.wmv")));
+    assertTrue(filenames.contains(
+            Paths.get("src", "test", "resources", "video.mp4").toString()
+    ));
+    assertTrue(filenames.contains(
+            Paths.get("src", "test", "resources", "video.wmv").toString()
+    ));
   }
 }
