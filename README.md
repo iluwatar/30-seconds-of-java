@@ -4,7 +4,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ## Algorithm
 
-## Mergesort
+### Mergesort
 ```java
   public static void mergeSort(int arr[], int low, int high){
     if(low>=high){
@@ -255,6 +255,29 @@ private static void merge(int[] arr, int low, int high, int mid) {
 ```java
   public static int findMin(int[] arr) {
     return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+  }
+```
+
+## Bit Manipulation
+
+### Swapping two numbers
+
+```java
+  public static void swap(int[] arr) {
+    arr[0] = arr[0] ^ arr[1];
+    arr[1] = arr[0] ^ arr[1];
+    arr[0] = arr[0] ^ arr[1];
+  }
+```
+
+### Even or Odd
+
+```java
+  public static String evenOrOdd(int num) {
+    if ((num & 1) != 1) {
+      return "Even";
+    }
+    return "Odd";
   }
 ```
 
@@ -606,6 +629,22 @@ public static int calculateLuhnChecksum(long num) {
             .mapToLong(in -> ((long) 0b1) << in).sum();
   }
   
+```
+
+### Least Common Multiple
+
+```java
+  public static int lcm(int a, int b) {
+    int max = a > b ? a : b;
+    int min = a < b ? a : b;
+    for (int i = 1; i <= min; i += 1) {
+      int prod = max * i;
+      if (prod % min == 0) {
+        return prod;
+      }
+    }
+    return max * min;
+  }
 ```
 
 ## Media

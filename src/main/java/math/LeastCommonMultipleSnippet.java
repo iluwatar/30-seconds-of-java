@@ -22,23 +22,29 @@
  * SOFTWARE.
  */
 
-package array;
+package math;
 
-import java.util.Arrays;
- 
 /**
-  * FindMinSnippet.
+  * LeastCommonMultipleSnippet.
   */
-public class FindMinSnippet {
+public class LeastCommonMultipleSnippet {
  
   /**
-    * Returns the minimum integer from the array using reduction.
+    * Least common multiple  calculation.
     *
-    * @param arr the array of integers (not null)
-    * @return the minimum element from the array
+    * @param a one of the numbers whose lcm is to be computed
+    * @param b other number whose lcm is to be computed
+    * @return lcm of the two numbers
     */
-  public static int findMin(int[] arr) {
-    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+  public static int lcm(int a, int b) {
+    int max = a > b ? a : b;
+    int min = a < b ? a : b;
+    for (int i = 1; i <= min; i += 1) {
+      int prod = max * i;
+      if (prod % min == 0) {
+        return prod;
+      }
+    }
+    return max * min;
   }
 }
- 

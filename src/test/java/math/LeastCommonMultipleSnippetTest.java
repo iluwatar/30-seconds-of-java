@@ -22,23 +22,25 @@
  * SOFTWARE.
  */
 
-package array;
+package math;
 
-import java.util.Arrays;
- 
-/**
-  * FindMinSnippet.
-  */
-public class FindMinSnippet {
- 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+/*
+ * Tests for 30 Seconds of Java code library
+ *
+ */
+class LeastCommonMultipleSnippetTest {
   /**
-    * Returns the minimum integer from the array using reduction.
-    *
-    * @param arr the array of integers (not null)
-    * @return the minimum element from the array
-    */
-  public static int findMin(int[] arr) {
-    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+   * Tests for {@link LeastCommonMultipleSnippet#lcm(int, int)}.
+   */
+  @Test
+  void testLcm() {
+    assertEquals(4, LeastCommonMultipleSnippet.lcm(2, 4));
+    assertEquals(10, LeastCommonMultipleSnippet.lcm(2, 5));
+    assertEquals(72, LeastCommonMultipleSnippet.lcm(18, 24));
+    assertEquals(7, LeastCommonMultipleSnippet.lcm(7, 7));
   }
 }
- 

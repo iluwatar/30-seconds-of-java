@@ -22,23 +22,26 @@
  * SOFTWARE.
  */
 
-package array;
+package bitmanipulation;
 
-import java.util.Arrays;
- 
-/**
-  * FindMinSnippet.
-  */
-public class FindMinSnippet {
- 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+
+/*
+ * Tests for 30 Seconds of Java code library
+ *
+ */
+class SwapNumberTest {
   /**
-    * Returns the minimum integer from the array using reduction.
-    *
-    * @param arr the array of integers (not null)
-    * @return the minimum element from the array
-    */
-  public static int findMin(int[] arr) {
-    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+   * Tests for {@link SwapNumberSnippet#swap(int[])}.
+   */
+  @Test
+  void testSwap() {
+    var arr = new int[] {6, 3};
+    SwapNumberSnippet.swap(arr);
+    assertEquals(3, arr[0]);
+    assertEquals(6, arr[1]);
   }
 }
- 

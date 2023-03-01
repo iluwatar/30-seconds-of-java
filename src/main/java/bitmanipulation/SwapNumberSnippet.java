@@ -22,23 +22,20 @@
  * SOFTWARE.
  */
 
-package array;
+package bitmanipulation;
 
-import java.util.Arrays;
- 
 /**
-  * FindMinSnippet.
+  * SwapNumberSnippet.
   */
-public class FindMinSnippet {
+public class SwapNumberSnippet {
  
   /**
-    * Returns the minimum integer from the array using reduction.
-    *
-    * @param arr the array of integers (not null)
-    * @return the minimum element from the array
+    * Swap two number using bit-manipulation.
     */
-  public static int findMin(int[] arr) {
-    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+  public static void swap(int[] arr) {
+    arr[0] = arr[0] ^ arr[1];
+    arr[1] = arr[0] ^ arr[1];
+    arr[0] = arr[0] ^ arr[1];
   }
 }
  

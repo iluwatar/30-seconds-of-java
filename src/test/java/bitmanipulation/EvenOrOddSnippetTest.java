@@ -22,23 +22,26 @@
  * SOFTWARE.
  */
 
-package array;
+package bitmanipulation;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
  
-/**
-  * FindMinSnippet.
+import org.junit.jupiter.api.Test;
+ 
+ 
+/*
+  * Tests for 30 Seconds of Java code library
+  *
   */
-public class FindMinSnippet {
- 
+class EvenOrOddSnippetTest {
   /**
-    * Returns the minimum integer from the array using reduction.
-    *
-    * @param arr the array of integers (not null)
-    * @return the minimum element from the array
+    * Tests for {@link EvenOrOddSnippet#evenOrOdd(int num)}.
     */
-  public static int findMin(int[] arr) {
-    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+  @Test
+  void test_findMin() {
+    assertEquals("Even", EvenOrOddSnippet.evenOrOdd(34));
+    assertEquals("Even", EvenOrOddSnippet.evenOrOdd(4));
+    assertEquals("Odd", EvenOrOddSnippet.evenOrOdd(5));
+    assertEquals("Odd", EvenOrOddSnippet.evenOrOdd(1)); 
   }
 }
- 

@@ -22,23 +22,21 @@
  * SOFTWARE.
  */
 
-package array;
+package bitmanipulation;
 
-import java.util.Arrays;
- 
 /**
-  * FindMinSnippet.
-  */
-public class FindMinSnippet {
- 
+   * OddOrEvenSnippet.
+   */
+public class EvenOrOddSnippet {
+  
   /**
-    * Returns the minimum integer from the array using reduction.
-    *
-    * @param arr the array of integers (not null)
-    * @return the minimum element from the array
-    */
-  public static int findMin(int[] arr) {
-    return Arrays.stream(arr).reduce(Integer.MAX_VALUE, Integer::min);
+     * Find the number is Odd or Even using bitmanipulation.
+     * 
+     */
+  public static String evenOrOdd(int num) {
+    if ((num & 1) != 1) {
+      return "Even";
+    }
+    return "Odd";
   }
 }
- 
