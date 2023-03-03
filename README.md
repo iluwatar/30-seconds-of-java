@@ -555,6 +555,22 @@ public static int calculateLuhnChecksum(long num) {
   }
 ```
 
+### Least Common Multiple
+
+```java
+  public static int lcm(int a, int b) {
+    int max = a > b ? a : b;
+    int min = a < b ? a : b;
+    for (int i = 1; i <= min; i += 1) {
+      int prod = max * i;
+      if (prod % min == 0) {
+        return prod;
+      }
+    }
+    return max * min;
+  }
+```
+
 ### Prime
 
 ```java
