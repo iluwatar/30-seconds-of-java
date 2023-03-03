@@ -25,17 +25,16 @@
 package math;
 
 /**
-  * LeastCommonMultipleSnippet.
-  */
+ * LeastCommonMultipleSnippet.
+ */
 public class LeastCommonMultipleSnippet {
-
   /**
-    * Least common multiple  calculation.
-    *
-    * @param a one of the numbers whose lcm is to be computed
-    * @param b other number whose lcm is to be computed
-    * @return lcm of the two numbers
-    */
+   * Least common multiple  calculation.
+   *
+   * @param a one of the numbers whose lcm is to be computed
+   * @param b other number whose lcm is to be computed
+   * @return lcm of the two numbers
+   */
   public static int lcm(int a, int b) {
     int max = a > b ? a : b;
     int min = a < b ? a : b;

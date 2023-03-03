@@ -22,25 +22,25 @@
  * SOFTWARE.
  */
 
- package math;
+package math;
 
- import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
  
- import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
  
- /*
-  * Tests for 30 Seconds of Java code library
-  *
-  */
- class LeastCommonMultipleSnippetTest {
-   /**
-    * Tests for {@link LeastCommonMultipleSnippet#lcm(int, int)}.
-    */
-   @Test
+/*
+ * Tests for 30 Seconds of Java code library
+ *
+ */
+class LeastCommonMultipleSnippetTest {
+  /**
+   * Tests for {@link LeastCommonMultipleSnippet#lcm(int, int)}.
+   */
+  @Test
    void testLcm() {
-     assertEquals(4, LeastCommonMultipleSnippet.lcm(2, 4));
-     assertEquals(10, LeastCommonMultipleSnippet.lcm(2, 5));
-     assertEquals(72, LeastCommonMultipleSnippet.lcm(18, 24));
-     assertEquals(7, LeastCommonMultipleSnippet.lcm(7, 7));
-   }
- }
+    assertEquals(4, LeastCommonMultipleSnippet.lcm(2, 4));
+    assertEquals(10, LeastCommonMultipleSnippet.lcm(2, 5));
+    assertEquals(72, LeastCommonMultipleSnippet.lcm(18, 24));
+    assertEquals(7, LeastCommonMultipleSnippet.lcm(7, 7));
+  }
+}
