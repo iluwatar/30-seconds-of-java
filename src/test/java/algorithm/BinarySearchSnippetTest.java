@@ -33,7 +33,8 @@ import org.junit.jupiter.api.Test;
  *
  */
 
-public class BinarySearchSnippetTest {
+class BinarySearchSnippetTest {
+
   /**
    * Tests for {@link BinarySearchSnippet#binarySearch(int[], int, int, int)}.
    */    

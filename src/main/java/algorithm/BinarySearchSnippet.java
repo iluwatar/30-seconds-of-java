@@ -38,7 +38,7 @@ public class BinarySearchSnippet {
    * @return if item is found, return the index position of the array item otherwise return -1
    */
 
-  public static int binarySearch(int[] arr,int left, int right, int item) {
+  public static int binarySearch(int[] arr, int left, int right, int item) {
     if (right >= left) {
       int mid = left + (right - left) / 2;
       if (arr[mid] == item) {
