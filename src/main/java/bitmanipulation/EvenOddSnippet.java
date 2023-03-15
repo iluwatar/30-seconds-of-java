@@ -38,6 +38,6 @@ public class EvenOddSnippet {
    */
 
   public static String evenOdd(int num){
-    return ((num&1) == 1)?"odd":"even";
+    return ((num & 1) == 1) ? "odd" : "even";
   }
 }

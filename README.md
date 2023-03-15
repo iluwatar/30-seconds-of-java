@@ -935,6 +935,6 @@ public static int calculateLuhnChecksum(long num) {
 ### Find number is Even or Odd
 ```java
   public static String evenOdd(int num){
-    return ((num&1) == 1)?"odd":"even";
+    return ((num & 1) == 1) ? "odd" : "even";
   }
 ```
