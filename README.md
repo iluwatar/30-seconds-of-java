@@ -929,3 +929,12 @@ public static int calculateLuhnChecksum(long num) {
     return date!=null ? date.plusDays(noOfDays) : null;
  }
 ```
+
+## Bit Manipulation
+
+### Find number is Even or Odd
+```java
+  public static String evenOdd(int num){
+    return ((num&1) == 1)?"odd":"even";
+  }
+```
