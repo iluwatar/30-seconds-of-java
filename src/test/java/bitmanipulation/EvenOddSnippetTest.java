@@ -44,5 +44,5 @@ class EvenOddSnippetTest {
     assertEquals("even", EvenOddSnippet.evenOdd(36));
     assertEquals("odd", EvenOddSnippet.evenOdd(83));
     assertEquals("even", EvenOddSnippet.evenOdd(98));
-   }
+  }
 }

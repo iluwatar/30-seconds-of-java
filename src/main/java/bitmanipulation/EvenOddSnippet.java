@@ -37,7 +37,7 @@ public class EvenOddSnippet {
    * @return "even" if even, "odd" if odd
    */
 
-  public static String evenOdd(int num){
+  public static String evenOdd(int num) {
     return ((num & 1) == 1) ? "odd" : "even";
   }
 }
