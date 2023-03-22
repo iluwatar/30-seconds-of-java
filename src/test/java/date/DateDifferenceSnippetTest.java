@@ -47,9 +47,9 @@ class DateDifferenceSnippetTest {
     var date1 = LocalDate.of(1998, 9, 24);
     var date2 = LocalDate.of(2023, 3, 22);
 
-    assertEquals(DateDifferenceSnippet.getYearsDifference(date1, date2), 24);
-    assertEquals(DateDifferenceSnippet.getMonthsDifference(date1, date2), 293);
-    assertEquals(DateDifferenceSnippet.getDaysDifference(date1, date2), 8945);
+    assertEquals(24, DateDifferenceSnippet.getYearsDifference(date1, date2));
+    assertEquals(293, DateDifferenceSnippet.getMonthsDifference(date1, date2));
+    assertEquals(8945, DateDifferenceSnippet.getDaysDifference(date1, date2));
 
   }
 
