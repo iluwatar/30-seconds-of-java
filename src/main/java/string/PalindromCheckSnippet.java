@@ -37,14 +37,19 @@ public class PalindromCheckSnippet {
    * @return true if palindrome
    */
   public static boolean isPalindrome(String s) {
-    var sb = new StringBuilder();
-    for (var c : s.toCharArray()) {
-      if (Character.isLetter(c)) {
-        sb.append(c);
+    for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
+      while (i < j && !Character.isLetter(s.charAt(i))) {
+        i++;
+      }
+      while (i < j && !Character.isLetter(s.charAt(j))) {
+        j--;
+      }
+
+      if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
+        return false;
       }
     }
-    var forward = sb.toString().toLowerCase();
-    var backward = sb.reverse().toString().toLowerCase();
-    return forward.equals(backward);
+
+    return true;
   }
 }
