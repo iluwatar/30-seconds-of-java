@@ -167,6 +167,53 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   }
 ```
 
+### DammSnippet
+```java
+  public static char calculateCheckDigitUsingForLoop(String s, int[][] table) {
+    int i;
+    int row = 0;
+    for (i = 0; i < s.length(); i++) {
+      row = table[row][s.charAt(i) - '0'];
+    }
+
+    return Character.forDigit(row, 10);
+  }
+
+  public static char calculateCheckDigitUsingEnhancedLoop(String s, int[][] table) {
+    int row = 0;
+    for (var c : s.toCharArray()) {
+      row = table[row][c - '0'];
+    }
+
+    return Character.forDigit(row, 10);
+  }
+
+  public static char calculateCheckDigitUsingStream(String s, int[][] table) {
+    int reduce = s.chars().reduce(0, (row, col) -> table[row][col - '0']);
+    return Character.forDigit(reduce, 10);
+  }
+
+  public static boolean validateUsingForLoop(String s, int[][] table) {
+    int row = 0;
+    for (int i = 0; i < s.length(); i++) {
+      row = table[row][s.charAt(i) - '0'];
+    }
+    return row == 0;
+  }
+
+  public static boolean validateUsingEnhancedLoop(String s, int[][] table) {
+    int row = 0;
+    for (var c : s.toCharArray()) {
+      row = table[row][c - '0'];
+    }
+    return row == 0;
+  }
+
+  public static boolean validateUsingStream(String s, int[][] table) {
+    return s.chars().reduce(0, (row, col) -> table[row][col - '0']) == 0;
+  }
+```
+
 ### LinearSearch
 ```java
  public static int linearSearch(int[] arr, int item) {
