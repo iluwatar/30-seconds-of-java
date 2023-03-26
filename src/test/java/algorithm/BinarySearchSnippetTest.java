@@ -22,34 +22,32 @@
  * SOFTWARE.
  */
 
-package string;
+package algorithm;
 
-/**
- * PalindromCheckSnippet.
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+/*
+ * Tests for 30 Seconds of Java code library
+ *
  */
-public class PalindromCheckSnippet {
+
+class BinarySearchSnippetTest {
 
   /**
-   * Checks if given string is palindrome (same forward and backward). Skips non-letter characters
-   * Credits: https://github.com/kousen/java_8_recipes
-   *
-   * @param s string to check
-   * @return true if palindrome
-   */
-  public static boolean isPalindrome(String s) {
-    for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
-      while (i < j && !Character.isLetter(s.charAt(i))) {
-        i++;
-      }
-      while (i < j && !Character.isLetter(s.charAt(j))) {
-        j--;
-      }
+   * Tests for {@link BinarySearchSnippet#binarySearch(int[], int, int, int)}.
+   */    
 
-      if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
-        return false;
-      }
-    }
+  @Test
+  void testBinarySearch() {
+    int[] arr = new int[]{1, 5, 33, 40, 45, 51, 68, 75, 78, 123, 180, 256, 300, 312};
+    assertEquals(4, BinarySearchSnippet.binarySearch(arr, 0, arr.length - 1, 45));
 
-    return true;
+    int[] arr2 = new int[]{1, 1, 4, 4, 8, 8, 90, 100, 111, 550, 621};
+    assertEquals(2, BinarySearchSnippet.binarySearch(arr2, 0, arr2.length - 1, 4));
+
+    int[] arr3 = new int[]{4, 9, 14, 71, 330, 400, 411, 556};
+    assertEquals(-1, BinarySearchSnippet.binarySearch(arr3, 0, arr3.length - 1, 6));
   }
 }
