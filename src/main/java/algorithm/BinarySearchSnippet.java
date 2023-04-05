@@ -22,34 +22,36 @@
  * SOFTWARE.
  */
 
-package string;
+package algorithm;
 
 /**
- * PalindromCheckSnippet.
+ * BinarySearchSnippet.
  */
-public class PalindromCheckSnippet {
+
+public class BinarySearchSnippet {
 
   /**
-   * Checks if given string is palindrome (same forward and backward). Skips non-letter characters
-   * Credits: https://github.com/kousen/java_8_recipes
+   * Search an item with binarySearch algorithm.
    *
-   * @param s string to check
-   * @return true if palindrome
+   * @param arr sorted array to search
+   * @param item an item to search
+   * @return if item is found, return the index position of the array item otherwise return -1
    */
-  public static boolean isPalindrome(String s) {
-    for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
-      while (i < j && !Character.isLetter(s.charAt(i))) {
-        i++;
-      }
-      while (i < j && !Character.isLetter(s.charAt(j))) {
-        j--;
+
+  public static int binarySearch(int[] arr, int left, int right, int item) {
+    if (right >= left) {
+      int mid = left + (right - left) / 2;
+      if (arr[mid] == item) {
+        return mid;
       }
 
-      if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
-        return false;
+      if (arr[mid] > item) {
+        return binarySearch(arr, left, mid - 1, item);
       }
+
+      return binarySearch(arr, mid + 1, right, item);
     }
-
-    return true;
+    return -1;
   }
+    
 }
