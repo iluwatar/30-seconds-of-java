@@ -29,23 +29,26 @@ package math;
  */
 public class EloRatingSnippet {
 
-  final static int BASE = 400; //Two types are popular in Fide - 400 and 480. We will choose 400 here
-  final static int RATING_ADJUSTMENT_FACTOR = 32; //32 is the standard for Beginner Games
+  static final int BASE = 400; //Two types are popular - 400 and 480. We will choose 400 here
+  static final int RATING_ADJUSTMENT_FACTOR = 32; //32 is the standard for Beginner Games
 
   /**
-   * Elo Rating Snippet to calculate result after a single match
+   * Elo Rating Snippet to calculate result after a single match.
    *
-   * @param firstPlayerRating Rating of the first player
-   * @param secondPlayerRating Rating of the second player
-   * @param result Result of the match, always considered with respect to the first player. 1 indicates a win, 0.5 indicates a draw and 0 indicates a loss
-   * @return Returns the new rating of the first player
+   * @param firstPlayerRating Rating of the first player.
+   * @param secondPlayerRating Rating of the second player.
+   * @param result Result of the match, always considered with respect to the first player.
+   *               1 indicates a win, 0.5 indicates a draw and 0 indicates a loss.
+   * @return Returns the new rating of the first player.
    */
-  public static double calculateMatchRating(double firstPlayerRating, double secondPlayerRating, double result) {
+  public static double calculateMatchRating(double firstPlayerRating, double secondPlayerRating,
+    double result) {
     double ratingDiff = ((secondPlayerRating - firstPlayerRating) * 1.0) / BASE;
     double logisticDiff = Math.pow(10, ratingDiff);
     double firstPlayerExpectedScore = 1.0 / (1 + logisticDiff);
     double firstPlayerActualScore = result;
-    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore - firstPlayerExpectedScore);
+    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore -
+                       firstPlayerExpectedScore);
     return newRating;
   }
 }

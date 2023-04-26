@@ -34,15 +34,13 @@ import org.junit.jupiter.api.Test;
  */
 class EloRatingSnippetTest {
 
-   final double DELTA = 0.01; // Add tolerance for floating point calculations
+  static final double DELTA = 0.01; // Add tolerance for floating point calculations
 
   /**
    * Tests for {@link #calculateMatchRating(double, double, double)}.
    */
   @Test
   void testSingleMatchRatings() {
-
-    
 
     //No rating change for draw between players of equal strength
     assertEquals(1500.0, EloRatingSnippet.calculateMatchRating(1500, 1500, 0.5), DELTA);
@@ -57,24 +55,23 @@ class EloRatingSnippetTest {
   @Test
   void testTournamentRatings() {
 
-      //Simulate a tournament, using data from wikipedia
-      double initialRating = 1613.0;
-      double expectedFinalRating = 1601.0; 
-      double newRating = EloRatingSnippet.calculateMatchRating(initialRating, 1609.0, 0); // Loss
+    //Simulate a tournament, using data from wikipedia
+    double initialRating = 1613.0;
+    double expectedFinalRating = 1601.0; 
+    double newRating = EloRatingSnippet.calculateMatchRating(initialRating, 1609.0, 0); // Loss
 
-      //Match 2
-      newRating = EloRatingSnippet.calculateMatchRating(newRating, 1477.0, 0.5); //Draw
+    //Match 2
+    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1477.0, 0.5); //Draw
 
-      //Match 3
-      newRating = EloRatingSnippet.calculateMatchRating(newRating, 1388.0, 1.0); //Win
+    //Match 3
+    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1388.0, 1.0); //Win
 
-      //Match 4
-      newRating = EloRatingSnippet.calculateMatchRating(newRating, 1586.0, 1.0); //Win
+    //Match 4
+    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1586.0, 1.0); //Win
 
-      //Match 5
-      newRating = EloRatingSnippet.calculateMatchRating(newRating, 1720.0, 0.0); //Loss
+    //Match 5
+    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1720.0, 0.0); //Loss
 
-      assertEquals(expectedFinalRating, initialRating, DELTA);
-
+    assertEquals(expectedFinalRating, initialRating, DELTA);
   }
 }
