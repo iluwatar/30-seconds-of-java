@@ -57,7 +57,6 @@ class EloRatingSnippetTest {
 
     //Simulate a tournament, using data from wikipedia
     double initialRating = 1613.0;
-    double expectedFinalRating = 1601.0; 
     double newRating = EloRatingSnippet.calculateMatchRating(initialRating, 1609.0, 0); // Loss
 
     //Match 2
@@ -72,6 +71,7 @@ class EloRatingSnippetTest {
     //Match 5
     newRating = EloRatingSnippet.calculateMatchRating(newRating, 1720.0, 0.0); //Loss
 
+    double expectedFinalRating = 1601.0; 
     assertEquals(expectedFinalRating, initialRating, DELTA);
   }
 }

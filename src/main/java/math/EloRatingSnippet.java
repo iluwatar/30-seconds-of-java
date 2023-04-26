@@ -42,13 +42,13 @@ public class EloRatingSnippet {
    * @return Returns the new rating of the first player.
    */
   public static double calculateMatchRating(double firstPlayerRating, double secondPlayerRating,
-    double result) {
+      double result) {
     double ratingDiff = ((secondPlayerRating - firstPlayerRating) * 1.0) / BASE;
     double logisticDiff = Math.pow(10, ratingDiff);
     double firstPlayerExpectedScore = 1.0 / (1 + logisticDiff);
     double firstPlayerActualScore = result;
-    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore -
-                       firstPlayerExpectedScore);
+    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore 
+                       - firstPlayerExpectedScore);
     return newRating;
   }
 }
