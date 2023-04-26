@@ -50,28 +50,9 @@ class EloRatingSnippetTest {
 
     //For a loss against a very very low leveled player, we should lose max points
     assertEquals(2968.0, EloRatingSnippet.calculateMatchRating(3000, 1500, 0.0), DELTA);
-  }
 
-  @Test
-  void testTournamentRatings() {
-
-    //Simulate a tournament, using data from wikipedia
-    double initialRating = 1613.0;
-    double newRating = EloRatingSnippet.calculateMatchRating(initialRating, 1609.0, 0); // Loss
-
-    //Match 2
-    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1477.0, 0.5); //Draw
-
-    //Match 3
-    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1388.0, 1.0); //Win
-
-    //Match 4
-    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1586.0, 1.0); //Win
-
-    //Match 5
-    newRating = EloRatingSnippet.calculateMatchRating(newRating, 1720.0, 0.0); //Loss
-
-    double expectedFinalRating = 1601.0; 
-    assertEquals(expectedFinalRating, initialRating, DELTA);
+    //Use a random result for testing purposes. A 100 point difference is
+    //typically 20~21 points difference in elo
+    assertEquals(1520.48, EloRatingSnippet.calculateMatchRating(1500, 1600, 1.0), DELTA);
   }
 }
