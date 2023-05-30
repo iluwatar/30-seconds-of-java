@@ -40,13 +40,26 @@ class SieveOfEratosthenesSnippetTest {
 
   @Test
   void testSieveOfEratosthenes() {
-    boolean[] arr = new boolean[]{true, true, true, true, false};
-    assertEquals(arr, SieveOfEratosthenesSnippet.sieveOfEratosthenes(4));
+    boolean[] arr = SieveOfEratosthenesSnippet.sieveOfEratosthenes(4);
+    assertEquals(true, arr[0]);
+    assertEquals(true, arr[1]);
+    assertEquals(true, arr[2]);
+    assertEquals(true, arr[3]);
+    assertEquals(false, arr[4]);
 
-    boolean[] arr2 = new boolean[]{true, true, true, true, false, true, false, true};
-    assertEquals(arr2, SieveOfEratosthenesSnippet.sieveOfEratosthenes(7));
+    boolean[] arr2 = SieveOfEratosthenesSnippet.sieveOfEratosthenes(7);
+    assertEquals(true, arr2[0]);
+    assertEquals(true, arr2[1]);
+    assertEquals(true, arr2[2]);
+    assertEquals(true, arr2[3]);
+    assertEquals(false, arr2[4]);
+    assertEquals(true, arr2[5]);
+    assertEquals(false, arr2[6]);
+    assertEquals(true, arr2[7]);
 
-    boolean[] arr3 = new boolean[]{true, true, true};
-    assertEquals(arr3, SieveOfEratosthenesSnippet.sieveOfEratosthenes(2));
+    boolean[] arr3 = SieveOfEratosthenesSnippet.sieveOfEratosthenes(2);
+    assertEquals(true, arr3[0]);
+    assertEquals(true, arr3[1]);
+    assertEquals(true, arr3[2]);
   }
 }
