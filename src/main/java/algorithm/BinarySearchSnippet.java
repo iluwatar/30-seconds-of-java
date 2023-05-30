@@ -39,17 +39,22 @@ public class BinarySearchSnippet {
    */
 
   public static int binarySearch(int[] arr, int left, int right, int item) {
-    if (right >= left) {
+    while(right >= left) 
+    {
       int mid = left + (right - left) / 2;
-      if (arr[mid] == item) {
+      if (arr[mid] == item) 
+      {
         return mid;
       }
 
-      if (arr[mid] > item) {
-        return binarySearch(arr, left, mid - 1, item);
+      else if (arr[mid] > item) 
+      {
+        right = mid-1;
       }
-
-      return binarySearch(arr, mid + 1, right, item);
+      else
+      {
+        left = mid+1;
+      }
     }
     return -1;
   }
