@@ -27,29 +27,39 @@ package array;
 import java.util.Arrays;
 
 /**
- * MultiArrayConcatenationSnippet.
+ * ArrayConcatenationUtility.
  */
-public class MultiArrayConcatenationSnippet {
+public class ArrayConcatenationUtility {
 
   /**
-   * Generic N array concatenation Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java
+   * Concatenates multiple arrays into a single array.
    *
-   * @param first is the first array (not null)
+   * @param first the first array (not null)
    * @param rest  the rest of the arrays (optional)
    * @param <T>   the element type
    * @return concatenated array
+   * @throws IllegalArgumentException if the first array or any array in rest is null
    */
-  public static <T> T[] multiArrayConcat(T[] first, T[]... rest) {
-    var totalLength = first.length;
-    for (var array : rest) {
+  public static <T> T[] concatenateArrays(T[] first, T[]... rest) {
+    if (first == null) {
+      throw new IllegalArgumentException("First array cannot be null.");
+    }
+
+    int totalLength = first.length;
+    for (T[] array : rest) {
+      if (array == null) {
+        throw new IllegalArgumentException("Array in rest cannot be null.");
+      }
       totalLength += array.length;
     }
-    var result = Arrays.copyOf(first, totalLength);
-    var offset = first.length;
-    for (var array : rest) {
+
+    T[] result = Arrays.copyOf(first, totalLength);
+    int offset = first.length;
+    for (T[] array : rest) {
       System.arraycopy(array, 0, result, offset, array.length);
       offset += array.length;
     }
+
     return result;
   }
 }
