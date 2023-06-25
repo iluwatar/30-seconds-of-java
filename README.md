@@ -1001,3 +1001,26 @@ public static int calculateLuhnChecksum(long num) {
     return date!=null ? date.plusDays(noOfDays) : null;
  }
 ```
+
+### Calculating the date difference between two dates
+
+```java
+ public static long getYearsDifference(LocalDate firstTime, LocalDate secondTime) {
+   var yearsDifference = ChronoUnit.YEARS.between(firstTime, secondTime);
+   return Math.abs(yearsDifference);
+ }
+```
+
+```java
+ public static long getMonthsDifference(LocalDate firstTime, LocalDate secondTime) {
+   var monthsDifference = ChronoUnit.MONTHS.between(firstTime, secondTime);
+   return Math.abs(monthsDifference);
+ }
+```
+
+```java
+ public static long getDaysDifference(LocalDate firstTime, LocalDate secondTime) {
+   var daysDifference = ChronoUnit.DAYS.between(firstTime, secondTime);
+   return Math.abs(daysDifference);
+ }
+```
