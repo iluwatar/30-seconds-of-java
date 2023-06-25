@@ -629,6 +629,23 @@ public static int calculateLuhnChecksum(long num) {
   
 ```
 
+### Elo Ratng
+
+```java
+
+final static int BASE = 400; 
+final static int RATING_ADJUSTMENT_FACTOR = 32;
+
+public static double calculateMatchRating(double firstPlayerRating, double secondPlayerRating, double result) {
+    double ratingDiff = ((secondPlayerRating - firstPlayerRating) * 1.0) / BASE;
+    double logisticDiff = Math.pow(10, ratingDiff);
+    double firstPlayerExpectedScore = 1.0 / (1 + logisticDiff);
+    double firstPlayerActualScore = result;
+    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore - firstPlayerExpectedScore);
+    return newRating;
+  }
+```
+
 ## Media
 
 ### Capture screen
