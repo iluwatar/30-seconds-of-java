@@ -199,6 +199,26 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   }
 ```
 
+### SieveOfEratosthenes
+```java
+  public static boolean[] sieveOfEratosthenes(int n) {
+    boolean[] isPrime = new boolean[n + 1];
+    for (int i = 0; i < isPrime.length; i++) {
+      isPrime[i] = true;
+    }
+
+    for (int i = 2; i * i <= n; i++) {
+      if (isPrime[i] == true) {
+        for (int j = i * i; j <= n; j += i) {
+          isPrime[j] = false;
+        }
+      }
+    }
+
+    return isPrime;
+  }
+```
+
 ## Array
 
 ### Generic two array concatenation
@@ -599,6 +619,22 @@ public static int calculateLuhnChecksum(long num) {
   }
 ```
 
+### Least Common Multiple
+
+```java
+  public static int lcm(int a, int b) {
+    int max = a > b ? a : b;
+    int min = a < b ? a : b;
+    for (int i = 1; i <= min; i += 1) {
+      int prod = max * i;
+      if (prod % min == 0) {
+        return prod;
+      }
+    }
+    return max * min;
+  }
+```
+
 ### Prime
 
 ```java
@@ -650,6 +686,23 @@ public static int calculateLuhnChecksum(long num) {
             .mapToLong(in -> ((long) 0b1) << in).sum();
   }
   
+```
+
+### Elo Ratng
+
+```java
+
+final static int BASE = 400; 
+final static int RATING_ADJUSTMENT_FACTOR = 32;
+
+public static double calculateMatchRating(double firstPlayerRating, double secondPlayerRating, double result) {
+    double ratingDiff = ((secondPlayerRating - firstPlayerRating) * 1.0) / BASE;
+    double logisticDiff = Math.pow(10, ratingDiff);
+    double firstPlayerExpectedScore = 1.0 / (1 + logisticDiff);
+    double firstPlayerActualScore = result;
+    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore - firstPlayerExpectedScore);
+    return newRating;
+  }
 ```
 
 ## Media
