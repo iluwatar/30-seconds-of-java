@@ -167,6 +167,26 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   }
 ```
 
+### CycleSort
+```java
+  public static int[] cycleSort(int[] arr) {
+    int n = arr.length;
+    int i = 0;
+    while (i < n) {
+      int correctpos = arr[i] - 1;
+      if (arr[i] < n && arr[i] != arr[correctpos]) {
+        int temp = arr[i];
+        arr[i] = arr[correctpos];
+        arr[correctpos] = temp;
+      } else {
+        i++;
+      }
+    }
+    
+    return arr;
+  }
+```
+
 ### LinearSearch
 ```java
  public static int linearSearch(int[] arr, int item) {
