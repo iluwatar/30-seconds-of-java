@@ -242,9 +242,7 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 ## Array
 
 ### Concatenate Arrays
-```
-import java.util.Arrays;
-
+```java
 public class ArrayConcatenationUtility {
   public static <T> T[] concatenateArrays(T[] first, T[]... rest) {
     if (first == null) {
