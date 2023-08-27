@@ -241,6 +241,34 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ## Array
 
+### Concatenate Arrays
+```
+import java.util.Arrays;
+
+public class ArrayConcatenationUtility {
+  public static <T> T[] concatenateArrays(T[] first, T[]... rest) {
+    if (first == null) {
+      throw new IllegalArgumentException("First array cannot be null.");
+    }
+    int totalLength = first.length;
+    for (T[] array : rest) {
+      if (array == null) {
+        throw new IllegalArgumentException("Array in rest cannot be null.");
+      }
+      totalLength += array.length;
+    }
+    T[] result = Arrays.copyOf(first, totalLength);
+    int offset = first.length;
+    for (T[] array : rest) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+
+    return result;
+  }
+}
+```
+
 ### Generic two array concatenation
 
 ```java
