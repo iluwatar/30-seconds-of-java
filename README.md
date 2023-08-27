@@ -319,6 +319,29 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
   }
 ```
 
+### Reverse array
+
+```java
+  public static <T> T[] reverseArray(T[] array, int start, int end) {
+    if (start > end || array == null) {
+     throw new
+        IllegalArgumentException("Invalid argument!");
+    }
+    int minimumSizeArrayForReversal = 2;
+    if (start == end || array.length < minimumSizeArrayForReversal) {
+      return array;
+    }
+    while (start < end) {
+      T temp = array[start];
+      array[start] = array[end];
+      array[end] = temp;
+      start++;
+      end--;
+    }
+    return array;
+  }
+```
+
 ## Encoding
 
 ### Base64 encode string
