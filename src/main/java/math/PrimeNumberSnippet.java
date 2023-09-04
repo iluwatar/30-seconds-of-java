@@ -37,6 +37,11 @@ public class PrimeNumberSnippet {
    * @return true if prime
    */
   public static boolean isPrime(int number) {
+    //if number < 2 its not a prime number
+    if (number < 2) {
+      return false;
+    }
+    // 2 and 3 are prime numbers
     if (number < 3) {
       return true;
     }
