@@ -659,9 +659,11 @@ public static int calculateLuhnChecksum(long num) {
 
 ```java
   public static boolean isPrime(int number) {
-    if (number < 3) {
-      return true;
+    //if number < 2 its not a prime number
+    if (number < 2) {
+      return false;
     }
+    // 2 and 3 are prime numbers
 
     // check if n is a multiple of 2
     if (number % 2 == 0) {
