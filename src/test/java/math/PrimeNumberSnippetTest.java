@@ -39,6 +39,7 @@ class PrimeNumberSnippetTest {
    */
   @Test
   void testIsPrime() {
+    assertFalse(PrimeNumberSnippet.isPrime(-1));
     assertTrue(PrimeNumberSnippet.isPrime(2));
     assertTrue(PrimeNumberSnippet.isPrime(3));
     assertTrue(PrimeNumberSnippet.isPrime(17));
