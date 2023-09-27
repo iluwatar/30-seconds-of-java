@@ -798,11 +798,13 @@ public static double calculateMatchRating(double firstPlayerRating, double secon
   public boolean isAnagram(String s1, String s2) { 
     var l1 = s1.length();
     var l2 = s2.length();
-    var arr1 = new int[256];
-    var arr2 = new int[256];
+    
     if (l1 != l2) {
       return false;
     }
+
+    var arr1 = new int[256];
+    var arr2 = new int[256];
     
     for (var i = 0; i < l1; i++) {
       arr1[s1.charAt(i)]++;
