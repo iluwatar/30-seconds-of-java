@@ -1,8 +1,9 @@
+package math;
 import java.util.Scanner;
 /** Binary to Decimal Conversion
  * Snippet
  */
-public class Decimal2Binary {
+class Decimal2Binary {
     /**
      * reverse a string
      * @param str string
