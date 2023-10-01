@@ -34,11 +34,4 @@ public class Binary2Decimal {
         }
         System.out.println(decimal);
     }
-
-    public static void main(String[] args) {
-        System.out.println("Enter a Number: ");
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
-        binaryToDecimal(number);
-    }
 }
