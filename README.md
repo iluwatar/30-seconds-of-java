@@ -499,6 +499,48 @@ Inspired by [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-c
 
 ## Math
 
+### Binary To Decimal
+
+```java
+    /**
+     * converts binary to decimal
+     * @param n number
+     */
+    public static void binaryToDecimal(int n) {
+        String s = reverse(Integer.toString(n));
+        int decimal=0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if(ch=='1') {
+                decimal += Math.pow(2, i);
+            }
+        }
+        System.out.println(decimal);
+    }
+```
+
+### Decimal To Binary
+
+```java
+    /**
+     * converts decimal to binary
+     * @param n number
+     */
+    public static void decimalToBinary(int n) {
+        int d;
+        String dec="";
+        while(n!=0) {
+            d = n%2;
+            dec += Integer.toString(d);
+            n /= 2;
+        }
+
+        String binary = reverse(dec);
+        System.out.println(binary);
+    }
+```
+
 ### Fibonacci
 
 ```java
