@@ -1,9 +1,10 @@
+package math;
 import java.util.Scanner;
 
 /** Binary to Decimal Conversion
  * Snippet
  */
-public class Binary2Decimal {
+class Binary2Decimal {
     /**
      * function to reverse a string
      * @param str string
