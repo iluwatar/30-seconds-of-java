@@ -33,14 +33,4 @@ public class Decimal2Binary {
         String binary = reverse(dec);
         System.out.println(binary);
     }
-
-
-    public static void main(String[] args) {
-        // user input
-        System.out.println("Enter a Number: ");
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
-        
-        decimalToBinary(number);
-    }
 }
