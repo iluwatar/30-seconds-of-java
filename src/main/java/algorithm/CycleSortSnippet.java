@@ -40,7 +40,7 @@ public class CycleSortSnippet {
     int i = 0;
     while (i < n) {
       int correctpos = arr[i] - 1;
-      if (arr[i] < n && arr[i] != arr[correctpos]) {
+      if (arr[i] != arr[correctpos]) {
         int temp = arr[i];
         arr[i] = arr[correctpos];
         arr[correctpos] = temp;
