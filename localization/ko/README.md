@@ -179,6 +179,33 @@
   }
 ```
 
+### Mode in Array
+
+```java
+    public static int modeArray(int arr[])
+    {
+    int mode=0,maxcount=0;
+
+        for(int i=0;i<arr.length;i++)
+        {
+            int count=0;
+
+            for(int j=0;j<arr.length;j++)
+            {
+                if(arr[i]==arr[j])
+                    count++;
+            }
+            if(count>maxcount)
+            {
+                maxcount=count;
+                mode=arr[i];
+            }
+        }
+        return mode;
+    }
+
+```
+
 ### 배열의 합 
 
 ```java
@@ -354,6 +381,19 @@
 
 ### 재귀함수를 활용한 피보나치
 
+### Even or Odd
+
+```java
+    public static String evenodd(int num)
+       {
+           if(num%2==0)
+                return "even";
+           else
+               return "odd";
+       }
+
+```
+
 ```java
   public static int fibonacci(int n) {
     if (n <= 1) {
@@ -482,6 +522,39 @@ public static int calculateLuhnChecksum(long num) {
   }
 ```
 
+### SquareRoot of a Number
+```java
+static double sqrt(int num,int p)  //p-precision(till how many decimal numbers we want)
+    {
+        int start=0,end=num;
+        double root=0.0;
+
+        while(start<=end)
+        {
+            int mid=start+(end-start)/2;
+
+            if((mid*mid)>num)
+                end=mid-1;
+            else if((mid*mid)<num)
+                start=mid+1;
+            else
+                return mid;
+        }
+        //root=end;
+        double incr=0.1;
+
+        for(int i=0;i<p;i++)
+        {
+            while(root*root < num)
+                root=root+incr;
+
+            root=root-incr;
+            incr=incr/10;
+        }
+
+        return root;
+    }
+```
 ### 최대공약수(GCD)
 
 ```java
