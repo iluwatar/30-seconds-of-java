@@ -175,6 +175,7 @@ private static void merge(int[]arr,int low,int high,int mid){
 ### CycleSort
 
 ```java
+<<<<<<< HEAD
   public static int[]cycleSort(int[]arr){
         int n=arr.length;
         int i=0;
@@ -185,6 +186,18 @@ private static void merge(int[]arr,int low,int high,int mid){
         arr[i]=arr[correctpos];
         arr[correctpos]=temp;
         }else{
+=======
+  public static int[] cycleSort(int[] arr) {
+    int n = arr.length;
+    int i = 0;
+    while (i < n) {
+      int correctpos = arr[i] - 1;
+      if (arr[i] != arr[correctpos]) {
+        int temp = arr[i];
+        arr[i] = arr[correctpos];
+        arr[correctpos] = temp;
+      } else {
+>>>>>>> 5123af2d27053cd36cfbf6a217e59f24c0d29703
         i++;
         }
         }
@@ -808,10 +821,19 @@ final var checksumDigit=(10-(sum%10))%10;
 ### Prime
 
 ```java
+<<<<<<< HEAD
   public static boolean isPrime(int number){
         if(number< 3){
         return true;
         }
+=======
+  public static boolean isPrime(int number) {
+    //if number < 2 its not a prime number
+    if (number < 2) {
+      return false;
+    }
+    // 2 and 3 are prime numbers
+>>>>>>> 5123af2d27053cd36cfbf6a217e59f24c0d29703
 
         // check if n is a multiple of 2
         if(number%2==0){
@@ -968,6 +990,7 @@ public static double calculateMatchRating(double firstPlayerRating,double second
 ### Anagram Check
 
 ```java
+<<<<<<< HEAD
   public boolean isAnagram(String s1,String s2){
         var l1=s1.length();
         var l2=s2.length();
@@ -976,6 +999,23 @@ public static double calculateMatchRating(double firstPlayerRating,double second
         if(l1!=l2){
         return false;
         }
+=======
+  public boolean isAnagram(String s1, String s2) { 
+    var l1 = s1.length();
+    var l2 = s2.length();
+    
+    if (l1 != l2) {
+      return false;
+    }
+
+    var arr1 = new int[256];
+    var arr2 = new int[256];
+    
+    for (var i = 0; i < l1; i++) {
+      arr1[s1.charAt(i)]++;
+      arr2[s2.charAt(i)]++;
+    }
+>>>>>>> 5123af2d27053cd36cfbf6a217e59f24c0d29703
 
         for(var i=0;i<l1; i++){
         arr1[s1.charAt(i)]++;
