@@ -22,24 +22,27 @@
  * SOFTWARE.
  */
 
-package math;
+package algorithm;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
  * Tests for 30 Seconds of Java code library.
  */
-public class SquareRootTest {
+
+public class BinarySearchIn2dArraySnippetTest {
   /**
-   * Test for {@link SquareRoot #SquareRoot(int,int)}.
-   */
+  * Test for {@link BinarySearchIn2dArraySnippet #BinarySearchIn2dArraySnippet(int[][],int)}.
+  */
   @Test
-    void test_sqrt() {
-    assertEquals(6.0, SquareRoot.sqrt(36, 1));
-    assertEquals(6.324555319999993, SquareRoot.sqrt(40, 9));
-    assertEquals(6.707999999999995, SquareRoot.sqrt(45, 3));
-    assertEquals(9.529999999999982, SquareRoot.sqrt(91, 2));
+    void testBinarySearchIn2dArraySnippetTest() {
+    int[][] arr1 = {{3, 4, 7, 9}, {12, 24, 26, 29}, {34, 55, 88, 99}, {100, 189, 232, 234}};
+    int[] ans1 = {1, 2};
+    Assertions assertions  = null;
+    Assertions.assertArrayEquals(ans1, BinarySearchIn2dArraySnippet.binarySearchIn2darr(arr1, 26));
+    int[][] arr2 = {{3, 4, 7, 9}, {12, 24, 26, 29}, {34, 55, 88, 99}, {100, 189, 232, 234}};
+    int[] ans2 = {-1, -1};
+    Assertions.assertArrayEquals(ans2, BinarySearchIn2dArraySnippet.binarySearchIn2darr(arr2, 69));
   }
 }

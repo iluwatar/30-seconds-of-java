@@ -22,24 +22,31 @@
  * SOFTWARE.
  */
 
-package math;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.Test;
+package algorithm;
 
 /**
- * Tests for 30 Seconds of Java code library.
+ * LinearSearchIn2dArraySnippet.
  */
-public class SquareRootTest {
+public class LinearSearchIn2dArraySnippet {
+
   /**
-   * Test for {@link SquareRoot #SquareRoot(int,int)}.
+   * Search an item with linearSearch algorithm.
+   *
+   * @param arr    array to search
+   * @param target an item to search
+   * @return if location of target is found,otherwise return {-1,-1}
    */
-  @Test
-    void test_sqrt() {
-    assertEquals(6.0, SquareRoot.sqrt(36, 1));
-    assertEquals(6.324555319999993, SquareRoot.sqrt(40, 9));
-    assertEquals(6.707999999999995, SquareRoot.sqrt(45, 3));
-    assertEquals(9.529999999999982, SquareRoot.sqrt(91, 2));
+
+  public static int[] linearSearch2dArray(int[][] arr, int target) {
+
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        if (arr[i][j] == target) {
+          return new int[]{i, j};
+        }
+      }
+    }
+
+    return new int[]{-1, -1};
   }
 }
