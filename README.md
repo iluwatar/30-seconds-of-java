@@ -874,6 +874,62 @@ public static double calculateMatchRating(double firstPlayerRating,double second
         return newRating;
         }
 ```
+### Random Number Between Two Numbers
+
+```java
+
+public static <T extends Number> Number getRandomNumber(T start, T end) {
+
+	if ((start instanceof Byte && end instanceof Byte) || 
+			(start instanceof Short && end instanceof Short) || 
+			(start instanceof Integer && end instanceof Integer))
+		return (int) start.intValue() + new Random().nextInt(end.intValue() - start.intValue() + 1);
+	else if (start instanceof Long && end instanceof Long)
+		return (long) start.longValue() + new Random().nextLong(end.longValue() - start.longValue() + 1);
+	else if (start instanceof Float && end instanceof Float)
+		return (float) start.floatValue() + new Random().nextFloat(end.floatValue() - start.floatValue() + 1);
+	else if (start instanceof Double && end instanceof Double)
+		return (double) start.doubleValue() + new Random().nextDouble(end.doubleValue() - start.doubleValue() + 1);
+	return end;
+
+}
+
+```
+
+### Dice Throw Sum (eg. 3d6)
+
+```java
+
+public enum DiceSides {
+
+	FOUR(4), SIX(6), EIGHT(8), TEN(10), TWELVE(12), TWENTY(20);
+
+	private final int diceSides;
+	
+        @param diceSides sides of a dice
+		 	
+	DiceSides(int diceSides) {
+		this.diceSides = diceSides;
+	}
+
+	public int getDiceSides() {
+		return this.diceSides;
+	}
+
+}
+
+public static int throwDice(int noOfDice, DiceSides diceSides) {
+
+	int sum = 0;
+	for (int i = 0; i < noOfDice; i++) {
+		sum = sum + (1 + new Random().nextInt(diceSides.getDiceSides()));
+	}
+
+	return sum;
+
+}
+
+```
 
 ## Media
 
