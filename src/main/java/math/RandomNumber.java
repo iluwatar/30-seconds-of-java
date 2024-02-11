@@ -32,6 +32,8 @@ import java.util.Random;
  */
 public class RandomNumber {
 
+  private static Random random = new Random();
+
   /**
   * Return a random number between two given numbers.
   *
@@ -40,8 +42,6 @@ public class RandomNumber {
   * @return Number denoting the random number generated
   */
   public static <T extends Number> Number getRandomNumber(T start, T end) {
-
-    Random random = new Random();
 
     if ((start instanceof Byte && end instanceof Byte)) {
       return (byte) (start.byteValue() + random.nextInt(end.byteValue() - start.byteValue() + 1));

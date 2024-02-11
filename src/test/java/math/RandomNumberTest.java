@@ -99,8 +99,9 @@ public class RandomNumberTest {
   @Test
   void test_invalidNumberArguments() {
     // Test for Double range
+    double d1 = Double.valueOf((double) 100.12);
+    int d2 = Integer.valueOf((int) 200);
     assertThrows(IllegalArgumentException.class, 
-        () -> RandomNumber.getRandomNumber(Double.valueOf((double) 100.12), 
-              Integer.valueOf((int) 200)));
+        () -> RandomNumber.getRandomNumber(d1, d2));
   }
 }

@@ -40,10 +40,10 @@ public class DiceThrow {
 
     FOUR(4), SIX(6), EIGHT(8), TEN(10), TWELVE(12), TWENTY(20);
 
-    private final int diceSides;
+    private final int diSides;
 
     DiceSides(int diceSides) {
-      this.diceSides = diceSides;
+      this.diSides = diceSides;
     }
 
     /**
@@ -52,7 +52,7 @@ public class DiceThrow {
      * @return int denoting number of sides of a dice
      */
     public int getDiceSides() {
-      return this.diceSides;
+      return this.diSides;
     }
 
   }
