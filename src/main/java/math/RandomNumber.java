@@ -32,6 +32,8 @@ import java.util.Random;
  */
 public class RandomNumber {
 
+  private RandomNumber() {}
+
   private static Random random = new Random();
 
   /**

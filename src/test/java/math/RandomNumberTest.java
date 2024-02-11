@@ -32,72 +32,37 @@ import org.junit.jupiter.api.Test;
 /**
 * Tests for 30 Seconds of Java code library.
 */
-public class RandomNumberTest {
+class RandomNumberTest {
 
   /**
   * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
   @Test
-  void test_shortRandomNumber() {
+  void testGetRandomNumber() {
     // Test for Short range
     Number shortResult = RandomNumber.getRandomNumber(
         Short.valueOf((short) 2), Short.valueOf((short) 7));
     assertTrue(shortResult instanceof Short);
     assertTrue((shortResult.shortValue() >= 2) && (shortResult.shortValue() <= 7));
-  }
-
-  /**
-  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
-  */
-  @Test
-  void test_intRandomNumber() {
     // Test for Integer range
     Number intResult = RandomNumber.getRandomNumber(Integer.valueOf(5), Integer.valueOf(10));
     assertTrue(intResult instanceof Integer);
     assertTrue((intResult.intValue() >= 5) && (intResult.intValue() <= 10));
-  }
-
-  /**
-  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
-  */
-  @Test
-  void test_longRandomNumber() {
     // Test for Long range
     Number longResult = RandomNumber.getRandomNumber(
         Long.valueOf((long) -100), Long.valueOf((long) 2500));
     assertTrue(longResult instanceof Long);
     assertTrue((longResult.longValue() >= -100) && (longResult.longValue() <= 2500));
-  }
-
-  /**
-  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
-  */
-  @Test
-  void test_floatRandomNumber() {
     // Test for Float range
     Number floatResult = RandomNumber.getRandomNumber(
         Float.valueOf((float) 2.5f), Float.valueOf((float) 25.4f));
     assertTrue(floatResult instanceof Float);
     assertTrue((floatResult.floatValue() >= 2.5f) && (floatResult.floatValue() <= 25.4f));
-  }
-
-  /**
-  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
-  */
-  @Test
-  void test_doubleRandomNumber() {
     // Test for Double range
     Number doubleResult = RandomNumber.getRandomNumber(
         Double.valueOf((double) 100.12), Double.valueOf((double) 200.28));
     assertTrue(doubleResult instanceof Double);
     assertTrue((doubleResult.doubleValue() >= 100.12) && (doubleResult.doubleValue() <= 200.28));
-  }
-
-  /**
-  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
-  */
-  @Test
-  void test_invalidNumberArguments() {
     // Test for Double range
     double d1 = Double.valueOf((double) 100.12);
     int d2 = Integer.valueOf((int) 200);

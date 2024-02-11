@@ -33,13 +33,13 @@ import org.junit.jupiter.api.Test;
 /**
 * Tests for 30 Seconds of Java code library.
 */
-public class DiceThrowTest {
+class DiceThrowTest {
 
   /**
   * Tests for {@link DiceThrow #throwDice(int, DiceSides)}.
   */
   @Test
-  void test_throwDice() {
+  void testThrowDice() {
     // Test for Dice throw
     assertTrue(DiceThrow.throwDice(3, DiceSides.SIX) <= 18);
     assertTrue(DiceThrow.throwDice(2, DiceSides.FOUR) <= 8);
