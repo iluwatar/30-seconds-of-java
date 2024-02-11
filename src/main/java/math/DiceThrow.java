@@ -27,55 +27,50 @@ package math;
 import java.util.Random;
 
 /**
- * 
- * Sum of Dice throw
- * Eg. 3d6 - 3 dice having 6 sides
- * 
+ * Sum of Dice throw (Eg. 3d6 - 3 dice having 6 sides).
  */
 public class DiceThrow {
 
-	/**
-	 * 
-	 * Enum for standardized sided dice (4,6,8,10,12 and 20)
-	 * 
-	 */
-	public enum DiceSides {
+  /**
+  * Enum for standardized sided dice (4,6,8,10,12 and 20).
+  */
+  public enum DiceSides {
 
-		FOUR(4), SIX(6), EIGHT(8), TEN(10), TWELVE(12), TWENTY(20);
+    FOUR(4), SIX(6), EIGHT(8), TEN(10), TWELVE(12), TWENTY(20);
 
-		private final int diceSides;
-		
-		/**
-		 * 
-		 * @param diceSides sides of a dice
-		 * 
-		 */
-		DiceSides(int diceSides) {
-			this.diceSides = diceSides;
-		}
+    private final int diceSides;
 
-		public int getDiceSides() {
-			return this.diceSides;
-		}
+    DiceSides(int diceSides) {
+      this.diceSides = diceSides;
+    }
 
-	}
-	
-	/**
-	 * 
-	 * @param noOfDice number of dice
-	 * @param diceSides sides of a dice
-	 * @return int sum of sides for number of dice
-	 * 
-	 */
-	public static int throwDice(int noOfDice, DiceSides diceSides) {
+    /**
+     * Returns the number of sides of a dice.
+     *
+     * @return int denoting number of sides of a dice
+     */
+    public int getDiceSides() {
+      return this.diceSides;
+    }
 
-		int sum = 0;
-		for (int i = 0; i < noOfDice; i++) {
-			sum = sum + (1 + new Random().nextInt(diceSides.getDiceSides()));
-		}
+  }
 
-		return sum;
+  /**
+  * Returns the sum of sides for the given number of sides of each dice.
+  *
+  * @param noOfDice number of dice
+  * @param diceSides sides of a dice
+  * @return int sum of sides for number of dice
+  */
+  public static int throwDice(int noOfDice, DiceSides diceSides) {
 
-	}
+    int sum = 0;
+    for (int i = 0; i < noOfDice; i++) {
+      sum = sum + (1 + new Random().nextInt(diceSides.getDiceSides()));
+    }
+
+    return sum;
+
+  }
 
 }

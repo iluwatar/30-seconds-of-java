@@ -26,28 +26,27 @@ package math;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import math.DiceThrow.DiceSides;
 import org.junit.jupiter.api.Test;
 
-import math.DiceThrow.DiceSides;
-
 /**
- * Tests for 30 Seconds of Java code library.
- */
+* Tests for 30 Seconds of Java code library.
+*/
 public class DiceThrowTest {
 
-	/**
-	 * Test for generating random short number
-	 */
-	@Test
-	void test_throwDice() {
-		// Test for Dice throw
-		assertTrue(DiceThrow.throwDice(3, DiceSides.SIX) <= 18);
-		assertTrue(DiceThrow.throwDice(2, DiceSides.FOUR) <= 8);
-		assertTrue(DiceThrow.throwDice(3, DiceSides.EIGHT) <= 24);
-		assertTrue(DiceThrow.throwDice(4, DiceSides.TEN) <= 40);
-		assertTrue(DiceThrow.throwDice(1, DiceSides.TWELVE) <= 12);
-		assertTrue(DiceThrow.throwDice(2, DiceSides.TWENTY) <= 40);
-		assertTrue(DiceThrow.throwDice(0, DiceSides.FOUR) == 0);
+  /**
+  * Test for generating random short number.
+  */
+  @Test
+  void test_throwDice() {
+    // Test for Dice throw
+    assertTrue(DiceThrow.throwDice(3, DiceSides.SIX) <= 18);
+    assertTrue(DiceThrow.throwDice(2, DiceSides.FOUR) <= 8);
+    assertTrue(DiceThrow.throwDice(3, DiceSides.EIGHT) <= 24);
+    assertTrue(DiceThrow.throwDice(4, DiceSides.TEN) <= 40);
+    assertTrue(DiceThrow.throwDice(1, DiceSides.TWELVE) <= 12);
+    assertTrue(DiceThrow.throwDice(2, DiceSides.TWENTY) <= 40);
+    assertTrue(DiceThrow.throwDice(0, DiceSides.FOUR) == 0);
 
-	}
+  }
 }

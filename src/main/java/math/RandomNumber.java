@@ -27,40 +27,44 @@ package math;
 import java.util.Random;
 
 /**
- * 
- * Random Number between given two values
- * Supported Data types - Byte, Short, Integer, Long, Float and Double
- * 
+ * Random Number between given two values.
+ * Supported Data types - Byte, Short, Integer, Long, Float and Double.
  */
 public class RandomNumber {
 
-	/**
-	 * 
-	 * @param start Starting point to find the random number
-	 * @param end Ending point to find the random number
-	 * @return <T extends Number>
-	 * 
-	 */
-	public static <T extends Number> Number getRandomNumber(T start, T end) {
-		
-		Random random = new Random();
-		
-		if ((start instanceof Byte && end instanceof Byte)) {
-			return (byte) (start.byteValue() + random.nextInt(end.byteValue() - start.byteValue() + 1));
-		} else if ((start instanceof Byte && end instanceof Byte) || (start instanceof Short && end instanceof Short)) {
-			return (short) (start.shortValue() + random.nextInt(end.shortValue() - start.shortValue() + 1));
-		} else if ((start instanceof Integer && end instanceof Integer)) {
-			return (int) (start.intValue() + random.nextInt(end.intValue() - start.intValue() + 1));
-		} else if (start instanceof Long && end instanceof Long) {
-			return (long) (start.longValue() + random.nextLong(end.longValue() - start.longValue() + 1));
-		} else if (start instanceof Float && end instanceof Float) {
-			return (float) (start.floatValue() + random.nextFloat(end.floatValue() - start.floatValue() + 1));
-		} else if (start instanceof Double && end instanceof Double) {
-			return (double) (start.doubleValue() + random.nextDouble(end.doubleValue() - start.doubleValue() + 1));
-		} else {
-			throw new IllegalArgumentException("Invalid Numbers As Arguments "+start.getClass()+" and "+end.getClass());
-		}
+  /**
+  * Return a random number between two given numbers.
+  *
+  * @param start Starting point to find the random number
+  * @param end Ending point to find the random number
+  * @return Number denoting the random number generated
+  */
+  public static <T extends Number> Number getRandomNumber(T start, T end) {
 
-	}
-	
+    Random random = new Random();
+
+    if ((start instanceof Byte && end instanceof Byte)) {
+      return (byte) (start.byteValue() + random.nextInt(end.byteValue() - start.byteValue() + 1));
+    } else if ((start instanceof Byte && end instanceof Byte) 
+            || (start instanceof Short && end instanceof Short)) {
+      return (short) (start.shortValue() 
+              + random.nextInt(end.shortValue() - start.shortValue() + 1));
+    } else if ((start instanceof Integer && end instanceof Integer)) {
+      return (int) (start.intValue() 
+              + random.nextInt(end.intValue() - start.intValue() + 1));
+    } else if (start instanceof Long && end instanceof Long) {
+      return (long) (start.longValue() 
+              + random.nextLong(end.longValue() - start.longValue() + 1));
+    } else if (start instanceof Float && end instanceof Float) {
+      return (float) (start.floatValue() 
+              + random.nextFloat(end.floatValue() - start.floatValue() + 1));
+    } else if (start instanceof Double && end instanceof Double) {
+      return (double) (start.doubleValue() 
+              + random.nextDouble(end.doubleValue() - start.doubleValue() + 1));
+    } else {
+      throw new IllegalArgumentException("Invalid Numbers As Arguments " 
+              + start.getClass() + " and " + end.getClass());
+    }
+  }
+
 }
