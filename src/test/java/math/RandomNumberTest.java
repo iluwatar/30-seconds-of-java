@@ -25,6 +25,8 @@
 package math;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 
 import org.junit.jupiter.api.Test;
@@ -64,7 +66,7 @@ public class RandomNumberTest {
 		// Test for Long range
 		Number longResult = RandomNumber.getRandomNumber(Long.valueOf((long) -100), Long.valueOf((long) 2500));
 		assertTrue(longResult instanceof Long);
-		assertTrue((longResult.longValue() <= -100) && (longResult.longValue() <= 2500));
+		assertTrue((longResult.longValue() >= -100) && (longResult.longValue() <= 2500));
 	}
 	
 	/**
@@ -87,5 +89,14 @@ public class RandomNumberTest {
 		Number doubleResult = RandomNumber.getRandomNumber(Double.valueOf((double) 100.12), Double.valueOf((double) 200.28));
 		assertTrue(doubleResult instanceof Double);
 		assertTrue((doubleResult.doubleValue() >= 100.12) && (doubleResult.doubleValue() <= 200.28));
+	}
+	
+	/**
+	 * Test for invalid argument numbers
+	 */
+	@Test
+	void test_invalidNumberArguments() {
+		// Test for Double range
+		assertThrows(IllegalArgumentException.class, () -> RandomNumber.getRandomNumber(Double.valueOf((double) 100.12), Integer.valueOf((int) 200)));
 	}
 }
