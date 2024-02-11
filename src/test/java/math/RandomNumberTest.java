@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
 public class RandomNumberTest {
 
   /**
-  * Test for generating random short number.
+  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
   @Test
   void test_shortRandomNumber() {
@@ -47,7 +47,7 @@ public class RandomNumberTest {
   }
 
   /**
-  * Test for generating random integer number.
+  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
   @Test
   void test_intRandomNumber() {
@@ -58,7 +58,7 @@ public class RandomNumberTest {
   }
 
   /**
-  * Test for generating random long number.
+  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
   @Test
   void test_longRandomNumber() {
@@ -70,7 +70,7 @@ public class RandomNumberTest {
   }
 
   /**
-  * Test for generating random float number.
+  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
   @Test
   void test_floatRandomNumber() {
@@ -82,7 +82,7 @@ public class RandomNumberTest {
   }
 
   /**
-  * Test for generating random double number.
+  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
   @Test
   void test_doubleRandomNumber() {
@@ -94,7 +94,7 @@ public class RandomNumberTest {
   }
 
   /**
-  * Test for invalid argument numbers.
+  * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
   @Test
   void test_invalidNumberArguments() {

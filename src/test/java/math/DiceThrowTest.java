@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
 public class DiceThrowTest {
 
   /**
-  * Test for generating random short number.
+  * Tests for {@link DiceThrow #throwDice(int, DiceSides)}.
   */
   @Test
   void test_throwDice() {
