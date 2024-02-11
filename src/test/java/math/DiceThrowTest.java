@@ -24,6 +24,7 @@
 
 package math;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import math.DiceThrow.DiceSides;
@@ -46,7 +47,7 @@ public class DiceThrowTest {
     assertTrue(DiceThrow.throwDice(4, DiceSides.TEN) <= 40);
     assertTrue(DiceThrow.throwDice(1, DiceSides.TWELVE) <= 12);
     assertTrue(DiceThrow.throwDice(2, DiceSides.TWENTY) <= 40);
-    assertTrue(DiceThrow.throwDice(0, DiceSides.FOUR) == 0);
+    assertEquals(0, DiceThrow.throwDice(0, DiceSides.FOUR));
 
   }
 }

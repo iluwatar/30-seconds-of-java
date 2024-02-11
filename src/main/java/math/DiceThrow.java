@@ -31,6 +31,8 @@ import java.util.Random;
  */
 public class DiceThrow {
 
+  private static Random random = new Random();
+
   /**
   * Enum for standardized sided dice (4,6,8,10,12 and 20).
   */
@@ -59,14 +61,14 @@ public class DiceThrow {
   * Returns the sum of sides for the given number of sides of each dice.
   *
   * @param noOfDice number of dice
-  * @param diceSides sides of a dice
+  * @param sides sides of a dice
   * @return int sum of sides for number of dice
   */
-  public static int throwDice(int noOfDice, DiceSides diceSides) {
+  public static int throwDice(int noOfDice, DiceSides sides) {
 
     int sum = 0;
     for (int i = 0; i < noOfDice; i++) {
-      sum = sum + (1 + new Random().nextInt(diceSides.getDiceSides()));
+      sum = sum + (1 + random.nextInt(sides.getDiceSides()));
     }
 
     return sum;
