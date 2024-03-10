@@ -874,6 +874,68 @@ public static double calculateMatchRating(double firstPlayerRating,double second
         return newRating;
         }
 ```
+### Random Number Between Two Numbers
+
+```java
+
+public static <T extends Number> Number getRandomNumber(T start, T end) {
+		
+	Random random = new Random();
+		
+	if ((start instanceof Byte && end instanceof Byte)) {
+		return (byte) (start.byteValue() + random.nextInt(end.byteValue() - start.byteValue() + 1));
+	} else if ((start instanceof Byte && end instanceof Byte) || (start instanceof Short && end instanceof Short)) {
+		return (short) (start.shortValue() + random.nextInt(end.shortValue() - start.shortValue() + 1));
+	} else if ((start instanceof Integer && end instanceof Integer)) {
+		return (int) (start.intValue() + random.nextInt(end.intValue() - start.intValue() + 1));
+	} else if (start instanceof Long && end instanceof Long) {
+		return (long) (start.longValue() + random.nextLong(end.longValue() - start.longValue() + 1));
+	} else if (start instanceof Float && end instanceof Float) {
+		return (float) (start.floatValue() + random.nextFloat(end.floatValue() - start.floatValue() + 1));
+	} else if (start instanceof Double && end instanceof Double) {
+		return (double) (start.doubleValue() + random.nextDouble(end.doubleValue() - start.doubleValue() + 1));
+	} else {
+		throw new IllegalArgumentException("Invalid Numbers As Arguments "+start.getClass()+" and "+end.getClass());
+	}
+
+}
+
+```
+
+### Dice Throw Sum (eg. 3d6)
+
+```java
+
+public enum DiceSides {
+
+	FOUR(4), SIX(6), EIGHT(8), TEN(10), TWELVE(12), TWENTY(20);
+
+	private final int diceSides;
+	
+        @param diceSides sides of a dice
+		 	
+	DiceSides(int diceSides) {
+		this.diceSides = diceSides;
+	}
+
+	public int getDiceSides() {
+		return this.diceSides;
+	}
+
+}
+
+public static int throwDice(int noOfDice, DiceSides diceSides) {
+
+	int sum = 0;
+	for (int i = 0; i < noOfDice; i++) {
+		sum = sum + (1 + new Random().nextInt(diceSides.getDiceSides()));
+	}
+
+	return sum;
+
+}
+
+```
 
 ## Media
 
