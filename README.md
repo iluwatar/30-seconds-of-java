@@ -438,9 +438,9 @@ public static int modeArray(int[] arr) {
         return array;
         }
         while(start<end){
-        T temp=array[start];
-        array[start]=array[end];
-        array[end]=temp;
+        array[start]=array[start]+array[end];
+        array[end]=array[start]-array[end];
+        array[start]=array[start]-array[end];
         start++;
         end--;
         }
