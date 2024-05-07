@@ -41,15 +41,19 @@ public class ArrayModeSnippet {
      */
 
     public static int[] modeArray(int[] arr) {
-        // Find the maximum number in the array
+        // Find the minimum and maximum numbers in the array
+        int minNumber = Arrays.stream(arr).min().orElse(0);
         int maxNumber = Arrays.stream(arr).max().orElse(0);
 
+        // Calculate the range of numbers in the array
+        int range = maxNumber - minNumber + 1;
+
         // Array to store the frequency of each element
-        int[] frequency = new int[maxNumber + 1];
+        int[] frequency = new int[range];
 
         // Calculate the frequency of each element
         for (int num : arr) {
-            frequency[num]++;
+            frequency[num - minNumber]++;
         }
 
         // Find the maximum frequency value
@@ -68,10 +72,11 @@ public class ArrayModeSnippet {
         int index = 0;
         for (int i = 0; i < frequency.length; i++) {
             if (frequency[i] == maxFrequency) {
-                modes[index++] = i;
+                modes[index++] = i + minNumber;
             }
         }
 
         return modes;
     }
 }
+
