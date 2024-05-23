@@ -33,13 +33,13 @@ import org.junit.jupiter.api.Test;
  */
 public class ArrayModeInPlaceSnippetTest {
   /**
-  * Test for {@link ArrayModeSnippet #ArrayModeSnippet(int[])}.
+  * Test for {@link ArrayModeInPlaceSnippet #ArrayModeInPlaceSnippet(int[])}.
   */
   @Test
     void testModeArray() {
-    assertEquals(2, ArrayModeSnippet.modeArray(new int[]{1, 2, 3, 2, 4, 2, 2}));
-    assertEquals(-8, ArrayModeSnippet.modeArray(new int[]{-43, -8, -8, -10, -8, -65, -9}));
-    assertEquals(0, ArrayModeSnippet.modeArray(new int[]{-4, 0, -2, -1, 0}));
-    assertEquals(1, ArrayModeSnippet.modeArray(new int[]{1, 1, 1, 1, 1, 1}));
+    assertEquals(2, ArrayModeInPlaceSnippet.modeArrayInPlace(new int[]{1, 2, 3, 2, 4, 2, 2}));
+    assertEquals(-8, ArrayModeInPlaceSnippet.modeArrayInPlace(new int[]{-43, -8, -8, -10, -8, -65, -9}));
+    assertEquals(0, ArrayModeInPlaceSnippet.modeArrayInPlace(new int[]{-4, 0, -2, -1, 0}));
+    assertEquals(1, ArrayModeInPlaceSnippet.modeArrayInPlace(new int[]{1, 1, 1, 1, 1, 1}));
   }
 }
