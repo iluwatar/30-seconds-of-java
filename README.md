@@ -193,6 +193,37 @@ private static void merge(int[]arr,int low,int high,int mid){
         }
 ```
 
+### SortingHeuristicIntelligentTable
+
+```java
+    public static void SortingHeuristicIntelligentTable(int[] arr) {
+        ArrayList<Integer>[] buckets = new ArrayList[10];
+
+        for (int i = 0; i < 10; i++) {
+            buckets[i] = new ArrayList<>();
+        }
+
+        // Distribute elements into buckets based on the tens place
+        for (int num : arr) {
+            int tensPlace = num / 10;
+            buckets[tensPlace].add(num);
+        }
+
+        // Sort each bucket
+        for (ArrayList<Integer> bucket : buckets) {
+            Collections.sort(bucket);
+        }
+
+        // Merge the sorted buckets back into the original array
+        int index = 0;
+        for (ArrayList<Integer> bucket : buckets) {
+            for (int num : bucket) {
+                arr[index++] = num;
+            }
+        }
+    }
+```
+
 ### LinearSearch
 
 ```java
