@@ -27,7 +27,6 @@ package algorithm;
 /**
  * CycleSortSnippet.
  */
-
 public class CycleSortSnippet {
 
   /**
@@ -48,9 +47,6 @@ public class CycleSortSnippet {
         i++;
       }
     }
-    
     return arr;
   }
-
-    
 }

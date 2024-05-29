@@ -70,9 +70,6 @@ public class DiceThrow {
     for (int i = 0; i < noOfDice; i++) {
       sum = sum + (1 + random.nextInt(sides.getDiceSides()));
     }
-
     return sum;
-
   }
-
 }

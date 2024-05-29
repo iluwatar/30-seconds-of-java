@@ -63,5 +63,4 @@ public class LuhnSnippet {
     // Outermost modulus handles edge case `num = 0`.
     return checksumDigit;
   }
-
 }

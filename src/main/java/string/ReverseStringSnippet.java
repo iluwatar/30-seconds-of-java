@@ -27,7 +27,7 @@ package string;
 /**
  * ReversStringSnippet.
  */
-public class ReversStringSnippet {
+public class ReverseStringSnippet {
 
   /**
    * Reverse string.

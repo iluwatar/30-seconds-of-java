@@ -44,5 +44,4 @@ public class LinearSearchSnippet {
     }
     return -1;
   }
-
 }

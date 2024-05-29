@@ -72,5 +72,4 @@ public class NaturalNumberBinaryConversionSnippet {
             .filter(in -> binary.charAt(binary.length() - 1 - in) == '1')
             .mapToLong(in -> ((long) 0b1) << in).sum();
   }
-
 }
