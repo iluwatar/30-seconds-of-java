@@ -27,7 +27,6 @@ package algorithm;
 /**
  * BinarySearchSnippet.
  */
-
 public class BinarySearchSnippet {
 
   /**
@@ -53,5 +52,4 @@ public class BinarySearchSnippet {
     }
     return -1;
   }
-    
 }

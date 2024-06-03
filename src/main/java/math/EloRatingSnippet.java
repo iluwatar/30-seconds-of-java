@@ -25,7 +25,7 @@
 package math;
 
 /**
- * FactorialSnippet.
+ * EloRatingSnippet.
  */
 public class EloRatingSnippet {
 

@@ -27,14 +27,13 @@ package algorithm;
 /**
  * MergeSortSnippet.
  */
-
 public class MergeSortSnippet {  
   /**
      * Sort an array with qmergesort algorithm.
      *
      * @param arr   array to sort
-     *     left  left index where to begin sort (e.g. 0)
-     *     right index where to end sort (e.g. array length - 1)
+     * @low low index where to begin sort (e.g. 0)
+     * @high high index where to end sort (e.g. array length - 1)
      */
 
   public static void mergeSort(int[] arr, int low, int high) {
@@ -77,5 +76,4 @@ public class MergeSortSnippet {
       arr[n] = temp[m];
     }
   }
-    
 }

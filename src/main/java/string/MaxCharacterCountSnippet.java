@@ -50,6 +50,4 @@ public class MaxCharacterCountSnippet {
     }
     return maxCharacterCount;
   }
-
-
 }

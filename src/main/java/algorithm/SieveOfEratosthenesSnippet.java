@@ -27,7 +27,6 @@ package algorithm;
 /**
  * SieveOfEratosthenesSnippet.
  */
-
 public class SieveOfEratosthenesSnippet {
   /**
    * Search an item with binarySearch algorithm.

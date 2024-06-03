@@ -30,7 +30,6 @@ import java.util.Set;
 /**
  * DuplicateCharacterSnippet.
  */
-
 public class DuplicateCharacterSnippet {
 
   /**

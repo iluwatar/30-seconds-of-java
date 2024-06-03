@@ -68,5 +68,4 @@ public class RandomNumber {
               + start.getClass() + " and " + end.getClass());
     }
   }
-
 }

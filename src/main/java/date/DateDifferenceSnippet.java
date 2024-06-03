@@ -71,6 +71,4 @@ public class DateDifferenceSnippet {
     var daysDifference = ChronoUnit.DAYS.between(firstTime, secondTime);
     return Math.abs(daysDifference);
   }
-
-
 }

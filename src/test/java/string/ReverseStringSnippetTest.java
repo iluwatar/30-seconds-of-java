@@ -32,13 +32,13 @@ import org.junit.jupiter.api.Test;
  * Tests for 30 Seconds of Java code library
  *
  */
-class ReversStringSnippetTest {
+class ReverseStringSnippetTest {
   /**
-   * Tests for {@link ReversStringSnippet#reverseString(String)}.
+   * Tests for {@link ReverseStringSnippet#reverseString(String)}.
    */
   @Test
   void testReverseString() {
-    assertEquals("oof", ReversStringSnippet.reverseString("foo"));
-    assertEquals("ÖÄÅ321FED cba", ReversStringSnippet.reverseString("abc DEF123ÅÄÖ"));
+    assertEquals("oof", ReverseStringSnippet.reverseString("foo"));
+    assertEquals("ÖÄÅ321FED cba", ReverseStringSnippet.reverseString("abc DEF123ÅÄÖ"));
   }
 }

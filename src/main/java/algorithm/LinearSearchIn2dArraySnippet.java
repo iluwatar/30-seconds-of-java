@@ -46,7 +46,6 @@ public class LinearSearchIn2dArraySnippet {
         }
       }
     }
-
     return new int[]{-1, -1};
   }
 }
