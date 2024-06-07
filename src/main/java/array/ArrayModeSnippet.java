@@ -24,34 +24,59 @@
 
 package array;
 
+import java.util.Arrays;
+
 /**
  * ArrayModeSnippet.
  */
 public class ArrayModeSnippet {
 
-  /**
-  * Returns the mode of the array.
-  *
-  * @param arr array to find mode in it
-  * @return mode of array
-  */
-  public static int modeArray(int[] arr) {
-    int mode = 0;
-    int maxcount = 0;
+    /**
+     * Returns the mode(s) of the array.
+     * <p>
+     * This method finds the mode(s) of the input array, handling cases where there may be multiple modes or no repetition of numbers.
+     *
+     * @param arr the array to find mode(s) in
+     * @return an array containing the mode(s) of the input array
+     */
 
-    for (int i = 0; i < arr.length; i++) {
-      int count = 0;
+    public static int[] modeArray(int[] arr) {
+        // Find the minimum and maximum numbers in the array
+        int minNumber = Arrays.stream(arr).min().orElse(0);
+        int maxNumber = Arrays.stream(arr).max().orElse(0);
 
-      for (int j = 0; j < arr.length; j++) {
-        if (arr[i] == arr[j]) {
-          count++;
+        // Calculate the range of numbers in the array
+        int range = maxNumber - minNumber + 1;
+
+        // Array to store the frequency of each element
+        int[] frequency = new int[range];
+
+        // Calculate the frequency of each element
+        for (int num : arr) {
+            frequency[num - minNumber]++;
         }
-      }
-      if (count > maxcount) {
-        maxcount = count;
-        mode = arr[i];
-      }
+
+        // Find the maximum frequency value
+        int maxFrequency = Arrays.stream(frequency).max().orElse(0);
+
+        // Count the number of modes
+        int modesCount = 0;
+        for (int freq : frequency) {
+            if (freq == maxFrequency) {
+                modesCount++;
+            }
+        }
+
+        // Build the array of modes
+        int[] modes = new int[modesCount];
+        int index = 0;
+        for (int i = 0; i < frequency.length; i++) {
+            if (frequency[i] == maxFrequency) {
+                modes[index++] = i + minNumber;
+            }
+        }
+
+        return modes;
     }
-    return mode;
-  }
 }
+
