@@ -30,7 +30,8 @@ package thread;
 public class ThreadSnippet {
 
   /**
-   * Creates and returns a new thread with the task assigned to it (task will be performed parallel to the main thread).
+   * Creates and returns a new thread with the task assigned to it
+   * (task will be performed parallel to the main thread).
    *
    * @param task the task to be executed by this thread
    * @return new thread with task assigned to it.
