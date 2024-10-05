@@ -1331,6 +1331,24 @@ public class FibonacciSnippet {
   }
 
   /**
+   * Fibonacci series using dynamic programming. Works for larger ns as well.
+   *
+   * @param n given number
+   * @return fibonacci number for given n
+   */
+  public static int fibonacciBig(int n) {
+      int previous = 0;
+      int current = 1;
+      for (int i = 0; i < n - 1; i++) {
+          int t = previous + current;
+          previous = current;
+          current = t;
+      }
+  
+      return current;
+  }
+
+  /**
    * Example of what an iterative implementation of Fibonacci looks like.
    *
    * @param number given number
