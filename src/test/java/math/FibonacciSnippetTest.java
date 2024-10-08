@@ -52,6 +52,26 @@ class FibonacciSnippetTest {
   }
 
   /**
+   * Tests for {@link FibonacciSnippet#fibonacciBig(int)}.
+   */
+  @Test
+  void testFibonacciBig() {
+    assertEquals(0, FibonacciSnippet.fibonacci(0));
+    assertEquals(1, FibonacciSnippet.fibonacci(1));
+    assertEquals(1, FibonacciSnippet.fibonacci(2));
+    assertEquals(2, FibonacciSnippet.fibonacci(3));
+    assertEquals(3, FibonacciSnippet.fibonacci(4));
+    assertEquals(5, FibonacciSnippet.fibonacci(5));
+    assertEquals(8, FibonacciSnippet.fibonacci(6));
+    assertEquals(13, FibonacciSnippet.fibonacci(7));
+    assertEquals(21, FibonacciSnippet.fibonacci(8));
+    assertEquals(34, FibonacciSnippet.fibonacci(9));
+    assertEquals(55, FibonacciSnippet.fibonacci(10));
+    assertEquals(6765, FibonacciSnippet.fibonacci(20));
+    assertEquals(102334155, FibonacciSnippet.fibonacci(40));
+  }
+
+  /**
    * Tests for {@link FibonacciSnippet#iterativeFibonacci(int)}.
    */
   @Test

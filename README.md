@@ -1296,6 +1296,24 @@ public class FactorialSnippet {
   }
 
   /**
+   * Fibonacci series using dynamic programming. Works for larger ns as well.
+   *
+   * @param n given number
+   * @return fibonacci number for given n
+   */
+  public static int fibonacciBig(int n) {
+      int previous = 0;
+      int current = 1;
+      for (int i = 0; i < n - 1; i++) {
+          int t = previous + current;
+          previous = current;
+          current = t;
+      }
+
+      return current;
+  }
+
+  /**
    * Factorial. Example of what the recursive implementation looks like.
    *
    * @param number for which factorial is to be calculated for
