@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 package string;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * LevenshteinDistanceSnippet.
  */
 public class LevenshteinDistanceSnippet {
+
   /**
    * Find the Levenshtein distance between two words. https://en.wikipedia.org/wiki/Levenshtein_distance
    *

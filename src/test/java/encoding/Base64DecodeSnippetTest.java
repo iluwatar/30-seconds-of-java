@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,7 @@ class Base64DecodeSnippetTest {
   @Test
   void testBase64Decoding() {
     var decodedString = Base64DecodeSnippet.decodeBase64("VGVzdFN0cmluZw==");
-    assertEquals("TestString",decodedString);
+    assertEquals("TestString", decodedString);
   }
 
   /**
@@ -48,6 +48,6 @@ class Base64DecodeSnippetTest {
   @Test
   void testEmptyBase64Decoding() {
     var decodedString = Base64DecodeSnippet.decodeBase64("");
-    assertEquals("",decodedString);
+    assertEquals("", decodedString);
   }
 }

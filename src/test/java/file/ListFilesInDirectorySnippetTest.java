@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,10 +28,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
-
 import org.junit.jupiter.api.Test;
+
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -43,10 +44,16 @@ class ListFilesInDirectorySnippetTest {
    */
   @Test
   void testListFilesInDirectory() {
-    var files = ListFilesInDirectorySnippet.listFilesInDirectory(new File("src/test/resources"));
+    var files = ListFilesInDirectorySnippet.listFilesInDirectory(
+        Paths.get("src", "test", "resources").toString()
+    );
     assertEquals(2, files.length);
     var filenames = new HashSet<>(Arrays.asList(files[0].toString(), files[1].toString()));
-    assertTrue(filenames.contains("src/test/resources/somelines.txt"));
-    assertTrue(filenames.contains("src/test/resources/someotherlines.txt"));
+    assertTrue(filenames.contains(
+        Paths.get("src", "test", "resources", "somelines.txt").toString()
+    ));
+    assertTrue(filenames.contains(
+        Paths.get("src", "test", "resources", "someotherlines.txt").toString()
+    ));
   }
 }

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,10 +27,10 @@ package io;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import org.junit.jupiter.api.Test;
 
 /*
@@ -43,13 +43,16 @@ class InputStreamToStringSnippetTest {
    */
   @Test
   void testInputStreamToString() throws IOException {
-    String str = "ąćśź\n"
-            + "←≠²³¢²€\n"
-            + "июля\n"
-            + "åøä\n"
-            + "ñí\n"
-            + "7月15日起\n"
-            + "خەيرلىك ئەتىگەن!";
+    String newLine = System.getProperty("line.separator");
+    String str = new StringBuilder()
+            .append("ąćśź").append(newLine)
+            .append("←≠²³¢²€").append(newLine)
+            .append("июля").append(newLine)
+            .append("åøä").append(newLine)
+            .append("ñí").append(newLine)
+            .append("7月15日起").append(newLine)
+            .append("خەيرلىك ئەتىگەن!")
+            .toString();
     assertEquals(str, InputStreamToStringSnippet.inputStreamToString(
             new FileInputStream("src/test/resources/dir1/placeholder.txt")));
     assertNotEquals(str.toUpperCase(), InputStreamToStringSnippet.inputStreamToString(

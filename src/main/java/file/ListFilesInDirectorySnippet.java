@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,18 +26,18 @@ package file;
 
 import java.io.File;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ListFilesInDirectorySnippet.
  */
 public class ListFilesInDirectorySnippet {
+
   /**
    * List files in directory.
    *
    * @param folder the path where to look
    * @return array of File
    */
-  public static File[] listFilesInDirectory(File folder) {
-    return folder.listFiles(File::isFile);
+  public static File[] listFilesInDirectory(String folder) {
+    return new File(folder).listFiles(File::isFile);
   }
 }

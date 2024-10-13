@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,11 +32,11 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * CaptureScreenSnippet.
  */
 public class CaptureScreenSnippet {
+
   /**
    * Capture screenshot and save it to PNG file. Credits: https://viralpatel.net/blogs/how-to-take-screen-shots-in-java-taking-screenshots-java/
    *

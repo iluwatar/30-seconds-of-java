@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,11 +28,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ListAllFilesSnippet.
  */
 public class ListAllFilesSnippet {
+
   /**
    * Recursively list all the files in directory.
    *

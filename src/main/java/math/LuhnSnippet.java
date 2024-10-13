@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,9 @@
 
 package math;
 
+/**
+ * LuhnSnippet.
+ */
 public class LuhnSnippet {
 
   /**
@@ -60,5 +63,4 @@ public class LuhnSnippet {
     // Outermost modulus handles edge case `num = 0`.
     return checksumDigit;
   }
-
 }

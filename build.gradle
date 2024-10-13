@@ -1,29 +1,27 @@
 plugins {
-    id "com.github.hierynomus.license" version "0.15.0"
     id "org.sonarqube" version "3.0"
+    id 'org.cadixdev.licenser' version '0.6.1'
 }
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+configurations {
+    checkstyleConfig
 }
 
 // Apply the checkstyle plugin
 apply plugin: 'checkstyle'
 checkstyle {
-    toolVersion '8.26'
-    configFile file("config/checkstyle.xml")
-    maxErrors(0)
-    maxWarnings(0)
-}
-checkstyleMain {
-    source ='src/main/java'
-}
-checkstyleTest {
-    source ='src/test/java'
+    toolVersion = '10.3.4'
+    config = resources.text.fromArchiveEntry(configurations.checkstyleConfig, 'google_checks.xml')
+    maxErrors = 0
+    maxWarnings = 0
 }
 
 sonarqube {
@@ -34,13 +32,6 @@ sonarqube {
     }
 }
 
-license {
-    header project.file('LICENSE')
-    include '**/*.java'
-    mapping {
-        java = 'SLASHSTAR_STYLE'
-    }
-}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -52,7 +43,7 @@ repositories {
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
-    compile 'org.slf4j:slf4j-api:1.7.12'
+    implementation 'org.slf4j:slf4j-api:2.0.5'
 
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
@@ -62,23 +53,17 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+
+    checkstyleConfig dependencies.create("com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}") {
+        transitive = false
+    }
 }
 
 test {
     useJUnitPlatform()
 }
 
-task licenseFormatJava(type:nl.javadude.gradle.plugins.license.License) {
-    source = fileTree('src/main/java')
+license {
+    skipExistingHeaders = true
+    include '**/*.java'
 }
-
-task licenseTestJava(type:nl.javadude.gradle.plugins.license.License) {
-    source = fileTree('src/main/java')
-    check = true
-}
-
-licenseFormatMain.enabled = false
-licenseMain.enabled = false
-
-licenseFormat.dependsOn licenseFormatJava
-licenseTest.dependsOn licenseTestJava

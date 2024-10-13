@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 package string;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * PalindromCheckSnippet.
  */
 public class PalindromCheckSnippet {
+
   /**
    * Checks if given string is palindrome (same forward and backward). Skips non-letter characters
    * Credits: https://github.com/kousen/java_8_recipes
@@ -37,14 +37,19 @@ public class PalindromCheckSnippet {
    * @return true if palindrome
    */
   public static boolean isPalindrome(String s) {
-    var sb = new StringBuilder();
-    for (var c : s.toCharArray()) {
-      if (Character.isLetter(c)) {
-        sb.append(c);
+    for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
+      while (i < j && !Character.isLetter(s.charAt(i))) {
+        i++;
+      }
+      while (i < j && !Character.isLetter(s.charAt(j))) {
+        j--;
+      }
+
+      if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
+        return false;
       }
     }
-    var forward = sb.toString().toLowerCase();
-    var backward = sb.reverse().toString().toLowerCase();
-    return forward.equals(backward);
+
+    return true;
   }
 }

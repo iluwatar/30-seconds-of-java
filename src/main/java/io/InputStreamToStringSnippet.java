@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,32 +25,24 @@
 package io;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * InputStreamToStringSnippet.
  */
 public class InputStreamToStringSnippet {
+
   /**
    * Convert InputStream to String.
    *
    * @param inputStream InputStream to convert
    * @return String
-   * @throws IOException if an I/O error occurs
    */
-  public static String inputStreamToString(InputStream inputStream) throws IOException {
-    try (var reader = new BufferedReader(new InputStreamReader(inputStream))) {
-      var stringBuilder = new StringBuilder();
-      var data = reader.read();
-
-      while (data != -1) {
-        stringBuilder.append((char) data);
-        data = reader.read();
-      }
-      return stringBuilder.toString();
-    }
+  public static String inputStreamToString(InputStream inputStream) {
+    return new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))
+            .lines().collect(Collectors.joining(System.lineSeparator()));
   }
 }

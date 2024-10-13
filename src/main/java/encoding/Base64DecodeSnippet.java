@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,11 +26,11 @@ package encoding;
 
 import java.util.Base64;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * Base64DecodeSnippet.
  */
 public class Base64DecodeSnippet {
+
   /**
    * Decodes a Base64 encoded string to the actual representation.
    *

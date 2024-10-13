@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 package math;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * PrimeNumberSnippet.
  */
 public class PrimeNumberSnippet {
+
   /**
    * Checks if given number is a prime number. Prime number is a number that is greater than 1 and
    * divided by 1 or itself only Credits: https://en.wikipedia.org/wiki/Prime_number
@@ -37,6 +37,11 @@ public class PrimeNumberSnippet {
    * @return true if prime
    */
   public static boolean isPrime(int number) {
+    //if number < 2 its not a prime number
+    if (number < 2) {
+      return false;
+    }
+    // 2 and 3 are prime numbers
     if (number < 3) {
       return true;
     }

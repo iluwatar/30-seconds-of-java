@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,6 @@ import static org.hamcrest.Matchers.containsString;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.junit.jupiter.api.Test;
 
 /*
@@ -47,7 +46,7 @@ class HttpPostSnippetTest {
     var result = HttpPostSnippet.httpPost("https://postman-echo.com/post", arguments);
     //This postman endpoint echoes the HTTP headers, request parameters, the contents
     //of the request body and the complete URI requested.
-    var echoedData = "\"data\":\"Hello World\"";
+    var echoedData = "\"data\": \"Hello World\"";
     assertThat(result.body(), containsString(echoedData));
   }
 }

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -39,10 +39,12 @@ class PrimeNumberSnippetTest {
    */
   @Test
   void testIsPrime() {
+    assertFalse(PrimeNumberSnippet.isPrime(-1));
     assertTrue(PrimeNumberSnippet.isPrime(2));
     assertTrue(PrimeNumberSnippet.isPrime(3));
     assertTrue(PrimeNumberSnippet.isPrime(17));
     assertTrue(PrimeNumberSnippet.isPrime(97));
+    assertFalse(PrimeNumberSnippet.isPrime(-1));
     assertFalse(PrimeNumberSnippet.isPrime(4));
     assertFalse(PrimeNumberSnippet.isPrime(100));
   }

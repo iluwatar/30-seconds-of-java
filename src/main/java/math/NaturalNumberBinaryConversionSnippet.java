@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,9 +29,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * NaturalNumberBinaryConversionSnippet.
  */
 public class NaturalNumberBinaryConversionSnippet {
 
@@ -73,5 +72,4 @@ public class NaturalNumberBinaryConversionSnippet {
             .filter(in -> binary.charAt(binary.length() - 1 - in) == '1')
             .mapToLong(in -> ((long) 0b1) << in).sum();
   }
-
 }

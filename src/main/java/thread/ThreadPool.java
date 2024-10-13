@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,14 +27,15 @@ package thread;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/*
- * 30 Seconds of Java code library
- *
+/**
+ * ThreadPool.
  */
 public class ThreadPool {
+
   /**
    * <p>Creates pool of threads. Where the pool is the size of the number of processors
    * available to the Java virtual machine.</p>
+   *
    * @return the newly created thread pool
    */
   public static ExecutorService createFixedThreadPool() {
