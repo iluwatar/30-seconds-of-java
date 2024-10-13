@@ -1,6 +1,6 @@
 package file;
 
-import java.io.File;
+import java.io. File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,7 +18,7 @@ public class FileRenameSnippet {
 
         // Check if the old file exists
         if (!oldFile.exists()) {
-            System.out.println("The old file " + oldFileName + " does not exist.");
+            System.out .println("The old file " + oldFileName + " does not exist.");
             return;
         }
 
@@ -41,4 +41,4 @@ public class FileRenameSnippet {
 }
 
 
-
+//EOF
