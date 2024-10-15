@@ -23,8 +23,7 @@
  */
 package file;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -38,77 +37,79 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class FileRenameSnippetTest {
 
-    private File oldFile;
-    private File newFile;
 
-    @BeforeEach
-    void setUp() throws IOException {
-        // Create old file for testing
-        oldFile = new File("old_file.txt");
-        newFile = new File("new_file.txt");
 
-        // Ensure both files do not exist before each test
-        if (oldFile.exists()) {
-            oldFile.delete();
+
+        @Test
+        void testFileRenameSuccess() {
+            // Create temporary files for testing
+            File oldFile = new File("old_file_test.txt");
+            File newFile = new File("new_file_test.txt");
+
+            try {
+                // Create the old file
+                oldFile.createNewFile();
+
+                // Rename the file
+                FileRenameSnippet.fileRename(oldFile.getAbsolutePath(), newFile.getAbsolutePath());
+
+                // Verify the old file is deleted and the new file is created
+                assertTrue(newFile.exists());
+                assertFalse(oldFile.exists());
+            } catch (IOException e) {
+                fail("Failed to create temporary files: " + e.getMessage());
+            } finally {
+                // Delete the temporary files
+                oldFile.delete();
+                newFile.delete();
+            }
         }
-        if (newFile.exists()) {
-            newFile.delete();
+
+        @Test
+        void testFileRenameOldFileDoesNotExist() {
+            // Create a new file for testing
+            File newFile = new File("new_file_test.txt");
+
+            try {
+                // Try to rename a non-existent old file
+                FileRenameSnippet.fileRename("non_existent_file.txt", newFile.getAbsolutePath());
+
+                // Verify the new file is not created
+                assertFalse(newFile.exists());
+            } catch (Exception e) {
+                // Expecting an exception since the old file doesn't exist
+                assertTrue(e.getMessage().contains("The old file non_existent_file.txt does not exist."));
+            } finally {
+                // Delete the temporary file
+                newFile.delete();
+            }
         }
 
-        // Create the old file
-        assertTrue(oldFile.createNewFile(), "Failed to create the old file.");
-    }
+        @Test
+        void testFileRenameNewFileAlreadyExists() {
+            // Create temporary files for testing
+            File oldFile = new File("old_file_test.txt");
+            File newFile = new File("new_file_test.txt");
 
-    @AfterEach
-    void tearDown() {
-        // Clean up the files after each test
-        if (oldFile.exists()) {
-            oldFile.delete();
+            try {
+                // Create both files
+                oldFile.createNewFile();
+                newFile.createNewFile();
+
+                // Try to rename the old file to an existing new file
+                FileRenameSnippet.fileRename(oldFile.getAbsolutePath(), newFile.getAbsolutePath());
+
+                // Verify the old file is not deleted and the new file is not overwritten
+                assertTrue(oldFile.exists());
+                assertTrue(newFile.exists());
+            } catch (IOException e) {
+                fail("Failed to create temporary files: " + e.getMessage());
+            } finally {
+                // Delete the temporary files
+                oldFile.delete();
+                newFile.delete();
+            }
         }
-        if (newFile.exists()) {
-            newFile.delete();
-        }
     }
 
-    @Test
-    void testFileRenameSuccess() {
-        // Test renaming when the old file exists and the new file does not exist
-        assertFalse(newFile.exists(), "New file should not exist before rename.");
-        assertTrue(oldFile.exists(), "Old file should exist before rename.");
 
-        // Attempt to rename the file
-        boolean renamed = oldFile.renameTo(newFile);
-
-        // Assert that the file was renamed successfully
-        assertTrue(renamed, "File should be renamed successfully.");
-        assertFalse(oldFile.exists(), "Old file should no longer exist.");
-        assertTrue(newFile.exists(), "New file should exist after renaming.");
-    }
-
-    @Test
-    void testOldFileDoesNotExist() {
-        // Delete the old file before renaming
-        assertTrue(oldFile.delete(), "Failed to delete the old file.");
-
-        // Attempt to rename, which should fail
-        boolean renamed = oldFile.renameTo(newFile);
-
-        // Assert that renaming fails when old file does not exist
-        assertFalse(renamed, "Renaming should fail because the old file does not exist.");
-        assertFalse(newFile.exists(), "New file should not exist after failed rename.");
-    }
-
-    @Test
-    void testNewFileAlreadyExists() throws IOException {
-        // Create the new file before attempting to rename
-        assertTrue(newFile.createNewFile(), "Failed to create the new file.");
-
-        // Attempt to rename, which should fail
-        boolean renamed = oldFile.renameTo(newFile);
-
-        // Assert that renaming fails because the new file already exists
-        assertFalse(renamed, "Renaming should fail because the new file already exists.");
-        assertTrue(oldFile.exists(), "Old file should still exist.");
-        assertTrue(newFile.exists(), "New file should still exist.");
-    }
-}

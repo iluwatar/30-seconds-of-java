@@ -24,9 +24,6 @@
 package file;
 
 import java.io. File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 /**
  * FileRenameSnippet.
@@ -34,10 +31,10 @@ import java.nio.file.Path;
 
 public class FileRenameSnippet {
 
-    public static void main(String[] args) {
+    public static void fileRename(String oldFileName, String newFileName) {
         // Get the old and new file names from the user
-        String oldFileName = "old_file.txt";
-        String newFileName = "new_file.txt";
+       // String oldFileName = "old_file.txt";
+      //  String newFileName = "new_file.txt";
 
         // Create File objects for the old and new files
         File oldFile = new File(oldFileName);
