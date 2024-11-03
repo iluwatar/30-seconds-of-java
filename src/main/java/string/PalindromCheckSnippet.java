@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2022 Ilkka Seppälä
+ * Copyright (c) 2017-2024 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,9 @@
  */
 
 package string;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * PalindromCheckSnippet.
@@ -52,4 +55,22 @@ public class PalindromCheckSnippet {
 
     return true;
   }
+
+  /**
+   * Break the string into character array and keep iterating the stack. Then,
+   * While the stack is not empty and keep storing the popped elements into a StringBuilder
+   */
+  public static boolean isPalindromeWithStack(String s) {
+    Deque<Character> st = new ArrayDeque<>();
+    char[] c = s.toCharArray();
+    for (char c1 : c) {
+      st.push(c1);
+    }
+    StringBuilder sb = new StringBuilder();
+    while (!st.isEmpty()) {
+      sb.append(st.pop());
+    }
+    return sb.toString().equals(s);
+  }
+
 }
