@@ -1915,6 +1915,44 @@ public class LevenshteinDistanceSnippet {
 }
 ```
 
+### Lindenmayer System 
+
+```java
+public class LindenmayerSystemSnippet {
+  /**
+   * Generates an L-system string based on axiom, production rules, and a number of iterations.
+   *
+   * @param axiom           initial string to begin the L-system
+   * @param productionRules map of character rules where each symbol can be replaced with a string
+   * @param iterations      number of iterations to apply the production rules
+   * @return the generated string after all iterations
+   */
+  public static String generateLindenmayerSystem(
+          String axiom,
+          Map<Character, String> productionRules,
+          int iterations
+  ) {
+    String current = axiom;
+
+    for (int i = 0; i < iterations; i++) {
+      StringBuilder nextIteration = new StringBuilder(current.length() * 2);
+
+      // Replace each symbol with the corresponding production rule or the symbol itself
+      current.chars()
+          .mapToObj(c -> (char) c)
+          .forEach(symbol ->
+                  nextIteration.append(
+                          productionRules.getOrDefault(symbol, String.valueOf(symbol))
+                  )
+          );
+
+      current = nextIteration.toString();
+    }
+    return current;
+  }
+}
+```
+
 ### Max Character Count
 
 ```java
