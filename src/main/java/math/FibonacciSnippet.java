@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2022 Ilkka Seppälä
+ * Copyright (c) 2017-2024 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,6 +44,24 @@ public class FibonacciSnippet {
     } else {
       return fibonacci(n - 1) + fibonacci(n - 2);
     }
+  }
+
+  /**
+   * Fibonacci series using dynamic programming. Works for larger ns as well.
+   *
+   * @param n given number
+   * @return fibonacci number for given n
+   */
+  public static int fibonacciBig(int n) {
+    int previous = 0;
+    int current = 1;
+    for (int i = 0; i < n - 1; i++) {
+      int t = previous + current;
+      previous = current;
+      current = t;
+    }
+
+    return current;
   }
 
   /**
