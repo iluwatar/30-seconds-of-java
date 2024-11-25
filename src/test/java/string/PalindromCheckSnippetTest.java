@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2022 Ilkka Seppälä
+ * Copyright (c) 2017-2024 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,5 +44,14 @@ class PalindromCheckSnippetTest {
     assertTrue(PalindromCheckSnippet.isPalindrome("111 Saippua - Kauppias 321"));
     assertFalse(PalindromCheckSnippet.isPalindrome("Type O Negative"));
     assertFalse(PalindromCheckSnippet.isPalindrome("Foo12121Bar"));
+  }
+
+  @Test
+  void testIsPalindromeWithStack() {
+    assertTrue(PalindromCheckSnippet.isPalindromeWithStack("madam"));
+    assertTrue(PalindromCheckSnippet.isPalindromeWithStack("eye"));
+    assertTrue(PalindromCheckSnippet.isPalindromeWithStack("abbbdddbbba"));
+    assertFalse(PalindromCheckSnippet.isPalindromeWithStack("abbbca"));
+    assertFalse(PalindromCheckSnippet.isPalindromeWithStack("logic"));
   }
 }
