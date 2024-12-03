@@ -435,6 +435,134 @@ public class SieveOfEratosthenesSnippet {
   }
 }
 ```
+### Luhn Mod N
+
+
+```java
+public class LuhnModnSnippet {
+
+
+  private LuhnModnSnippet() {
+    throw new IllegalStateException("LuhnModnSnippet class");
+  }
+
+
+  private static final String CODE_POINTS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+  /**
+   * Generates a check character using the Luhn mod N algorithm.
+   *
+   * @param character the input string consisting of valid alphanumeric characters
+   * @return the generated check character
+   * @throws IllegalArgumentException if the input contains invalid characters
+   */
+  public static int codePointFromCharacter(char character) {
+    int index = CODE_POINTS.indexOf(character);
+    if (index == -1) {
+      throw new IllegalArgumentException("Invalid character: " + character);
+    }
+    return index;
+  }
+
+
+  /**
+   * Converts a code point to its corresponding character.
+   *
+   * @param codePoint the code point to be converted
+   * @return the character representation of the code point
+   * @throws IllegalArgumentException if the code point is out of range.
+   */
+  public static char characterFromCodePoint(int codePoint) {
+    if (codePoint < 0 || codePoint >= CODE_POINTS.length()) {
+      throw new IllegalArgumentException("Invalid code point: " + codePoint);
+    }
+    return CODE_POINTS.charAt(codePoint);
+  }
+
+
+  public static int numberOfValidInputCharacters() {
+    return CODE_POINTS.length();
+  }
+
+
+  /**
+   * Generates a check character for the given input string using the Luhn mod N algorithm.
+   *
+   * @param input the input string (non-empty)
+   * @return the generated check character
+   * @throws IllegalArgumentException if the input is null or empty
+   */
+  public static char generateCheckCharacter(String input) {
+    if (input == null || input.isEmpty()) {
+      throw new IllegalArgumentException("Input cannot be empty");
+    }
+
+
+    int factor = 2;
+    int sum = 0;
+    int n = numberOfValidInputCharacters();
+
+
+    for (int i = input.length() - 1; i >= 0; i--) {
+      int codePoint = codePointFromCharacter(input.charAt(i));
+      int addend = factor * codePoint;
+
+
+      factor = (factor == 2) ? 1 : 2;
+
+
+      addend = (addend / n) + (addend % n);
+      sum += addend;
+    }
+
+
+    int remainder = sum % n;
+    int checkCodePoint = (n - remainder) % n;
+
+
+    return characterFromCodePoint(checkCodePoint);
+  }
+
+
+  /**
+   * Validates a check character by applying the Luhn mod N algorithm.
+   *
+   * @param input the input string (including the check character)
+   * @return true if the input passes validation, false otherwise
+   * @throws IllegalArgumentException if the input is null or empty
+   */
+  public static boolean validateCheckCharacter(String input) {
+    if (input == null || input.isEmpty()) {
+      throw new IllegalArgumentException("Input cannot be empty");
+    }
+
+
+    int factor = 1;
+    int sum = 0;
+    int n = numberOfValidInputCharacters();
+
+
+    for (int i = input.length() - 1; i >= 0; i--) {
+      int codePoint = codePointFromCharacter(input.charAt(i));
+      int addend = factor * codePoint;
+
+
+      factor = (factor == 2) ? 1 : 2;
+
+
+      addend = (addend / n) + (addend % n);
+      sum += addend;
+    }
+
+
+    int remainder = sum % n;
+
+
+    return (remainder == 0);
+  }
+}
+```
 
 ## Array
 
