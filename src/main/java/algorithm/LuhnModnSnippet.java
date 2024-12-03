@@ -29,6 +29,10 @@ package algorithm;
  */
 public class LuhnModnSnippet {
 
+  private LuhnModnSnippet() {
+    throw new IllegalStateException("LuhnModnSnippet class");
+  }
+
   private static final String CODE_POINTS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   /**

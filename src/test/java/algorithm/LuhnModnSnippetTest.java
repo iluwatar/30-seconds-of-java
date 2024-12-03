@@ -28,9 +28,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
-
-
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 
 
@@ -44,57 +45,44 @@ class LuhnModnSnippetTest {
    * Tests the full process of generating and validating a check character.
    */
 
-  // Test 1: Valid input with generated check character
-  @Test
-  public void testGenerateCheckCharacterValidInput() {
-    String input = "HELLO";
+  @ParameterizedTest
+  @MethodSource("validInputProvider")
+  public void testGenerateCheckCharacter(String input) {
     char checkCharacter = LuhnModnSnippet.generateCheckCharacter(input);
     String fullInput = input + checkCharacter;
     assertTrue(LuhnModnSnippet.validateCheckCharacter(fullInput),
             "Validation should pass for the generated check character.");
   }
 
-  // Test 2: Valid input with manually appended valid check character
-  @Test
-  public void testValidateCheckCharacterValidInput() {
-    String input = "WORLD";
-    char checkCharacter = 'A';
-    String fullInput = input + checkCharacter;
-    assertFalse(LuhnModnSnippet.validateCheckCharacter(fullInput),
-            "Validation should fail for a mismatched check character.");
+  @ParameterizedTest
+  @MethodSource("invalidInputProvider")
+  public void testInvalidInputs(String input, Character checkCharacter, boolean throwException) {
+    if (throwException) {
+      assertThrows(IllegalArgumentException.class, () ->
+                      LuhnModnSnippet.generateCheckCharacter(input),
+              "Exception should be thrown for invalid input.");
+      assertThrows(IllegalArgumentException.class, () ->
+                      LuhnModnSnippet.validateCheckCharacter(input),
+              "Exception should be thrown for invalid input.");
+    } else {
+      String fullInput = input + checkCharacter;
+      assertFalse(LuhnModnSnippet.validateCheckCharacter(fullInput),
+              "Validation should fail for a mismatched check character.");
+    }
   }
 
-  // Test 3: Input with numbers
-  @Test
-  public void testGenerateCheckCharacterWithNumbers() {
-    String input = "12345";
-    char checkCharacter = LuhnModnSnippet.generateCheckCharacter(input);
-    String fullInput = input + checkCharacter;
-    assertTrue(LuhnModnSnippet.validateCheckCharacter(fullInput),
-            "Validation should pass for the generated check character.");
+  private static Stream<String> validInputProvider() {
+    return Stream.of(
+            "HELLO",
+            "12345",
+            "A1B2C3"
+    );
   }
 
-  // Test 4: Input with mixed characters
-  @Test
-  public void testGenerateCheckCharacterWithMixedCharacters() {
-    String input = "A1B2C3";
-    char checkCharacter = LuhnModnSnippet.generateCheckCharacter(input);
-    String fullInput = input + checkCharacter;
-    assertTrue(LuhnModnSnippet.validateCheckCharacter(fullInput),
-            "Validation should pass for the generated check character.");
+  private static Stream<Arguments> invalidInputProvider() {
+    return Stream.of(
+            Arguments.of("", null, true),
+            Arguments.of("WORLD", 'A', false)
+    );
   }
-
-  // Test 5: Empty string input for generateCheckCharacter
-  @Test
-  public void testEmptyInput() {
-    String input = "";
-    assertThrows(IllegalArgumentException.class, () ->
-                    LuhnModnSnippet.generateCheckCharacter(input),
-            "Exception should be thrown for empty input.");
-
-    assertThrows(IllegalArgumentException.class, () ->
-                    LuhnModnSnippet.validateCheckCharacter(input),
-            "Exception should be thrown for empty input.");
-  }
-
 }
