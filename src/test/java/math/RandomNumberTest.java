@@ -27,6 +27,7 @@ package math;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -37,7 +38,7 @@ class RandomNumberTest {
   /**
   * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
-  @Test
+  @RepeatedTest(100)
   void testGetRandomNumber() {
     // Test for Short range
     Number shortResult = RandomNumber.getRandomNumber(
