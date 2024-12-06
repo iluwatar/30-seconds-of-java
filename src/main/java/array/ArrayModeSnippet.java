@@ -34,17 +34,17 @@ import java.util.Map;
  */
 public class ArrayModeSnippet {
 
-  /**
-   * Returns the mode of the array and if multiple modes exists it returns them.
-   */
+  /** Returns the mode of the array and if multiple modes exists it returns them. */
   private ArrayModeSnippet() {
     throw new IllegalStateException("Utility class");
   }
+  /** The function that calculates the mode. */
+
   public static List<Integer> modeArray(int[] arr) {
     int maxCount = 0;
     HashMap<Integer, Integer> frequencyMap = new HashMap<>();
-    for (int num:arr){
-      frequencyMap.put(num, frequencyMap.getOrDefault(num,0)+1);
+    for (int num : arr) {
+      frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
       maxCount = Math.max(maxCount, frequencyMap.get(num));
     }
     List<Integer> modes = new ArrayList<>();
