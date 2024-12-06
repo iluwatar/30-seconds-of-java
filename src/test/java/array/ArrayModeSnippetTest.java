@@ -26,17 +26,16 @@ package array;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for 30 Seconds of Java code library.
  */
 class ArrayModeSnippetTest {
   /**
-  * Test for {@link ArrayModeSnippet #ArrayModeSnippet(int[])}.
-  */
+   * Test for {@link ArrayModeSnippet #ArrayModeSnippet(int[])}.
+   */
   @Test
   void testModeArray() {
     assertEquals(List.of(2), ArrayModeSnippet.modeArray(new int[]{1, 2, 2, 3}));

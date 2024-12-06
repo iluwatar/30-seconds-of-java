@@ -28,18 +28,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * ArrayModeSnippet.
  */
+
 public class ArrayModeSnippet {
 
-  /** Returns the mode of the array and if multiple modes exists it returns them. */
+  /**
+   * Private constructor to prevent instantiation.
+   */
   private ArrayModeSnippet() {
     throw new IllegalStateException("Utility class");
   }
-  /** The function that calculates the mode. */
 
+  /**
+   * Returns the mode(s) of the array.
+   * If multiple modes exist, it returns them in a list.
+   */
   public static List<Integer> modeArray(int[] arr) {
     int maxCount = 0;
     HashMap<Integer, Integer> frequencyMap = new HashMap<>();
@@ -56,4 +61,3 @@ public class ArrayModeSnippet {
     return modes;
   }
 }
-
