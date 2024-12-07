@@ -34,45 +34,45 @@ import org.junit.jupiter.api.Test;
  */
 class VerhoeffSnippetTest {
 
-    /**
-     * Tests the {@link VerhoeffSnippet#validateVerhoeff(String)} method.
-     */
-    @Test
-    void testValidateVerhoeff() {
-        String validInput = "1428579";   // Correct Verhoeff input with a valid check digit
-        String invalidInput = "1428570"; // Incorrect Verhoeff input with an invalid check digit
+  /**
+   * Tests the {@link VerhoeffSnippet#validateVerhoeff(String)} method.
+   */
+  @Test
+  void testValidateVerhoeff() {
+    String validInput = "1428579";   // Correct Verhoeff input with a valid check digit
+    String invalidInput = "1428570"; // Incorrect Verhoeff input with an invalid check digit
 
-        // Validate valid input
-        boolean isValid = VerhoeffSnippet.validateVerhoeff(validInput);
-        System.out.println("Testing validateVerhoeff with valid input: "
-                + validInput + " -> " + isValid);
-        assertTrue(isValid, "Expected " + validInput + " to be valid, but it was not.");
+    // Validate valid input
+    boolean isValid = VerhoeffSnippet.validateVerhoeff(validInput);
+    System.out.println("Testing validateVerhoeff with valid input: "
+            + validInput + " -> " + isValid);
+    assertTrue(isValid, "Expected " + validInput + " to be valid, but it was not.");
 
-        // Validate invalid input
-        boolean isInvalid = VerhoeffSnippet.validateVerhoeff(invalidInput);
-        System.out.println("Testing validateVerhoeff with invalid input: "
-                + invalidInput + " -> " + isInvalid);
-        assertFalse(isInvalid, "Expected " + invalidInput + " to be invalid, but it was not.");
-    }
+    // Validate invalid input
+    boolean isInvalid = VerhoeffSnippet.validateVerhoeff(invalidInput);
+    System.out.println("Testing validateVerhoeff with invalid input: "
+            + invalidInput + " -> " + isInvalid);
+    assertFalse(isInvalid, "Expected " + invalidInput + " to be invalid, but it was not.");
+  }
 
-    /**
-     * Tests the {@link VerhoeffSnippet#generateVerhoeff(String)} method.
-     */
-    @Test
-    void testGenerateVerhoeff() {
-        String baseInput = "142857"; // Base input without the Verhoeff check digit
+  /**
+   * Tests the {@link VerhoeffSnippet#generateVerhoeff(String)} method.
+   */
+  @Test
+  void testGenerateVerhoeff() {
+    String baseInput = "142857"; // Base input without the Verhoeff check digit
 
-        // Generate a Verhoeff check digit
-        String checkDigit = VerhoeffSnippet.generateVerhoeff(baseInput);
-        assertTrue("9".equals(checkDigit),
-                "Expected check digit to be 9 for input " + baseInput + ", but got " + checkDigit);
+    // Generate a Verhoeff check digit
+    String checkDigit = VerhoeffSnippet.generateVerhoeff(baseInput);
+    assertTrue("9".equals(checkDigit),
+            "Expected check digit to be 9 for input " + baseInput + ", but got " + checkDigit);
 
-        // Combine and validate
-        String fullInput = baseInput + checkDigit;
-        boolean isValid = VerhoeffSnippet.validateVerhoeff(fullInput);
-        System.out.println("Generated check digit for input " + baseInput + " -> " + checkDigit);
-        System.out.println("Testing validateVerhoeff with full input: " + fullInput + " -> " + isValid);
+    // Combine and validate
+    String fullInput = baseInput + checkDigit;
+    boolean isValid = VerhoeffSnippet.validateVerhoeff(fullInput);
+    System.out.println("Generated check digit for input " + baseInput + " -> " + checkDigit);
+    System.out.println("Testing validateVerhoeff with full input: " + fullInput + " -> " + isValid);
 
-        assertTrue(isValid, "Expected " + fullInput + " to be valid, but it was not.");
-    }
+    assertTrue(isValid, "Expected " + fullInput + " to be valid, but it was not.");
+  }
 }
