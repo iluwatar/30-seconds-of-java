@@ -22,23 +22,14 @@
  * SOFTWARE.
  */
 
-
 package algorithm;
-
 
 /**
  * LuhnModnSnippet.
  */
 public class LuhnModnSnippet {
 
-
-  private LuhnModnSnippet() {
-    throw new IllegalStateException("LuhnModnSnippet class");
-  }
-
-
   private static final String CODE_POINTS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
 
   /**
    * Generates a check character using the Luhn mod N algorithm.
@@ -48,13 +39,11 @@ public class LuhnModnSnippet {
    * @throws IllegalArgumentException if the input contains invalid characters
    */
   public static int codePointFromCharacter(char character) {
-    int index = CODE_POINTS.indexOf(character);
-    if (index == -1) {
+    if (CODE_POINTS.indexOf(character) == -1) {
       throw new IllegalArgumentException("Invalid character: " + character);
     }
-    return index;
+    return CODE_POINTS.indexOf(character);
   }
-
 
   /**
    * Converts a code point to its corresponding character.
@@ -70,11 +59,35 @@ public class LuhnModnSnippet {
     return CODE_POINTS.charAt(codePoint);
   }
 
-
   public static int numberOfValidInputCharacters() {
     return CODE_POINTS.length();
   }
 
+  /**
+   * Helper method to calculate the sum for both check character generation and validation.
+   *
+   * @param input the input string
+   * @param factorStart the initial factor to start with (1 or 2)
+   * @return the calculated sum, reminder, and the numberOfValidInputCharacters
+   */
+  private static int[] calculateSum(String input, int factorStart) {
+    if (input == null || input.isEmpty()) {
+      throw new IllegalArgumentException("Input cannot be empty");
+    }
+
+    int factor = factorStart;
+    int sum = 0;
+    int n = numberOfValidInputCharacters();
+
+    for (int i = input.length() - 1; i >= 0; i--) {
+      int codePoint = codePointFromCharacter(input.charAt(i));
+      int addend = factor * codePoint;
+      factor = (factor == 2) ? 1 : 2;
+      addend = (addend / n) + (addend % n);
+      sum += addend;
+    }
+    return new int[]{sum, sum % n, n};
+  }
 
   /**
    * Generates a check character for the given input string using the Luhn mod N algorithm.
@@ -84,36 +97,9 @@ public class LuhnModnSnippet {
    * @throws IllegalArgumentException if the input is null or empty
    */
   public static char generateCheckCharacter(String input) {
-    if (input == null || input.isEmpty()) {
-      throw new IllegalArgumentException("Input cannot be empty");
-    }
-
-
-    int factor = 2;
-    int sum = 0;
-    int n = numberOfValidInputCharacters();
-
-
-    for (int i = input.length() - 1; i >= 0; i--) {
-      int codePoint = codePointFromCharacter(input.charAt(i));
-      int addend = factor * codePoint;
-
-
-      factor = (factor == 2) ? 1 : 2;
-
-
-      addend = (addend / n) + (addend % n);
-      sum += addend;
-    }
-
-
-    int remainder = sum % n;
-    int checkCodePoint = (n - remainder) % n;
-
-
-    return characterFromCodePoint(checkCodePoint);
+    int[] result = calculateSum(input, 2);
+    return characterFromCodePoint((result[2] - result[1]) % result[2]);
   }
-
 
   /**
    * Validates a check character by applying the Luhn mod N algorithm.
@@ -123,32 +109,7 @@ public class LuhnModnSnippet {
    * @throws IllegalArgumentException if the input is null or empty
    */
   public static boolean validateCheckCharacter(String input) {
-    if (input == null || input.isEmpty()) {
-      throw new IllegalArgumentException("Input cannot be empty");
-    }
-
-
-    int factor = 1;
-    int sum = 0;
-    int n = numberOfValidInputCharacters();
-
-
-    for (int i = input.length() - 1; i >= 0; i--) {
-      int codePoint = codePointFromCharacter(input.charAt(i));
-      int addend = factor * codePoint;
-
-
-      factor = (factor == 2) ? 1 : 2;
-
-
-      addend = (addend / n) + (addend % n);
-      sum += addend;
-    }
-
-
-    int remainder = sum % n;
-
-
-    return (remainder == 0);
+    int[] result = calculateSum(input, 1);
+    return (result[1] == 0);
   }
 }

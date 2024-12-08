@@ -22,9 +22,7 @@
  * SOFTWARE.
  */
 
-
 package algorithm;
-
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -35,23 +33,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-
-
-
-
-
 /**
  * Tests for {@link LuhnModnSnippet#generateCheckCharacter(String)} and
  * {@link LuhnModnSnippet#validateCheckCharacter(String)}.
  */
 class LuhnModnSnippetTest {
 
-
   /**
    * Tests the full process of generating and validating a check character.
    */
-
-
   @ParameterizedTest
   @MethodSource("validInputProvider")
   public void testGenerateCheckCharacter(String input) {
@@ -60,7 +50,6 @@ class LuhnModnSnippetTest {
     assertTrue(LuhnModnSnippet.validateCheckCharacter(fullInput),
             "Validation should pass for the generated check character.");
   }
-
 
   @ParameterizedTest
   @MethodSource("invalidInputProvider")
@@ -79,7 +68,6 @@ class LuhnModnSnippetTest {
     }
   }
 
-
   private static Stream<String> validInputProvider() {
     return Stream.of(
             "HELLO",
@@ -87,7 +75,6 @@ class LuhnModnSnippetTest {
             "A1B2C3"
     );
   }
-
 
   private static Stream<Arguments> invalidInputProvider() {
     return Stream.of(
