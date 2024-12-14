@@ -435,6 +435,76 @@ public class SieveOfEratosthenesSnippet {
   }
 }
 ```
+### Verhoeff
+
+```java
+public class VerhoeffSnippet {
+
+    private static final int[][] d = {
+            {0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+            {1, 0, 3, 2, 5, 4, 7, 6, 9, 8},
+            {2, 3, 0, 1, 6, 7, 4, 5, 8, 9},
+            {3, 2, 1, 0, 7, 6, 5, 4, 9, 8},
+            {4, 5, 6, 7, 0, 1, 2, 3, 8, 9},
+            {5, 4, 7, 6, 1, 0, 3, 2, 9, 8},
+            {6, 7, 4, 5, 2, 3, 0, 1, 8, 9},
+            {7, 6, 5, 4, 3, 2, 1, 0, 9, 8},
+            {8, 9, 8, 9, 8, 9, 8, 9, 0, 1},
+            {9, 8, 9, 8, 9, 8, 9, 8, 1, 0}
+    };
+
+    private static final int[][] p = {
+            {0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+            {1, 5, 7, 6, 2, 8, 3, 0, 9, 4},
+            {5, 8, 0, 3, 7, 9, 6, 1, 4, 2},
+            {8, 9, 1, 6, 0, 4, 3, 5, 2, 7},
+            {9, 4, 5, 3, 1, 2, 6, 8, 7, 0},
+            {4, 2, 8, 6, 5, 7, 3, 9, 0, 1},
+            {2, 7, 9, 3, 8, 0, 6, 4, 1, 5},
+            {7, 0, 4, 6, 9, 1, 3, 2, 5, 8}
+    };
+
+    private static final int[] inv = {0, 4, 3, 2, 1, 5, 6, 7, 8, 9};
+
+    /**
+     * Validates a number using the Verhoeff checksum algorithm.
+     *
+     * @param num the numeric string to validate
+     * @return true if the number is valid according to Verhoeff algorithm, false otherwise
+     */
+    public static boolean validateVerhoeff(String num) {
+        int c = 0;
+        int length = num.length();
+
+        // Adjust index for validation of the full number (including check digit)
+        for (int i = 0; i < length; i++) {
+            int digit = Character.getNumericValue(num.charAt(length - i - 1));
+            c = d[c][p[(i + 1) % 8][digit]]; // Correct permutation index
+        }
+
+        return c == 0; // Final checksum must be zero
+    }
+
+    /**
+     * Generates a Verhoeff check digit for a given numeric string.
+     *
+     * @param num the numeric string for which to generate the check digit
+     * @return the generated Verhoeff check digit as a string
+     */
+    public static String generateVerhoeff(String num) {
+        int c = 0;
+        int length = num.length();
+
+        for (int i = 0; i < length; i++) {
+            int digit = Character.getNumericValue(num.charAt(length - i - 1));
+            c = d[c][p[(i % 8)][digit]];
+        }
+
+        return Integer.toString(inv[c]);
+    }
+
+}
+```
 
 ## Array
 
@@ -2172,6 +2242,76 @@ public class ThreadPool {
    */
   public static ExecutorService createFixedThreadPool() {
     return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+  }
+}
+```
+### Damm Algorithm
+
+```java
+public class DammSnippet {
+
+  /**
+   * Private constructor to prevent instantiation of utility class.
+   */
+  private DammSnippet() {
+    throw new UnsupportedOperationException("Utility class - instantiation is not allowed.");
+  }
+  private static final int[][] matrix = new int[][] {
+          { 0, 3, 1, 7, 5, 9, 8, 6, 4, 2 },
+          { 7, 0, 9, 2, 1, 5, 4, 8, 6, 3 },
+          { 4, 2, 0, 6, 8, 7, 1, 3, 5, 9 },
+          { 1, 7, 5, 0, 9, 8, 3, 4, 2, 6 },
+          { 6, 1, 2, 3, 0, 4, 5, 9, 7, 8 },
+          { 3, 6, 7, 4, 2, 0, 9, 5, 8, 1 },
+          { 5, 8, 6, 9, 7, 2, 0, 1, 3, 4 },
+          { 8, 9, 4, 5, 3, 6, 2, 0, 1, 7 },
+          { 9, 4, 3, 8, 6, 1, 7, 2, 0, 5 },
+          { 2, 5, 8, 1, 4, 3, 6, 7, 9, 0 }
+  };
+  public static int calculateCheckSumDigit(String number) {
+    if (number == null || number.isEmpty()) {
+      throw new IllegalArgumentException("Input number cannot be null or empty.");
+    }
+
+    int interim = 0;
+    for (int index = 0; index < number.length(); index++) {
+      char currCh = number.charAt(index);
+      if (!Character.isDigit(currCh)) {
+        throw new IllegalArgumentException("Input number contains invalid characters: " + number);
+      }
+
+      int currentIndex = currCh - '0';
+      interim = matrix[interim][currentIndex];
+    }
+
+    return interim;
+  }
+  public static int calculateCheckSumDigit(int number) {
+    return calculateCheckSumDigit(String.valueOf(number));
+  }
+  public static int calculateCheckSumDigit(long number) {
+    return calculateCheckSumDigit(String.valueOf(number));
+  }
+  public static String generateCheckSum(String number) {
+    int checkSumDigit = calculateCheckSumDigit(number);
+    return number + checkSumDigit;
+  }
+  public static int generateCheckSum(int number) {
+    int checkSumDigit = calculateCheckSumDigit(number);
+    return (number * 10) + checkSumDigit;
+  }
+  public static long generateCheckSum(long number) {
+    int checkSumNumber = calculateCheckSumDigit(number);
+    return (number * 10) + checkSumNumber;
+  }
+  public static boolean validate(String number) {
+    return calculateCheckSumDigit(number) == 0;
+  }
+  public static boolean validate(int number) {
+    return calculateCheckSumDigit(number) == 0;
+  }
+  public static boolean validate(long number) {
+    return calculateCheckSumDigit(number) == 0;
   }
 }
 ```
