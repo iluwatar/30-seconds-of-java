@@ -27,6 +27,7 @@ package math;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -37,35 +38,35 @@ class RandomNumberTest {
   /**
   * Tests for {@link RandomNumber #getRandomNumber(T, T)}.
   */
-  @Test
+  @RepeatedTest(100)
   void testGetRandomNumber() {
     // Test for Short range
     Number shortResult = RandomNumber.getRandomNumber(
-        Short.valueOf((short) 2), Short.valueOf((short) 7));
+            (short) 2, (short) 7);
     assertTrue(shortResult instanceof Short);
     assertTrue((shortResult.shortValue() >= 2) && (shortResult.shortValue() <= 7));
     // Test for Integer range
-    Number intResult = RandomNumber.getRandomNumber(Integer.valueOf(5), Integer.valueOf(10));
+    Number intResult = RandomNumber.getRandomNumber(5, 10);
     assertTrue(intResult instanceof Integer);
     assertTrue((intResult.intValue() >= 5) && (intResult.intValue() <= 10));
     // Test for Long range
     Number longResult = RandomNumber.getRandomNumber(
-        Long.valueOf((long) -100), Long.valueOf((long) 2500));
+            (long) -100, (long) 2500);
     assertTrue(longResult instanceof Long);
     assertTrue((longResult.longValue() >= -100) && (longResult.longValue() <= 2500));
     // Test for Float range
     Number floatResult = RandomNumber.getRandomNumber(
-        Float.valueOf((float) 2.5f), Float.valueOf((float) 25.4f));
+            (float) 2.5f, (float) 25.4f);
     assertTrue(floatResult instanceof Float);
     assertTrue((floatResult.floatValue() >= 2.5f) && (floatResult.floatValue() <= 25.4f));
     // Test for Double range
     Number doubleResult = RandomNumber.getRandomNumber(
-        Double.valueOf((double) 100.12), Double.valueOf((double) 200.28));
+            (double) 100.12, (double) 200.28);
     assertTrue(doubleResult instanceof Double);
     assertTrue((doubleResult.doubleValue() >= 100.12) && (doubleResult.doubleValue() <= 200.28));
     // Test for Double range
-    double d1 = Double.valueOf((double) 100.12);
-    int d2 = Integer.valueOf((int) 200);
+    double d1 = (double) 100.12;
+    int d2 = (int) 200;
     assertThrows(IllegalArgumentException.class, 
         () -> RandomNumber.getRandomNumber(d1, d2));
   }
