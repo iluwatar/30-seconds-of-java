@@ -1,4 +1,5 @@
 # 30 Seconds of Java
+2
 
 [![Build status](https://travis-ci.org/iluwatar/java-snippets.svg?branch=master)](https://travis-ci.org/iluwatar/java-snippets)
 
