@@ -1,7 +1,7 @@
 # 30 Segundos de Java
 
 Inspirada en [30 seconds of code](https://github.com/Chalarangelo/30-seconds-of-code), esta es una colección de
-fragmentos de código reutilizables, probados y compatibles con Java 17 que se pueden copiar y pegar en 30 segundos o
+fragmentos de código reutilizables, probados y compatibles con Java 21 que se pueden copiar y pegar en 30 segundos o
 menos. Si está interesado en contribuir a esta biblioteca, consulte las [instrucciones](https://github.com/iluwatar/30-seconds-of-java/blob/master/CONTRIBUTE.md).
 
 ## Algoritmos
