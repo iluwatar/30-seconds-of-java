@@ -1,5 +1,5 @@
 plugins {
-    id "org.sonarqube" version "3.0"
+    id "org.sonarqube" version "6.1.0.5360"
     id 'org.cadixdev.licenser' version '0.6.1'
 }
 
