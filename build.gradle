@@ -18,7 +18,7 @@ configurations {
 // Apply the checkstyle plugin
 apply plugin: 'checkstyle'
 checkstyle {
-    toolVersion = '10.3.4'
+    toolVersion = '10.21.4'
     config = resources.text.fromArchiveEntry(configurations.checkstyleConfig, 'google_checks.xml')
     maxErrors = 0
     maxWarnings = 0

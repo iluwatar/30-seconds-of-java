@@ -32,7 +32,7 @@ import java.util.Arrays;
 public class MultiArrayConcatenationSnippet {
 
   /**
-   * Generic N array concatenation Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java
+   * Generic N array concatenation Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java.
    *
    * @param first is the first array (not null)
    * @param rest  the rest of the arrays (optional)

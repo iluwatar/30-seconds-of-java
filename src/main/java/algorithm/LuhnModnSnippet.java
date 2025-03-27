@@ -59,6 +59,11 @@ public class LuhnModnSnippet {
     return CODE_POINTS.charAt(codePoint);
   }
 
+  /**
+   * Returns the number of valid input characters.
+   *
+   * @return num valid input characters
+   */
   public static int numberOfValidInputCharacters() {
     return CODE_POINTS.length();
   }

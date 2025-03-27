@@ -37,14 +37,14 @@ public class CreatingObjectSnippet {
    * @param cls fully qualified name of class includes the package name as String
    * @return object
    * @throws NoSuchMethodException if a method that does not exist at runtime.
-   * @throws IllegalAccessException <p>if an currently executing method does not have access to
-   *     the definition of the specified class, field, method or constructor</p>
-   * @throws InvocationTargetException <p>InvocationTargetException is a checked exception
-   *     that wraps an exception thrown by an invoked method or constructor.</p>
-   * @throws InstantiationException <p>when an method tries to create an instance of a class
-   *     using the newInstance method in class Class.</p>
-   * @throws ClassNotFoundException <p>when an application tries to load in a class
-   *     through its string name.</p>
+   * @throws IllegalAccessException if an currently executing method does not have access to
+   *     the definition of the specified class, field, method or constructor
+   * @throws InvocationTargetException InvocationTargetException is a checked exception
+   *     that wraps an exception thrown by an invoked method or constructor.
+   * @throws InstantiationException when an method tries to create an instance of a class
+   *     using the newInstance method in class Class.
+   * @throws ClassNotFoundException when an application tries to load in a class
+   *     through its string name.
    */
   public static Object createObject(String cls)
           throws NoSuchMethodException,
