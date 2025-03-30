@@ -2302,6 +2302,43 @@ public class KMPSubstringSearchSnippet {
 }
 ```
 
+
+### Format Bytes
+
+```java
+public class FormatBytesSnippet {
+
+    /**
+     * Convert bytes into Human readable form.
+     *
+     * @param bytes The value in bytes needed to be converted
+     * @return String the converted human-readable form
+     */
+
+    public static String formatBytes(long bytes) {
+        double kb = 1024;
+        double mb = kb * 1024;
+        double gb = mb * 1024;
+        double tb = gb * 1024;
+        if ((bytes >= 0) && (bytes < kb)) {
+            return bytes + " B";
+        } else if ((bytes >= kb) && (bytes < mb)) {
+            return String.format("%.2f KB", bytes / kb);
+        } else if ((bytes >= mb) && (bytes < gb)) {
+            return String.format("%.2f MB", bytes / mb);
+        } else if ((bytes >= gb) && (bytes < tb)) {
+            return String.format("%.2f GB", bytes / gb);
+        } else if (bytes >= tb) {
+            return String.format("%.2f TB", bytes / tb);
+        } else {
+            return "Invalid Input";
+        }
+    }
+}
+```
+
+
+
 ## Thread
 
 ### Thread Pool
