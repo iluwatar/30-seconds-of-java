@@ -1,7 +1,7 @@
 ---
-title: "Essential Code Snippets Library for Java Developers"
+title: 'Essential Code Snippets Library for Java Developers'
 shortTitle: Code Snippets Library
-description: "Access a wide range of Java code snippets for implementing design patterns effectively. Our library offers ready-to-use examples to help you improve your coding and design skills."
+description: 'Access a wide range of Java code snippets for implementing design patterns effectively. Our library offers ready-to-use examples to help you improve your coding and design skills.'
 language: en
 ---
 
@@ -92,7 +92,7 @@ public class BinarySearchSnippet {
    *
    * @param arr sorted array to search
    * @param item an item to search
-   * @return if item is found, return the index position of the array item otherwise return -1
+   * @return if item is found, return the index position of the array item, otherwise return -1
    */
 
   public static int binarySearch(int[] arr, int left, int right, int item) {
@@ -109,7 +109,7 @@ public class BinarySearchSnippet {
       return binarySearch(arr, mid + 1, right, item);
     }
     return -1;
-  }   
+  }
 }
 ```
 
@@ -279,8 +279,8 @@ public class LinearSearchSnippet {
   }
 }
 ```
-### Luhn Mod N
 
+### Luhn Mod N
 
 ```java
 public class LuhnModnSnippet {
@@ -526,6 +526,7 @@ public class SieveOfEratosthenesSnippet {
   }
 }
 ```
+
 ### Verhoeff
 
 ```java
@@ -787,7 +788,7 @@ public class FindMaxSnippet {
 
 ```java
 public class FindMinSnippet {
- 
+
   /**
     * Returns the minimum integer from the array using reduction.
     *
@@ -1190,14 +1191,14 @@ public class ZipDirectorySnippet {
   }
 
   /**
-   * Utility function which either zips a single file, or recursively calls itself for 
+   * Utility function which either zips a single file, or recursively calls itself for
    * a directory to traverse down to the files contained within it.
    *
    * @param fileToZip The file as a resource
    * @param fileName The actual name of the file
    * @param zipOut The output stream to which all data is being written
    * */
-  public static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut) 
+  public static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut)
       throws IOException {
     if (fileToZip.isHidden()) { // Ignore hidden files as standard
       return;
@@ -1410,7 +1411,7 @@ public class EloRatingSnippet {
     double logisticDiff = Math.pow(10, ratingDiff);
     double firstPlayerExpectedScore = 1.0 / (1 + logisticDiff);
     double firstPlayerActualScore = result;
-    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore 
+    double newRating = firstPlayerRating + RATING_ADJUSTMENT_FACTOR * (firstPlayerActualScore
                        - firstPlayerExpectedScore);
     return newRating;
   }
@@ -1778,9 +1779,9 @@ public class PrimeNumberSnippet {
 public class RandomNumber {
 
   private RandomNumber() {}
-    
+
   private static Random random = new Random();
-    
+
   /**
    * Return a random number between two given numbers.
    *
@@ -1789,7 +1790,7 @@ public class RandomNumber {
    * @return Number denoting the random number generated
    */
   public static <T extends Number> Number getRandomNumber(T start, T end) {
-    
+
       if (start instanceof Byte && end instanceof Byte) {
         return (byte) (start.byteValue()
                 + random.nextInt(end.byteValue() - start.byteValue() + 1));
@@ -1962,7 +1963,7 @@ public class AnagramSnippet {
 
     var arr1 = new int[256];
     var arr2 = new int[256];
-    
+
     for (var i = 0; i < l1; i++) {
       arr1[s1.charAt(i)]++;
       arr2[s2.charAt(i)]++;
@@ -2095,7 +2096,7 @@ public class LevenshteinDistanceSnippet {
 }
 ```
 
-### Lindenmayer System 
+### Lindenmayer System
 
 ```java
 public class LindenmayerSystemSnippet {
@@ -2230,7 +2231,6 @@ public class StringToDateSnippet {
 }
 ```
 
-
 ### KMP Substring Search Algorithm
 
 ```java
@@ -2302,7 +2302,6 @@ public class KMPSubstringSearchSnippet {
 }
 ```
 
-
 ### Format Bytes
 
 ```java
@@ -2336,8 +2335,6 @@ public class FormatBytesSnippet {
     }
 }
 ```
-
-
 
 ## Thread
 
@@ -2374,6 +2371,7 @@ public class ThreadPool {
   }
 }
 ```
+
 ### Damm Algorithm
 
 ```java
