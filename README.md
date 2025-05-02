@@ -2336,6 +2336,36 @@ public class FormatBytesSnippet {
 }
 ```
 
+### UUID Generator
+```java
+public class UuidGeneratorSnippet {
+
+    /**
+    * Generates a random UUID (version 4).
+    *
+    * @return A string representation of a UUID.
+    */
+    public static String generateUUID() {
+        return UUID.randomUUID().toString();
+    }
+
+    /**
+     * Validates if a string is a valid UUID.
+     *
+     * @param input the string to validate
+     * @return true if valid UUID, false otherwise
+     */
+    public static boolean isValidUUID(String input) {
+        try {
+            UUID.fromString(input);
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+}
+```
+
 ## Thread
 
 ### Thread Pool
