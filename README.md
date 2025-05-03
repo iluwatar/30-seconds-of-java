@@ -2338,6 +2338,24 @@ public class FormatBytesSnippet {
 
 ## Thread
 
+## Execution Time Measurement
+```java
+public class ExecutionTimeMeasurementSnippet {
+
+    /**
+     * Measures the time taken to execute a task.
+     *
+     * @param task to execute
+     * @return time taken in milliseconds
+     */
+    public static long measure(Runnable task) {
+        long start = System.currentTimeMillis();
+        task.run();
+        return System.currentTimeMillis() - start;
+    }
+}
+```
+
 ### Thread Pool
 
 ### Thread
