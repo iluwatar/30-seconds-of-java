@@ -31,7 +31,7 @@ jobs:
 
       - name: Build and analyze with Gradle and SonarCloud
         run: |
-          ./gradlew build sonarqube --no-daemon \
+          ./gradlew build jacocoTestReport sonarqube --no-daemon \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.organization=iluwatar \
             -Dsonar.projectKey=iluwatar_30-seconds-of-java \
