@@ -24,28 +24,28 @@
 
 package string;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 class UuidGeneratorSnippetTest {
 
   @Test
-  void generateUUID_shouldReturnValidUUID() {
-    String uuid = UuidGeneratorSnippet.generateUUID();
-    assertTrue(UuidGeneratorSnippet.isValidUUID(uuid));
+  void generateUuid_shouldReturnValidUuid() {
+    String uuid = UuidGeneratorSnippet.generateUuid();
+    assertTrue(UuidGeneratorSnippet.isValidUuid(uuid));
   }
 
   @Test
-  void isValidUUID_shouldReturnTrueForValidUUID() {
-    assertTrue(UuidGeneratorSnippet.isValidUUID("123e4567-e89b-12d3-a456-426614174000"));
+  void isValidUuid_shouldReturnTrueForValidUuid() {
+    assertTrue(UuidGeneratorSnippet.isValidUuid("123e4567-e89b-12d3-a456-426614174000"));
   }
 
   @Test
-  void isValidUUID_shouldReturnFalseForInvalidUUID() {
-    assertFalse(UuidGeneratorSnippet.isValidUUID("not-a-uuid"));
-    assertFalse(UuidGeneratorSnippet.isValidUUID("1234"));
+  void isValidUuid_shouldReturnFalseForInvalidUuid() {
+    assertFalse(UuidGeneratorSnippet.isValidUuid("not-a-uuid"));
+    assertFalse(UuidGeneratorSnippet.isValidUuid("1234"));
   }
 
 }

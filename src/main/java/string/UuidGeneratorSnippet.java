@@ -36,7 +36,7 @@ public class UuidGeneratorSnippet {
    *
    * @return A string representation of a UUID.
    */
-  public static String generateUUID() {
+  public static String generateUuid() {
     return UUID.randomUUID().toString();
   }
 
@@ -46,7 +46,7 @@ public class UuidGeneratorSnippet {
    * @param input the string to validate
    * @return true if valid UUID, false otherwise
    */
-  public static boolean isValidUUID(String input) {
+  public static boolean isValidUuid(String input) {
     try {
       UUID.fromString(input);
       return true;
