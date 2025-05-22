@@ -1,7 +1,4 @@
-# This workflow will build a Java project with Gradle
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
-
-name: Java PR builder with Gradle
+name: Java PR Builder with Gradle and SonarCloud
 
 on:
   pull_request_target:
@@ -10,26 +7,37 @@ on:
 
 jobs:
   build-and-analyze:
-
-    runs-on: ubuntu-20.04
+    name: Build and SonarCloud Analysis
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout PR source code
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+
       - name: Set up JDK 21
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
-          java-version: '21'
           distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
 
-      - name: Build and analyze with Gradle
-        run: ./gradlew build sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=iluwatar -Dsonar.projectKey=iluwatar_30-seconds-of-java -Dsonar.pullrequest.branch=${{ github.head_ref }} -Dsonar.pullrequest.base=${{ github.base_ref }} -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
+      - name: Build and analyze with Gradle and SonarCloud
+        run: |
+          ./gradlew build sonarqube --no-daemon \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.organization=iluwatar \
+            -Dsonar.projectKey=iluwatar_30-seconds-of-java \
+            -Dsonar.pullrequest.branch=${{ github.head_ref }} \
+            -Dsonar.pullrequest.base=${{ github.base_ref }} \
+            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
