@@ -46,7 +46,7 @@ class HttpPostSnippetTest {
     var result = HttpPostSnippet.httpPost("https://postman-echo.com/post", arguments);
     //This postman endpoint echoes the HTTP headers, request parameters, the contents
     //of the request body and the complete URI requested.
-    var echoedData = "\"data\": \"Hello World\"";
+    var echoedData = "\"data\":\"Hello World\"";
     assertThat(result.body(), containsString(echoedData));
   }
 }
