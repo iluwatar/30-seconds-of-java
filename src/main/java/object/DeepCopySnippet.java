@@ -22,31 +22,39 @@
  * SOFTWARE.
  */
 
-package network;
+package object;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-import java.io.IOException;
-import java.util.HashMap;
-import org.junit.jupiter.api.Test;
-
-/*
- * Tests for 30 Seconds of Java code library
- *
+/**
+ * This class provides a method to perform a deep copy of a Serializable object. It uses
+ * serialization and deserialization to create a new instance that is independent of the original
+ * object.
  */
-class HttpPostSnippetTest {
+
+public class DeepCopySnippet {
+
   /**
-   * Tests for {@link HttpPostSnippet#httpPost(String, HashMap)}.
+   * Performs a deep copy of a Serializable object.
    */
-  @Test
-  void testHttpPost() throws IOException, InterruptedException {
-    HashMap<String, String> arguments = new HashMap<>();
-    arguments.put("data", "Hello World");
-    var result = HttpPostSnippet.httpPost("https://postman-echo.com/post", arguments);
-    //This postman endpoint echoes the HTTP headers, request parameters, the contents
-    //of the request body and the complete URI requested.
-    var echoedData = "\"data\":\"Hello World\"";
-    assertThat(result.body(), containsString(echoedData));
+  @SuppressWarnings("unchecked")
+  public static <T extends Serializable> T deepCopy(T obj) {
+    try {
+      ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+      ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+      objectOutputStream.writeObject(obj);
+
+      ObjectInputStream objectInputStream = new ObjectInputStream(
+          new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+
+      return (T) objectInputStream.readObject();
+
+    } catch (Exception e) {
+      throw new RuntimeException("Deep copy failed", e);
+    }
   }
 }

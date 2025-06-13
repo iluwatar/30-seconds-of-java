@@ -22,31 +22,42 @@
  * SOFTWARE.
  */
 
-package network;
+package object;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 
-import java.io.IOException;
-import java.util.HashMap;
+import java.io.Serializable;
 import org.junit.jupiter.api.Test;
 
-/*
- * Tests for 30 Seconds of Java code library
- *
+/**
+ * Unit test for {@link DeepCopySnippet}.
  */
-class HttpPostSnippetTest {
-  /**
-   * Tests for {@link HttpPostSnippet#httpPost(String, HashMap)}.
-   */
+public class DeepCopySnippetTest {
+
   @Test
-  void testHttpPost() throws IOException, InterruptedException {
-    HashMap<String, String> arguments = new HashMap<>();
-    arguments.put("data", "Hello World");
-    var result = HttpPostSnippet.httpPost("https://postman-echo.com/post", arguments);
-    //This postman endpoint echoes the HTTP headers, request parameters, the contents
-    //of the request body and the complete URI requested.
-    var echoedData = "\"data\":\"Hello World\"";
-    assertThat(result.body(), containsString(echoedData));
+  public void testDeepCopy() {
+    // SETUP
+    Owner alice = new Owner("Alice");
+    Animal animal = new Animal("Dog", alice);
+
+    // EXECUTE
+    Animal deepCopiedAnimal = DeepCopySnippet.deepCopy(animal);
+
+    // VERIFY
+    assertNotSame(animal, deepCopiedAnimal);
+    assertEquals(animal.name(), deepCopiedAnimal.name());
+    assertNotSame(animal.owner(), deepCopiedAnimal.owner());
+    assertEquals(animal.owner().name(), deepCopiedAnimal.owner().name());
   }
+
+  /**
+   *  Owner record.
+   */
+  record Owner(String name) implements Serializable {}
+
+  /**
+   * Animal record.
+   */
+  record Animal(String name, Owner owner) implements Serializable {}
 }

@@ -1938,6 +1938,36 @@ public class HttpPostSnippet {
   }
 }
 ```
+## Object
+
+### Deep Copy
+
+```java
+public class DeepCopySnippet {
+
+  /**
+   * Performs a deep copy of a Serializable object.
+   */
+  @SuppressWarnings("unchecked")
+  public static <T extends Serializable> T deepCopy(T obj) {
+    try {
+      ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+      ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+      objectOutputStream.writeObject(obj);
+
+      ObjectInputStream objectInputStream = new ObjectInputStream(
+          new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+
+      return (T) objectInputStream.readObject();
+
+    } catch (Exception e) {
+      throw new RuntimeException("Deep copy failed", e);
+    }
+  }
+}
+
+```
+
 
 ## String
 
