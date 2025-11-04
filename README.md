@@ -2338,6 +2338,52 @@ public class FormatBytesSnippet {
 
 ## Thread
 
+## Rate Limiter Utility
+```java
+public class TokenBucketRateLimiterSnippet {
+  private final int limit;
+  private int capacity;
+  private long lastRefillTime;
+
+  /**
+  * Public constructor to instantiate the limit.
+  *
+  * @param limit of the bucket, defining the number of operations (e.g. 10) allowed per second
+  */
+  public TokenBucketRateLimiterSnippet(int limit) {
+    this.limit = limit;
+    this.capacity = limit;
+    this.lastRefillTime = System.currentTimeMillis();
+  }
+
+  /**
+  * A token bucket rate limiter algorithm
+  * to check operation is allowed or not with in the 1sec period.
+  *
+  * @return {@code true} if operation is allowed, otherwise {code false} for throttling
+  */
+  public boolean isOperationAllowed() {
+    refill();
+    if (capacity > 0) {
+      capacity--;
+      return true;
+    }
+    return false;
+  }
+
+  /**
+  * To refill the capacity in every 1sec or 1000ms.
+  */
+  private void refill() {
+    if (System.currentTimeMillis() - lastRefillTime >= 1000) {
+      capacity = limit;
+      lastRefillTime = System.currentTimeMillis();
+    }
+  }
+
+}
+```
+
 ### Thread Pool
 
 ### Thread
