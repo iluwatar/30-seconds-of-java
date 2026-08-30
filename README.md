@@ -949,6 +949,26 @@ public class GetAllMethodsSnippet {
 }
 ```
 
+### Safe Cast
+
+```java
+public class SafeCastSnippet {
+
+  /**
+   * Safely casts an object to the specified type.
+   *
+   * @param obj object to cast
+   * @param clazz target type
+   * @param <T> target type parameter
+   * @return optional containing the cast object, or empty if the object is not
+   *     assignable to the target type
+   */
+  public static <T> Optional<T> safeCast(final Object obj, final Class<T> clazz) {
+    return clazz.isInstance(obj) ? Optional.of(clazz.cast(obj)) : Optional.empty();
+  }
+}
+```
+
 ### Get All Public Field Names
 
 ```java
