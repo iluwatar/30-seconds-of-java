@@ -1337,6 +1337,26 @@ public class ReadFileSnippet {
 }
 ```
 
+## System
+
+### Get Environment Variable Or Default
+
+```java
+public class GetEnvOrDefaultSnippet {
+
+  /**
+   * Read an environment variable or return a default value when it is missing.
+   *
+   * @param key environment variable name
+   * @param defaultValue value returned when the variable is missing
+   * @return environment variable value or default value
+   */
+  public static String getEnvOrDefault(String key, String defaultValue) {
+    return System.getenv().getOrDefault(key, defaultValue);
+  }
+}
+```
+
 ## Math
 
 ### Dice Throw
